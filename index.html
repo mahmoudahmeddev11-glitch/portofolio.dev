@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+  />
 
   <meta
     name="description"
     content="MAHMOUD AGENCY — Digital Marketing, Media Buying, Web Design and Market Analysis."
-  >
+  />
 
-  <meta name="theme-color" content="#070707">
+  <meta name="theme-color" content="#070707" />
 
   <title>MAHMOUD AGENCY</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
-  >
+  />
 
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
 
-  <div class="loading-screen" id="loadingScreen">
-    <div class="loading-bars">
+  <!-- =========================================
+       PAGE LOADER
+  ========================================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-bars">
       <span></span>
       <span></span>
       <span></span>
@@ -45,21 +48,22 @@
 
     <div class="container header-inner">
 
-      <a href="#home" class="logo-link">
+      <a href="#home" class="brand">
+
         <img
           src="./logo.png"
           alt="Mahmoud Agency"
-          class="logo-image"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';"
-        >
+          class="brand-logo"
+        />
 
-        <span class="logo-fallback">
+        <span class="brand-fallback">
           <strong>MAHMOUD</strong>
           <small>AGENCY</small>
         </span>
+
       </a>
 
-      <nav class="main-nav">
+      <nav class="desktop-nav" aria-label="Main navigation">
 
         <a href="#services" data-i18n="navServices">
           الخدمات
@@ -74,7 +78,7 @@
         </a>
 
         <a href="#videos" data-i18n="navVideos">
-          آراء العملاء
+          العملاء
         </a>
 
         <a href="#contact" data-i18n="navContact">
@@ -126,7 +130,7 @@
 
     </div>
 
-    <div class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav" id="mobileNav">
 
       <a href="#services" data-i18n="navServices">
         الخدمات
@@ -141,14 +145,14 @@
       </a>
 
       <a href="#videos" data-i18n="navVideos">
-        آراء العملاء
+        العملاء
       </a>
 
       <a href="#contact" data-i18n="navContact">
         تواصل
       </a>
 
-    </div>
+    </nav>
 
   </header>
 
@@ -159,22 +163,24 @@
     ========================================== -->
     <section class="hero" id="home">
 
-      <div class="hero-background">
-        <div class="hero-light hero-light-1"></div>
-        <div class="hero-light hero-light-2"></div>
-        <div class="hero-grid"></div>
-      </div>
+      <div class="hero-noise"></div>
+      <div class="hero-grid-bg"></div>
+
+      <div class="hero-glow hero-glow-a"></div>
+      <div class="hero-glow hero-glow-b"></div>
 
       <div class="container hero-layout">
 
         <div class="hero-content reveal">
 
           <div class="eyebrow">
-            <span></span>
+
+            <span class="eyebrow-point"></span>
 
             <span data-i18n="heroEyebrow">
               وكالة نمو وتسويق رقمي
             </span>
+
           </div>
 
           <h1 class="hero-title">
@@ -184,7 +190,7 @@
             </span>
 
             <span
-              class="yellow-text"
+              class="accent-line"
               data-i18n="heroTitleTwo"
             >
               بذكاء.
@@ -198,14 +204,14 @@
           >
             أفكار تسويقية ناجحة، إعلانات ممولة باستهداف
             دقيق، تحليل للسوق والمنافسين، وتصميم مواقع
-            تخدم أهداف مشروعك.
+            تساعد مشروعك يكبر بشكل واضح.
           </p>
 
-          <div class="hero-buttons">
+          <div class="hero-actions">
 
             <a
               href="#projects"
-              class="button button-primary"
+              class="button primary"
               data-i18n="heroButtonOne"
             >
               شوف أعمالنا
@@ -213,34 +219,34 @@
             </a>
 
             <a
-              href="#contact"
-              class="button button-secondary"
+              href="#packages"
+              class="button secondary"
               data-i18n="heroButtonTwo"
             >
-              ابدأ معانا
+              شوف الباقات
             </a>
 
           </div>
 
-          <div class="hero-bottom">
+          <div class="hero-proof">
 
-            <div class="hero-stat">
+            <div>
               <strong>03</strong>
-              <span data-i18n="heroStatOne">
-                مشاريع ويب
+              <span data-i18n="proofOne">
+                مشاريع ويب مباشرة
               </span>
             </div>
 
-            <div class="hero-stat">
+            <div>
               <strong>05</strong>
-              <span data-i18n="heroStatTwo">
+              <span data-i18n="proofTwo">
                 فيديوهات عملاء
               </span>
             </div>
 
-            <div class="hero-stat">
+            <div>
               <strong>∞</strong>
-              <span data-i18n="heroStatThree">
+              <span data-i18n="proofThree">
                 حلول مخصصة
               </span>
             </div>
@@ -251,29 +257,30 @@
 
         <div class="hero-visual reveal reveal-delay">
 
-          <div class="hero-card tilt-card">
+          <div class="hero-scene">
 
-            <img
-              src="./hero-banner.png"
-              alt="Digital Marketing"
-              class="hero-banner"
-              fetchpriority="high"
-              onerror="this.style.opacity='0';this.nextElementSibling.classList.add('show');"
-            >
+            <div class="hero-image-card">
 
-            <div class="hero-placeholder">
-              <span>YOUR</span>
-              <strong>DIGITAL<br>GROWTH</strong>
+              <img
+                src="./hero-banner.png"
+                alt="Mahmoud Agency Digital Marketing"
+                class="hero-image"
+                fetchpriority="high"
+                onerror="this.style.display='none';document.querySelector('.hero-image-fallback').classList.add('show');"
+              />
+
+              <div class="hero-image-fallback">
+                <span>YOUR</span>
+                <strong>DIGITAL<br>FUTURE.</strong>
+              </div>
+
+              <div class="hero-image-shade"></div>
+
             </div>
 
-            <div class="hero-card-overlay"></div>
+            <div class="floating-panel panel-top">
 
-            <div class="hero-tag hero-tag-top">
-              <span></span>
-              <strong>DIGITAL GROWTH</strong>
-            </div>
-
-            <div class="hero-tag hero-tag-bottom">
+              <span class="panel-dot"></span>
 
               <div>
                 <small>
@@ -285,9 +292,26 @@
                 </strong>
               </div>
 
-              <b>↗</b>
+            </div>
+
+            <div class="floating-panel panel-bottom">
+
+              <div>
+                <small>
+                  STRATEGY
+                </small>
+
+                <strong>
+                  PRECISION
+                </strong>
+              </div>
+
+              <span>↗</span>
 
             </div>
+
+            <div class="scene-ring scene-ring-one"></div>
+            <div class="scene-ring scene-ring-two"></div>
 
           </div>
 
@@ -298,11 +322,11 @@
     </section>
 
     <!-- =========================================
-         SERVICES TICKER
+         MOVING SPECIALTIES
     ========================================== -->
-    <section class="service-ticker">
+    <section class="specialties">
 
-      <div class="ticker-track">
+      <div class="specialties-track">
 
         <span>MEDIA BUYING</span>
         <i>✦</i>
@@ -323,6 +347,10 @@
         <i>✦</i>
 
         <span>DIGITAL MARKETING</span>
+        <i>✦</i>
+
+        <span>WEB DESIGN</span>
+        <i>✦</i>
 
       </div>
 
@@ -331,18 +359,16 @@
     <!-- =========================================
          ABOUT
     ========================================== -->
-    <section class="section section-white" id="about">
+    <section class="section light-section" id="about">
 
-      <div class="container about-layout">
+      <div class="container two-column">
 
-        <div class="section-label reveal">
+        <div class="section-index reveal">
           <strong>01</strong>
-          <span data-i18n="aboutLabel">
-            ABOUT
-          </span>
+          <span>ABOUT</span>
         </div>
 
-        <div class="about-content reveal reveal-delay">
+        <div class="about-main reveal reveal-delay">
 
           <div class="section-kicker">
             <span data-i18n="aboutKicker">
@@ -351,7 +377,7 @@
           </div>
 
           <h2
-            class="section-title"
+            class="big-heading"
             data-i18n-html="aboutTitle"
           >
             بنبني
@@ -359,54 +385,54 @@
           </h2>
 
           <p
-            class="section-copy"
+            class="large-copy"
             data-i18n="aboutText"
           >
-            بنجمع بين الاستراتيجية، الميديا باينج،
-            تحليل السوق، المحتوى وتصميم المواقع عشان
-            كل خطوة في المشروع يكون ليها هدف واضح.
+            بنجمع الاستراتيجية والميديا باينج وتحليل السوق
+            والمحتوى وتصميم المواقع في منظومة واحدة هدفها
+            إنها تخلي المشروع ينمو بطريقة أوضح وأذكى.
           </p>
 
-          <div class="about-points">
+          <div class="about-list">
 
-            <div class="about-point">
-              <strong>01</strong>
+            <div class="about-list-item">
+              <span>01</span>
 
               <div>
-                <h3 data-i18n="aboutPointOneTitle">
+                <h3 data-i18n="aboutOneTitle">
                   أفكار تسويقية ناجحة
                 </h3>
 
-                <p data-i18n="aboutPointOneText">
-                  أفكار مبنية على السوق والجمهور.
+                <p data-i18n="aboutOneText">
+                  أفكار مبنية على الجمهور والسوق.
                 </p>
               </div>
             </div>
 
-            <div class="about-point">
-              <strong>02</strong>
+            <div class="about-list-item">
+              <span>02</span>
 
               <div>
-                <h3 data-i18n="aboutPointTwoTitle">
-                  استهداف دقيق
+                <h3 data-i18n="aboutTwoTitle">
+                  إعلانات باستهداف دقيق
                 </h3>
 
-                <p data-i18n="aboutPointTwoText">
-                  توجيه الميزانية للجمهور المناسب.
+                <p data-i18n="aboutTwoText">
+                  نوجّه الميزانية للناس الأقرب للهدف.
                 </p>
               </div>
             </div>
 
-            <div class="about-point">
-              <strong>03</strong>
+            <div class="about-list-item">
+              <span>03</span>
 
               <div>
-                <h3 data-i18n="aboutPointThreeTitle">
-                  تحليل وتطوير
+                <h3 data-i18n="aboutThreeTitle">
+                  تحليل مستمر
                 </h3>
 
-                <p data-i18n="aboutPointThreeText">
-                  نقيس ونحلل ونحسن الأداء باستمرار.
+                <p data-i18n="aboutThreeText">
+                  نقيس ونراجع ونطوّر الأداء باستمرار.
                 </p>
               </div>
             </div>
@@ -422,7 +448,7 @@
     <!-- =========================================
          SERVICES
     ========================================== -->
-    <section class="section" id="services">
+    <section class="section dark-section" id="services">
 
       <div class="container">
 
@@ -437,7 +463,7 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="servicesTitle"
             >
               كل حاجة
@@ -450,18 +476,19 @@
             class="section-copy"
             data-i18n="servicesText"
           >
-            من أول التحليل والاستراتيجية لحد الإعلانات
-            وتصميم الموقع وتجربة العميل.
+            من أول تحليل السوق والاستراتيجية
+            لحد الإعلان والموقع وتجربة العميل.
           </p>
 
         </div>
 
         <div class="services-grid">
 
-          <article class="service-card tilt-card reveal">
+          <article class="service-card reveal tilt-card">
 
-            <div class="service-number">
-              01
+            <div class="service-head">
+              <span>01</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -474,15 +501,20 @@
 
             <p data-i18n="serviceOneText">
               إدارة الحملات المدفوعة واستهداف الجمهور
-              المناسب وتحسين الميزانية.
+              وتحسين الإنفاق الإعلاني.
             </p>
+
+            <div class="service-number">
+              MEDIA
+            </div>
 
           </article>
 
-          <article class="service-card tilt-card reveal">
+          <article class="service-card reveal tilt-card">
 
-            <div class="service-number">
-              02
+            <div class="service-head">
+              <span>02</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -494,16 +526,21 @@
             </h3>
 
             <p data-i18n="serviceTwoText">
-              بناء استراتيجية رقمية مترابطة تخدم
-              أهداف المشروع.
+              استراتيجية رقمية مترابطة تخدم أهداف
+              المشروع من أكثر من قناة.
             </p>
+
+            <div class="service-number">
+              DIGITAL
+            </div>
 
           </article>
 
-          <article class="service-card tilt-card reveal">
+          <article class="service-card reveal tilt-card">
 
-            <div class="service-number">
-              03
+            <div class="service-head">
+              <span>03</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -515,16 +552,21 @@
             </h3>
 
             <p data-i18n="serviceThreeText">
-              تحليل السوق والمنافسين والجمهور
-              قبل اتخاذ القرار.
+              فهم المنافسين والجمهور والفرص
+              قبل اتخاذ قرارات التسويق.
             </p>
+
+            <div class="service-number">
+              MARKET
+            </div>
 
           </article>
 
-          <article class="service-card tilt-card reveal">
+          <article class="service-card reveal tilt-card">
 
-            <div class="service-number">
-              04
+            <div class="service-head">
+              <span>04</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -536,32 +578,41 @@
             </h3>
 
             <p data-i18n="serviceFourText">
-              مواقع حديثة وسريعة ومصممة حسب هوية
-              واحتياجات المشروع.
+              مواقع حديثة وسريعة ومتوافقة مع
+              هوية المشروع وأهدافه.
             </p>
+
+            <div class="service-number">
+              WEB
+            </div>
 
           </article>
 
-          <article class="service-card service-card-wide tilt-card reveal">
+          <article class="service-card service-wide reveal tilt-card">
 
-            <div class="service-number">
-              05
-            </div>
-
-            <div class="service-icon">
-              ◌
+            <div class="service-head">
+              <span>05</span>
+              <b>↗</b>
             </div>
 
             <div class="service-wide-content">
 
-              <h3 data-i18n="serviceFiveTitle">
-                Social Media
-              </h3>
+              <div class="service-icon">
+                ◌
+              </div>
 
-              <p data-i18n="serviceFiveText">
-                بناء حضور قوي على السوشيال ميديا
-                من خلال محتوى ورسالة واضحة.
-              </p>
+              <div>
+
+                <h3 data-i18n="serviceFiveTitle">
+                  Social Media
+                </h3>
+
+                <p data-i18n="serviceFiveText">
+                  بناء حضور اجتماعي واضح،
+                  محتوى جذاب ورسالة ثابتة للبراند.
+                </p>
+
+              </div>
 
             </div>
 
@@ -576,10 +627,7 @@
     <!-- =========================================
          PROJECTS
     ========================================== -->
-    <section
-      class="section section-white"
-      id="projects"
-    >
+    <section class="section light-section" id="projects">
 
       <div class="container">
 
@@ -594,45 +642,44 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="projectsTitle"
             >
-              شوف شغلنا
-              <span>من هنا.</span>
+              مشاريع
+              <span>حقيقية.</span>
             </h2>
 
           </div>
 
           <p
-            class="section-copy dark"
+            class="section-copy dark-text"
             data-i18n="projectsText"
           >
-            كل مشروع بيتفتح داخل الموقع عشان العميل
-            يقدر يشوف التجربة بنفسه.
+            العميل يقدر يشوف المشاريع من داخل
+            البورتفوليو نفسه.
           </p>
 
         </div>
 
         <div class="projects-grid">
 
-          <!-- Project 1 -->
           <article
-            class="project-card project-large reveal"
-            data-project-title="Rouh Lil Rouh"
-            data-project-url="https://rouh-lil-rouh.vercel.app/"
+            class="project-card project-featured reveal tilt-card"
+            data-title="Rouh Lil Rouh"
+            data-url="https://rouh-lil-rouh.vercel.app/"
           >
 
-            <div class="project-image project-one">
+            <div class="project-visual project-one">
 
-              <div class="project-ui">
+              <div class="browser-mockup">
 
-                <div class="project-ui-top">
+                <div class="browser-bar">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
 
-                <div class="project-ui-content">
+                <div class="browser-content">
 
                   <small>
                     ROUH LIL ROUH
@@ -644,7 +691,7 @@
                     <em>With meaning.</em>
                   </strong>
 
-                  <div class="project-bars">
+                  <div class="browser-lines">
                     <i></i>
                     <i></i>
                     <i></i>
@@ -654,7 +701,7 @@
 
               </div>
 
-              <span class="project-count">
+              <span class="project-id">
                 01
               </span>
 
@@ -664,7 +711,7 @@
 
               <div>
 
-                <small data-i18n="projectType">
+                <small>
                   WEB EXPERIENCE
                 </small>
 
@@ -675,10 +722,10 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
-                <span data-i18n="projectButton">
+                <span data-i18n="projectOpen">
                   افتح المشروع
                 </span>
 
@@ -689,14 +736,13 @@
 
           </article>
 
-          <!-- Project 2 -->
           <article
             class="project-card reveal"
-            data-project-title="Lahzet Zikr"
-            data-project-url="https://lahzetzikr.com/"
+            data-title="Lahzet Zikr"
+            data-url="https://lahzetzikr.com/"
           >
 
-            <div class="project-image project-two">
+            <div class="project-visual project-two">
 
               <div class="project-orbit"></div>
 
@@ -714,7 +760,7 @@
 
               </div>
 
-              <span class="project-count">
+              <span class="project-id">
                 02
               </span>
 
@@ -724,7 +770,7 @@
 
               <div>
 
-                <small data-i18n="projectType">
+                <small>
                   WEB EXPERIENCE
                 </small>
 
@@ -735,10 +781,10 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
-                <span data-i18n="projectButton">
+                <span data-i18n="projectOpen">
                   افتح المشروع
                 </span>
 
@@ -749,14 +795,13 @@
 
           </article>
 
-          <!-- Project 3 -->
           <article
             class="project-card reveal"
-            data-project-title="Captain Seif"
-            data-project-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
+            data-title="Captain Seif"
+            data-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
           >
 
-            <div class="project-image project-three">
+            <div class="project-visual project-three">
 
               <div class="project-coach">
 
@@ -772,7 +817,7 @@
 
               </div>
 
-              <span class="project-count">
+              <span class="project-id">
                 03
               </span>
 
@@ -782,7 +827,7 @@
 
               <div>
 
-                <small data-i18n="projectType">
+                <small>
                   WEB EXPERIENCE
                 </small>
 
@@ -793,10 +838,10 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
-                <span data-i18n="projectButton">
+                <span data-i18n="projectOpen">
                   افتح المشروع
                 </span>
 
@@ -816,7 +861,10 @@
     <!-- =========================================
          PACKAGES
     ========================================== -->
-    <section class="section packages-section" id="packages">
+    <section
+      class="section dark-section"
+      id="packages"
+    >
 
       <div class="container">
 
@@ -831,7 +879,7 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="packagesTitle"
             >
               اختار
@@ -844,68 +892,68 @@
             class="section-copy"
             data-i18n="packagesText"
           >
-            أسعار مبدئية تقدر تعدّلها بعدين حسب الخدمة
-            ومتطلبات العميل.
+            أرقام مبدئية تقدر تغيّرها بعدين
+            حسب خدماتك وتسعيرك الحقيقي.
           </p>
 
         </div>
 
         <div class="packages-grid">
 
-          <!-- STARTER -->
           <article class="package-card reveal">
 
-            <div class="package-top">
-
+            <div class="package-header">
               <span data-i18n="starterName">
                 STARTER
               </span>
 
-              <span>
+              <strong>
                 01
-              </span>
-
+              </strong>
             </div>
 
             <div class="package-price">
-              <strong data-price-ar="٣٬٥٠٠" data-price-en="3,500">
+
+              <strong
+                data-price-ar="٣٬٥٠٠"
+                data-price-en="3,500"
+              >
                 ٣٬٥٠٠
               </strong>
 
-              <span
-                data-i18n="currency"
-              >
+              <span data-i18n="monthly">
                 جنيه / شهريًا
               </span>
+
             </div>
 
             <p
               class="package-description"
               data-i18n="starterDescription"
             >
-              بداية مناسبة للمشاريع اللي عايزة
-              حضور وتسويق منظم.
+              باقة بداية مناسبة للمشاريع الصغيرة
+              اللي عايزة تسويق منظم.
             </p>
 
-            <div class="package-features">
+            <ul class="package-list">
 
-              <span data-i18n="starterFeatureOne">
+              <li data-i18n="starterOne">
                 إدارة حملة إعلانية
-              </span>
+              </li>
 
-              <span data-i18n="starterFeatureTwo">
+              <li data-i18n="starterTwo">
                 تحليل أساسي للجمهور
-              </span>
+              </li>
 
-              <span data-i18n="starterFeatureThree">
-                محتوى وتسويق أساسي
-              </span>
+              <li data-i18n="starterThree">
+                خطة محتوى أساسية
+              </li>
 
-              <span data-i18n="starterFeatureFour">
+              <li data-i18n="starterFour">
                 تقرير شهري
-              </span>
+              </li>
 
-            </div>
+            </ul>
 
             <a
               href="#contact"
@@ -917,8 +965,7 @@
 
           </article>
 
-          <!-- GROWTH -->
-          <article class="package-card package-featured reveal">
+          <article class="package-card package-best reveal">
 
             <div class="package-badge">
               <span data-i18n="recommended">
@@ -926,25 +973,26 @@
               </span>
             </div>
 
-            <div class="package-top">
-
+            <div class="package-header">
               <span data-i18n="growthName">
                 GROWTH
               </span>
 
-              <span>
+              <strong>
                 02
-              </span>
-
+              </strong>
             </div>
 
             <div class="package-price">
 
-              <strong data-price-ar="٧٬٥٠٠" data-price-en="7,500">
+              <strong
+                data-price-ar="٧٬٥٠٠"
+                data-price-en="7,500"
+              >
                 ٧٬٥٠٠
               </strong>
 
-              <span data-i18n="currency">
+              <span data-i18n="monthly">
                 جنيه / شهريًا
               </span>
 
@@ -954,33 +1002,33 @@
               class="package-description"
               data-i18n="growthDescription"
             >
-              للمشاريع اللي عايزة نمو أقوى وإدارة
-              تسويقية أكثر شمولًا.
+              للمشاريع اللي عايزة إدارة ونمو
+              بشكل أكثر شمولًا.
             </p>
 
-            <div class="package-features">
+            <ul class="package-list">
 
-              <span data-i18n="growthFeatureOne">
+              <li data-i18n="growthOne">
                 إدارة وتحسين الحملات
-              </span>
+              </li>
 
-              <span data-i18n="growthFeatureTwo">
+              <li data-i18n="growthTwo">
                 تحليل السوق والمنافسين
-              </span>
+              </li>
 
-              <span data-i18n="growthFeatureThree">
+              <li data-i18n="growthThree">
                 استراتيجية محتوى
-              </span>
+              </li>
 
-              <span data-i18n="growthFeatureFour">
+              <li data-i18n="growthFour">
                 تقارير وتحسين مستمر
-              </span>
+              </li>
 
-              <span data-i18n="growthFeatureFive">
+              <li data-i18n="growthFive">
                 متابعة شهرية
-              </span>
+              </li>
 
-            </div>
+            </ul>
 
             <a
               href="#contact"
@@ -992,24 +1040,21 @@
 
           </article>
 
-          <!-- CUSTOM -->
-          <article class="package-card package-custom reveal">
+          <article class="package-card reveal">
 
-            <div class="package-top">
-
+            <div class="package-header">
               <span data-i18n="customName">
                 CUSTOM
               </span>
 
-              <span>
+              <strong>
                 03
-              </span>
-
+              </strong>
             </div>
 
             <div class="custom-price">
               <strong data-i18n="customPrice">
-                على حسب مشروعك
+                على حسب المشروع
               </strong>
             </div>
 
@@ -1017,29 +1062,29 @@
               class="package-description"
               data-i18n="customDescription"
             >
-              عايز حاجة مختلفة؟ نقدر نصمم لك خطة
-              وموقع وتجربة رقمية على مقاس مشروعك.
+              مشروعك مختلف؟ نعمل لك خطة وموقع
+              وتجربة رقمية على مقاسه.
             </p>
 
-            <div class="package-features">
+            <ul class="package-list">
 
-              <span data-i18n="customFeatureOne">
+              <li data-i18n="customOne">
                 موقع مخصص
-              </span>
+              </li>
 
-              <span data-i18n="customFeatureTwo">
-                هوية وتصميم خاص
-              </span>
+              <li data-i18n="customTwo">
+                تصميم وهوية خاصة
+              </li>
 
-              <span data-i18n="customFeatureThree">
-                صفحات ووظائف حسب احتياجك
-              </span>
+              <li data-i18n="customThree">
+                صفحات ووظائف حسب الاحتياج
+              </li>
 
-              <span data-i18n="customFeatureFour">
+              <li data-i18n="customFour">
                 استراتيجية تسويق مخصصة
-              </span>
+              </li>
 
-            </div>
+            </ul>
 
             <a
               href="#contact"
@@ -1060,32 +1105,35 @@
     <!-- =========================================
          CUSTOM WEBSITE
     ========================================== -->
-    <section class="custom-site-section">
+    <section class="custom-website">
 
       <div class="container">
 
-        <div class="custom-site-card reveal">
+        <div class="custom-website-card reveal">
 
-          <div class="custom-site-content">
+          <div class="custom-website-content">
 
             <div class="section-kicker">
               CUSTOM WEB EXPERIENCE
             </div>
 
-            <h2 data-i18n-html="customSiteTitle">
+            <h2
+              data-i18n-html="customSiteTitle"
+            >
               عايز موقع
               <span>على مزاجك؟</span>
             </h2>
 
-            <p data-i18n="customSiteText">
-              نبدأ من الصفر: التصميم، الأقسام، الحركة،
-              الوظائف وتجربة المستخدم — وكل حاجة تتعمل
-              حسب شخصية مشروعك وهدفه.
+            <p
+              data-i18n="customSiteText"
+            >
+              نقدر نبدأ من الصفر ونصمم موقع يناسب
+              شخصيتك، خدماتك، جمهورك وأهدافك.
             </p>
 
             <a
               href="#contact"
-              class="button button-primary"
+              class="button primary"
               data-i18n="customSiteButton"
             >
               اطلب موقع مخصص
@@ -1094,7 +1142,7 @@
 
           </div>
 
-          <div class="custom-site-visual">
+          <div class="custom-website-visual">
 
             <div class="custom-browser">
 
@@ -1116,7 +1164,7 @@
                   <em>STYLE.</em>
                 </strong>
 
-                <div class="custom-bars">
+                <div class="custom-browser-lines">
                   <i></i>
                   <i></i>
                   <i></i>
@@ -1137,7 +1185,7 @@
     <!-- =========================================
          IMAGE SHOWCASE
     ========================================== -->
-    <section class="section section-white">
+    <section class="section light-section">
 
       <div class="container">
 
@@ -1152,28 +1200,28 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="showcaseTitle"
             >
-              حط صور
-              <span>شغلك هنا.</span>
+              حط شغلك
+              <span>هنا.</span>
             </h2>
 
           </div>
 
           <p
-            class="section-copy dark"
+            class="section-copy dark-text"
             data-i18n="showcaseText"
           >
-            أماكن مجهزة للـCampaigns والـCreatives
-            والـCase Studies والصور.
+            أماكن جاهزة تضيف فيها صور الحملات،
+            الكرياتيف والـCase Studies.
           </p>
 
         </div>
 
         <div class="showcase-grid">
 
-          <div class="image-placeholder reveal">
+          <div class="showcase-image-placeholder reveal">
             <span>01</span>
             <strong data-i18n="showcaseOne">
               CAMPAIGN
@@ -1183,7 +1231,7 @@
             </small>
           </div>
 
-          <div class="image-placeholder image-tall reveal">
+          <div class="showcase-image-placeholder tall reveal">
             <span>02</span>
             <strong data-i18n="showcaseTwo">
               CREATIVE
@@ -1193,7 +1241,7 @@
             </small>
           </div>
 
-          <div class="image-placeholder reveal">
+          <div class="showcase-image-placeholder reveal">
             <span>03</span>
             <strong data-i18n="showcaseThree">
               CASE STUDY
@@ -1203,7 +1251,7 @@
             </small>
           </div>
 
-          <div class="image-placeholder reveal">
+          <div class="showcase-image-placeholder reveal">
             <span>04</span>
             <strong data-i18n="showcaseFour">
               BRAND CONTENT
@@ -1222,7 +1270,10 @@
     <!-- =========================================
          VIDEOS
     ========================================== -->
-    <section class="section" id="videos">
+    <section
+      class="section dark-section"
+      id="videos"
+    >
 
       <div class="container">
 
@@ -1237,7 +1288,7 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="videosTitle"
             >
               الكلام
@@ -1250,8 +1301,7 @@
             class="section-copy"
             data-i18n="videosText"
           >
-            الفيديو الأول مميز، وبعده باقي التجارب
-            بنفس الشكل.
+            أول فيديو مميز، وبعده باقي الفيديوهات.
           </p>
 
         </div>
@@ -1261,9 +1311,9 @@
           <!-- Video 1 -->
           <article class="video-card video-featured reveal">
 
-            <div class="video-visual video-visual-1">
+            <div class="video-visual video-one">
 
-              <span class="video-featured">
+              <span class="video-featured-badge">
                 <i></i>
                 <b data-i18n="featured">
                   FEATURED
@@ -1271,19 +1321,15 @@
               </span>
 
               <button
-                type="button"
                 class="video-play"
+                type="button"
                 data-video-url="https://www.facebook.com/share/r/1C1grE8a8L/"
-                aria-label="تشغيل الفيديو"
               >
                 ▶
               </button>
 
-              <div class="video-bottom">
-                <span>01</span>
-                <strong>
-                  CLIENT FEEDBACK
-                </strong>
+              <div class="video-number">
+                01
               </div>
 
             </div>
@@ -1295,7 +1341,7 @@
               </small>
 
               <h3 data-i18n="videoOneTitle">
-                تجربة العميل — الفيديو المميز
+                تجربة عميل — الفيديو المميز
               </h3>
 
             </div>
@@ -1305,27 +1351,24 @@
           <!-- Video 2 -->
           <article class="video-card reveal">
 
-            <div class="video-visual video-visual-2">
+            <div class="video-visual video-two">
 
               <button
-                type="button"
                 class="video-play"
+                type="button"
                 data-video-url="https://www.facebook.com/share/r/1C56UswjqY/"
-                aria-label="تشغيل الفيديو"
               >
                 ▶
               </button>
 
-              <div class="video-bottom">
-                <span>02</span>
-                <strong>
-                  CLIENT FEEDBACK
-                </strong>
+              <div class="video-number">
+                02
               </div>
 
             </div>
 
             <div class="video-content">
+
               <small>
                 VIDEO TESTIMONIAL
               </small>
@@ -1333,6 +1376,7 @@
               <h3 data-i18n="videoGenericTitle">
                 رأي عميل
               </h3>
+
             </div>
 
           </article>
@@ -1340,27 +1384,24 @@
           <!-- Video 3 -->
           <article class="video-card reveal">
 
-            <div class="video-visual video-visual-3">
+            <div class="video-visual video-three">
 
               <button
-                type="button"
                 class="video-play"
+                type="button"
                 data-video-url="https://www.facebook.com/share/r/1JtXfVvpbx/"
-                aria-label="تشغيل الفيديو"
               >
                 ▶
               </button>
 
-              <div class="video-bottom">
-                <span>03</span>
-                <strong>
-                  CLIENT FEEDBACK
-                </strong>
+              <div class="video-number">
+                03
               </div>
 
             </div>
 
             <div class="video-content">
+
               <small>
                 VIDEO TESTIMONIAL
               </small>
@@ -1368,6 +1409,7 @@
               <h3 data-i18n="videoGenericTitle">
                 رأي عميل
               </h3>
+
             </div>
 
           </article>
@@ -1375,27 +1417,24 @@
           <!-- Video 4 -->
           <article class="video-card reveal">
 
-            <div class="video-visual video-visual-4">
+            <div class="video-visual video-four">
 
               <button
-                type="button"
                 class="video-play"
+                type="button"
                 data-video-url="https://www.facebook.com/share/r/19NyG3qPC4/"
-                aria-label="تشغيل الفيديو"
               >
                 ▶
               </button>
 
-              <div class="video-bottom">
-                <span>04</span>
-                <strong>
-                  CLIENT FEEDBACK
-                </strong>
+              <div class="video-number">
+                04
               </div>
 
             </div>
 
             <div class="video-content">
+
               <small>
                 VIDEO TESTIMONIAL
               </small>
@@ -1403,6 +1442,7 @@
               <h3 data-i18n="videoGenericTitle">
                 رأي عميل
               </h3>
+
             </div>
 
           </article>
@@ -1410,27 +1450,24 @@
           <!-- Video 5 -->
           <article class="video-card reveal">
 
-            <div class="video-visual video-visual-5">
+            <div class="video-visual video-five">
 
               <button
-                type="button"
                 class="video-play"
+                type="button"
                 data-video-url="https://www.facebook.com/share/r/1JXTggK1uR/"
-                aria-label="تشغيل الفيديو"
               >
                 ▶
               </button>
 
-              <div class="video-bottom">
-                <span>05</span>
-                <strong>
-                  CLIENT FEEDBACK
-                </strong>
+              <div class="video-number">
+                05
               </div>
 
             </div>
 
             <div class="video-content">
+
               <small>
                 VIDEO TESTIMONIAL
               </small>
@@ -1438,6 +1475,7 @@
               <h3 data-i18n="videoGenericTitle">
                 رأي عميل
               </h3>
+
             </div>
 
           </article>
@@ -1451,7 +1489,7 @@
     <!-- =========================================
          PROCESS
     ========================================== -->
-    <section class="section section-white">
+    <section class="section light-section">
 
       <div class="container">
 
@@ -1466,7 +1504,7 @@
             </div>
 
             <h2
-              class="section-title"
+              class="big-heading"
               data-i18n-html="processTitle"
             >
               من الفكرة
@@ -1476,7 +1514,7 @@
           </div>
 
           <p
-            class="section-copy dark"
+            class="section-copy dark-text"
             data-i18n="processText"
           >
             خطوات واضحة بدل الشغل العشوائي.
@@ -1486,55 +1524,65 @@
 
         <div class="process-grid">
 
-          <div class="process-card reveal">
+          <article class="process-item reveal">
             <span>01</span>
+
             <h3 data-i18n="processOneTitle">
               نفهم
             </h3>
+
             <p data-i18n="processOneText">
               نفهم المشروع والسوق والجمهور والأهداف.
             </p>
-          </div>
+          </article>
 
-          <div class="process-card reveal">
+          <article class="process-item reveal">
             <span>02</span>
+
             <h3 data-i18n="processTwoTitle">
               نخطط
             </h3>
+
             <p data-i18n="processTwoText">
               نحدد الاستراتيجية والقنوات والرسائل.
             </p>
-          </div>
+          </article>
 
-          <div class="process-card reveal">
+          <article class="process-item reveal">
             <span>03</span>
+
             <h3 data-i18n="processThreeTitle">
               ننفذ
             </h3>
+
             <p data-i18n="processThreeText">
               ننفذ الإعلانات والمحتوى والموقع.
             </p>
-          </div>
+          </article>
 
-          <div class="process-card reveal">
+          <article class="process-item reveal">
             <span>04</span>
+
             <h3 data-i18n="processFourTitle">
               نحلل
             </h3>
+
             <p data-i18n="processFourText">
               نراجع البيانات والأداء باستمرار.
             </p>
-          </div>
+          </article>
 
-          <div class="process-card reveal">
+          <article class="process-item reveal">
             <span>05</span>
+
             <h3 data-i18n="processFiveTitle">
               نكبر
             </h3>
+
             <p data-i18n="processFiveText">
               نزود الاستثمار في اللي بيحقق نتيجة.
             </p>
-          </div>
+          </article>
 
         </div>
 
@@ -1575,7 +1623,7 @@
 
             <a
               href="mailto:hello@youragency.com"
-              class="button button-primary"
+              class="button primary"
               data-i18n="contactButton"
             >
               ابدأ محادثة
@@ -1584,7 +1632,7 @@
 
           </div>
 
-          <div class="contact-orbits">
+          <div class="contact-decoration">
             <span></span>
             <span></span>
             <span></span>
@@ -1630,13 +1678,14 @@
     aria-hidden="true"
   >
 
-    <div class="modal-background"></div>
+    <div class="modal-backdrop"></div>
 
     <div class="modal-box">
 
       <div class="modal-header">
 
         <div>
+
           <small>
             LIVE PROJECT
           </small>
@@ -1644,24 +1693,25 @@
           <h3 id="projectModalTitle">
             Project
           </h3>
+
         </div>
 
         <button
-          type="button"
           class="modal-close"
           id="projectModalClose"
+          type="button"
         >
           ×
         </button>
 
       </div>
 
-      <div class="modal-frame">
+      <div class="modal-content">
 
         <iframe
           id="projectFrame"
           src="about:blank"
-          title="Live project"
+          title="Live website project"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
@@ -1672,11 +1722,11 @@
         >
 
           <strong data-i18n="projectFallbackTitle">
-            الموقع منع التضمين داخل الصفحة.
+            الموقع منع التضمين.
           </strong>
 
           <p data-i18n="projectFallbackText">
-            ده بسبب إعدادات الموقع نفسه.
+            ده من إعدادات أمان الموقع نفسه.
           </p>
 
           <a
@@ -1688,7 +1738,6 @@
             <span data-i18n="openWebsite">
               فتح الموقع
             </span>
-
             <span>↗</span>
           </a>
 
@@ -1709,13 +1758,14 @@
     aria-hidden="true"
   >
 
-    <div class="modal-background"></div>
+    <div class="modal-backdrop"></div>
 
     <div class="modal-box video-modal-box">
 
       <div class="modal-header">
 
         <div>
+
           <small>
             CLIENT VIDEO
           </small>
@@ -1723,19 +1773,20 @@
           <h3 data-i18n="videoModalTitle">
             رأي عميل
           </h3>
+
         </div>
 
         <button
-          type="button"
           class="modal-close"
           id="videoModalClose"
+          type="button"
         >
           ×
         </button>
 
       </div>
 
-      <div class="modal-frame video-frame">
+      <div class="modal-content video-modal-content">
 
         <iframe
           id="facebookVideoFrame"
@@ -1751,7 +1802,7 @@
           id="videoFallback"
         >
 
-          <div class="facebook-symbol">
+          <div class="facebook-icon">
             f
           </div>
 
@@ -1760,7 +1811,7 @@
           </strong>
 
           <p data-i18n="facebookFallbackText">
-            روابط Share الحالية ليست direct embed URLs.
+            رابط Share الحالي مش direct embed URL.
           </p>
 
           <a
@@ -1768,7 +1819,7 @@
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            class="button button-primary"
+            class="button primary"
             data-i18n="openFacebook"
           >
             فتح على Facebook
