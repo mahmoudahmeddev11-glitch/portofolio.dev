@@ -13,10 +13,7 @@
     content="MAHMOUD AGENCY — Digital Marketing, Media Buying, Web Design and Market Analysis."
   />
 
-  <meta
-    name="theme-color"
-    content="#090909"
-  />
+  <meta name="theme-color" content="#090909" />
 
   <title>MAHMOUD AGENCY — Digital Growth</title>
 
@@ -33,52 +30,34 @@
 
 <body>
 
-  <!-- =========================================
-       LOADER
-  ========================================== -->
-  <div class="page-loader" id="pageLoader" aria-hidden="true">
-    <div class="loader-logo">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+  <div class="site-background" aria-hidden="true">
+    <span class="background-light light-one"></span>
+    <span class="background-light light-two"></span>
+    <span class="background-grid"></span>
   </div>
 
-  <!-- Decorative layers -->
-  <div class="noise" aria-hidden="true"></div>
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
-
-  <div class="background-orb background-orb-1" aria-hidden="true"></div>
-  <div class="background-orb background-orb-2" aria-hidden="true"></div>
-  <div class="background-orb background-orb-3" aria-hidden="true"></div>
-
-  <!-- =========================================
+  <!-- =========================
        HEADER
-  ========================================== -->
+  ========================== -->
   <header class="site-header" id="siteHeader">
 
     <div class="container header-inner">
 
-      <a
-        href="#home"
-        class="brand"
-        aria-label="MAHMOUD AGENCY"
-      >
-        <span class="brand-symbol">
-          <span></span>
-          <span></span>
-        </span>
+      <a href="#home" class="brand">
+        <img
+          src="./logo.png"
+          alt="Mahmoud Agency"
+          class="brand-logo"
+        />
 
-        <span class="brand-text">
+        <span class="brand-fallback">
           <strong>MAHMOUD</strong>
           <small>AGENCY</small>
         </span>
       </a>
 
-      <nav
-        class="desktop-nav"
-        aria-label="Main navigation"
-      >
+      <nav class="desktop-nav">
+
         <a href="#services" data-i18n="navServices">
           الخدمات
         </a>
@@ -98,21 +77,22 @@
         <a href="#contact" data-i18n="navContact">
           تواصل
         </a>
+
       </nav>
 
       <div class="header-actions">
 
         <button
-          class="header-icon-button"
+          class="header-control"
           id="themeToggle"
           type="button"
-          aria-label="Change theme"
+          aria-label="تغيير المظهر"
         >
-          <span>◐</span>
+          ◐
         </button>
 
         <button
-          class="language-button"
+          class="header-language"
           id="languageToggle"
           type="button"
         >
@@ -120,8 +100,8 @@
         </button>
 
         <a
+          class="header-button"
           href="#contact"
-          class="header-cta magnetic"
           data-i18n="navCta"
         >
           ابدأ مشروع
@@ -143,8 +123,10 @@
 
     </div>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+    >
 
       <a href="#services" data-i18n="navServices">
         الخدمات
@@ -170,15 +152,12 @@
 
   </header>
 
-  <!-- =========================================
-       MAIN
-  ========================================== -->
-  <main id="home">
+  <main>
 
-    <!-- =======================================
+    <!-- =========================
          HERO
-    ======================================== -->
-    <section class="hero">
+    ========================== -->
+    <section class="hero" id="home">
 
       <div class="container hero-grid">
 
@@ -198,15 +177,14 @@
               نكبّر مشروعك
             </span>
 
-            <span class="hero-title-accent">
+            <span class="hero-accent">
+
               <span data-i18n="heroTitleTwo">
                 بذكاء.
               </span>
 
-              <span
-                class="hero-accent-dot"
-                aria-hidden="true"
-              ></span>
+              <i aria-hidden="true"></i>
+
             </span>
 
           </h1>
@@ -215,12 +193,12 @@
             class="hero-description"
             data-i18n="heroDescription"
           >
-            أفكار تسويقية ناجحة، إعلانات ممولة باستهداف
-            دقيق، تحليل للسوق والمنافسين، وتصميم مواقع
-            يساعد البيزنس يوصل لنتيجة أفضل.
+            أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق،
+            تحليل للسوق والمنافسين، وتصميم مواقع تساعد
+            مشروعك يوصل لنتيجة أفضل.
           </p>
 
-          <div class="hero-buttons">
+          <div class="hero-actions">
 
             <a
               href="#projects"
@@ -233,7 +211,7 @@
 
             <a
               href="#services"
-              class="btn btn-secondary magnetic"
+              class="btn btn-outline magnetic"
               data-i18n="heroSecondary"
             >
               خدماتنا
@@ -243,25 +221,25 @@
 
           <div class="hero-stats">
 
-            <div class="hero-stat">
+            <div class="stat">
               <strong>03</strong>
               <span data-i18n="statOne">
                 مشاريع ويب
               </span>
             </div>
 
-            <div class="hero-stat-divider"></div>
+            <div class="stat-divider"></div>
 
-            <div class="hero-stat">
+            <div class="stat">
               <strong>05</strong>
               <span data-i18n="statTwo">
                 فيديوهات عملاء
               </span>
             </div>
 
-            <div class="hero-stat-divider"></div>
+            <div class="stat-divider"></div>
 
-            <div class="hero-stat">
+            <div class="stat">
               <strong>∞</strong>
               <span data-i18n="statThree">
                 أفكار جديدة
@@ -272,115 +250,56 @@
 
         </div>
 
-        <!-- HERO VISUAL -->
-        <div class="hero-visual-wrapper reveal reveal-delay">
+        <div class="hero-media reveal reveal-delay">
 
-          <div class="hero-visual tilt-card">
+          <div class="hero-card tilt-card">
 
-            <div class="hero-grid-background"></div>
+            <div class="hero-image-frame">
 
-            <div class="hero-light hero-light-one"></div>
-            <div class="hero-light hero-light-two"></div>
+              <img
+                src="./hero-banner.png"
+                alt="Digital marketing work"
+                class="hero-image"
+                fetchpriority="high"
+              />
 
-            <!-- Browser -->
-            <div class="hero-browser">
-
-              <div class="browser-header">
-
-                <div class="browser-dots">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-                <div class="browser-address">
-                  <span></span>
-                </div>
-
-              </div>
-
-              <div class="browser-content">
-
-                <small>
-                  DIGITAL GROWTH
-                </small>
-
-                <div class="browser-title">
-                  <span>BUILD.</span>
-                  <span>LAUNCH.</span>
-                  <strong>GROW.</strong>
-                </div>
-
-                <div class="browser-lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-                <div class="browser-chart">
-
-                  <i style="height:26%"></i>
-                  <i style="height:40%"></i>
-                  <i style="height:33%"></i>
-                  <i style="height:52%"></i>
-                  <i style="height:63%"></i>
-                  <i style="height:74%"></i>
-                  <i style="height:89%"></i>
-
-                </div>
-
-              </div>
+              <div class="hero-image-overlay"></div>
 
             </div>
 
-            <!-- Floating Card 1 -->
-            <div class="floating-card floating-card-one">
+            <div class="hero-ui hero-ui-top">
 
-              <div class="floating-icon">
-                ↗
-              </div>
+              <span class="ui-dot"></span>
 
-              <div>
-                <small data-i18n="floatOneSmall">
-                  Growth
-                </small>
-
-                <strong data-i18n="floatOneStrong">
-                  More Reach
-                </strong>
-              </div>
-
-            </div>
-
-            <!-- Floating Card 2 -->
-            <div class="floating-card floating-card-two">
-
-              <div class="floating-icon">
-                ◎
-              </div>
-
-              <div>
-                <small data-i18n="floatTwoSmall">
-                  Strategy
-                </small>
-
-                <strong data-i18n="floatTwoStrong">
-                  Precise
-                </strong>
-              </div>
-
-            </div>
-
-            <!-- Floating Pill -->
-            <div class="floating-pill">
-
-              <span class="pulse-dot"></span>
-
-              <span data-i18n="floatingPill">
-                Always optimizing
+              <span data-i18n="heroUiOne">
+                DIGITAL GROWTH
               </span>
 
             </div>
+
+            <div class="hero-ui hero-ui-bottom">
+
+              <div>
+                <small data-i18n="heroUiTwo">
+                  PERFORMANCE
+                </small>
+
+                <strong>+ GROWTH</strong>
+              </div>
+
+              <span>↗</span>
+
+            </div>
+
+            <span
+              class="hero-ring ring-one"
+              aria-hidden="true"
+            ></span>
+
+            <span
+              class="hero-ring ring-two"
+              aria-hidden="true"
+            ></span>
 
           </div>
 
@@ -390,12 +309,12 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          SPECIALTIES
-    ======================================== -->
+    ========================== -->
     <section class="specialties">
 
-      <div class="container specialties-track">
+      <div class="container specialties-inner">
 
         <div class="specialty">
           <span>01</span>
@@ -426,23 +345,18 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          ABOUT
-    ======================================== -->
+    ========================== -->
     <section class="section section-light" id="about">
 
       <div class="container about-grid">
 
-        <div class="section-side-label reveal">
-
-          <span>
-            01
-          </span>
-
-          <small data-i18n="aboutLabel">
+        <div class="side-label reveal">
+          <strong>01</strong>
+          <span data-i18n="aboutLabel">
             ABOUT
-          </small>
-
+          </span>
         </div>
 
         <div class="about-content reveal reveal-delay">
@@ -462,57 +376,63 @@
           </h2>
 
           <p
-            class="section-text"
+            class="section-description dark"
             data-i18n="aboutText"
           >
             بنجمع بين الاستراتيجية، الميديا باينج،
             تحليل السوق، المحتوى، وتصميم المواقع عشان
-            كل جزء من الرحلة يخدم الهدف الأساسي:
+            كل جزء من الرحلة يخدم هدف واحد:
             نمو المشروع.
           </p>
 
-          <div class="about-list">
+          <div class="about-points">
 
-            <div class="about-item">
+            <div class="about-point">
+
               <span>01</span>
 
               <div>
-                <h3 data-i18n="aboutItemOneTitle">
+                <h3 data-i18n="aboutOneTitle">
                   أفكار تسويقية
                 </h3>
 
-                <p data-i18n="aboutItemOneText">
+                <p data-i18n="aboutOneText">
                   أفكار مبنية على السوق والجمهور.
                 </p>
               </div>
+
             </div>
 
-            <div class="about-item">
+            <div class="about-point">
+
               <span>02</span>
 
               <div>
-                <h3 data-i18n="aboutItemTwoTitle">
+                <h3 data-i18n="aboutTwoTitle">
                   استهداف أدق
                 </h3>
 
-                <p data-i18n="aboutItemTwoText">
+                <p data-i18n="aboutTwoText">
                   نوجّه الميزانية للجمهور الأقرب للشراء.
                 </p>
               </div>
+
             </div>
 
-            <div class="about-item">
+            <div class="about-point">
+
               <span>03</span>
 
               <div>
-                <h3 data-i18n="aboutItemThreeTitle">
+                <h3 data-i18n="aboutThreeTitle">
                   تحليل مستمر
                 </h3>
 
-                <p data-i18n="aboutItemThreeText">
-                  نقيس ونحلل ونطور بدل ما نسيب الحملة.
+                <p data-i18n="aboutThreeText">
+                  نقيس ونحلل ونطور باستمرار.
                 </p>
               </div>
+
             </div>
 
           </div>
@@ -523,11 +443,11 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          SERVICES
-    ======================================== -->
+    ========================== -->
     <section
-      class="section services-section"
+      class="section"
       id="services"
     >
 
@@ -554,7 +474,7 @@
           </div>
 
           <p
-            class="section-intro"
+            class="section-description"
             data-i18n="servicesIntro"
           >
             خدمات متكاملة تخلي الاستراتيجية والتنفيذ
@@ -565,12 +485,11 @@
 
         <div class="services-grid">
 
-          <!-- Service -->
           <article class="service-card tilt-card reveal">
 
-            <div class="service-top">
+            <div class="service-head">
               <span>01</span>
-              <span>↗</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -583,19 +502,18 @@
 
             <p data-i18n="serviceOneText">
               تخطيط وإدارة وتحسين الحملات المدفوعة
-              للوصول للجمهور المناسب بكفاءة أفضل.
+              للوصول للجمهور المناسب بكفاءة.
             </p>
 
-            <div class="service-bottom-line"></div>
+            <div class="service-line"></div>
 
           </article>
 
-          <!-- Service -->
           <article class="service-card tilt-card reveal">
 
-            <div class="service-top">
+            <div class="service-head">
               <span>02</span>
-              <span>↗</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -611,16 +529,15 @@
               والقنوات المناسبة.
             </p>
 
-            <div class="service-bottom-line"></div>
+            <div class="service-line"></div>
 
           </article>
 
-          <!-- Service -->
           <article class="service-card tilt-card reveal">
 
-            <div class="service-top">
+            <div class="service-head">
               <span>03</span>
-              <span>↗</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -636,16 +553,15 @@
               أفضل الفرص.
             </p>
 
-            <div class="service-bottom-line"></div>
+            <div class="service-line"></div>
 
           </article>
 
-          <!-- Service -->
           <article class="service-card tilt-card reveal">
 
-            <div class="service-top">
+            <div class="service-head">
               <span>04</span>
-              <span>↗</span>
+              <b>↗</b>
             </div>
 
             <div class="service-icon">
@@ -661,22 +577,21 @@
               المستخدم والتحويل.
             </p>
 
-            <div class="service-bottom-line"></div>
+            <div class="service-line"></div>
 
           </article>
 
-          <!-- Wide service -->
-          <article class="service-card service-card-wide tilt-card reveal">
+          <article class="service-card service-wide tilt-card reveal">
 
-            <div class="service-wide-icon">
+            <div class="service-icon">
               ◌
             </div>
 
-            <div>
+            <div class="service-wide-content">
 
-              <div class="service-top service-wide-top">
+              <div class="service-head">
                 <span>05</span>
-                <span>↗</span>
+                <b>↗</b>
               </div>
 
               <h3 data-i18n="serviceFiveTitle">
@@ -698,9 +613,9 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          PROJECTS
-    ======================================== -->
+    ========================== -->
     <section
       class="section section-light"
       id="projects"
@@ -722,42 +637,42 @@
               class="section-title"
               data-i18n-html="projectsTitle"
             >
-              ادخل المشروع
+              شوف المشاريع
               <span>من هنا.</span>
             </h2>
 
           </div>
 
           <p
-            class="section-intro"
+            class="section-description dark"
             data-i18n="projectsIntro"
           >
-            استكشف المشاريع من داخل البورتفوليو
-            بدون تغيير الصفحة.
+            المواقع دي بتتفتح داخل نفس البورتفوليو،
+            من غير ما المستخدم يضطر يسيب الصفحة.
           </p>
 
         </div>
 
-        <div class="project-grid">
+        <div class="projects-grid">
 
           <!-- Project 1 -->
           <article
-            class="project-card project-featured reveal"
+            class="project-card project-main reveal tilt-card"
             data-project-title="Rouh Lil Rouh"
             data-project-url="https://rouh-lil-rouh.vercel.app/"
           >
 
-            <div class="project-art project-art-one">
+            <div class="project-visual project-visual-one">
 
-              <div class="project-browser">
+              <div class="project-window">
 
-                <div class="project-browser-top">
+                <div class="project-window-bar">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
 
-                <div class="project-browser-content">
+                <div class="project-window-body">
 
                   <small>
                     ROUH LIL ROUH
@@ -766,10 +681,10 @@
                   <strong>
                     Care.
                     <br />
-                    <span>With meaning.</span>
+                    <em>With meaning.</em>
                   </strong>
 
-                  <div class="project-lines">
+                  <div class="fake-lines">
                     <i></i>
                     <i></i>
                     <i></i>
@@ -779,13 +694,13 @@
 
               </div>
 
-              <span class="project-number">
+              <span class="project-index">
                 01
               </span>
 
             </div>
 
-            <div class="project-info">
+            <div class="project-footer">
 
               <div>
                 <small data-i18n="projectType">
@@ -798,8 +713,8 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
                 <span data-i18n="projectOpen">
                   افتح المشروع
@@ -814,16 +729,16 @@
 
           <!-- Project 2 -->
           <article
-            class="project-card reveal"
+            class="project-card reveal tilt-card"
             data-project-title="Lahzet Zikr"
             data-project-url="https://lahzetzikr.com/"
           >
 
-            <div class="project-art project-art-two">
+            <div class="project-visual project-visual-two">
 
-              <div class="project-orbit"></div>
+              <div class="orbit"></div>
 
-              <div class="project-mini-window">
+              <div class="project-mini-card">
 
                 <small>
                   LAHZET ZIKR
@@ -837,13 +752,13 @@
 
               </div>
 
-              <span class="project-number">
+              <span class="project-index">
                 02
               </span>
 
             </div>
 
-            <div class="project-info">
+            <div class="project-footer">
 
               <div>
                 <small data-i18n="projectType">
@@ -856,8 +771,8 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
                 <span data-i18n="projectOpen">
                   افتح المشروع
@@ -872,14 +787,14 @@
 
           <!-- Project 3 -->
           <article
-            class="project-card reveal"
+            class="project-card reveal tilt-card"
             data-project-title="Captain Seif"
             data-project-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
           >
 
-            <div class="project-art project-art-three">
+            <div class="project-visual project-visual-three">
 
-              <div class="project-coach-card">
+              <div class="coach-card">
 
                 <small>
                   CAPTAIN SEIF
@@ -888,18 +803,18 @@
                 <strong>
                   Train
                   <br />
-                  <span>Smarter.</span>
+                  <em>Smarter.</em>
                 </strong>
 
               </div>
 
-              <span class="project-number">
+              <span class="project-index">
                 03
               </span>
 
             </div>
 
-            <div class="project-info">
+            <div class="project-footer">
 
               <div>
                 <small data-i18n="projectType">
@@ -912,8 +827,8 @@
               </div>
 
               <button
-                class="project-button"
                 type="button"
+                class="project-open"
               >
                 <span data-i18n="projectOpen">
                   افتح المشروع
@@ -932,10 +847,10 @@
 
     </section>
 
-    <!-- =======================================
-         IMAGE PLACEHOLDERS
-    ======================================== -->
-    <section class="section showcase-section">
+    <!-- =========================
+         SHOWCASE
+    ========================== -->
+    <section class="section">
 
       <div class="container">
 
@@ -960,11 +875,11 @@
           </div>
 
           <p
-            class="section-intro"
+            class="section-description"
             data-i18n="showcaseIntro"
           >
-            أماكن مجهزة تقدر تحط فيها صور الحملات
-            والكرياتيف والـCase Studies بعدين.
+            أماكن مجهزة تضيف فيها صور الحملات والكرياتيف
+            والـCase Studies بعدين.
           </p>
 
         </div>
@@ -981,7 +896,7 @@
             </small>
           </div>
 
-          <div class="showcase-card showcase-card-tall reveal">
+          <div class="showcase-card showcase-tall reveal">
             <span>02</span>
             <strong data-i18n="showcaseTwo">
               CREATIVE
@@ -1017,9 +932,9 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          VIDEOS
-    ======================================== -->
+    ========================== -->
     <section
       class="section section-light"
       id="videos"
@@ -1048,47 +963,42 @@
           </div>
 
           <p
-            class="section-intro"
+            class="section-description dark"
             data-i18n="videosIntro"
           >
-            أول فيديو مميز، وبعده باقي الفيديوهات
-            في نفس المكان.
+            أول فيديو مميز، وبعده باقي الفيديوهات.
+            كل فيديو بيحاول يفتح جوه الموقع.
           </p>
 
         </div>
 
         <div class="videos-grid">
 
-          <!-- Featured Video -->
-          <article
-            class="video-card video-featured reveal"
-          >
+          <!-- Video 1 -->
+          <article class="video-card video-featured reveal">
 
-            <div class="video-preview video-preview-1">
+            <div class="video-visual video-bg-one">
 
               <div class="video-overlay"></div>
 
-              <span class="featured-label">
-                <i></i>
-                <span data-i18n="featured">
+              <div class="video-featured-label">
+                <span></span>
+                <strong data-i18n="featured">
                   FEATURED
-                </span>
-              </span>
+                </strong>
+              </div>
 
               <button
                 class="video-play"
                 type="button"
                 data-video-url="https://www.facebook.com/share/r/1C1grE8a8L/"
-                aria-label="تشغيل الفيديو"
               >
                 <span>▶</span>
               </button>
 
               <div class="video-bottom">
 
-                <span>
-                  01
-                </span>
+                <span>01</span>
 
                 <strong data-i18n="clientFeedback">
                   Client Feedback
@@ -1098,7 +1008,7 @@
 
             </div>
 
-            <div class="video-info">
+            <div class="video-content">
 
               <small data-i18n="videoType">
                 VIDEO TESTIMONIAL
@@ -1115,7 +1025,7 @@
           <!-- Video 2 -->
           <article class="video-card reveal">
 
-            <div class="video-preview video-preview-2">
+            <div class="video-visual video-bg-two">
 
               <div class="video-overlay"></div>
 
@@ -1123,21 +1033,23 @@
                 class="video-play"
                 type="button"
                 data-video-url="https://www.facebook.com/share/r/1C56UswjqY/"
-                aria-label="تشغيل الفيديو"
               >
                 <span>▶</span>
               </button>
 
               <div class="video-bottom">
+
                 <span>02</span>
+
                 <strong data-i18n="clientFeedback">
                   Client Feedback
                 </strong>
+
               </div>
 
             </div>
 
-            <div class="video-info">
+            <div class="video-content">
 
               <small data-i18n="videoType">
                 VIDEO TESTIMONIAL
@@ -1154,7 +1066,7 @@
           <!-- Video 3 -->
           <article class="video-card reveal">
 
-            <div class="video-preview video-preview-3">
+            <div class="video-visual video-bg-three">
 
               <div class="video-overlay"></div>
 
@@ -1162,21 +1074,23 @@
                 class="video-play"
                 type="button"
                 data-video-url="https://www.facebook.com/share/r/1JtXfVvpbx/"
-                aria-label="تشغيل الفيديو"
               >
                 <span>▶</span>
               </button>
 
               <div class="video-bottom">
+
                 <span>03</span>
+
                 <strong data-i18n="clientFeedback">
                   Client Feedback
                 </strong>
+
               </div>
 
             </div>
 
-            <div class="video-info">
+            <div class="video-content">
 
               <small data-i18n="videoType">
                 VIDEO TESTIMONIAL
@@ -1193,7 +1107,7 @@
           <!-- Video 4 -->
           <article class="video-card reveal">
 
-            <div class="video-preview video-preview-4">
+            <div class="video-visual video-bg-four">
 
               <div class="video-overlay"></div>
 
@@ -1201,21 +1115,23 @@
                 class="video-play"
                 type="button"
                 data-video-url="https://www.facebook.com/share/r/19NyG3qPC4/"
-                aria-label="تشغيل الفيديو"
               >
                 <span>▶</span>
               </button>
 
               <div class="video-bottom">
+
                 <span>04</span>
+
                 <strong data-i18n="clientFeedback">
                   Client Feedback
                 </strong>
+
               </div>
 
             </div>
 
-            <div class="video-info">
+            <div class="video-content">
 
               <small data-i18n="videoType">
                 VIDEO TESTIMONIAL
@@ -1232,7 +1148,7 @@
           <!-- Video 5 -->
           <article class="video-card reveal">
 
-            <div class="video-preview video-preview-5">
+            <div class="video-visual video-bg-five">
 
               <div class="video-overlay"></div>
 
@@ -1240,21 +1156,23 @@
                 class="video-play"
                 type="button"
                 data-video-url="https://www.facebook.com/share/r/1JXTggK1uR/"
-                aria-label="تشغيل الفيديو"
               >
                 <span>▶</span>
               </button>
 
               <div class="video-bottom">
+
                 <span>05</span>
+
                 <strong data-i18n="clientFeedback">
                   Client Feedback
                 </strong>
+
               </div>
 
             </div>
 
-            <div class="video-info">
+            <div class="video-content">
 
               <small data-i18n="videoType">
                 VIDEO TESTIMONIAL
@@ -1274,11 +1192,11 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          PROCESS
-    ======================================== -->
+    ========================== -->
     <section
-      class="section process-section"
+      class="section"
       id="process"
     >
 
@@ -1306,7 +1224,7 @@
           </div>
 
           <p
-            class="section-intro"
+            class="section-description"
             data-i18n="processIntro"
           >
             كل خطوة ليها سبب وكل قرار مربوط بالهدف النهائي.
@@ -1317,83 +1235,53 @@
         <div class="process-list">
 
           <div class="process-row reveal">
-
             <span>01</span>
-
             <div>
-              <h3 data-i18n="processOneTitle">
-                نفهم
-              </h3>
-
+              <h3 data-i18n="processOneTitle">نفهم</h3>
               <p data-i18n="processOneText">
                 البيزنس والسوق والجمهور والأهداف.
               </p>
             </div>
-
           </div>
 
           <div class="process-row reveal">
-
             <span>02</span>
-
             <div>
-              <h3 data-i18n="processTwoTitle">
-                نخطط
-              </h3>
-
+              <h3 data-i18n="processTwoTitle">نخطط</h3>
               <p data-i18n="processTwoText">
                 الاستراتيجية والقنوات والرسائل المناسبة.
               </p>
             </div>
-
           </div>
 
           <div class="process-row reveal">
-
             <span>03</span>
-
             <div>
-              <h3 data-i18n="processThreeTitle">
-                ننفذ
-              </h3>
-
+              <h3 data-i18n="processThreeTitle">ننّفذ</h3>
               <p data-i18n="processThreeText">
                 الإعلانات والمحتوى والكرياتيف وتجارب الويب.
               </p>
             </div>
-
           </div>
 
           <div class="process-row reveal">
-
             <span>04</span>
-
             <div>
-              <h3 data-i18n="processFourTitle">
-                نحلل
-              </h3>
-
+              <h3 data-i18n="processFourTitle">نحلل</h3>
               <p data-i18n="processFourText">
                 نراقب البيانات ونشوف إيه اللي شغال.
               </p>
             </div>
-
           </div>
 
           <div class="process-row reveal">
-
             <span>05</span>
-
             <div>
-              <h3 data-i18n="processFiveTitle">
-                نكبر
-              </h3>
-
+              <h3 data-i18n="processFiveTitle">نكبر</h3>
               <p data-i18n="processFiveText">
                 نزود اللي بيحقق نتائج ونقلل الهدر.
               </p>
             </div>
-
           </div>
 
         </div>
@@ -1402,9 +1290,9 @@
 
     </section>
 
-    <!-- =======================================
+    <!-- =========================
          CONTACT
-    ======================================== -->
+    ========================== -->
     <section
       class="contact-section"
       id="contact"
@@ -1414,60 +1302,46 @@
 
         <div class="contact-card reveal">
 
-          <div class="contact-grid">
+          <div class="contact-content">
 
-            <div>
-
-              <div class="section-kicker">
-                LET'S BUILD
-              </div>
-
-              <h2
-                class="contact-title"
-                data-i18n-html="contactTitle"
-              >
-                جاهز
-                <span>تكبّر مشروعك؟</span>
-              </h2>
-
-              <p
-                class="contact-text"
-                data-i18n="contactText"
-              >
-                ابعتلنا فكرتك ونشوف إزاي نقدر نحولها
-                لاستراتيجية وتنفيذ ونمو واضح.
-              </p>
-
+            <div class="section-kicker">
+              LET'S BUILD
             </div>
 
-            <div class="contact-actions">
+            <h2
+              class="contact-title"
+              data-i18n-html="contactTitle"
+            >
+              جاهز
+              <span>تكبّر مشروعك؟</span>
+            </h2>
 
-              <a
-                href="mailto:hello@youragency.com"
-                class="btn btn-primary magnetic"
-                data-i18n="contactButton"
-              >
-                ابدأ محادثة
-                <span>↗</span>
-              </a>
+            <p
+              class="contact-description"
+              data-i18n="contactText"
+            >
+              ابعتلنا فكرتك ونشوف إزاي نقدر نحولها
+              لاستراتيجية وتنفيذ ونمو واضح.
+            </p>
 
-              <a
-                href="#home"
-                class="back-top"
-                data-i18n="backTop"
-              >
-                رجوع لأعلى ↑
-              </a>
-
-            </div>
+            <a
+              href="mailto:hello@youragency.com"
+              class="btn btn-primary magnetic"
+              data-i18n="contactButton"
+            >
+              ابدأ محادثة
+              <span>↗</span>
+            </a>
 
           </div>
 
           <div
-            class="contact-watermark"
+            class="contact-decoration"
             aria-hidden="true"
           >
-            MAKE IT MOVE
+            <span></span>
+            <span></span>
+            <span></span>
           </div>
 
         </div>
@@ -1478,49 +1352,41 @@
 
   </main>
 
-  <!-- =========================================
+  <!-- =========================
        FOOTER
-  ========================================== -->
-  <footer class="site-footer">
+  ========================== -->
+  <footer class="footer">
 
     <div class="container footer-inner">
 
-      <div class="footer-brand">
+      <strong>
         MAHMOUD AGENCY
-      </div>
+      </strong>
 
-      <div
-        class="footer-services"
-        data-i18n="footerServices"
-      >
+      <span data-i18n="footerServices">
         Digital Marketing · Media Buying · Web · Strategy
-      </div>
+      </span>
 
-      <div class="footer-copy">
-        © <span id="currentYear"></span> Mahmoud Agency
-      </div>
+      <span>
+        © <span id="year"></span>
+      </span>
 
     </div>
 
   </footer>
 
-  <!-- =========================================
+  <!-- =========================
        PROJECT MODAL
-  ========================================== -->
+  ========================== -->
   <div
     class="modal"
     id="projectModal"
     aria-hidden="true"
   >
 
-    <div class="modal-overlay"></div>
+    <div class="modal-backdrop"></div>
 
-    <div
-      class="modal-box project-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="projectModalTitle"
-    >
+    <div class="modal-window">
 
       <div class="modal-header">
 
@@ -1538,25 +1404,24 @@
           class="modal-close"
           id="projectModalClose"
           type="button"
-          aria-label="إغلاق"
         >
           ×
         </button>
 
       </div>
 
-      <div class="project-frame-container">
+      <div class="iframe-container">
 
         <iframe
           id="projectFrame"
           src="about:blank"
-          title="Live project"
+          title="Live project preview"
           loading="lazy"
           referrerpolicy="strict-origin-when-cross-origin"
         ></iframe>
 
         <div
-          class="project-fallback"
+          class="modal-fallback"
           id="projectFallback"
         >
 
@@ -1577,7 +1442,6 @@
             <span data-i18n="openWebsite">
               فتح الموقع
             </span>
-
             <span>↗</span>
           </a>
 
@@ -1589,23 +1453,18 @@
 
   </div>
 
-  <!-- =========================================
+  <!-- =========================
        VIDEO MODAL
-  ========================================== -->
+  ========================== -->
   <div
     class="modal"
     id="videoModal"
     aria-hidden="true"
   >
 
-    <div class="modal-overlay"></div>
+    <div class="modal-backdrop"></div>
 
-    <div
-      class="modal-box video-modal"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="videoModalTitle"
-    >
+    <div class="modal-window video-modal-window">
 
       <div class="modal-header">
 
@@ -1614,10 +1473,7 @@
             CLIENT VIDEO
           </small>
 
-          <h3
-            id="videoModalTitle"
-            data-i18n="videoModalTitle"
-          >
+          <h3 data-i18n="videoModalTitle">
             رأي عميل
           </h3>
         </div>
@@ -1626,19 +1482,18 @@
           class="modal-close"
           id="videoModalClose"
           type="button"
-          aria-label="إغلاق"
         >
           ×
         </button>
 
       </div>
 
-      <div class="video-frame-container">
+      <div class="iframe-container video-frame-container">
 
         <iframe
           id="facebookVideoFrame"
           src="about:blank"
-          title="Facebook Video"
+          title="Facebook video"
           loading="eager"
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
           allowfullscreen
@@ -1646,30 +1501,30 @@
         ></iframe>
 
         <div
-          class="video-fallback"
+          class="modal-fallback"
           id="videoFallback"
         >
 
-          <div class="facebook-icon">
+          <div class="facebook-mark">
             f
           </div>
 
-          <h4 data-i18n="facebookBlockedTitle">
+          <strong data-i18n="facebookBlockedTitle">
             Facebook منع تضمين الفيديو.
-          </h4>
+          </strong>
 
           <p data-i18n="facebookBlockedText">
-            روابط Share الحالية مش روابط Embed مباشرة.
-            الكود بيحاول التضمين، ولو Facebook رفضه
-            بيظهر الزر بدل شاشة فاضية.
+            الرابط الحالي Share وليس direct embed.
+            الكود بيحاول التضمين أولًا، ولو Facebook رفضه
+            بيظهر الزر بدل الشاشة الفاضية.
           </p>
 
           <a
             id="videoExternalLink"
+            class="btn btn-primary"
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-primary"
             data-i18n="openFacebook"
           >
             فتح على Facebook
@@ -1685,6 +1540,5 @@
   </div>
 
   <script src="./js/main.js"></script>
-
 </body>
 </html>
