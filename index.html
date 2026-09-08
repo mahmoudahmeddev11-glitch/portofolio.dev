@@ -3,117 +3,142 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
+    <meta name="description"
+        content="Eng. Ahmed Talaat Digital Marketing - Media Buying, Digital Marketing, Web Design and Creative Solutions.">
+
+    <meta name="theme-color" content="#07111f">
+
+    <title>Eng. Ahmed Talaat | Digital Marketing</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
     >
-
-    <meta
-        name="description"
-        content="Digital Marketing, Media Buying, Web Design and Creative Solutions."
-    >
-
-    <title>Digital Marketing Agency</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
+
 <body>
 
-    <!-- ==================================================
-         HEADER
-    =================================================== -->
+    <!-- =========================
+         PAGE LOADER
+    ========================== -->
 
-    <header class="header">
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-logo">
+            <img src="./logo.png" alt="Eng. Ahmed Talaat">
+        </div>
+
+        <div class="loader-line">
+            <span></span>
+        </div>
+    </div>
+
+
+    <!-- =========================
+         BACKGROUND EFFECTS
+    ========================== -->
+
+    <div class="background-effects">
+
+        <div class="liquid liquid-one"></div>
+        <div class="liquid liquid-two"></div>
+        <div class="liquid liquid-three"></div>
+
+        <div class="grid-background"></div>
+
+    </div>
+
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="header" id="header">
 
         <div class="container header-inner">
 
-            <!-- LOGO -->
-            <a href="#home" class="logo">
-                <img
-                    src="./logo.png"
-                    alt="Digital Marketing Agency Logo"
-                >
+            <a href="#home" class="brand">
+                <img src="./logo.png" alt="Eng. Ahmed Talaat Digital Marketing">
             </a>
 
 
-            <!-- DESKTOP NAVIGATION -->
-            <nav class="desktop-nav">
+            <nav class="main-nav" id="mainNav">
 
-                <a
-                    href="#home"
+                <a href="#home"
                     data-en="Home"
-                    data-ar="الرئيسية"
-                >
+                    data-ar="الرئيسية">
                     Home
                 </a>
 
-                <a
-                    href="#services"
+                <a href="#services"
                     data-en="Services"
-                    data-ar="خدماتنا"
-                >
+                    data-ar="الخدمات">
                     Services
                 </a>
 
-                <a
-                    href="#work"
+                <a href="#work"
                     data-en="Our Work"
-                    data-ar="أعمالنا"
-                >
+                    data-ar="أعمالنا">
                     Our Work
                 </a>
 
-                <a
-                    href="#about"
-                    data-en="About"
-                    data-ar="من نحن"
-                >
-                    About
+                <a href="#testimonials"
+                    data-en="Testimonials"
+                    data-ar="آراء العملاء">
+                    Testimonials
                 </a>
 
-                <a
-                    href="#contact"
+                <a href="#pricing"
+                    data-en="Packages"
+                    data-ar="الباقات">
+                    Packages
+                </a>
+
+                <a href="#contact"
                     data-en="Contact"
-                    data-ar="تواصل معنا"
-                >
+                    data-ar="تواصل معنا">
                     Contact
                 </a>
 
             </nav>
 
 
-            <!-- HEADER ACTIONS -->
             <div class="header-actions">
 
                 <button
+                    class="language-switch"
+                    id="languageSwitch"
                     type="button"
-                    class="language-btn"
-                    id="languageBtn"
                 >
-                    العربية
+                    AR
                 </button>
 
                 <a
                     href="#contact"
-                    class="btn btn-primary"
-                    data-en="Let's Talk"
-                    data-ar="تواصل معنا"
+                    class="header-cta"
+                    data-en="Start Project"
+                    data-ar="ابدأ مشروعك"
                 >
-                    Let's Talk
+                    Start Project
                 </a>
 
             </div>
 
 
-            <!-- MOBILE MENU BUTTON -->
             <button
+                class="mobile-menu-button"
+                id="mobileMenuButton"
                 type="button"
-                class="menu-btn"
-                id="menuBtn"
-                aria-label="Open Menu"
+                aria-label="Open menu"
             >
                 <span></span>
                 <span></span>
@@ -125,55 +150,51 @@
     </header>
 
 
-    <!-- ==================================================
-         MOBILE MENU
-    =================================================== -->
+    <!-- =========================
+         MOBILE NAV
+    ========================== -->
 
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-nav" id="mobileNav">
 
-        <a
-            href="#home"
+        <a href="#home"
             data-en="Home"
-            data-ar="الرئيسية"
-        >
+            data-ar="الرئيسية">
             Home
         </a>
 
-        <a
-            href="#services"
+        <a href="#services"
             data-en="Services"
-            data-ar="خدماتنا"
-        >
+            data-ar="الخدمات">
             Services
         </a>
 
-        <a
-            href="#work"
+        <a href="#work"
             data-en="Our Work"
-            data-ar="أعمالنا"
-        >
+            data-ar="أعمالنا">
             Our Work
         </a>
 
-        <a
-            href="#about"
-            data-en="About"
-            data-ar="من نحن"
-        >
-            About
+        <a href="#testimonials"
+            data-en="Testimonials"
+            data-ar="آراء العملاء">
+            Testimonials
         </a>
 
-        <a
-            href="#contact"
+        <a href="#pricing"
+            data-en="Packages"
+            data-ar="الباقات">
+            Packages
+        </a>
+
+        <a href="#contact"
             data-en="Contact"
-            data-ar="تواصل معنا"
-        >
+            data-ar="تواصل معنا">
             Contact
         </a>
 
         <button
+            id="mobileLanguageSwitch"
             type="button"
-            id="mobileLanguageBtn"
         >
             العربية
         </button>
@@ -181,124 +202,204 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          MAIN
-    =================================================== -->
+    ========================== -->
 
     <main>
 
 
-        <!-- ==================================================
+        <!-- =========================
              HERO
-        =================================================== -->
+        ========================== -->
 
-        <section
-            class="hero"
-            id="home"
-        >
+        <section class="hero section" id="home">
 
             <div class="container hero-container">
 
-                <div class="hero-content">
+                <div class="hero-content reveal">
 
+                    <div class="hero-label">
 
-                    <!-- HERO TEXT -->
+                        <span class="pulse-dot"></span>
 
-                    <div class="hero-text">
-
-                        <div
-                            class="eyebrow"
+                        <span
                             data-en="DIGITAL MARKETING AGENCY"
                             data-ar="وكالة تسويق رقمي"
                         >
                             DIGITAL MARKETING AGENCY
-                        </div>
-
-
-                        <h1>
-
-                            <span
-                                data-en="We create"
-                                data-ar="نحن نصنع"
-                            >
-                                We create
-                            </span>
-
-                            <strong
-                                data-en="digital growth."
-                                data-ar="النمو الرقمي."
-                            >
-                                digital growth.
-                            </strong>
-
-                        </h1>
-
-
-                        <p
-                            data-en="We help ambitious brands grow through smart marketing strategies, media buying, creative content and high-performance websites."
-                            data-ar="نساعد العلامات التجارية الطموحة على النمو من خلال استراتيجيات التسويق الذكية، الميديا باينج، المحتوى الإبداعي والمواقع عالية الأداء."
-                        >
-                            We help ambitious brands grow through
-                            smart marketing strategies, media buying,
-                            creative content and high-performance websites.
-                        </p>
-
-
-                        <div class="hero-buttons">
-
-                            <a
-                                href="#contact"
-                                class="btn btn-primary"
-                                data-en="Start a Project"
-                                data-ar="ابدأ مشروعك"
-                            >
-                                Start a Project
-
-                                <span>↗</span>
-                            </a>
-
-
-                            <a
-                                href="#work"
-                                class="btn btn-outline"
-                                data-en="View Our Work"
-                                data-ar="شاهد أعمالنا"
-                            >
-                                View Our Work
-                            </a>
-
-                        </div>
-
-
-                        <div class="hero-contact">
-
-                            <span
-                                data-en="Ready to grow your business?"
-                                data-ar="جاهز تكبر شغلك؟"
-                            >
-                                Ready to grow your business?
-                            </span>
-
-                            <a href="tel:+201006907047">
-                                0100 690 70 47
-                            </a>
-
-                        </div>
+                        </span>
 
                     </div>
 
 
-                    <!-- HERO IMAGE -->
+                    <h1>
 
-                    <div class="hero-image-wrapper">
+                        <span
+                            data-en="We don't just"
+                            data-ar="إحنا مش بس"
+                        >
+                            We don't just
+                        </span>
 
-                        <div class="hero-glow"></div>
+                        <strong
+                            data-en="market."
+                            data-ar="بنسوّق."
+                        >
+                            market.
+                        </strong>
+
+                        <span
+                            data-en="We build growth."
+                            data-ar="إحنا بنبني نمو."
+                        >
+                            We build growth.
+                        </span>
+
+                    </h1>
+
+
+                    <p
+                        class="hero-description"
+                        data-en="We help businesses grow through successful marketing ideas, precise paid advertising, market analysis and modern digital experiences."
+                        data-ar="بنساعدك تكبر مشروعك من خلال أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل السوق والمنافسين وتجارب رقمية حديثة."
+                    >
+                        We help businesses grow through successful marketing ideas,
+                        precise paid advertising, market analysis and modern digital experiences.
+                    </p>
+
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="#contact"
+                            class="btn btn-primary"
+                        >
+                            <span
+                                data-en="Grow Your Business"
+                                data-ar="كبّر مشروعك"
+                            >
+                                Grow Your Business
+                            </span>
+
+                            <span class="btn-arrow">↗</span>
+                        </a>
+
+
+                        <a
+                            href="#work"
+                            class="btn btn-glass"
+                        >
+                            <span
+                                data-en="Explore Our Work"
+                                data-ar="شوف أعمالنا"
+                            >
+                                Explore Our Work
+                            </span>
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-trust">
+
+                        <div class="trust-item">
+                            <strong>100%</strong>
+                            <span
+                                data-en="Focused"
+                                data-ar="تركيز"
+                            >
+                                Focused
+                            </span>
+                        </div>
+
+                        <div class="trust-divider"></div>
+
+                        <div class="trust-item">
+                            <strong>360°</strong>
+                            <span
+                                data-en="Marketing"
+                                data-ar="تسويق"
+                            >
+                                Marketing
+                            </span>
+                        </div>
+
+                        <div class="trust-divider"></div>
+
+                        <div class="trust-item">
+                            <strong>24/7</strong>
+                            <span
+                                data-en="Support"
+                                data-ar="دعم"
+                            >
+                                Support
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HERO VISUAL -->
+
+                <div class="hero-visual reveal reveal-delay">
+
+                    <div class="hero-orbit orbit-one"></div>
+                    <div class="hero-orbit orbit-two"></div>
+
+                    <div class="hero-image-card tilt-card">
+
+                        <div class="image-glow"></div>
 
                         <img
                             src="./hero-banner.png"
-                            alt="Digital Marketing Agency"
-                            class="hero-image"
+                            alt="Digital Marketing"
                         >
+
+                        <div class="floating-badge badge-top">
+                            <span>✦</span>
+
+                            <div>
+                                <small
+                                    data-en="SMART"
+                                    data-ar="ذكي"
+                                >
+                                    SMART
+                                </small>
+
+                                <strong
+                                    data-en="Marketing"
+                                    data-ar="تسويق"
+                                >
+                                    Marketing
+                                </strong>
+                            </div>
+                        </div>
+
+
+                        <div class="floating-badge badge-bottom">
+
+                            <span class="badge-icon">↗</span>
+
+                            <div>
+                                <small
+                                    data-en="BUSINESS"
+                                    data-ar="بيزنس"
+                                >
+                                    BUSINESS
+                                </small>
+
+                                <strong
+                                    data-en="GROWTH"
+                                    data-ar="نمو"
+                                >
+                                    GROWTH
+                                </strong>
+                            </div>
+
+                        </div>
 
                     </div>
 
@@ -306,99 +407,91 @@
 
             </div>
 
-        </section>
 
+            <div class="scroll-indicator">
 
-        <!-- ==================================================
-             INTRO
-        =================================================== -->
-
-        <section class="intro">
-
-            <div class="container intro-grid">
-
-                <div
-                    class="eyebrow"
-                    data-en="OUR APPROACH"
-                    data-ar="أسلوبنا"
+                <span
+                    data-en="SCROLL TO EXPLORE"
+                    data-ar="اسحب لاكتشاف المزيد"
                 >
-                    OUR APPROACH
-                </div>
+                    SCROLL TO EXPLORE
+                </span>
 
-
-                <h2>
-
-                    <span
-                        data-en="Ideas that"
-                        data-ar="أفكار"
-                    >
-                        Ideas that
-                    </span>
-
-                    <strong
-                        data-en="move brands."
-                        data-ar="تحرك البراندات."
-                    >
-                        move brands.
-                    </strong>
-
-                </h2>
-
-
-                <p
-                    data-en="We combine creativity, strategy and technology to build digital experiences that don't just look good — they deliver results."
-                    data-ar="نحن نجمع بين الإبداع والاستراتيجية والتكنولوجيا لبناء تجارب رقمية ليست جميلة فقط، ولكنها تحقق نتائج حقيقية."
-                >
-                    We combine creativity, strategy and technology
-                    to build digital experiences that don't just
-                    look good — they deliver results.
-                </p>
+                <div class="scroll-line"></div>
 
             </div>
 
         </section>
 
 
-        <!-- ==================================================
-             SERVICES
-        =================================================== -->
+        <!-- =========================
+             MARQUEE
+        ========================== -->
 
-        <section
-            class="section services"
-            id="services"
-        >
+        <div class="marquee">
+
+            <div class="marquee-track">
+
+                <span>MEDIA BUYING</span>
+                <i>✦</i>
+
+                <span>DIGITAL MARKETING</span>
+                <i>✦</i>
+
+                <span>WEB DESIGN</span>
+                <i>✦</i>
+
+                <span>SOCIAL MEDIA</span>
+                <i>✦</i>
+
+                <span>BRANDING</span>
+                <i>✦</i>
+
+                <span>MEDIA BUYING</span>
+                <i>✦</i>
+
+                <span>DIGITAL MARKETING</span>
+                <i>✦</i>
+
+                <span>WEB DESIGN</span>
+                <i>✦</i>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SERVICES
+        ========================== -->
+
+        <section class="section services-section" id="services">
 
             <div class="container">
 
-
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
                     <div>
 
-                        <div
-                            class="eyebrow"
-                            data-en="WHAT WE DO"
-                            data-ar="ماذا نقدم"
-                        >
-                            WHAT WE DO
+                        <div class="section-number">
+                            01 / SERVICES
                         </div>
 
                         <h2
-                            data-en="Our services"
-                            data-ar="خدماتنا"
+                            data-en="Everything your brand needs."
+                            data-ar="كل اللي البراند بتاعك محتاجه."
                         >
-                            Our services
+                            Everything your brand needs.
                         </h2>
 
                     </div>
 
-
                     <p
-                        data-en="A complete digital solution for brands that want to grow, compete and stand out."
-                        data-ar="حلول رقمية متكاملة للعلامات التجارية التي تريد النمو والمنافسة والتميز."
+                        data-en="From strategy to execution, we create digital solutions designed to make your business grow."
+                        data-ar="من الاستراتيجية للتنفيذ، بنقدم حلول رقمية مصممة عشان تساعد البيزنس بتاعك يكبر."
                     >
-                        A complete digital solution for brands
-                        that want to grow, compete and stand out.
+                        From strategy to execution, we create digital solutions
+                        designed to make your business grow.
                     </p>
 
                 </div>
@@ -407,36 +500,43 @@
                 <div class="services-grid">
 
 
-                    <!-- SERVICE 01 -->
+                    <article class="service-card tilt-card reveal">
 
-                    <article class="service-card">
+                        <div class="service-number">01</div>
 
-                        <span>01</span>
+                        <div class="service-icon">
+                            📈
+                        </div>
 
                         <h3
                             data-en="Media Buying"
-                            data-ar="Media Buying"
+                            data-ar="الإعلانات الممولة"
                         >
                             Media Buying
                         </h3>
 
                         <p
-                            data-en="Data-driven paid advertising campaigns designed to reach the right audience and maximize your return."
-                            data-ar="حملات إعلانية مدفوعة تعتمد على البيانات للوصول للجمهور المناسب وتحقيق أفضل عائد."
+                            data-en="Smart paid campaigns with accurate targeting and continuous optimization."
+                            data-ar="حملات إعلانية ذكية باستهداف دقيق وتحسين مستمر للأداء."
                         >
-                            Data-driven paid advertising campaigns
-                            designed to reach the right audience
-                            and maximize your return.
+                            Smart paid campaigns with accurate targeting
+                            and continuous optimization.
                         </p>
+
+                        <div class="service-link">
+                            <span>↗</span>
+                        </div>
 
                     </article>
 
 
-                    <!-- SERVICE 02 -->
+                    <article class="service-card tilt-card reveal">
 
-                    <article class="service-card">
+                        <div class="service-number">02</div>
 
-                        <span>02</span>
+                        <div class="service-icon">
+                            🎯
+                        </div>
 
                         <h3
                             data-en="Digital Marketing"
@@ -446,45 +546,57 @@
                         </h3>
 
                         <p
-                            data-en="Marketing strategies built around your goals, audience and business growth."
-                            data-ar="استراتيجيات تسويقية مبنية على أهدافك وجمهورك ونمو نشاطك التجاري."
+                            data-en="Complete marketing strategies built around your business goals and audience."
+                            data-ar="استراتيجيات تسويقية متكاملة مبنية على أهداف البيزنس والجمهور المستهدف."
                         >
-                            Marketing strategies built around
-                            your goals, audience and business growth.
+                            Complete marketing strategies built around
+                            your business goals and audience.
                         </p>
+
+                        <div class="service-link">
+                            <span>↗</span>
+                        </div>
 
                     </article>
 
 
-                    <!-- SERVICE 03 -->
+                    <article class="service-card tilt-card reveal">
 
-                    <article class="service-card">
+                        <div class="service-number">03</div>
 
-                        <span>03</span>
+                        <div class="service-icon">
+                            🎨
+                        </div>
 
                         <h3
-                            data-en="Social Media"
-                            data-ar="السوشيال ميديا"
+                            data-en="Creative & Social"
+                            data-ar="المحتوى والسوشيال"
                         >
-                            Social Media
+                            Creative & Social
                         </h3>
 
                         <p
-                            data-en="Creative content and social campaigns that make your brand impossible to ignore."
-                            data-ar="محتوى إبداعي وحملات سوشيال ميديا تجعل علامتك التجارية أكثر حضورًا وتأثيرًا."
+                            data-en="Creative content and social media campaigns that make your brand stand out."
+                            data-ar="محتوى إبداعي وحملات سوشيال ميديا تخلي البراند بتاعك مميز."
                         >
-                            Creative content and social campaigns
-                            that make your brand impossible to ignore.
+                            Creative content and social media campaigns
+                            that make your brand stand out.
                         </p>
+
+                        <div class="service-link">
+                            <span>↗</span>
+                        </div>
 
                     </article>
 
 
-                    <!-- SERVICE 04 -->
+                    <article class="service-card tilt-card reveal featured-service">
 
-                    <article class="service-card">
+                        <div class="service-number">04</div>
 
-                        <span>04</span>
+                        <div class="service-icon">
+                            💻
+                        </div>
 
                         <h3
                             data-en="Web Design"
@@ -494,36 +606,46 @@
                         </h3>
 
                         <p
-                            data-en="Fast, modern and responsive websites designed around your brand and your customers."
-                            data-ar="مواقع سريعة وحديثة ومتجاوبة مصممة حول علامتك التجارية وعملائك."
+                            data-en="Modern, fast and responsive websites designed to turn visitors into customers."
+                            data-ar="مواقع حديثة وسريعة ومتجاوبة مصممة لتحويل الزوار إلى عملاء."
                         >
-                            Fast, modern and responsive websites
-                            designed around your brand and your customers.
+                            Modern, fast and responsive websites designed
+                            to turn visitors into customers.
                         </p>
+
+                        <div class="service-link">
+                            <span>↗</span>
+                        </div>
 
                     </article>
 
 
-                    <!-- SERVICE 05 -->
+                    <article class="service-card tilt-card reveal">
 
-                    <article class="service-card">
+                        <div class="service-number">05</div>
 
-                        <span>05</span>
+                        <div class="service-icon">
+                            🔍
+                        </div>
 
                         <h3
-                            data-en="Branding"
-                            data-ar="الهوية البصرية"
+                            data-en="Market Analysis"
+                            data-ar="تحليل السوق والمنافسين"
                         >
-                            Branding
+                            Market Analysis
                         </h3>
 
                         <p
-                            data-en="Strong visual identities that communicate your value and make your business memorable."
-                            data-ar="هويات بصرية قوية توصل قيمة البراند وتجعل نشاطك التجاري سهل التذكر."
+                            data-en="We study the market and competitors to find opportunities for your business."
+                            data-ar="بندرس السوق والمنافسين عشان نلاقي فرص حقيقية لنمو البيزنس."
                         >
-                            Strong visual identities that communicate
-                            your value and make your business memorable.
+                            We study the market and competitors to find
+                            opportunities for your business.
                         </p>
+
+                        <div class="service-link">
+                            <span>↗</span>
+                        </div>
 
                     </article>
 
@@ -534,212 +656,441 @@
         </section>
 
 
-        <!-- ==================================================
-             WORK
-        =================================================== -->
+        <!-- =========================
+             STATS
+        ========================== -->
 
-        <section
-            class="section work"
-            id="work"
-        >
+        <section class="stats-section">
+
+            <div class="container stats-grid">
+
+                <div class="stat reveal">
+                    <strong data-count="100">0</strong>
+                    <span>%</span>
+                    <p
+                        data-en="Commitment"
+                        data-ar="التزام"
+                    >
+                        Commitment
+                    </p>
+                </div>
+
+
+                <div class="stat reveal">
+                    <strong data-count="360">0</strong>
+                    <span>°</span>
+                    <p
+                        data-en="Marketing Vision"
+                        data-ar="رؤية تسويقية"
+                    >
+                        Marketing Vision
+                    </p>
+                </div>
+
+
+                <div class="stat reveal">
+                    <strong data-count="24">0</strong>
+                    <span>/7</span>
+                    <p
+                        data-en="Support"
+                        data-ar="دعم"
+                    >
+                        Support
+                    </p>
+                </div>
+
+
+                <div class="stat reveal">
+                    <strong data-count="1">0</strong>
+                    <span>+</span>
+                    <p
+                        data-en="Goal: Your Growth"
+                        data-ar="هدفنا: نموك"
+                    >
+                        Goal: Your Growth
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             WORK
+        ========================== -->
+
+        <section class="section work-section" id="work">
 
             <div class="container">
 
-
-                <div class="section-heading">
+                <div class="section-heading reveal">
 
                     <div>
 
-                        <div
-                            class="eyebrow"
-                            data-en="SELECTED PROJECTS"
-                            data-ar="أهم أعمالنا"
-                        >
-                            SELECTED PROJECTS
+                        <div class="section-number">
+                            02 / OUR WORK
                         </div>
 
                         <h2
-                            data-en="Our work"
-                            data-ar="أعمالنا"
+                            data-en="Projects that speak for us."
+                            data-ar="شغلنا بيتكلم عننا."
                         >
-                            Our work
+                            Projects that speak for us.
                         </h2>
 
                     </div>
 
-
                     <p
-                        data-en="A selection of campaigns, websites and creative projects."
-                        data-ar="مجموعة من الحملات والمواقع والمشاريع الإبداعية التي قمنا بتنفيذها."
+                        data-en="Replace the placeholders below with your real projects whenever you're ready."
+                        data-ar="استبدل الأماكن دي بصور مشاريعك الحقيقية لما تكون جاهز."
                     >
-                        A selection of campaigns, websites
-                        and creative projects.
+                        Replace the placeholders below with your real projects
+                        whenever you're ready.
                     </p>
 
                 </div>
 
 
-                <div class="work-grid">
+                <!-- WEB PROJECTS -->
+
+                <div class="sub-heading reveal">
+
+                    <span class="sub-heading-line"></span>
+
+                    <h3
+                        data-en="Web Design Projects"
+                        data-ar="مشاريع تصميم المواقع"
+                    >
+                        Web Design Projects
+                    </h3>
+
+                    <span class="sub-heading-line"></span>
+
+                </div>
 
 
-                    <!-- PROJECT 01 -->
-
-                    <article class="work-card">
-
-                        <div class="work-placeholder">
-
-                            <span>
-                                PROJECT 01
-                            </span>
-
-                        </div>
+                <div class="projects-grid web-projects">
 
 
-                        <div class="work-info">
+                    <article class="project-card project-large tilt-card reveal">
 
-                            <small
-                                data-en="MEDIA BUYING"
-                                data-ar="MEDIA BUYING"
-                            >
-                                MEDIA BUYING
-                            </small>
+                        <div class="project-image placeholder-image">
 
-                            <h3
-                                data-en="Campaign Case Study"
-                                data-ar="دراسة حالة حملة إعلانية"
-                            >
-                                Campaign Case Study
-                            </h3>
+                            <div class="placeholder-content">
 
-                            <p
-                                data-en="Strategy · Advertising · Performance"
-                                data-ar="استراتيجية · إعلانات · أداء"
-                            >
-                                Strategy · Advertising · Performance
-                            </p>
+                                <span>WEB PROJECT 01</span>
 
-                        </div>
+                                <strong
+                                    data-en="Your Website Image"
+                                    data-ar="صورة الموقع هنا"
+                                >
+                                    Your Website Image
+                                </strong>
 
-                    </article>
+                            </div>
 
-
-                    <!-- PROJECT 02 -->
-
-                    <article class="work-card">
-
-                        <div class="work-placeholder">
-
-                            <span>
-                                PROJECT 02
-                            </span>
+                            <div class="project-overlay"></div>
 
                         </div>
 
 
-                        <div class="work-info">
+                        <div class="project-info">
 
-                            <small
-                                data-en="WEB DESIGN"
-                                data-ar="تصميم مواقع"
-                            >
-                                WEB DESIGN
-                            </small>
+                            <div>
 
-                            <h3
-                                data-en="Modern Business Website"
-                                data-ar="موقع شركة عصري"
-                            >
-                                Modern Business Website
-                            </h3>
+                                <small
+                                    data-en="WEB DESIGN / DEVELOPMENT"
+                                    data-ar="تصميم / برمجة مواقع"
+                                >
+                                    WEB DESIGN / DEVELOPMENT
+                                </small>
 
-                            <p
-                                data-en="UX/UI · Development · Responsive"
-                                data-ar="UX/UI · برمجة · متجاوب"
-                            >
-                                UX/UI · Development · Responsive
-                            </p>
+                                <h3
+                                    data-en="Modern Business Website"
+                                    data-ar="موقع شركة مودرن"
+                                >
+                                    Modern Business Website
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PROJECT 03 -->
+                    <article class="project-card tilt-card reveal">
 
-                    <article class="work-card">
+                        <div class="project-image placeholder-image">
 
-                        <div class="work-placeholder">
+                            <div class="placeholder-content">
 
-                            <span>
-                                PROJECT 03
-                            </span>
+                                <span>WEB PROJECT 02</span>
+
+                                <strong
+                                    data-en="Your Website Image"
+                                    data-ar="صورة الموقع هنا"
+                                >
+                                    Your Website Image
+                                </strong>
+
+                            </div>
 
                         </div>
 
 
-                        <div class="work-info">
+                        <div class="project-info">
 
-                            <small
-                                data-en="SOCIAL MEDIA"
-                                data-ar="سوشيال ميديا"
-                            >
-                                SOCIAL MEDIA
-                            </small>
+                            <div>
 
-                            <h3
-                                data-en="Creative Social Campaign"
-                                data-ar="حملة سوشيال إبداعية"
-                            >
-                                Creative Social Campaign
-                            </h3>
+                                <small>LANDING PAGE</small>
 
-                            <p
-                                data-en="Content · Design · Social Strategy"
-                                data-ar="محتوى · تصميم · استراتيجية سوشيال"
-                            >
-                                Content · Design · Social Strategy
-                            </p>
+                                <h3
+                                    data-en="High Converting Landing Page"
+                                    data-ar="Landing Page عالية التحويل"
+                                >
+                                    High Converting Landing Page
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
 
                         </div>
 
                     </article>
 
 
-                    <!-- PROJECT 04 -->
+                    <article class="project-card tilt-card reveal">
 
-                    <article class="work-card">
+                        <div class="project-image placeholder-image">
 
-                        <div class="work-placeholder">
+                            <div class="placeholder-content">
 
-                            <span>
-                                PROJECT 04
-                            </span>
+                                <span>WEB PROJECT 03</span>
+
+                                <strong
+                                    data-en="Your Website Image"
+                                    data-ar="صورة الموقع هنا"
+                                >
+                                    Your Website Image
+                                </strong>
+
+                            </div>
 
                         </div>
 
 
-                        <div class="work-info">
+                        <div class="project-info">
 
-                            <small
-                                data-en="BRANDING"
-                                data-ar="هوية بصرية"
-                            >
-                                BRANDING
-                            </small>
+                            <div>
 
-                            <h3
-                                data-en="Brand Identity"
-                                data-ar="هوية بصرية متكاملة"
-                            >
-                                Brand Identity
-                            </h3>
+                                <small>ECOMMERCE</small>
 
-                            <p
-                                data-en="Identity · Art Direction · Visual System"
-                                data-ar="هوية · توجيه فني · نظام بصري"
-                            >
-                                Identity · Art Direction · Visual System
-                            </p>
+                                <h3
+                                    data-en="E-Commerce Experience"
+                                    data-ar="متجر إلكتروني احترافي"
+                                >
+                                    E-Commerce Experience
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card project-wide tilt-card reveal">
+
+                        <div class="project-image placeholder-image">
+
+                            <div class="placeholder-content">
+
+                                <span>WEB PROJECT 04</span>
+
+                                <strong
+                                    data-en="Your Website Image"
+                                    data-ar="صورة الموقع هنا"
+                                >
+                                    Your Website Image
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div>
+
+                                <small>UI / UX</small>
+
+                                <h3
+                                    data-en="Creative Digital Experience"
+                                    data-ar="تجربة رقمية إبداعية"
+                                >
+                                    Creative Digital Experience
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <!-- MEDIA BUYING -->
+
+                <div class="sub-heading reveal media-heading">
+
+                    <span class="sub-heading-line"></span>
+
+                    <h3
+                        data-en="Media Buying & Marketing"
+                        data-ar="مشاريع الإعلانات والتسويق"
+                    >
+                        Media Buying & Marketing
+                    </h3>
+
+                    <span class="sub-heading-line"></span>
+
+                </div>
+
+
+                <div class="projects-grid media-projects">
+
+
+                    <article class="project-card tilt-card reveal">
+
+                        <div class="project-image placeholder-image">
+
+                            <div class="placeholder-content">
+
+                                <span>MEDIA PROJECT 01</span>
+
+                                <strong
+                                    data-en="Campaign Creative"
+                                    data-ar="صورة الحملة هنا"
+                                >
+                                    Campaign Creative
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div>
+
+                                <small>MEDIA BUYING</small>
+
+                                <h3
+                                    data-en="Lead Generation Campaign"
+                                    data-ar="حملة توليد عملاء محتملين"
+                                >
+                                    Lead Generation Campaign
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card tilt-card reveal">
+
+                        <div class="project-image placeholder-image">
+
+                            <div class="placeholder-content">
+
+                                <span>MEDIA PROJECT 02</span>
+
+                                <strong
+                                    data-en="Campaign Creative"
+                                    data-ar="صورة الحملة هنا"
+                                >
+                                    Campaign Creative
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div>
+
+                                <small>PAID ADS</small>
+
+                                <h3
+                                    data-en="Performance Campaign"
+                                    data-ar="حملة إعلانية Performance"
+                                >
+                                    Performance Campaign
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project-card tilt-card reveal">
+
+                        <div class="project-image placeholder-image">
+
+                            <div class="placeholder-content">
+
+                                <span>MEDIA PROJECT 03</span>
+
+                                <strong
+                                    data-en="Campaign Creative"
+                                    data-ar="صورة الحملة هنا"
+                                >
+                                    Campaign Creative
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <div>
+
+                                <small>DIGITAL MARKETING</small>
+
+                                <h3
+                                    data-en="Brand Growth Campaign"
+                                    data-ar="حملة نمو للبراند"
+                                >
+                                    Brand Growth Campaign
+                                </h3>
+
+                            </div>
+
+                            <span class="project-arrow">↗</span>
 
                         </div>
 
@@ -752,139 +1103,741 @@
         </section>
 
 
-        <!-- ==================================================
-             ABOUT
-        =================================================== -->
+        <!-- =========================
+             TESTIMONIALS
+        ========================== -->
 
         <section
-            class="section about"
-            id="about"
-        >
-
-            <div class="container about-grid">
-
-
-                <div>
-
-                    <div
-                        class="eyebrow"
-                        data-en="WHO WE ARE"
-                        data-ar="من نحن"
-                    >
-                        WHO WE ARE
-                    </div>
-
-
-                    <h2>
-
-                        <span
-                            data-en="We think"
-                            data-ar="نحن نفكر"
-                        >
-                            We think
-                        </span>
-
-                        <strong
-                            data-en="bigger."
-                            data-ar="بشكل أكبر."
-                        >
-                            bigger.
-                        </strong>
-
-                    </h2>
-
-                </div>
-
-
-                <div class="about-text">
-
-                    <p
-                        data-en="We are a digital marketing team focused on helping businesses build stronger brands, reach better audiences and generate real growth."
-                        data-ar="نحن فريق متخصص في التسويق الرقمي، نركز على مساعدة الشركات في بناء علامات تجارية أقوى والوصول إلى الجمهور المناسب وتحقيق نمو حقيقي."
-                    >
-                        We are a digital marketing team focused on
-                        helping businesses build stronger brands,
-                        reach better audiences and generate real growth.
-                    </p>
-
-
-                    <p
-                        data-en="From the first idea to the final result, we bring strategy, creativity and technology together in one place."
-                        data-ar="من أول فكرة وحتى النتيجة النهائية، نجمع الاستراتيجية والإبداع والتكنولوجيا في مكان واحد."
-                    >
-                        From the first idea to the final result,
-                        we bring strategy, creativity and technology
-                        together in one place.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ==================================================
-             CONTACT
-        =================================================== -->
-
-        <section
-            class="section contact"
-            id="contact"
+            class="section testimonials-section"
+            id="testimonials"
         >
 
             <div class="container">
 
-                <div class="contact-box">
+                <div class="section-heading reveal">
 
+                    <div>
 
-                    <div
-                        class="eyebrow"
-                        data-en="LET'S WORK TOGETHER"
-                        data-ar="لنعمل معًا"
+                        <div class="section-number">
+                            03 / TESTIMONIALS
+                        </div>
+
+                        <h2
+                            data-en="Don't take our word for it."
+                            data-ar="مش محتاج تصدقنا… اسمع عملائنا."
+                        >
+                            Don't take our word for it.
+                        </h2>
+
+                    </div>
+
+                    <p
+                        data-en="Add your client testimonial videos here and let their experience tell the story."
+                        data-ar="حط فيديوهات آراء العملاء هنا وخلي تجربتهم هي اللي تتكلم."
                     >
-                        LET'S WORK TOGETHER
+                        Add your client testimonial videos here and let their
+                        experience tell the story.
+                    </p>
+
+                </div>
+
+
+                <div class="testimonial-grid">
+
+
+                    <!-- VIDEO CARD -->
+
+                    <article class="testimonial-card tilt-card reveal">
+
+                        <div class="video-placeholder">
+
+                            <div class="play-button">
+                                ▶
+                            </div>
+
+                            <span
+                                data-en="CLIENT VIDEO"
+                                data-ar="فيديو العميل"
+                            >
+                                CLIENT VIDEO
+                            </span>
+
+                        </div>
+
+
+                        <div class="testimonial-content">
+
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+
+                            <p
+                                data-en="“Your client review will appear here.”"
+                                data-ar="“رأي العميل هيظهر هنا.”"
+                            >
+                                “Your client review will appear here.”
+                            </p>
+
+                            <div class="client-info">
+
+                                <div class="client-avatar">
+                                    +
+                                </div>
+
+                                <div>
+
+                                    <strong
+                                        data-en="Client Name"
+                                        data-ar="اسم العميل"
+                                    >
+                                        Client Name
+                                    </strong>
+
+                                    <span
+                                        data-en="Business Owner"
+                                        data-ar="صاحب المشروع"
+                                    >
+                                        Business Owner
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- VIDEO CARD -->
+
+                    <article class="testimonial-card tilt-card reveal">
+
+                        <div class="video-placeholder">
+
+                            <div class="play-button">
+                                ▶
+                            </div>
+
+                            <span
+                                data-en="CLIENT VIDEO"
+                                data-ar="فيديو العميل"
+                            >
+                                CLIENT VIDEO
+                            </span>
+
+                        </div>
+
+
+                        <div class="testimonial-content">
+
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+
+                            <p
+                                data-en="“Your client review will appear here.”"
+                                data-ar="“رأي العميل هيظهر هنا.”"
+                            >
+                                “Your client review will appear here.”
+                            </p>
+
+                            <div class="client-info">
+
+                                <div class="client-avatar">
+                                    +
+                                </div>
+
+                                <div>
+
+                                    <strong
+                                        data-en="Client Name"
+                                        data-ar="اسم العميل"
+                                    >
+                                        Client Name
+                                    </strong>
+
+                                    <span
+                                        data-en="Business Owner"
+                                        data-ar="صاحب المشروع"
+                                    >
+                                        Business Owner
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- VIDEO CARD -->
+
+                    <article class="testimonial-card tilt-card reveal">
+
+                        <div class="video-placeholder">
+
+                            <div class="play-button">
+                                ▶
+                            </div>
+
+                            <span
+                                data-en="CLIENT VIDEO"
+                                data-ar="فيديو العميل"
+                            >
+                                CLIENT VIDEO
+                            </span>
+
+                        </div>
+
+
+                        <div class="testimonial-content">
+
+                            <div class="stars">
+                                ★★★★★
+                            </div>
+
+                            <p
+                                data-en="“Your client review will appear here.”"
+                                data-ar="“رأي العميل هيظهر هنا.”"
+                            >
+                                “Your client review will appear here.”
+                            </p>
+
+                            <div class="client-info">
+
+                                <div class="client-avatar">
+                                    +
+                                </div>
+
+                                <div>
+
+                                    <strong
+                                        data-en="Client Name"
+                                        data-ar="اسم العميل"
+                                    >
+                                        Client Name
+                                    </strong>
+
+                                    <span
+                                        data-en="Business Owner"
+                                        data-ar="صاحب المشروع"
+                                    >
+                                        Business Owner
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PRICING
+        ========================== -->
+
+        <section
+            class="section pricing-section"
+            id="pricing"
+        >
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <div>
+
+                        <div class="section-number">
+                            04 / PACKAGES
+                        </div>
+
+                        <h2
+                            data-en="Choose your growth plan."
+                            data-ar="اختار الباقة المناسبة لنموك."
+                        >
+                            Choose your growth plan.
+                        </h2>
+
+                    </div>
+
+                    <p
+                        data-en="Packages are flexible and can be customized according to your business needs."
+                        data-ar="الباقات مرنة ونقدر نعدلها حسب احتياجات وطبيعة البيزنس."
+                    >
+                        Packages are flexible and can be customized according
+                        to your business needs.
+                    </p>
+
+                </div>
+
+
+                <div class="pricing-grid">
+
+
+                    <!-- PACKAGE -->
+
+                    <article class="pricing-card reveal">
+
+                        <div class="pricing-top">
+
+                            <span
+                                data-en="STARTER"
+                                data-ar="البداية"
+                            >
+                                STARTER
+                            </span>
+
+                            <div class="pricing-icon">
+                                01
+                            </div>
+
+                        </div>
+
+
+                        <h3
+                            data-en="Start Smart"
+                            data-ar="ابدأ صح"
+                        >
+                            Start Smart
+                        </h3>
+
+
+                        <p
+                            data-en="For businesses that want to establish a strong digital presence."
+                            data-ar="للبيزنس اللي عايز يبدأ أو يقوي وجوده على الإنترنت."
+                        >
+                            For businesses that want to establish
+                            a strong digital presence.
+                        </p>
+
+
+                        <div class="price">
+
+                            <small
+                                data-en="Starting from"
+                                data-ar="يبدأ من"
+                            >
+                                Starting from
+                            </small>
+
+                            <strong
+                                data-en="Custom"
+                                data-ar="حسب المشروع"
+                            >
+                                Custom
+                            </strong>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>✓ Social Media Strategy</li>
+                            <li>✓ Content Planning</li>
+                            <li>✓ Basic Paid Ads</li>
+                            <li>✓ Monthly Report</li>
+
+                        </ul>
+
+
+                        <a
+                            href="#contact"
+                            class="pricing-button"
+                            data-en="Get Started"
+                            data-ar="ابدأ الآن"
+                        >
+                            Get Started
+                        </a>
+
+                    </article>
+
+
+                    <!-- PACKAGE FEATURED -->
+
+                    <article class="pricing-card featured-pricing reveal">
+
+                        <div class="popular-label">
+
+                            <span
+                                data-en="MOST POPULAR"
+                                data-ar="الأكثر طلبًا"
+                            >
+                                MOST POPULAR
+                            </span>
+
+                        </div>
+
+
+                        <div class="pricing-top">
+
+                            <span
+                                data-en="GROWTH"
+                                data-ar="النمو"
+                            >
+                                GROWTH
+                            </span>
+
+                            <div class="pricing-icon">
+                                02
+                            </div>
+
+                        </div>
+
+
+                        <h3
+                            data-en="Grow Faster"
+                            data-ar="كبر أسرع"
+                        >
+                            Grow Faster
+                        </h3>
+
+
+                        <p
+                            data-en="For businesses ready to scale their marketing and generate more leads."
+                            data-ar="للبيزنس الجاهز يكبر التسويق ويجيب عملاء وفرص أكتر."
+                        >
+                            For businesses ready to scale their marketing
+                            and generate more leads.
+                        </p>
+
+
+                        <div class="price">
+
+                            <small
+                                data-en="Starting from"
+                                data-ar="يبدأ من"
+                            >
+                                Starting from
+                            </small>
+
+                            <strong
+                                data-en="Custom"
+                                data-ar="حسب المشروع"
+                            >
+                                Custom
+                            </strong>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>✓ Complete Marketing Strategy</li>
+                            <li>✓ Advanced Media Buying</li>
+                            <li>✓ Creative Campaigns</li>
+                            <li>✓ Performance Tracking</li>
+                            <li>✓ Detailed Reports</li>
+
+                        </ul>
+
+
+                        <a
+                            href="#contact"
+                            class="pricing-button"
+                            data-en="Choose Growth"
+                            data-ar="اختار الباقة"
+                        >
+                            Choose Growth
+                        </a>
+
+                    </article>
+
+
+                    <!-- PACKAGE -->
+
+                    <article class="pricing-card reveal">
+
+                        <div class="pricing-top">
+
+                            <span
+                                data-en="PREMIUM"
+                                data-ar="بريميوم"
+                            >
+                                PREMIUM
+                            </span>
+
+                            <div class="pricing-icon">
+                                03
+                            </div>
+
+                        </div>
+
+
+                        <h3
+                            data-en="Scale Big"
+                            data-ar="كبر بشكل أكبر"
+                        >
+                            Scale Big
+                        </h3>
+
+
+                        <p
+                            data-en="A complete digital growth system for ambitious businesses."
+                            data-ar="نظام نمو رقمي متكامل للبيزنس الطموح."
+                        >
+                            A complete digital growth system
+                            for ambitious businesses.
+                        </p>
+
+
+                        <div class="price">
+
+                            <small
+                                data-en="Starting from"
+                                data-ar="يبدأ من"
+                            >
+                                Starting from
+                            </small>
+
+                            <strong
+                                data-en="Custom"
+                                data-ar="حسب المشروع"
+                            >
+                                Custom
+                            </strong>
+
+                        </div>
+
+
+                        <ul>
+
+                            <li>✓ Full Digital Strategy</li>
+                            <li>✓ Media Buying</li>
+                            <li>✓ Website / Landing Pages</li>
+                            <li>✓ Creative Production</li>
+                            <li>✓ Analytics & Optimization</li>
+
+                        </ul>
+
+
+                        <a
+                            href="#contact"
+                            class="pricing-button"
+                            data-en="Talk to Us"
+                            data-ar="تواصل معنا"
+                        >
+                            Talk to Us
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section class="section about-section" id="about">
+
+            <div class="container about-grid">
+
+                <div class="about-visual reveal">
+
+                    <div class="about-card">
+
+                        <div class="about-card-glow"></div>
+
+                        <img
+                            src="./logo.png"
+                            alt="Eng. Ahmed Talaat"
+                        >
+
+                        <div class="about-floating-number">
+                            <strong>01</strong>
+                            <span
+                                data-en="Goal"
+                                data-ar="هدف"
+                            >
+                                Goal
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="about-content reveal">
+
+                    <div class="section-number">
+                        05 / ABOUT US
                     </div>
 
 
                     <h2>
 
                         <span
-                            data-en="Have a project?"
-                            data-ar="عندك مشروع؟"
+                            data-en="Your success"
+                            data-ar="نجاح مشروعك"
                         >
-                            Have a project?
+                            Your success
                         </span>
 
                         <strong
-                            data-en="Let's talk."
-                            data-ar="خلينا نتكلم."
+                            data-en="is our goal."
+                            data-ar="هو هدفنا."
                         >
-                            Let's talk.
+                            is our goal.
                         </strong>
 
                     </h2>
 
 
                     <p
-                        data-en="Tell us what you have in mind and let's turn your idea into something that works."
-                        data-ar="احكيلنا عن فكرتك وخلينا نحولها لحاجة حقيقية تحقق نتائج."
+                        data-en="We believe marketing is not just about getting attention. It's about understanding the market, finding the right audience and creating a system that turns attention into real business."
+                        data-ar="إحنا مؤمنين إن التسويق مش مجرد إن الناس تشوفك. التسويق الحقيقي هو إننا نفهم السوق، نحدد الجمهور الصح ونبني نظام يحول الاهتمام لنتائج حقيقية."
                     >
-                        Tell us what you have in mind and let's
-                        turn your idea into something that works.
+                        We believe marketing is not just about getting attention.
+                        It's about understanding the market, finding the right audience
+                        and creating a system that turns attention into real business.
                     </p>
 
 
-                    <a
-                        href="tel:+201006907047"
-                        class="btn btn-primary"
-                        data-en="Contact Us"
-                        data-ar="تواصل معنا"
-                    >
-                        Contact Us
+                    <div class="about-points">
 
-                        <span>↗</span>
-                    </a>
+                        <div>
+                            <span>01</span>
+
+                            <strong
+                                data-en="Successful Marketing Ideas"
+                                data-ar="أفكار تسويقية ناجحة"
+                            >
+                                Successful Marketing Ideas
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>02</span>
+
+                            <strong
+                                data-en="Precise Paid Advertising"
+                                data-ar="إعلانات ممولة باستهداف دقيق"
+                            >
+                                Precise Paid Advertising
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span>03</span>
+
+                            <strong
+                                data-en="Market & Competitor Analysis"
+                                data-ar="تحليل السوق والمنافسين"
+                            >
+                                Market & Competitor Analysis
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta-section" id="contact">
+
+            <div class="container">
+
+                <div class="cta-box reveal">
+
+                    <div class="cta-glow"></div>
+
+                    <div class="cta-content">
+
+                        <div class="section-number">
+                            LET'S WORK TOGETHER
+                        </div>
+
+
+                        <h2>
+
+                            <span
+                                data-en="Ready to"
+                                data-ar="جاهز"
+                            >
+                                Ready to
+                            </span>
+
+                            <strong
+                                data-en="grow?"
+                                data-ar="تكبر؟"
+                            >
+                                grow?
+                            </strong>
+
+                        </h2>
+
+
+                        <p
+                            data-en="Tell us about your business and let's build the next step together."
+                            data-ar="احكيلنا عن مشروعك وخلينا نبني الخطوة الجاية مع بعض."
+                        >
+                            Tell us about your business and let's build
+                            the next step together.
+                        </p>
+
+
+                        <div class="cta-actions">
+
+                            <a
+                                href="tel:+201006907047"
+                                class="btn btn-primary"
+                            >
+                                <span
+                                    data-en="Call Us"
+                                    data-ar="اتصل بنا"
+                                >
+                                    Call Us
+                                </span>
+
+                                <span>↗</span>
+                            </a>
+
+
+                            <a
+                                href="https://www.facebook.com/share/1ArzKz7Q64/?mibextid=wwXIfr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn btn-glass"
+                            >
+                                Facebook
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cta-decoration">
+
+                        <div class="cta-circle circle-one"></div>
+                        <div class="cta-circle circle-two"></div>
+                        <div class="cta-circle circle-three"></div>
+
+                    </div>
 
                 </div>
 
@@ -895,43 +1848,114 @@
     </main>
 
 
-    <!-- ==================================================
+    <!-- =========================
          FOOTER
-    =================================================== -->
+    ========================== -->
 
     <footer class="footer">
 
-        <div class="container footer-inner">
+        <div class="container footer-grid">
 
-            <span
-                data-en="© 2026 Digital Marketing Agency"
-                data-ar="© 2026 وكالة التسويق الرقمي"
-            >
-                © 2026 Digital Marketing Agency
-            </span>
+            <div class="footer-brand">
+
+                <img
+                    src="./logo.png"
+                    alt="Eng. Ahmed Talaat"
+                >
+
+                <p
+                    data-en="Digital marketing that moves businesses forward."
+                    data-ar="تسويق رقمي يحرك البيزنس للأمام."
+                >
+                    Digital marketing that moves businesses forward.
+                </p>
+
+            </div>
 
 
-            <span
-                data-en="Marketing · Media Buying · Web Design"
-                data-ar="تسويق · Media Buying · تصميم مواقع"
-            >
-                Marketing · Media Buying · Web Design
-            </span>
+            <div class="footer-links">
+
+                <h4
+                    data-en="Navigation"
+                    data-ar="التنقل"
+                >
+                    Navigation
+                </h4>
+
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#work">Our Work</a>
+                <a href="#pricing">Packages</a>
+
+            </div>
 
 
-            <a href="tel:+201006907047">
-                0100 690 70 47
-            </a>
+            <div class="footer-links">
+
+                <h4
+                    data-en="Services"
+                    data-ar="الخدمات"
+                >
+                    Services
+                </h4>
+
+                <span>Media Buying</span>
+                <span>Digital Marketing</span>
+                <span>Web Design</span>
+                <span>Social Media</span>
+
+            </div>
+
+
+            <div class="footer-contact">
+
+                <h4
+                    data-en="Let's Talk"
+                    data-ar="تواصل معنا"
+                >
+                    Let's Talk
+                </h4>
+
+                <a href="tel:+201006907047">
+                    0100 690 70 47
+                </a>
+
+                <a
+                    href="https://www.facebook.com/share/1ArzKz7Q64/?mibextid=wwXIfr"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Facebook Page ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <div class="container">
+
+                <span>
+                    © 2026 Eng. Ahmed Talaat Digital Marketing
+                </span>
+
+                <span
+                    data-en="Success is our goal 🎯"
+                    data-ar="نجاح مشروعك هو هدفنا 🎯"
+                >
+                    Success is our goal 🎯
+                </span>
+
+            </div>
 
         </div>
 
     </footer>
 
 
-    <!-- ==================================================
-         JAVASCRIPT
-    =================================================== -->
-
+    <!-- JAVASCRIPT -->
     <script src="./js/main.js"></script>
 
 </body>
