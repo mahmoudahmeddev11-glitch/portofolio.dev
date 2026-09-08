@@ -1,1435 +1,1690 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
 
-    <meta
-        name="description"
-        content="Digital Marketing, Media Buying, Web Design and Marketing Solutions."
-    >
+  <meta
+    name="description"
+    content="MAHMOUD AGENCY — Digital Marketing, Media Buying, Web Design and Market Analysis."
+  />
 
-    <title>Eng. Ahmed Talaat | Digital Marketing</title>
+  <meta
+    name="theme-color"
+    content="#090909"
+  />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>MAHMOUD AGENCY — Digital Growth</title>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-    >
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <link rel="stylesheet" href="./css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
 
-    <!-- =========================
-         DECORATIVE BACKGROUND
-    ========================== -->
+  <!-- =========================================
+       LOADER
+  ========================================== -->
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <div class="loader-logo">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
 
-    <div class="site-bg" aria-hidden="true">
-        <div class="bg-orb bg-orb-1"></div>
-        <div class="bg-orb bg-orb-2"></div>
-        <div class="bg-grid"></div>
+  <!-- Decorative layers -->
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <div class="background-orb background-orb-1" aria-hidden="true"></div>
+  <div class="background-orb background-orb-2" aria-hidden="true"></div>
+  <div class="background-orb background-orb-3" aria-hidden="true"></div>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+  <header class="site-header" id="siteHeader">
+
+    <div class="container header-inner">
+
+      <a
+        href="#home"
+        class="brand"
+        aria-label="MAHMOUD AGENCY"
+      >
+        <span class="brand-symbol">
+          <span></span>
+          <span></span>
+        </span>
+
+        <span class="brand-text">
+          <strong>MAHMOUD</strong>
+          <small>AGENCY</small>
+        </span>
+      </a>
+
+      <nav
+        class="desktop-nav"
+        aria-label="Main navigation"
+      >
+        <a href="#services" data-i18n="navServices">
+          الخدمات
+        </a>
+
+        <a href="#projects" data-i18n="navProjects">
+          أعمالنا
+        </a>
+
+        <a href="#videos" data-i18n="navVideos">
+          آراء العملاء
+        </a>
+
+        <a href="#process" data-i18n="navProcess">
+          طريقة شغلنا
+        </a>
+
+        <a href="#contact" data-i18n="navContact">
+          تواصل
+        </a>
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          class="header-icon-button"
+          id="themeToggle"
+          type="button"
+          aria-label="Change theme"
+        >
+          <span>◐</span>
+        </button>
+
+        <button
+          class="language-button"
+          id="languageToggle"
+          type="button"
+        >
+          EN
+        </button>
+
+        <a
+          href="#contact"
+          class="header-cta magnetic"
+          data-i18n="navCta"
+        >
+          ابدأ مشروع
+        </a>
+
+        <button
+          class="menu-button"
+          id="menuToggle"
+          type="button"
+          aria-label="فتح القائمة"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
     </div>
 
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+      <a href="#services" data-i18n="navServices">
+        الخدمات
+      </a>
 
-    <header class="header" id="header">
+      <a href="#projects" data-i18n="navProjects">
+        أعمالنا
+      </a>
 
-        <div class="container header-inner">
+      <a href="#videos" data-i18n="navVideos">
+        آراء العملاء
+      </a>
 
-            <a href="#home" class="brand">
-                <img
-                    src="./logo.png"
-                    alt="Eng. Ahmed Talaat"
-                >
+      <a href="#process" data-i18n="navProcess">
+        طريقة شغلنا
+      </a>
+
+      <a href="#contact" data-i18n="navContact">
+        تواصل
+      </a>
+
+    </div>
+
+  </header>
+
+  <!-- =========================================
+       MAIN
+  ========================================== -->
+  <main id="home">
+
+    <!-- =======================================
+         HERO
+    ======================================== -->
+    <section class="hero">
+
+      <div class="container hero-grid">
+
+        <div class="hero-content reveal">
+
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+
+            <span data-i18n="heroEyebrow">
+              وكالة نمو وتسويق رقمي
+            </span>
+          </div>
+
+          <h1 class="hero-title">
+
+            <span data-i18n="heroTitleOne">
+              نكبّر مشروعك
+            </span>
+
+            <span class="hero-title-accent">
+              <span data-i18n="heroTitleTwo">
+                بذكاء.
+              </span>
+
+              <span
+                class="hero-accent-dot"
+                aria-hidden="true"
+              ></span>
+            </span>
+
+          </h1>
+
+          <p
+            class="hero-description"
+            data-i18n="heroDescription"
+          >
+            أفكار تسويقية ناجحة، إعلانات ممولة باستهداف
+            دقيق، تحليل للسوق والمنافسين، وتصميم مواقع
+            يساعد البيزنس يوصل لنتيجة أفضل.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#projects"
+              class="btn btn-primary magnetic"
+              data-i18n="heroPrimary"
+            >
+              شوف أعمالنا
+              <span>↗</span>
             </a>
 
-            <nav class="desktop-nav">
+            <a
+              href="#services"
+              class="btn btn-secondary magnetic"
+              data-i18n="heroSecondary"
+            >
+              خدماتنا
+            </a>
 
-                <a href="#home"
-                    data-ar="الرئيسية"
-                    data-en="Home">
-                    الرئيسية
-                </a>
+          </div>
 
-                <a href="#services"
-                    data-ar="خدماتنا"
-                    data-en="Services">
-                    خدماتنا
-                </a>
+          <div class="hero-stats">
 
-                <a href="#projects"
-                    data-ar="مشاريعنا"
-                    data-en="Projects">
-                    مشاريعنا
-                </a>
-
-                <a href="#videos"
-                    data-ar="آراء العملاء"
-                    data-en="Testimonials">
-                    آراء العملاء
-                </a>
-
-                <a href="#pricing"
-                    data-ar="الباقات"
-                    data-en="Packages">
-                    الباقات
-                </a>
-
-                <a href="#contact"
-                    data-ar="تواصل معنا"
-                    data-en="Contact">
-                    تواصل معنا
-                </a>
-
-            </nav>
-
-            <div class="header-actions">
-
-                <button
-                    class="icon-btn"
-                    id="languageBtn"
-                    type="button"
-                >
-                    EN
-                </button>
-
-                <button
-                    class="icon-btn"
-                    id="themeBtn"
-                    type="button"
-                    aria-label="Toggle theme"
-                >
-                    ☼
-                </button>
-
-                <button
-                    class="menu-btn"
-                    id="menuBtn"
-                    type="button"
-                    aria-label="Open menu"
-                    aria-expanded="false"
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-
+            <div class="hero-stat">
+              <strong>03</strong>
+              <span data-i18n="statOne">
+                مشاريع ويب
+              </span>
             </div>
+
+            <div class="hero-stat-divider"></div>
+
+            <div class="hero-stat">
+              <strong>05</strong>
+              <span data-i18n="statTwo">
+                فيديوهات عملاء
+              </span>
+            </div>
+
+            <div class="hero-stat-divider"></div>
+
+            <div class="hero-stat">
+              <strong>∞</strong>
+              <span data-i18n="statThree">
+                أفكار جديدة
+              </span>
+            </div>
+
+          </div>
 
         </div>
 
-    </header>
+        <!-- HERO VISUAL -->
+        <div class="hero-visual-wrapper reveal reveal-delay">
 
+          <div class="hero-visual tilt-card">
 
-    <!-- =========================
-         MOBILE NAV
-    ========================== -->
+            <div class="hero-grid-background"></div>
 
-    <div class="mobile-nav" id="mobileNav">
+            <div class="hero-light hero-light-one"></div>
+            <div class="hero-light hero-light-two"></div>
 
-        <a href="#home" data-ar="الرئيسية" data-en="Home">
-            الرئيسية
-        </a>
+            <!-- Browser -->
+            <div class="hero-browser">
 
-        <a href="#services" data-ar="خدماتنا" data-en="Services">
-            خدماتنا
-        </a>
+              <div class="browser-header">
 
-        <a href="#projects" data-ar="مشاريعنا" data-en="Projects">
-            مشاريعنا
-        </a>
+                <div class="browser-dots">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
 
-        <a href="#videos" data-ar="آراء العملاء" data-en="Testimonials">
-            آراء العملاء
-        </a>
+                <div class="browser-address">
+                  <span></span>
+                </div>
 
-        <a href="#pricing" data-ar="الباقات" data-en="Packages">
-            الباقات
-        </a>
+              </div>
 
-        <a href="#contact" data-ar="تواصل معنا" data-en="Contact">
-            تواصل معنا
-        </a>
+              <div class="browser-content">
 
-    </div>
+                <small>
+                  DIGITAL GROWTH
+                </small>
 
+                <div class="browser-title">
+                  <span>BUILD.</span>
+                  <span>LAUNCH.</span>
+                  <strong>GROW.</strong>
+                </div>
 
-    <!-- =========================
-         MAIN
-    ========================== -->
+                <div class="browser-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
 
-    <main>
+                <div class="browser-chart">
 
-
-        <!-- =========================
-             HERO
-        ========================== -->
-
-        <section class="hero section" id="home">
-
-            <div class="container hero-grid">
-
-                <div class="hero-copy reveal">
-
-                    <div class="eyebrow">
-                        <span class="eyebrow-dot"></span>
-
-                        <span
-                            data-ar="وكالة تسويق رقمي"
-                            data-en="DIGITAL MARKETING AGENCY"
-                        >
-                            وكالة تسويق رقمي
-                        </span>
-                    </div>
-
-
-                    <h1>
-
-                        <span
-                            data-ar="كبر مشروعك"
-                            data-en="Grow Your Business"
-                        >
-                            كبر مشروعك
-                        </span>
-
-                        <strong
-                            data-ar="بذكاء أكبر."
-                            data-en="Smarter."
-                        >
-                            بذكاء أكبر.
-                        </strong>
-
-                    </h1>
-
-
-                    <p
-                        data-ar="أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تساعد مشروعك يوصل للناس الصح."
-                        data-en="Successful marketing ideas, precise paid advertising, market analysis and high-performing websites that help your business reach the right people."
-                    >
-                        أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق،
-                        تحليل للسوق والمنافسين، وتصميم مواقع تساعد مشروعك
-                        يوصل للناس الصح.
-                    </p>
-
-
-                    <div class="hero-buttons">
-
-                        <a
-                            href="#projects"
-                            class="btn btn-primary"
-                            data-ar="شوف مشاريعنا"
-                            data-en="View Our Projects"
-                        >
-                            شوف مشاريعنا
-                        </a>
-
-                        <a
-                            href="#contact"
-                            class="btn btn-outline"
-                            data-ar="ابدأ مشروعك"
-                            data-en="Start Your Project"
-                        >
-                            ابدأ مشروعك
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-metrics">
-
-                        <div class="metric">
-                            <strong>+100</strong>
-                            <span
-                                data-ar="مشروع"
-                                data-en="Projects"
-                            >
-                                مشروع
-                            </span>
-                        </div>
-
-                        <div class="metric">
-                            <strong>+30</strong>
-                            <span
-                                data-ar="عميل"
-                                data-en="Clients"
-                            >
-                                عميل
-                            </span>
-                        </div>
-
-                        <div class="metric">
-                            <strong>24/7</strong>
-                            <span
-                                data-ar="دعم"
-                                data-en="Support"
-                            >
-                                دعم
-                            </span>
-                        </div>
-
-                    </div>
+                  <i style="height:26%"></i>
+                  <i style="height:40%"></i>
+                  <i style="height:33%"></i>
+                  <i style="height:52%"></i>
+                  <i style="height:63%"></i>
+                  <i style="height:74%"></i>
+                  <i style="height:89%"></i>
 
                 </div>
 
-
-                <div class="hero-media reveal reveal-delay">
-
-                    <div class="hero-frame">
-
-                        <img
-                            src="./hero-banner.png"
-                            alt="Digital Marketing"
-                            class="hero-banner"
-                        >
-
-                        <div class="hero-badge hero-badge-top">
-                            <span>01</span>
-                            <div>
-                                <small>SMART</small>
-                                <strong>MARKETING</strong>
-                            </div>
-                        </div>
-
-                        <div class="hero-badge hero-badge-bottom">
-                            <span>02</span>
-                            <div>
-                                <small>BUSINESS</small>
-                                <strong>GROWTH</strong>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
+              </div>
 
             </div>
 
-        </section>
+            <!-- Floating Card 1 -->
+            <div class="floating-card floating-card-one">
 
+              <div class="floating-icon">
+                ↗
+              </div>
 
-        <!-- =========================
-             MARQUEE
-        ========================== -->
+              <div>
+                <small data-i18n="floatOneSmall">
+                  Growth
+                </small>
 
-        <section class="marquee" aria-hidden="true">
-
-            <div class="marquee-track">
-
-                <span>MEDIA BUYING</span>
-                <i>✦</i>
-
-                <span>DIGITAL MARKETING</span>
-                <i>✦</i>
-
-                <span>WEB DESIGN</span>
-                <i>✦</i>
-
-                <span>SOCIAL MEDIA</span>
-                <i>✦</i>
-
-                <span>MARKET ANALYSIS</span>
-                <i>✦</i>
-
-                <span>MEDIA BUYING</span>
-                <i>✦</i>
-
-                <span>DIGITAL MARKETING</span>
-                <i>✦</i>
-
-                <span>WEB DESIGN</span>
-                <i>✦</i>
+                <strong data-i18n="floatOneStrong">
+                  More Reach
+                </strong>
+              </div>
 
             </div>
 
-        </section>
+            <!-- Floating Card 2 -->
+            <div class="floating-card floating-card-two">
 
+              <div class="floating-icon">
+                ◎
+              </div>
 
-        <!-- =========================
-             SERVICES
-        ========================== -->
+              <div>
+                <small data-i18n="floatTwoSmall">
+                  Strategy
+                </small>
 
-        <section class="section" id="services">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span
-                        class="section-label"
-                        data-ar="خدماتنا"
-                        data-en="OUR SERVICES"
-                    >
-                        خدماتنا
-                    </span>
-
-                    <h2
-                        data-ar="كل حاجة يحتاجها مشروعك للنمو"
-                        data-en="Everything Your Business Needs To Grow"
-                    >
-                        كل حاجة يحتاجها مشروعك للنمو
-                    </h2>
-
-                    <p
-                        data-ar="من الاستراتيجية والتنفيذ للإعلانات والمواقع، بنجمع كل العناصر في منظومة واحدة."
-                        data-en="From strategy and execution to advertising and websites, we bring everything together in one system."
-                    >
-                        من الاستراتيجية والتنفيذ للإعلانات والمواقع،
-                        بنجمع كل العناصر في منظومة واحدة.
-                    </p>
-
-                </div>
-
-
-                <div class="services-grid">
-
-                    <article class="glass-card service-card reveal">
-
-                        <span class="service-num">01</span>
-
-                        <div class="service-icon">
-                            ◉
-                        </div>
-
-                        <h3
-                            data-ar="Digital Marketing"
-                            data-en="Digital Marketing"
-                        >
-                            Digital Marketing
-                        </h3>
-
-                        <p
-                            data-ar="استراتيجيات تسويقية مبنية على أهداف البيزنس والجمهور والسوق."
-                            data-en="Marketing strategies built around your goals, audience and market."
-                        >
-                            استراتيجيات تسويقية مبنية على أهداف البيزنس والجمهور والسوق.
-                        </p>
-
-                        <span class="service-arrow">
-                            ↗
-                        </span>
-
-                    </article>
-
-
-                    <article class="glass-card service-card reveal">
-
-                        <span class="service-num">02</span>
-
-                        <div class="service-icon">
-                            ◌
-                        </div>
-
-                        <h3
-                            data-ar="Paid Advertising"
-                            data-en="Paid Advertising"
-                        >
-                            Paid Advertising
-                        </h3>
-
-                        <p
-                            data-ar="حملات ممولة باستهداف دقيق وتحسين مستمر للأداء."
-                            data-en="Precisely targeted paid campaigns with continuous optimization."
-                        >
-                            حملات ممولة باستهداف دقيق وتحسين مستمر للأداء.
-                        </p>
-
-                        <span class="service-arrow">
-                            ↗
-                        </span>
-
-                    </article>
-
-
-                    <article class="glass-card service-card reveal">
-
-                        <span class="service-num">03</span>
-
-                        <div class="service-icon">
-                            ◇
-                        </div>
-
-                        <h3
-                            data-ar="Web Design"
-                            data-en="Web Design"
-                        >
-                            Web Design
-                        </h3>
-
-                        <p
-                            data-ar="مواقع عصرية ومتجاوبة وسريعة ومصممة لتحويل الزوار إلى عملاء."
-                            data-en="Modern, responsive and fast websites designed to convert visitors into customers."
-                        >
-                            مواقع عصرية ومتجاوبة وسريعة ومصممة لتحويل الزوار إلى عملاء.
-                        </p>
-
-                        <span class="service-arrow">
-                            ↗
-                        </span>
-
-                    </article>
-
-
-                    <article class="glass-card service-card reveal">
-
-                        <span class="service-num">04</span>
-
-                        <div class="service-icon">
-                            ◎
-                        </div>
-
-                        <h3
-                            data-ar="Market Analysis"
-                            data-en="Market Analysis"
-                        >
-                            Market Analysis
-                        </h3>
-
-                        <p
-                            data-ar="نحلل السوق والمنافسين عشان ناخد قرارات تسويقية أفضل."
-                            data-en="We analyze the market and competitors to make smarter marketing decisions."
-                        >
-                            نحلل السوق والمنافسين عشان ناخد قرارات تسويقية أفضل.
-                        </p>
-
-                        <span class="service-arrow">
-                            ↗
-                        </span>
-
-                    </article>
-
-                </div>
+                <strong data-i18n="floatTwoStrong">
+                  Precise
+                </strong>
+              </div>
 
             </div>
 
-        </section>
+            <!-- Floating Pill -->
+            <div class="floating-pill">
 
+              <span class="pulse-dot"></span>
 
-        <!-- =========================
-             FEATURE / ABOUT
-        ========================== -->
-
-        <section class="section feature-section">
-
-            <div class="container feature-box">
-
-                <div class="feature-content reveal">
-
-                    <span
-                        class="section-label"
-                        data-ar="هدفنا"
-                        data-en="OUR MISSION"
-                    >
-                        هدفنا
-                    </span>
-
-                    <h2
-                        data-ar="نجاح مشروعك هو هدفنا 🎯"
-                        data-en="Your Business Success Is Our Goal 🎯"
-                    >
-                        نجاح مشروعك هو هدفنا 🎯
-                    </h2>
-
-                    <p
-                        data-ar="هنا هنساعدك تكبر مشروعك من خلال أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، وتحليل السوق والمنافسين."
-                        data-en="We help your business grow through successful marketing ideas, precisely targeted paid ads, and market and competitor analysis."
-                    >
-                        هنا هنساعدك تكبر مشروعك من خلال أفكار تسويقية ناجحة،
-                        إعلانات ممولة باستهداف دقيق، وتحليل السوق والمنافسين.
-                    </p>
-
-
-                    <div class="feature-list">
-
-                        <div>
-                            <span>✓</span>
-                            <strong
-                                data-ar="أفكار تسويقية ناجحة"
-                                data-en="Successful Marketing Ideas"
-                            >
-                                أفكار تسويقية ناجحة
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>✓</span>
-                            <strong
-                                data-ar="استهداف دقيق"
-                                data-en="Precise Targeting"
-                            >
-                                استهداف دقيق
-                            </strong>
-                        </div>
-
-                        <div>
-                            <span>✓</span>
-                            <strong
-                                data-ar="تحليل السوق والمنافسين"
-                                data-en="Market & Competitor Analysis"
-                            >
-                                تحليل السوق والمنافسين
-                            </strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="feature-visual reveal">
-
-                    <div class="gold-orb">
-                        <div class="orb-inner">
-                            GROW
-                        </div>
-                    </div>
-
-                    <span class="orb-caption">
-                        YOUR BUSINESS
-                    </span>
-
-                </div>
+              <span data-i18n="floatingPill">
+                Always optimizing
+              </span>
 
             </div>
 
-        </section>
+          </div>
 
+        </div>
 
-        <!-- =========================
-             WEB PROJECTS
-        ========================== -->
+      </div>
 
-        <section class="section" id="projects">
+    </section>
 
-            <div class="container">
+    <!-- =======================================
+         SPECIALTIES
+    ======================================== -->
+    <section class="specialties">
 
-                <div class="section-intro reveal">
+      <div class="container specialties-track">
 
-                    <span
-                        class="section-label"
-                        data-ar="مشاريع الويب"
-                        data-en="WEB PROJECTS"
-                    >
-                        مشاريع الويب
-                    </span>
+        <div class="specialty">
+          <span>01</span>
+          <strong>MEDIA BUYING</strong>
+        </div>
 
-                    <h2
-                        data-ar="شوف المواقع اللي بنيناها"
-                        data-en="Explore The Websites We Built"
-                    >
-                        شوف المواقع اللي بنيناها
-                    </h2>
+        <div class="specialty">
+          <span>02</span>
+          <strong>DIGITAL MARKETING</strong>
+        </div>
 
-                    <p
-                        data-ar="اضغط على أي مشروع وشوفه مباشرة جوه الموقع بدون ما تخرج منه."
-                        data-en="Open any project and explore it directly inside this website."
-                    >
-                        اضغط على أي مشروع وشوفه مباشرة جوه الموقع بدون ما تخرج منه.
-                    </p>
+        <div class="specialty">
+          <span>03</span>
+          <strong>WEB DESIGN</strong>
+        </div>
 
-                </div>
+        <div class="specialty">
+          <span>04</span>
+          <strong>MARKET ANALYSIS</strong>
+        </div>
 
+        <div class="specialty">
+          <span>05</span>
+          <strong>SOCIAL MEDIA</strong>
+        </div>
 
-                <div class="project-grid">
+      </div>
 
+    </section>
 
-                    <article class="project-card reveal">
+    <!-- =======================================
+         ABOUT
+    ======================================== -->
+    <section class="section section-light" id="about">
 
-                        <div class="project-preview project-one">
+      <div class="container about-grid">
 
-                            <div class="preview-overlay">
+        <div class="section-side-label reveal">
 
-                                <span>LIVE PROJECT</span>
+          <span>
+            01
+          </span>
 
-                                <button
-                                    type="button"
-                                    class="preview-btn"
-                                    data-project-url="https://rouh-lil-rouh.vercel.app/"
-                                    data-project-title="Rouh Lil Rouh"
-                                >
-                                    View Project ↗
-                                </button>
+          <small data-i18n="aboutLabel">
+            ABOUT
+          </small>
 
-                            </div>
+        </div>
 
-                        </div>
+        <div class="about-content reveal reveal-delay">
 
-                        <div class="project-details">
+          <div class="section-kicker">
+            <span data-i18n="aboutKicker">
+              مش بس إعلانات.
+            </span>
+          </div>
 
-                            <div>
+          <h2
+            class="section-title"
+            data-i18n-html="aboutTitle"
+          >
+            إحنا بنبني
+            <span>نمو حقيقي.</span>
+          </h2>
 
-                                <span class="project-type">
-                                    WEBSITE
-                                </span>
+          <p
+            class="section-text"
+            data-i18n="aboutText"
+          >
+            بنجمع بين الاستراتيجية، الميديا باينج،
+            تحليل السوق، المحتوى، وتصميم المواقع عشان
+            كل جزء من الرحلة يخدم الهدف الأساسي:
+            نمو المشروع.
+          </p>
 
-                                <h3>
-                                    Rouh Lil Rouh
-                                </h3>
+          <div class="about-list">
 
-                            </div>
+            <div class="about-item">
+              <span>01</span>
 
-                            <button
-                                type="button"
-                                class="round-arrow preview-btn"
-                                data-project-url="https://rouh-lil-rouh.vercel.app/"
-                                data-project-title="Rouh Lil Rouh"
-                            >
-                                ↗
-                            </button>
+              <div>
+                <h3 data-i18n="aboutItemOneTitle">
+                  أفكار تسويقية
+                </h3>
 
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal reveal-delay">
-
-                        <div class="project-preview project-two">
-
-                            <div class="preview-overlay">
-
-                                <span>LIVE PROJECT</span>
-
-                                <button
-                                    type="button"
-                                    class="preview-btn"
-                                    data-project-url="https://lahzetzikr.com/"
-                                    data-project-title="Lahzet Zikr"
-                                >
-                                    View Project ↗
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <div class="project-details">
-
-                            <div>
-
-                                <span class="project-type">
-                                    WEBSITE
-                                </span>
-
-                                <h3>
-                                    Lahzet Zikr
-                                </h3>
-
-                            </div>
-
-                            <button
-                                type="button"
-                                class="round-arrow preview-btn"
-                                data-project-url="https://lahzetzikr.com/"
-                                data-project-title="Lahzet Zikr"
-                            >
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card reveal">
-
-                        <div class="project-preview project-three">
-
-                            <div class="preview-overlay">
-
-                                <span>LIVE PROJECT</span>
-
-                                <button
-                                    type="button"
-                                    class="preview-btn"
-                                    data-project-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
-                                    data-project-title="Captain Seif"
-                                >
-                                    View Project ↗
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                        <div class="project-details">
-
-                            <div>
-
-                                <span class="project-type">
-                                    WEBSITE
-                                </span>
-
-                                <h3>
-                                    Captain Seif
-                                </h3>
-
-                            </div>
-
-                            <button
-                                type="button"
-                                class="round-arrow preview-btn"
-                                data-project-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
-                                data-project-title="Captain Seif"
-                            >
-                                ↗
-                            </button>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="project-card project-card-placeholder reveal">
-
-                        <div class="project-placeholder">
-
-                            <span>+</span>
-
-                            <p
-                                data-ar="مشروع ويب جديد"
-                                data-en="New Web Project"
-                            >
-                                مشروع ويب جديد
-                            </p>
-
-                        </div>
-
-                        <div class="project-details">
-
-                            <div>
-
-                                <span class="project-type">
-                                    YOUR NEXT PROJECT
-                                </span>
-
-                                <h3
-                                    data-ar="مشروعك هنا"
-                                    data-en="Your Project Here"
-                                >
-                                    مشروعك هنا
-                                </h3>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             VIDEO TESTIMONIALS
-        ========================== -->
-
-        <section class="section section-dark" id="videos">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span
-                        class="section-label"
-                        data-ar="آراء العملاء"
-                        data-en="CLIENT TESTIMONIALS"
-                    >
-                        آراء العملاء
-                    </span>
-
-                    <h2
-                        data-ar="خلي العملاء يتكلموا عننا"
-                        data-en="Let Our Clients Tell The Story"
-                    >
-                        خلي العملاء يتكلموا عننا
-                    </h2>
-
-                    <p
-                        data-ar="الفيديو الأول هو الفيديو الرئيسي، وبعده باقي التجارب."
-                        data-en="The first video is the featured testimonial, followed by the rest of the experiences."
-                    >
-                        الفيديو الأول هو الفيديو الرئيسي، وبعده باقي التجارب.
-                    </p>
-
-                </div>
-
-
-                <div class="video-feature reveal">
-
-                    <div class="video-feature-placeholder">
-
-                        <span class="featured-label">
-                            FEATURED TESTIMONIAL
-                        </span>
-
-                        <button
-                            type="button"
-                            class="video-play"
-                            data-video-url="https://www.facebook.com/share/r/1C1grE8a8L/"
-                            data-video-title="Featured Client Testimonial"
-                        >
-                            ▶
-                        </button>
-
-                        <small
-                            data-ar="شاهد الفيديو"
-                            data-en="Watch Video"
-                        >
-                            شاهد الفيديو
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="video-grid">
-
-
-                    <article class="video-card reveal">
-
-                        <div class="video-placeholder">
-
-                            <button
-                                type="button"
-                                class="video-play"
-                                data-video-url="https://www.facebook.com/share/r/1C56UswjqY/"
-                                data-video-title="Client Testimonial 01"
-                            >
-                                ▶
-                            </button>
-
-                            <span>
-                                VIDEO 01
-                            </span>
-
-                        </div>
-
-                        <div class="video-details">
-
-                            <h3
-                                data-ar="تجربة عميل"
-                                data-en="Client Experience"
-                            >
-                                تجربة عميل
-                            </h3>
-
-                            <p
-                                data-ar="شوف رأي العميل في الشغل."
-                                data-en="Watch the client's experience."
-                            >
-                                شوف رأي العميل في الشغل.
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="video-card reveal">
-
-                        <div class="video-placeholder">
-
-                            <button
-                                type="button"
-                                class="video-play"
-                                data-video-url="https://www.facebook.com/share/r/1JtXfVvpbx/"
-                                data-video-title="Client Testimonial 02"
-                            >
-                                ▶
-                            </button>
-
-                            <span>
-                                VIDEO 02
-                            </span>
-
-                        </div>
-
-                        <div class="video-details">
-
-                            <h3
-                                data-ar="رأي عميل"
-                                data-en="Client Review"
-                            >
-                                رأي عميل
-                            </h3>
-
-                            <p>
-                                Experience
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="video-card reveal">
-
-                        <div class="video-placeholder">
-
-                            <button
-                                type="button"
-                                class="video-play"
-                                data-video-url="https://www.facebook.com/share/r/19NyG3qPC4/"
-                                data-video-title="Client Testimonial 03"
-                            >
-                                ▶
-                            </button>
-
-                            <span>
-                                VIDEO 03
-                            </span>
-
-                        </div>
-
-                        <div class="video-details">
-
-                            <h3
-                                data-ar="تجربة عميل"
-                                data-en="Client Experience"
-                            >
-                                تجربة عميل
-                            </h3>
-
-                            <p>
-                                Experience
-                            </p>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="video-card reveal">
-
-                        <div class="video-placeholder">
-
-                            <button
-                                type="button"
-                                class="video-play"
-                                data-video-url="https://www.facebook.com/share/r/1JXTggK1uR/"
-                                data-video-title="Client Testimonial 04"
-                            >
-                                ▶
-                            </button>
-
-                            <span>
-                                VIDEO 04
-                            </span>
-
-                        </div>
-
-                        <div class="video-details">
-
-                            <h3
-                                data-ar="نتيجة وتجربة"
-                                data-en="Result & Experience"
-                            >
-                                نتيجة وتجربة
-                            </h3>
-
-                            <p>
-                                Experience
-                            </p>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PRICING
-        ========================== -->
-
-        <section class="section" id="pricing">
-
-            <div class="container">
-
-                <div class="section-intro reveal">
-
-                    <span
-                        class="section-label"
-                        data-ar="الباقات"
-                        data-en="PACKAGES"
-                    >
-                        الباقات
-                    </span>
-
-                    <h2
-                        data-ar="اختار اللي يناسب مشروعك"
-                        data-en="Choose The Right Plan"
-                    >
-                        اختار اللي يناسب مشروعك
-                    </h2>
-
-                    <p
-                        data-ar="الأسعار الحالية Placeholder لحد ما تحددوا الأسعار النهائية."
-                        data-en="Pricing is placeholder content until the final packages are confirmed."
-                    >
-                        الأسعار الحالية Placeholder لحد ما تحددوا الأسعار النهائية.
-                    </p>
-
-                </div>
-
-
-                <div class="pricing-grid">
-
-
-                    <article class="pricing-card reveal">
-
-                        <span class="pricing-label">
-                            STARTER
-                        </span>
-
-                        <h3
-                            data-ar="البداية"
-                            data-en="Starter"
-                        >
-                            البداية
-                        </h3>
-
-                        <div class="pricing-price">
-                            <strong>---</strong>
-                            <span>EGP</span>
-                        </div>
-
-                        <ul>
-
-                            <li>✓ Social Media</li>
-                            <li>✓ Basic Ads</li>
-                            <li>✓ Content Planning</li>
-                            <li>✓ Monthly Report</li>
-
-                        </ul>
-
-                        <a
-                            href="#contact"
-                            class="price-btn"
-                            data-ar="اطلب الباقة"
-                            data-en="Choose Package"
-                        >
-                            اطلب الباقة
-                        </a>
-
-                    </article>
-
-
-                    <article class="pricing-card featured reveal reveal-delay">
-
-                        <span class="popular-badge">
-                            MOST POPULAR
-                        </span>
-
-                        <span class="pricing-label">
-                            GROWTH
-                        </span>
-
-                        <h3
-                            data-ar="النمو"
-                            data-en="Growth"
-                        >
-                            النمو
-                        </h3>
-
-                        <div class="pricing-price">
-                            <strong>---</strong>
-                            <span>EGP</span>
-                        </div>
-
-                        <ul>
-
-                            <li>✓ Marketing Strategy</li>
-                            <li>✓ Paid Advertising</li>
-                            <li>✓ Creative Content</li>
-                            <li>✓ Competitor Analysis</li>
-                            <li>✓ Performance Reports</li>
-
-                        </ul>
-
-                        <a
-                            href="#contact"
-                            class="price-btn"
-                            data-ar="ابدأ الآن"
-                            data-en="Get Started"
-                        >
-                            ابدأ الآن
-                        </a>
-
-                    </article>
-
-
-                    <article class="pricing-card reveal">
-
-                        <span class="pricing-label">
-                            BUSINESS
-                        </span>
-
-                        <h3
-                            data-ar="احترافي"
-                            data-en="Business"
-                        >
-                            احترافي
-                        </h3>
-
-                        <div class="pricing-price">
-                            <strong>---</strong>
-                            <span>EGP</span>
-                        </div>
-
-                        <ul>
-
-                            <li>✓ Full Marketing Strategy</li>
-                            <li>✓ Media Buying</li>
-                            <li>✓ Website</li>
-                            <li>✓ Landing Pages</li>
-                            <li>✓ Advanced Analytics</li>
-
-                        </ul>
-
-                        <a
-                            href="#contact"
-                            class="price-btn"
-                            data-ar="تواصل معنا"
-                            data-en="Contact Us"
-                        >
-                            تواصل معنا
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
-
-        <section class="section contact-section" id="contact">
-
-            <div class="container">
-
-                <div class="contact-box reveal">
-
-                    <span
-                        class="section-label"
-                        data-ar="جاهز نبدأ؟"
-                        data-en="READY TO START?"
-                    >
-                        جاهز نبدأ؟
-                    </span>
-
-                    <h2
-                        data-ar="خلينا نكبر مشروعك سوا"
-                        data-en="Let's Grow Your Business Together"
-                    >
-                        خلينا نكبر مشروعك سوا
-                    </h2>
-
-                    <p
-                        data-ar="ابعتلنا عن مشروعك وإحنا نحدد معاك أفضل خطوة."
-                        data-en="Tell us about your business and we'll help define the right next step."
-                    >
-                        ابعتلنا عن مشروعك وإحنا نحدد معاك أفضل خطوة.
-                    </p>
-
-                    <div class="contact-actions">
-
-                        <a
-                            href="tel:+201006907047"
-                            class="btn btn-primary"
-                        >
-                            0100 690 70 47
-                        </a>
-
-                        <a
-                            href="https://www.facebook.com/share/1ArzKz7Q64/?mibextid=wwXIfr"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="btn btn-outline"
-                        >
-                            Facebook ↗
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-inner">
-
-            <div class="footer-brand">
-
-                <img
-                    src="./logo.png"
-                    alt="Eng. Ahmed Talaat"
-                >
-
-                <p
-                    data-ar="نجاح مشروعك هو هدفنا 🎯"
-                    data-en="Your business success is our goal 🎯"
-                >
-                    نجاح مشروعك هو هدفنا 🎯
+                <p data-i18n="aboutItemOneText">
+                  أفكار مبنية على السوق والجمهور.
                 </p>
-
+              </div>
             </div>
 
-            <div class="footer-links">
+            <div class="about-item">
+              <span>02</span>
 
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#projects">Projects</a>
-                <a href="#pricing">Packages</a>
+              <div>
+                <h3 data-i18n="aboutItemTwoTitle">
+                  استهداف أدق
+                </h3>
 
+                <p data-i18n="aboutItemTwoText">
+                  نوجّه الميزانية للجمهور الأقرب للشراء.
+                </p>
+              </div>
             </div>
 
-            <div class="footer-copy">
-                © <span id="year"></span> Eng. Ahmed Talaat
+            <div class="about-item">
+              <span>03</span>
+
+              <div>
+                <h3 data-i18n="aboutItemThreeTitle">
+                  تحليل مستمر
+                </h3>
+
+                <p data-i18n="aboutItemThreeText">
+                  نقيس ونحلل ونطور بدل ما نسيب الحملة.
+                </p>
+              </div>
             </div>
+
+          </div>
 
         </div>
 
-    </footer>
+      </div>
 
+    </section>
 
-    <!-- =========================
-         PROJECT MODAL
-    ========================== -->
-
-    <div
-        class="modal"
-        id="projectModal"
-        aria-hidden="true"
+    <!-- =======================================
+         SERVICES
+    ======================================== -->
+    <section
+      class="section services-section"
+      id="services"
     >
 
-        <div class="modal-backdrop"></div>
+      <div class="container">
 
-        <div class="modal-window">
+        <div class="section-heading reveal">
 
-            <div class="modal-header">
+          <div>
 
-                <strong id="projectModalTitle">
-                    Project
-                </strong>
-
-                <button
-                    class="modal-close"
-                    data-close="projectModal"
-                    type="button"
-                >
-                    ×
-                </button>
-
+            <div class="section-kicker">
+              <span data-i18n="servicesKicker">
+                الخدمات
+              </span>
             </div>
 
-            <div class="modal-body">
+            <h2
+              class="section-title"
+              data-i18n-html="servicesTitle"
+            >
+              كل حاجة
+              <span>تخدم النمو.</span>
+            </h2>
 
-                <iframe
-                    id="projectFrame"
-                    title="Project Preview"
-                    loading="lazy"
-                    allow="fullscreen"
-                ></iframe>
+          </div>
 
-            </div>
+          <p
+            class="section-intro"
+            data-i18n="servicesIntro"
+          >
+            خدمات متكاملة تخلي الاستراتيجية والتنفيذ
+            والنتيجة ماشيين في اتجاه واحد.
+          </p>
 
         </div>
 
-    </div>
+        <div class="services-grid">
 
+          <!-- Service -->
+          <article class="service-card tilt-card reveal">
 
-    <!-- =========================
-         VIDEO MODAL
-    ========================== -->
+            <div class="service-top">
+              <span>01</span>
+              <span>↗</span>
+            </div>
 
-    <div
-        class="modal"
-        id="videoModal"
-        aria-hidden="true"
-    >
+            <div class="service-icon">
+              ◎
+            </div>
 
-        <div class="modal-backdrop"></div>
+            <h3 data-i18n="serviceOneTitle">
+              Media Buying
+            </h3>
 
-        <div class="modal-window video-window">
+            <p data-i18n="serviceOneText">
+              تخطيط وإدارة وتحسين الحملات المدفوعة
+              للوصول للجمهور المناسب بكفاءة أفضل.
+            </p>
 
-            <div class="modal-header">
+            <div class="service-bottom-line"></div>
 
-                <strong id="videoModalTitle">
-                    Client Video
-                </strong>
+          </article>
 
-                <button
-                    class="modal-close"
-                    data-close="videoModal"
-                    type="button"
-                >
-                    ×
-                </button>
+          <!-- Service -->
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-top">
+              <span>02</span>
+              <span>↗</span>
+            </div>
+
+            <div class="service-icon">
+              ✦
+            </div>
+
+            <h3 data-i18n="serviceTwoTitle">
+              Digital Marketing
+            </h3>
+
+            <p data-i18n="serviceTwoText">
+              استراتيجية رقمية تجمع بين المحتوى والأداء
+              والقنوات المناسبة.
+            </p>
+
+            <div class="service-bottom-line"></div>
+
+          </article>
+
+          <!-- Service -->
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-top">
+              <span>03</span>
+              <span>↗</span>
+            </div>
+
+            <div class="service-icon">
+              ⌁
+            </div>
+
+            <h3 data-i18n="serviceThreeTitle">
+              Market Analysis
+            </h3>
+
+            <p data-i18n="serviceThreeText">
+              تحليل السوق والمنافسين والجمهور لتحديد
+              أفضل الفرص.
+            </p>
+
+            <div class="service-bottom-line"></div>
+
+          </article>
+
+          <!-- Service -->
+          <article class="service-card tilt-card reveal">
+
+            <div class="service-top">
+              <span>04</span>
+              <span>↗</span>
+            </div>
+
+            <div class="service-icon">
+              □
+            </div>
+
+            <h3 data-i18n="serviceFourTitle">
+              Web Design
+            </h3>
+
+            <p data-i18n="serviceFourText">
+              مواقع منظمة وسريعة وتركّز على تجربة
+              المستخدم والتحويل.
+            </p>
+
+            <div class="service-bottom-line"></div>
+
+          </article>
+
+          <!-- Wide service -->
+          <article class="service-card service-card-wide tilt-card reveal">
+
+            <div class="service-wide-icon">
+              ◌
+            </div>
+
+            <div>
+
+              <div class="service-top service-wide-top">
+                <span>05</span>
+                <span>↗</span>
+              </div>
+
+              <h3 data-i18n="serviceFiveTitle">
+                Social Media
+              </h3>
 
             </div>
 
-            <div class="modal-body video-modal-body">
+            <p data-i18n="serviceFiveText">
+              بناء حضور اجتماعي واضح، محتوى جذاب،
+              ورسالة متماسكة تخلي البراند أسهل في التذكر.
+            </p>
 
-                <div class="video-embed-message" id="videoEmbedMessage">
-                    Loading video...
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================
+         PROJECTS
+    ======================================== -->
+    <section
+      class="section section-light"
+      id="projects"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <div class="section-kicker">
+              <span data-i18n="projectsKicker">
+                مشاريع الويب
+              </span>
+            </div>
+
+            <h2
+              class="section-title"
+              data-i18n-html="projectsTitle"
+            >
+              ادخل المشروع
+              <span>من هنا.</span>
+            </h2>
+
+          </div>
+
+          <p
+            class="section-intro"
+            data-i18n="projectsIntro"
+          >
+            استكشف المشاريع من داخل البورتفوليو
+            بدون تغيير الصفحة.
+          </p>
+
+        </div>
+
+        <div class="project-grid">
+
+          <!-- Project 1 -->
+          <article
+            class="project-card project-featured reveal"
+            data-project-title="Rouh Lil Rouh"
+            data-project-url="https://rouh-lil-rouh.vercel.app/"
+          >
+
+            <div class="project-art project-art-one">
+
+              <div class="project-browser">
+
+                <div class="project-browser-top">
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </div>
 
-                <iframe
-                    id="videoFrame"
-                    title="Client Testimonial"
-                    loading="lazy"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                ></iframe>
+                <div class="project-browser-content">
+
+                  <small>
+                    ROUH LIL ROUH
+                  </small>
+
+                  <strong>
+                    Care.
+                    <br />
+                    <span>With meaning.</span>
+                  </strong>
+
+                  <div class="project-lines">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <span class="project-number">
+                01
+              </span>
 
             </div>
 
+            <div class="project-info">
+
+              <div>
+                <small data-i18n="projectType">
+                  WEB EXPERIENCE
+                </small>
+
+                <h3>
+                  Rouh Lil Rouh
+                </h3>
+              </div>
+
+              <button
+                class="project-button"
+                type="button"
+              >
+                <span data-i18n="projectOpen">
+                  افتح المشروع
+                </span>
+
+                <span>↗</span>
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- Project 2 -->
+          <article
+            class="project-card reveal"
+            data-project-title="Lahzet Zikr"
+            data-project-url="https://lahzetzikr.com/"
+          >
+
+            <div class="project-art project-art-two">
+
+              <div class="project-orbit"></div>
+
+              <div class="project-mini-window">
+
+                <small>
+                  LAHZET ZIKR
+                </small>
+
+                <strong>
+                  Moments
+                  <br />
+                  that stay.
+                </strong>
+
+              </div>
+
+              <span class="project-number">
+                02
+              </span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+                <small data-i18n="projectType">
+                  WEB EXPERIENCE
+                </small>
+
+                <h3>
+                  Lahzet Zikr
+                </h3>
+              </div>
+
+              <button
+                class="project-button"
+                type="button"
+              >
+                <span data-i18n="projectOpen">
+                  افتح المشروع
+                </span>
+
+                <span>↗</span>
+              </button>
+
+            </div>
+
+          </article>
+
+          <!-- Project 3 -->
+          <article
+            class="project-card reveal"
+            data-project-title="Captain Seif"
+            data-project-url="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
+          >
+
+            <div class="project-art project-art-three">
+
+              <div class="project-coach-card">
+
+                <small>
+                  CAPTAIN SEIF
+                </small>
+
+                <strong>
+                  Train
+                  <br />
+                  <span>Smarter.</span>
+                </strong>
+
+              </div>
+
+              <span class="project-number">
+                03
+              </span>
+
+            </div>
+
+            <div class="project-info">
+
+              <div>
+                <small data-i18n="projectType">
+                  WEB EXPERIENCE
+                </small>
+
+                <h3>
+                  Captain Seif
+                </h3>
+              </div>
+
+              <button
+                class="project-button"
+                type="button"
+              >
+                <span data-i18n="projectOpen">
+                  افتح المشروع
+                </span>
+
+                <span>↗</span>
+              </button>
+
+            </div>
+
+          </article>
+
         </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================
+         IMAGE PLACEHOLDERS
+    ======================================== -->
+    <section class="section showcase-section">
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <div class="section-kicker">
+              <span data-i18n="showcaseKicker">
+                مساحات جاهزة
+              </span>
+            </div>
+
+            <h2
+              class="section-title"
+              data-i18n-html="showcaseTitle"
+            >
+              حط شغلك
+              <span>هنا.</span>
+            </h2>
+
+          </div>
+
+          <p
+            class="section-intro"
+            data-i18n="showcaseIntro"
+          >
+            أماكن مجهزة تقدر تحط فيها صور الحملات
+            والكرياتيف والـCase Studies بعدين.
+          </p>
+
+        </div>
+
+        <div class="showcase-grid">
+
+          <div class="showcase-card reveal">
+            <span>01</span>
+            <strong data-i18n="showcaseOne">
+              CAMPAIGN
+            </strong>
+            <small data-i18n="showcaseHint">
+              أضف الصورة هنا
+            </small>
+          </div>
+
+          <div class="showcase-card showcase-card-tall reveal">
+            <span>02</span>
+            <strong data-i18n="showcaseTwo">
+              CREATIVE
+            </strong>
+            <small data-i18n="showcaseHint">
+              أضف الصورة هنا
+            </small>
+          </div>
+
+          <div class="showcase-card reveal">
+            <span>03</span>
+            <strong data-i18n="showcaseThree">
+              CASE STUDY
+            </strong>
+            <small data-i18n="showcaseHint">
+              أضف الصورة هنا
+            </small>
+          </div>
+
+          <div class="showcase-card reveal">
+            <span>04</span>
+            <strong data-i18n="showcaseFour">
+              BRAND CONTENT
+            </strong>
+            <small data-i18n="showcaseHint">
+              أضف الصورة هنا
+            </small>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================
+         VIDEOS
+    ======================================== -->
+    <section
+      class="section section-light"
+      id="videos"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <div class="section-kicker">
+              <span data-i18n="videosKicker">
+                آراء العملاء
+              </span>
+            </div>
+
+            <h2
+              class="section-title"
+              data-i18n-html="videosTitle"
+            >
+              الكلام
+              <span>من الناس.</span>
+            </h2>
+
+          </div>
+
+          <p
+            class="section-intro"
+            data-i18n="videosIntro"
+          >
+            أول فيديو مميز، وبعده باقي الفيديوهات
+            في نفس المكان.
+          </p>
+
+        </div>
+
+        <div class="videos-grid">
+
+          <!-- Featured Video -->
+          <article
+            class="video-card video-featured reveal"
+          >
+
+            <div class="video-preview video-preview-1">
+
+              <div class="video-overlay"></div>
+
+              <span class="featured-label">
+                <i></i>
+                <span data-i18n="featured">
+                  FEATURED
+                </span>
+              </span>
+
+              <button
+                class="video-play"
+                type="button"
+                data-video-url="https://www.facebook.com/share/r/1C1grE8a8L/"
+                aria-label="تشغيل الفيديو"
+              >
+                <span>▶</span>
+              </button>
+
+              <div class="video-bottom">
+
+                <span>
+                  01
+                </span>
+
+                <strong data-i18n="clientFeedback">
+                  Client Feedback
+                </strong>
+
+              </div>
+
+            </div>
+
+            <div class="video-info">
+
+              <small data-i18n="videoType">
+                VIDEO TESTIMONIAL
+              </small>
+
+              <h3 data-i18n="featuredVideoTitle">
+                تجربة عميل — الفيديو المميز
+              </h3>
+
+            </div>
+
+          </article>
+
+          <!-- Video 2 -->
+          <article class="video-card reveal">
+
+            <div class="video-preview video-preview-2">
+
+              <div class="video-overlay"></div>
+
+              <button
+                class="video-play"
+                type="button"
+                data-video-url="https://www.facebook.com/share/r/1C56UswjqY/"
+                aria-label="تشغيل الفيديو"
+              >
+                <span>▶</span>
+              </button>
+
+              <div class="video-bottom">
+                <span>02</span>
+                <strong data-i18n="clientFeedback">
+                  Client Feedback
+                </strong>
+              </div>
+
+            </div>
+
+            <div class="video-info">
+
+              <small data-i18n="videoType">
+                VIDEO TESTIMONIAL
+              </small>
+
+              <h3 data-i18n="normalVideoTitle">
+                رأي عميل
+              </h3>
+
+            </div>
+
+          </article>
+
+          <!-- Video 3 -->
+          <article class="video-card reveal">
+
+            <div class="video-preview video-preview-3">
+
+              <div class="video-overlay"></div>
+
+              <button
+                class="video-play"
+                type="button"
+                data-video-url="https://www.facebook.com/share/r/1JtXfVvpbx/"
+                aria-label="تشغيل الفيديو"
+              >
+                <span>▶</span>
+              </button>
+
+              <div class="video-bottom">
+                <span>03</span>
+                <strong data-i18n="clientFeedback">
+                  Client Feedback
+                </strong>
+              </div>
+
+            </div>
+
+            <div class="video-info">
+
+              <small data-i18n="videoType">
+                VIDEO TESTIMONIAL
+              </small>
+
+              <h3 data-i18n="normalVideoTitle">
+                رأي عميل
+              </h3>
+
+            </div>
+
+          </article>
+
+          <!-- Video 4 -->
+          <article class="video-card reveal">
+
+            <div class="video-preview video-preview-4">
+
+              <div class="video-overlay"></div>
+
+              <button
+                class="video-play"
+                type="button"
+                data-video-url="https://www.facebook.com/share/r/19NyG3qPC4/"
+                aria-label="تشغيل الفيديو"
+              >
+                <span>▶</span>
+              </button>
+
+              <div class="video-bottom">
+                <span>04</span>
+                <strong data-i18n="clientFeedback">
+                  Client Feedback
+                </strong>
+              </div>
+
+            </div>
+
+            <div class="video-info">
+
+              <small data-i18n="videoType">
+                VIDEO TESTIMONIAL
+              </small>
+
+              <h3 data-i18n="normalVideoTitle">
+                رأي عميل
+              </h3>
+
+            </div>
+
+          </article>
+
+          <!-- Video 5 -->
+          <article class="video-card reveal">
+
+            <div class="video-preview video-preview-5">
+
+              <div class="video-overlay"></div>
+
+              <button
+                class="video-play"
+                type="button"
+                data-video-url="https://www.facebook.com/share/r/1JXTggK1uR/"
+                aria-label="تشغيل الفيديو"
+              >
+                <span>▶</span>
+              </button>
+
+              <div class="video-bottom">
+                <span>05</span>
+                <strong data-i18n="clientFeedback">
+                  Client Feedback
+                </strong>
+              </div>
+
+            </div>
+
+            <div class="video-info">
+
+              <small data-i18n="videoType">
+                VIDEO TESTIMONIAL
+              </small>
+
+              <h3 data-i18n="normalVideoTitle">
+                رأي عميل
+              </h3>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================
+         PROCESS
+    ======================================== -->
+    <section
+      class="section process-section"
+      id="process"
+    >
+
+      <div class="container">
+
+        <div class="section-heading reveal">
+
+          <div>
+
+            <div class="section-kicker">
+              <span data-i18n="processKicker">
+                طريقة شغلنا
+              </span>
+            </div>
+
+            <h2
+              class="section-title"
+              data-i18n-html="processTitle"
+            >
+              واضح.
+              <span>منظم.</span>
+              قابل للتطوير.
+            </h2>
+
+          </div>
+
+          <p
+            class="section-intro"
+            data-i18n="processIntro"
+          >
+            كل خطوة ليها سبب وكل قرار مربوط بالهدف النهائي.
+          </p>
+
+        </div>
+
+        <div class="process-list">
+
+          <div class="process-row reveal">
+
+            <span>01</span>
+
+            <div>
+              <h3 data-i18n="processOneTitle">
+                نفهم
+              </h3>
+
+              <p data-i18n="processOneText">
+                البيزنس والسوق والجمهور والأهداف.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="process-row reveal">
+
+            <span>02</span>
+
+            <div>
+              <h3 data-i18n="processTwoTitle">
+                نخطط
+              </h3>
+
+              <p data-i18n="processTwoText">
+                الاستراتيجية والقنوات والرسائل المناسبة.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="process-row reveal">
+
+            <span>03</span>
+
+            <div>
+              <h3 data-i18n="processThreeTitle">
+                ننفذ
+              </h3>
+
+              <p data-i18n="processThreeText">
+                الإعلانات والمحتوى والكرياتيف وتجارب الويب.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="process-row reveal">
+
+            <span>04</span>
+
+            <div>
+              <h3 data-i18n="processFourTitle">
+                نحلل
+              </h3>
+
+              <p data-i18n="processFourText">
+                نراقب البيانات ونشوف إيه اللي شغال.
+              </p>
+            </div>
+
+          </div>
+
+          <div class="process-row reveal">
+
+            <span>05</span>
+
+            <div>
+              <h3 data-i18n="processFiveTitle">
+                نكبر
+              </h3>
+
+              <p data-i18n="processFiveText">
+                نزود اللي بيحقق نتائج ونقلل الهدر.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =======================================
+         CONTACT
+    ======================================== -->
+    <section
+      class="contact-section"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="contact-card reveal">
+
+          <div class="contact-grid">
+
+            <div>
+
+              <div class="section-kicker">
+                LET'S BUILD
+              </div>
+
+              <h2
+                class="contact-title"
+                data-i18n-html="contactTitle"
+              >
+                جاهز
+                <span>تكبّر مشروعك؟</span>
+              </h2>
+
+              <p
+                class="contact-text"
+                data-i18n="contactText"
+              >
+                ابعتلنا فكرتك ونشوف إزاي نقدر نحولها
+                لاستراتيجية وتنفيذ ونمو واضح.
+              </p>
+
+            </div>
+
+            <div class="contact-actions">
+
+              <a
+                href="mailto:hello@youragency.com"
+                class="btn btn-primary magnetic"
+                data-i18n="contactButton"
+              >
+                ابدأ محادثة
+                <span>↗</span>
+              </a>
+
+              <a
+                href="#home"
+                class="back-top"
+                data-i18n="backTop"
+              >
+                رجوع لأعلى ↑
+              </a>
+
+            </div>
+
+          </div>
+
+          <div
+            class="contact-watermark"
+            aria-hidden="true"
+          >
+            MAKE IT MOVE
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- =========================================
+       FOOTER
+  ========================================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        MAHMOUD AGENCY
+      </div>
+
+      <div
+        class="footer-services"
+        data-i18n="footerServices"
+      >
+        Digital Marketing · Media Buying · Web · Strategy
+      </div>
+
+      <div class="footer-copy">
+        © <span id="currentYear"></span> Mahmoud Agency
+      </div>
 
     </div>
 
+  </footer>
 
-    <!-- Cursor -->
-    <div class="cursor-glow" aria-hidden="true"></div>
+  <!-- =========================================
+       PROJECT MODAL
+  ========================================== -->
+  <div
+    class="modal"
+    id="projectModal"
+    aria-hidden="true"
+  >
 
+    <div class="modal-overlay"></div>
 
-    <script src="./js/main.js"></script>
+    <div
+      class="modal-box project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="projectModalTitle"
+    >
+
+      <div class="modal-header">
+
+        <div>
+          <small data-i18n="liveProject">
+            LIVE PROJECT
+          </small>
+
+          <h3 id="projectModalTitle">
+            Project
+          </h3>
+        </div>
+
+        <button
+          class="modal-close"
+          id="projectModalClose"
+          type="button"
+          aria-label="إغلاق"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div class="project-frame-container">
+
+        <iframe
+          id="projectFrame"
+          src="about:blank"
+          title="Live project"
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+
+        <div
+          class="project-fallback"
+          id="projectFallback"
+        >
+
+          <strong data-i18n="projectBlockedTitle">
+            الموقع منع التضمين داخل البورتفوليو.
+          </strong>
+
+          <p data-i18n="projectBlockedText">
+            ده بسبب إعدادات الأمان الخاصة بالموقع نفسه.
+          </p>
+
+          <a
+            id="projectExternalLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span data-i18n="openWebsite">
+              فتح الموقع
+            </span>
+
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================================
+       VIDEO MODAL
+  ========================================== -->
+  <div
+    class="modal"
+    id="videoModal"
+    aria-hidden="true"
+  >
+
+    <div class="modal-overlay"></div>
+
+    <div
+      class="modal-box video-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="videoModalTitle"
+    >
+
+      <div class="modal-header">
+
+        <div>
+          <small data-i18n="videoModalSmall">
+            CLIENT VIDEO
+          </small>
+
+          <h3
+            id="videoModalTitle"
+            data-i18n="videoModalTitle"
+          >
+            رأي عميل
+          </h3>
+        </div>
+
+        <button
+          class="modal-close"
+          id="videoModalClose"
+          type="button"
+          aria-label="إغلاق"
+        >
+          ×
+        </button>
+
+      </div>
+
+      <div class="video-frame-container">
+
+        <iframe
+          id="facebookVideoFrame"
+          src="about:blank"
+          title="Facebook Video"
+          loading="eager"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          allowfullscreen
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+
+        <div
+          class="video-fallback"
+          id="videoFallback"
+        >
+
+          <div class="facebook-icon">
+            f
+          </div>
+
+          <h4 data-i18n="facebookBlockedTitle">
+            Facebook منع تضمين الفيديو.
+          </h4>
+
+          <p data-i18n="facebookBlockedText">
+            روابط Share الحالية مش روابط Embed مباشرة.
+            الكود بيحاول التضمين، ولو Facebook رفضه
+            بيظهر الزر بدل شاشة فاضية.
+          </p>
+
+          <a
+            id="videoExternalLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary"
+            data-i18n="openFacebook"
+          >
+            فتح على Facebook
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="./js/main.js"></script>
 
 </body>
-
 </html>
