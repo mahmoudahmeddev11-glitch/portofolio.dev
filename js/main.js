@@ -1,234 +1,207 @@
-"use strict";
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
+/* =========================================
+   DOM
+========================================= */
 
 const body = document.body;
 
-const header = document.getElementById("header");
-
-const nav = document.getElementById("nav");
-
-const menuBtn = document.getElementById("menuBtn");
+const themeBtn = document.getElementById("themeBtn");
 
 const languageBtn = document.getElementById("languageBtn");
 
-const themeBtn = document.getElementById("themeBtn");
+const menuBtn = document.getElementById("menuBtn");
+
+const navLinks = document.querySelector(".nav-links");
+
+const cursorGlow = document.querySelector(".cursor-glow");
 
 const yearElement = document.getElementById("year");
 
-const navLinks = document.querySelectorAll(".nav-link");
 
-const languageElements = document.querySelectorAll("[data-ar][data-en]");
+/* =========================================
+   YEAR
+========================================= */
 
-const revealElements = document.querySelectorAll(".reveal");
-
-
-/* =========================================================
-   CURRENT LANGUAGE
-========================================================= */
-
-let currentLanguage = localStorage.getItem("siteLanguage") || "ar";
-
-
-/* =========================================================
-   LANGUAGE
-========================================================= */
-
-function updateLanguage() {
-
-    const isArabic = currentLanguage === "ar";
-
-    document.documentElement.lang = isArabic ? "ar" : "en";
-
-    document.documentElement.dir = isArabic ? "rtl" : "ltr";
-
-    languageBtn.textContent = isArabic ? "EN" : "AR";
-
-    languageElements.forEach((element) => {
-
-        const arabicText = element.getAttribute("data-ar");
-
-        const englishText = element.getAttribute("data-en");
-
-        if (!arabicText || !englishText) {
-            return;
-        }
-
-        element.textContent = isArabic
-            ? arabicText
-            : englishText;
-
-    });
-
-    localStorage.setItem("siteLanguage", currentLanguage);
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
 }
 
 
-/* =========================================================
-   LANGUAGE BUTTON
-========================================================= */
-
-if (languageBtn) {
-
-    languageBtn.addEventListener("click", () => {
-
-        currentLanguage = currentLanguage === "ar"
-            ? "en"
-            : "ar";
-
-        updateLanguage();
-
-    });
-
-}
-
-
-/* =========================================================
+/* =========================================
    THEME
-========================================================= */
+========================================= */
 
-const savedTheme = localStorage.getItem("siteTheme");
+const savedTheme = localStorage.getItem("theme");
 
 if (savedTheme === "light") {
+    body.classList.add("light");
 
-    body.classList.add("light-mode");
-
-}
-
-
-/* =========================================================
-   THEME BUTTON
-========================================================= */
-
-function updateThemeButton() {
-
-    if (!themeBtn) {
-        return;
+    if (themeBtn) {
+        themeBtn.textContent = "☾";
     }
-
-    const isLight = body.classList.contains("light-mode");
-
-    themeBtn.textContent = isLight ? "☾" : "☀";
-
 }
-
 
 if (themeBtn) {
 
     themeBtn.addEventListener("click", () => {
 
-        body.classList.toggle("light-mode");
+        body.classList.toggle("light");
 
-        const isLight = body.classList.contains("light-mode");
+        const isLight =
+            body.classList.contains("light");
 
         localStorage.setItem(
-            "siteTheme",
+            "theme",
             isLight ? "light" : "dark"
         );
 
-        updateThemeButton();
-
+        themeBtn.textContent =
+            isLight ? "☾" : "☀";
     });
 
 }
 
-updateThemeButton();
+
+/* =========================================
+   LANGUAGE
+========================================= */
+
+let currentLanguage =
+    localStorage.getItem("language") || "ar";
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+function updateLanguage() {
 
-if (menuBtn && nav) {
-
-    menuBtn.addEventListener("click", () => {
-
-        const isOpen = nav.classList.toggle("open");
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            String(isOpen)
+    const elements =
+        document.querySelectorAll(
+            "[data-ar][data-en]"
         );
+
+    elements.forEach((element) => {
+
+        const text =
+            currentLanguage === "ar"
+                ? element.dataset.ar
+                : element.dataset.en;
+
+        if (text) {
+            element.textContent = text;
+        }
 
     });
 
 
-    navLinks.forEach((link) => {
+    const isArabic =
+        currentLanguage === "ar";
 
-        link.addEventListener("click", () => {
+    document.documentElement.lang =
+        isArabic ? "ar" : "en";
 
-            nav.classList.remove("open");
+    document.documentElement.dir =
+        isArabic ? "rtl" : "ltr";
 
-            menuBtn.setAttribute(
-                "aria-expanded",
-                "false"
+
+    if (languageBtn) {
+
+        languageBtn.textContent =
+            isArabic ? "EN" : "AR";
+    }
+
+    localStorage.setItem(
+        "language",
+        currentLanguage
+    );
+}
+
+
+updateLanguage();
+
+
+if (languageBtn) {
+
+    languageBtn.addEventListener(
+        "click",
+        () => {
+
+            currentLanguage =
+                currentLanguage === "ar"
+                    ? "en"
+                    : "ar";
+
+            updateLanguage();
+        }
+    );
+}
+
+
+/* =========================================
+   MOBILE MENU
+========================================= */
+
+if (menuBtn && navLinks) {
+
+    menuBtn.addEventListener(
+        "click",
+        () => {
+
+            navLinks.classList.toggle("active");
+
+        }
+    );
+
+
+    navLinks
+        .querySelectorAll("a")
+        .forEach((link) => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    navLinks.classList.remove(
+                        "active"
+                    );
+
+                }
             );
 
         });
 
-    });
-
 }
 
 
-/* =========================================================
-   HEADER SCROLL
-========================================================= */
-
-function updateHeader() {
-
-    if (!header) {
-        return;
-    }
-
-    if (window.scrollY > 30) {
-
-        header.classList.add("scrolled");
-
-    } else {
-
-        header.classList.remove("scrolled");
-
-    }
-
-}
-
-window.addEventListener(
-    "scroll",
-    updateHeader,
-    { passive: true }
-);
-
-updateHeader();
-
-
-/* =========================================================
+/* =========================================
    SCROLL REVEAL
-========================================================= */
+========================================= */
 
-const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
+const revealElements =
+    document.querySelectorAll(".reveal");
 
-        entries.forEach((entry) => {
 
-            if (!entry.isIntersecting) {
-                return;
-            }
+const revealObserver =
+    new IntersectionObserver(
+        (entries) => {
 
-            entry.target.classList.add("visible");
+            entries.forEach((entry) => {
 
-            observer.unobserve(entry.target);
+                if (entry.isIntersecting) {
 
-        });
+                    entry.target.classList.add(
+                        "visible"
+                    );
 
-    },
-    {
-        threshold: 0.12,
-        rootMargin: "0px 0px -50px 0px"
-    }
-);
+                    revealObserver.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
 
 
 revealElements.forEach((element) => {
@@ -238,41 +211,359 @@ revealElements.forEach((element) => {
 });
 
 
-/* =========================================================
-   ACTIVE NAV LINK
-========================================================= */
+/* =========================================
+   3D TILT CARDS
+========================================= */
 
-const sections = document.querySelectorAll("main section[id]");
+const tiltCards =
+    document.querySelectorAll(".tilt-card");
 
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
 
-        entries.forEach((entry) => {
+const canHover =
+    window.matchMedia(
+        "(hover: hover)"
+    ).matches;
 
-            if (!entry.isIntersecting) {
-                return;
+
+if (canHover) {
+
+    tiltCards.forEach((card) => {
+
+        card.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    card.getBoundingClientRect();
+
+                const x =
+                    event.clientX - rect.left;
+
+                const y =
+                    event.clientY - rect.top;
+
+                const centerX =
+                    rect.width / 2;
+
+                const centerY =
+                    rect.height / 2;
+
+                const rotateX =
+                    ((y - centerY) /
+                        centerY) *
+                    -5;
+
+                const rotateY =
+                    ((x - centerX) /
+                        centerX) *
+                    5;
+
+
+                card.style.transform =
+                    `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateY(-5px)
+                    scale(1.01)
+                    `;
             }
+        );
 
-            const currentId = entry.target.getAttribute("id");
 
-            navLinks.forEach((link) => {
+        card.addEventListener(
+            "mouseleave",
+            () => {
 
-                const href = link.getAttribute("href");
+                card.style.transform =
+                    "";
 
-                link.classList.toggle(
-                    "active",
-                    href === `#${currentId}`
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   CURSOR GLOW
+========================================= */
+
+if (
+    cursorGlow &&
+    canHover
+) {
+
+    window.addEventListener(
+        "mousemove",
+        (event) => {
+
+            cursorGlow.style.left =
+                `${event.clientX}px`;
+
+            cursorGlow.style.top =
+                `${event.clientY}px`;
+
+        }
+    );
+
+}
+
+
+/* =========================================
+   MAGNETIC BUTTONS
+========================================= */
+
+const magneticButtons =
+    document.querySelectorAll(
+        ".magnetic"
+    );
+
+
+if (canHover) {
+
+    magneticButtons.forEach((button) => {
+
+        button.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const rect =
+                    button.getBoundingClientRect();
+
+                const x =
+                    event.clientX -
+                    rect.left -
+                    rect.width / 2;
+
+                const y =
+                    event.clientY -
+                    rect.top -
+                    rect.height / 2;
+
+                button.style.transform =
+                    `
+                    translate(${x * 0.12}px,
+                              ${y * 0.12}px)
+                    scale(1.03)
+                    `;
+
+            }
+        );
+
+
+        button.addEventListener(
+            "mouseleave",
+            () => {
+
+                button.style.transform =
+                    "";
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================
+   COUNTERS
+========================================= */
+
+const counters =
+    document.querySelectorAll(
+        "[data-counter]"
+    );
+
+
+const counterObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                const counter =
+                    entry.target;
+
+                const target =
+                    Number(
+                        counter.dataset.counter
+                    );
+
+                const duration = 1500;
+
+                const startTime =
+                    performance.now();
+
+
+                function updateCounter(
+                    currentTime
+                ) {
+
+                    const elapsed =
+                        currentTime -
+                        startTime;
+
+                    const progress =
+                        Math.min(
+                            elapsed /
+                                duration,
+                            1
+                        );
+
+
+                    const eased =
+                        1 -
+                        Math.pow(
+                            1 - progress,
+                            3
+                        );
+
+
+                    counter.textContent =
+                        Math.floor(
+                            eased * target
+                        );
+
+
+                    if (progress < 1) {
+
+                        requestAnimationFrame(
+                            updateCounter
+                        );
+
+                    } else {
+
+                        counter.textContent =
+                            target;
+                    }
+                }
+
+
+                requestAnimationFrame(
+                    updateCounter
+                );
+
+
+                counterObserver.unobserve(
+                    counter
                 );
 
             });
 
-        });
+        },
+        {
+            threshold: 0.7
+        }
+    );
 
-    },
-    {
-        rootMargin: "-35% 0px -55% 0px"
-    }
-);
+
+counters.forEach((counter) => {
+
+    counterObserver.observe(counter);
+
+});
+
+
+/* =========================================
+   PARALLAX HERO
+========================================= */
+
+const heroVisual =
+    document.querySelector(
+        ".hero-visual"
+    );
+
+
+if (
+    heroVisual &&
+    canHover
+) {
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const scrollY =
+                window.scrollY;
+
+            if (scrollY > 900) {
+                return;
+            }
+
+            heroVisual.style.transform =
+                `translateY(${scrollY * 0.08}px)`;
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
+
+
+/* =========================================
+   ACTIVE NAV
+========================================= */
+
+const sections =
+    document.querySelectorAll(
+        "main section[id]"
+    );
+
+const navigationLinks =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
+
+
+const sectionObserver =
+    new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                navigationLinks.forEach(
+                    (link) => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+                        if (
+                            link.getAttribute(
+                                "href"
+                            ) ===
+                            `#${entry.target.id}`
+                        ) {
+
+                            link.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
+
+            });
+
+        },
+        {
+            threshold: 0.3
+        }
+    );
 
 
 sections.forEach((section) => {
@@ -282,132 +573,23 @@ sections.forEach((section) => {
 });
 
 
-/* =========================================================
-   SIMPLE 3D MOUSE EFFECT
-========================================================= */
+/* =========================================
+   CLOSE MENU ON ESC
+========================================= */
 
-const cards3D = document.querySelectorAll(
-    ".service-card, .project-card, .video-card"
-);
+document.addEventListener(
+    "keydown",
+    (event) => {
 
+        if (event.key === "Escape") {
 
-cards3D.forEach((card) => {
-
-    card.addEventListener("mousemove", (event) => {
-
-        if (window.innerWidth < 900) {
-            return;
-        }
-
-        const rect = card.getBoundingClientRect();
-
-        const x = event.clientX - rect.left;
-
-        const y = event.clientY - rect.top;
-
-        const centerX = rect.width / 2;
-
-        const centerY = rect.height / 2;
-
-        const rotateY =
-            ((x - centerX) / centerX) * 3;
-
-        const rotateX =
-            ((centerY - y) / centerY) * 3;
-
-        card.style.transform =
-            `perspective(900px)
-             rotateX(${rotateX}deg)
-             rotateY(${rotateY}deg)
-             translateY(-7px)`;
-
-    });
-
-
-    card.addEventListener("mouseleave", () => {
-
-        card.style.transform = "";
-
-    });
-
-});
-
-
-/* =========================================================
-   HERO 3D EFFECT
-========================================================= */
-
-const heroWrapper =
-    document.querySelector(".hero-image-wrapper");
-
-
-if (heroWrapper) {
-
-    heroWrapper.addEventListener(
-        "mousemove",
-        (event) => {
-
-            if (window.innerWidth < 900) {
-                return;
+            if (navLinks) {
+                navLinks.classList.remove(
+                    "active"
+                );
             }
 
-            const rect =
-                heroWrapper.getBoundingClientRect();
-
-            const x =
-                event.clientX - rect.left;
-
-            const y =
-                event.clientY - rect.top;
-
-            const centerX =
-                rect.width / 2;
-
-            const centerY =
-                rect.height / 2;
-
-            const rotateY =
-                ((x - centerX) / centerX) * 4;
-
-            const rotateX =
-                ((centerY - y) / centerY) * 4;
-
-            heroWrapper.style.transform =
-                `perspective(1200px)
-                 rotateX(${rotateX}deg)
-                 rotateY(${rotateY}deg)
-                 translateY(-5px)`;
-
         }
-    );
 
-
-    heroWrapper.addEventListener(
-        "mouseleave",
-        () => {
-
-            heroWrapper.style.transform = "";
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   YEAR
-========================================================= */
-
-if (yearElement) {
-
-    yearElement.textContent =
-        new Date().getFullYear();
-
-}
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-updateLanguage();
+    }
+);
