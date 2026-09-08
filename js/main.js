@@ -1,1614 +1,1055 @@
 (() => {
   "use strict";
 
-  /* =====================================================
-     ELEMENTS
+  /* ======================================================
+     HELPERS
   ====================================================== */
 
-  const body =
-    document.body;
+  const $ = (selector, parent = document) =>
+    parent.querySelector(selector);
 
-  const root =
-    document.documentElement;
+  const $$ = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
 
-  const header =
-    document.getElementById(
-      "header"
-    );
 
-  const loader =
-    document.getElementById(
-      "loader"
-    );
-
-  const themeToggle =
-    document.getElementById(
-      "themeToggle"
-    );
-
-  const languageToggle =
-    document.getElementById(
-      "languageToggle"
-    );
-
-  const menuToggle =
-    document.getElementById(
-      "menuToggle"
-    );
-
-  const mobileNav =
-    document.getElementById(
-      "mobileNav"
-    );
-
-  const projectModal =
-    document.getElementById(
-      "projectModal"
-    );
-
-  const projectFrame =
-    document.getElementById(
-      "projectFrame"
-    );
-
-  const projectTitle =
-    document.getElementById(
-      "projectModalTitle"
-    );
-
-  const projectFallback =
-    document.getElementById(
-      "projectFallback"
-    );
-
-  const projectExternalLink =
-    document.getElementById(
-      "projectExternalLink"
-    );
-
-  const projectModalClose =
-    document.getElementById(
-      "projectModalClose"
-    );
-
-  const videoModal =
-    document.getElementById(
-      "videoModal"
-    );
-
-  const videoFrame =
-    document.getElementById(
-      "facebookVideoFrame"
-    );
-
-  const videoFallback =
-    document.getElementById(
-      "videoFallback"
-    );
-
-  const videoExternalLink =
-    document.getElementById(
-      "videoExternalLink"
-    );
-
-  const videoModalClose =
-    document.getElementById(
-      "videoModalClose"
-    );
-
-  const yearElement =
-    document.getElementById(
-      "year"
-    );
-
-  /* =====================================================
-     STATE
+  /* ======================================================
+     PAGE LOADER
   ====================================================== */
 
-  const reducedMotion =
-    window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+  const pageLoader = $("#pageLoader");
 
-  let language =
-    localStorage.getItem(
-      "mahmoud-language"
-    ) || "ar";
+  window.addEventListener("load", () => {
+    window.setTimeout(() => {
+      pageLoader?.classList.add("hidden");
+    }, 250);
+  });
 
-  let theme =
-    localStorage.getItem(
-      "mahmoud-theme"
-    ) || "dark";
 
-  /* =====================================================
-     TRANSLATIONS
+  /* ======================================================
+     YEAR
   ====================================================== */
 
-  const translations = {
+  const yearElement = $("#year");
 
-    ar: {
-
-      navServices:
-        "الخدمات",
-
-      navProjects:
-        "المشاريع",
-
-      navPackages:
-        "الباقات",
-
-      navVideos:
-        "العملاء",
-
-      navContact:
-        "تواصل",
-
-      headerCta:
-        "ابدأ مشروع",
-
-      heroEyebrow:
-        "وكالة نمو وتسويق رقمي",
-
-      heroTitleOne:
-        "نكبّر مشروعك",
-
-      heroTitleTwo:
-        "بذكاء.",
-
-      heroDescription:
-        "أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تساعد مشروعك يكبر بشكل واضح.",
-
-      heroButtonOne:
-        "شوف أعمالنا",
-
-      heroButtonTwo:
-        "شوف الباقات",
-
-      proofOne:
-        "مشاريع ويب مباشرة",
-
-      proofTwo:
-        "فيديوهات عملاء",
-
-      proofThree:
-        "حلول مخصصة",
-
-      aboutLabel:
-        "ABOUT",
-
-      aboutKicker:
-        "مش بس إعلانات.",
-
-      aboutTitle:
-        "بنبني <span>نمو حقيقي.</span>",
-
-      aboutText:
-        "بنجمع الاستراتيجية والميديا باينج وتحليل السوق والمحتوى وتصميم المواقع في منظومة واحدة هدفها إنها تخلي المشروع ينمو بطريقة أوضح وأذكى.",
-
-      aboutOneTitle:
-        "أفكار تسويقية ناجحة",
-
-      aboutOneText:
-        "أفكار مبنية على الجمهور والسوق.",
-
-      aboutTwoTitle:
-        "إعلانات باستهداف دقيق",
-
-      aboutTwoText:
-        "نوجّه الميزانية للناس الأقرب للهدف.",
-
-      aboutThreeTitle:
-        "تحليل مستمر",
-
-      aboutThreeText:
-        "نقيس ونراجع ونطوّر الأداء باستمرار.",
-
-      servicesKicker:
-        "الخدمات",
-
-      servicesTitle:
-        "كل حاجة <span>تخدم النمو.</span>",
-
-      servicesText:
-        "من أول تحليل السوق والاستراتيجية لحد الإعلان والموقع وتجربة العميل.",
-
-      serviceOneTitle:
-        "Media Buying",
-
-      serviceOneText:
-        "إدارة الحملات المدفوعة واستهداف الجمهور وتحسين الإنفاق الإعلاني.",
-
-      serviceTwoTitle:
-        "Digital Marketing",
-
-      serviceTwoText:
-        "استراتيجية رقمية مترابطة تخدم أهداف المشروع من أكثر من قناة.",
-
-      serviceThreeTitle:
-        "Market Analysis",
-
-      serviceThreeText:
-        "فهم المنافسين والجمهور والفرص قبل اتخاذ قرارات التسويق.",
-
-      serviceFourTitle:
-        "Web Design",
-
-      serviceFourText:
-        "مواقع حديثة وسريعة ومتوافقة مع هوية المشروع وأهدافه.",
-
-      serviceFiveTitle:
-        "Social Media",
-
-      serviceFiveText:
-        "بناء حضور اجتماعي واضح، محتوى جذاب ورسالة ثابتة للبراند.",
-
-      projectsKicker:
-        "مشاريع الويب",
-
-      projectsTitle:
-        "مشاريع <span>حقيقية.</span>",
-
-      projectsText:
-        "العميل يقدر يشوف المشاريع من داخل البورتفوليو نفسه.",
-
-      projectOpen:
-        "افتح المشروع",
-
-      packagesKicker:
-        "الباقات والأسعار",
-
-      packagesTitle:
-        "اختار <span>المناسب ليك.</span>",
-
-      packagesText:
-        "أرقام مبدئية تقدر تغيّرها بعدين حسب خدماتك وتسعيرك الحقيقي.",
-
-      starterName:
-        "STARTER",
-
-      monthly:
-        "جنيه / شهريًا",
-
-      starterDescription:
-        "باقة بداية مناسبة للمشاريع الصغيرة اللي عايزة تسويق منظم.",
-
-      starterOne:
-        "إدارة حملة إعلانية",
-
-      starterTwo:
-        "تحليل أساسي للجمهور",
-
-      starterThree:
-        "خطة محتوى أساسية",
-
-      starterFour:
-        "تقرير شهري",
-
-      growthName:
-        "GROWTH",
-
-      growthDescription:
-        "للمشاريع اللي عايزة إدارة ونمو بشكل أكثر شمولًا.",
-
-      growthOne:
-        "إدارة وتحسين الحملات",
-
-      growthTwo:
-        "تحليل السوق والمنافسين",
-
-      growthThree:
-        "استراتيجية محتوى",
-
-      growthFour:
-        "تقارير وتحسين مستمر",
-
-      growthFive:
-        "متابعة شهرية",
-
-      recommended:
-        "الأكثر طلبًا",
-
-      choosePackage:
-        "اختار الباقة",
-
-      customName:
-        "CUSTOM",
-
-      customPrice:
-        "على حسب المشروع",
-
-      customDescription:
-        "مشروعك مختلف؟ نعمل لك خطة وموقع وتجربة رقمية على مقاسه.",
-
-      customOne:
-        "موقع مخصص",
-
-      customTwo:
-        "تصميم وهوية خاصة",
-
-      customThree:
-        "صفحات ووظائف حسب الاحتياج",
-
-      customFour:
-        "استراتيجية تسويق مخصصة",
-
-      customButton:
-        "اتكلم معانا",
-
-      customSiteTitle:
-        "عايز موقع <span>على مزاجك؟</span>",
-
-      customSiteText:
-        "نقدر نبدأ من الصفر ونصمم موقع يناسب شخصيتك، خدماتك، جمهورك وأهدافك.",
-
-      customSiteButton:
-        "اطلب موقع مخصص",
-
-      showcaseKicker:
-        "معرض الأعمال",
-
-      showcaseTitle:
-        "حط شغلك <span>هنا.</span>",
-
-      showcaseText:
-        "أماكن جاهزة تضيف فيها صور الحملات والكرياتيف والـCase Studies.",
-
-      showcaseOne:
-        "CAMPAIGN",
-
-      showcaseTwo:
-        "CREATIVE",
-
-      showcaseThree:
-        "CASE STUDY",
-
-      showcaseFour:
-        "BRAND CONTENT",
-
-      imageHint:
-        "أضف الصورة هنا",
-
-      videosKicker:
-        "آراء العملاء",
-
-      videosTitle:
-        "الكلام <span>من العملاء.</span>",
-
-      videosText:
-        "أول فيديو مميز، وبعده باقي الفيديوهات.",
-
-      featured:
-        "FEATURED",
-
-      videoOneTitle:
-        "تجربة عميل — الفيديو المميز",
-
-      videoGenericTitle:
-        "رأي عميل",
-
-      processKicker:
-        "طريقة شغلنا",
-
-      processTitle:
-        "من الفكرة <span>للنتيجة.</span>",
-
-      processText:
-        "خطوات واضحة بدل الشغل العشوائي.",
-
-      processOneTitle:
-        "نفهم",
-
-      processOneText:
-        "نفهم المشروع والسوق والجمهور والأهداف.",
-
-      processTwoTitle:
-        "نخطط",
-
-      processTwoText:
-        "نحدد الاستراتيجية والقنوات والرسائل.",
-
-      processThreeTitle:
-        "ننّفذ",
-
-      processThreeText:
-        "ننّفذ الإعلانات والمحتوى والموقع.",
-
-      processFourTitle:
-        "نحلل",
-
-      processFourText:
-        "نراجع البيانات والأداء باستمرار.",
-
-      processFiveTitle:
-        "نكبر",
-
-      processFiveText:
-        "نزود الاستثمار في اللي بيحقق نتيجة.",
-
-      contactTitle:
-        "جاهز <span>تكبر مشروعك؟</span>",
-
-      contactText:
-        "ابعتلنا فكرتك ونشوف إزاي نقدر نحولها لخطة واضحة وتنفيذ قوي.",
-
-      contactButton:
-        "ابدأ محادثة",
-
-      footerServices:
-        "Digital Marketing · Media Buying · Web · Strategy",
-
-      projectFallbackTitle:
-        "الموقع منع التضمين.",
-
-      projectFallbackText:
-        "ده من إعدادات أمان الموقع نفسه.",
-
-      openWebsite:
-        "فتح الموقع",
-
-      videoModalTitle:
-        "رأي عميل",
-
-      facebookFallbackTitle:
-        "Facebook رفض تضمين الفيديو.",
-
-      facebookFallbackText:
-        "رابط Share الحالي مش direct embed URL.",
-
-      openFacebook:
-        "فتح على Facebook"
-
-    },
-
-    en: {
-
-      navServices:
-        "Services",
-
-      navProjects:
-        "Projects",
-
-      navPackages:
-        "Packages",
-
-      navVideos:
-        "Clients",
-
-      navContact:
-        "Contact",
-
-      headerCta:
-        "Start a project",
-
-      heroEyebrow:
-        "Digital growth agency",
-
-      heroTitleOne:
-        "Grow your business",
-
-      heroTitleTwo:
-        "smarter.",
-
-      heroDescription:
-        "Winning marketing ideas, precise paid advertising, market and competitor analysis, and web design built around your business goals.",
-
-      heroButtonOne:
-        "Explore our work",
-
-      heroButtonTwo:
-        "View packages",
-
-      proofOne:
-        "Live web projects",
-
-      proofTwo:
-        "Client videos",
-
-      proofThree:
-        "Custom solutions",
-
-      aboutLabel:
-        "ABOUT",
-
-      aboutKicker:
-        "More than ads.",
-
-      aboutTitle:
-        "We build <span>real growth.</span>",
-
-      aboutText:
-        "We combine strategy, media buying, market analysis, content and web design into one system built to help businesses grow with more clarity.",
-
-      aboutOneTitle:
-        "Winning marketing ideas",
-
-      aboutOneText:
-        "Ideas built around the market and audience.",
-
-      aboutTwoTitle:
-        "Precise paid advertising",
-
-      aboutTwoText:
-        "Guide the budget toward the right audience.",
-
-      aboutThreeTitle:
-        "Continuous analysis",
-
-      aboutThreeText:
-        "Measure, review and improve performance.",
-
-      servicesKicker:
-        "Services",
-
-      servicesTitle:
-        "Everything <span>serves growth.</span>",
-
-      servicesText:
-        "From market analysis and strategy to advertising, websites and customer experience.",
-
-      serviceOneTitle:
-        "Media Buying",
-
-      serviceOneText:
-        "Manage paid campaigns, target the right audience and improve ad spend.",
-
-      serviceTwoTitle:
-        "Digital Marketing",
-
-      serviceTwoText:
-        "Build a connected digital strategy around your business goals.",
-
-      serviceThreeTitle:
-        "Market Analysis",
-
-      serviceThreeText:
-        "Understand competitors, audience and opportunities before making decisions.",
-
-      serviceFourTitle:
-        "Web Design",
-
-      serviceFourText:
-        "Modern, fast websites built around your brand and goals.",
-
-      serviceFiveTitle:
-        "Social Media",
-
-      serviceFiveText:
-        "Build a clear social presence through engaging content and consistent messaging.",
-
-      projectsKicker:
-        "Web projects",
-
-      projectsTitle:
-        "Real <span>projects.</span>",
-
-      projectsText:
-        "Visitors can explore the projects from inside the portfolio.",
-
-      projectOpen:
-        "Open project",
-
-      packagesKicker:
-        "Packages & pricing",
-
-      packagesTitle:
-        "Choose what <span>fits you.</span>",
-
-      packagesText:
-        "Starting prices that you can change later based on your actual services and pricing.",
-
-      starterName:
-        "STARTER",
-
-      monthly:
-        "EGP / month",
-
-      starterDescription:
-        "A good starting package for smaller businesses that need organized marketing.",
-
-      starterOne:
-        "One ad campaign",
-
-      starterTwo:
-        "Basic audience analysis",
-
-      starterThree:
-        "Basic content plan",
-
-      starterFour:
-        "Monthly report",
-
-      growthName:
-        "GROWTH",
-
-      growthDescription:
-        "For businesses that need broader management and stronger growth.",
-
-      growthOne:
-        "Campaign management & optimization",
-
-      growthTwo:
-        "Market & competitor analysis",
-
-      growthThree:
-        "Content strategy",
-
-      growthFour:
-        "Continuous reporting & optimization",
-
-      growthFive:
-        "Monthly follow-up",
-
-      recommended:
-        "Most popular",
-
-      choosePackage:
-        "Choose package",
-
-      customName:
-        "CUSTOM",
-
-      customPrice:
-        "Based on the project",
-
-      customDescription:
-        "Need something different? We can build a strategy, website and digital experience around your project.",
-
-      customOne:
-        "Custom website",
-
-      customTwo:
-        "Custom visual identity",
-
-      customThree:
-        "Custom pages & functionality",
-
-      customFour:
-        "Custom marketing strategy",
-
-      customButton:
-        "Talk to us",
-
-      customSiteTitle:
-        "Need a website <span>your way?</span>",
-
-      customSiteText:
-        "We can start from zero and create a website around your brand, services, audience and goals.",
-
-      customSiteButton:
-        "Request custom website",
-
-      showcaseKicker:
-        "Work showcase",
-
-      showcaseTitle:
-        "Put your work <span>here.</span>",
-
-      showcaseText:
-        "Prepared spaces for campaigns, creative work and case studies.",
-
-      showcaseOne:
-        "CAMPAIGN",
-
-      showcaseTwo:
-        "CREATIVE",
-
-      showcaseThree:
-        "CASE STUDY",
-
-      showcaseFour:
-        "BRAND CONTENT",
-
-      imageHint:
-        "Add image here",
-
-      videosKicker:
-        "Client feedback",
-
-      videosTitle:
-        "Straight <span>from clients.</span>",
-
-      videosText:
-        "The first video is featured, followed by the remaining videos.",
-
-      featured:
-        "FEATURED",
-
-      videoOneTitle:
-        "Client experience — featured video",
-
-      videoGenericTitle:
-        "Client feedback",
-
-      processKicker:
-        "Our process",
-
-      processTitle:
-        "From idea <span>to result.</span>",
-
-      processText:
-        "Clear steps instead of random execution.",
-
-      processOneTitle:
-        "Discover",
-
-      processOneText:
-        "Understand the business, market, audience and goals.",
-
-      processTwoTitle:
-        "Plan",
-
-      processTwoText:
-        "Define strategy, channels and messaging.",
-
-      processThreeTitle:
-        "Execute",
-
-      processThreeText:
-        "Execute advertising, content and web.",
-
-      processFourTitle:
-        "Analyze",
-
-      processFourText:
-        "Review performance and data continuously.",
-
-      processFiveTitle:
-        "Scale",
-
-      processFiveText:
-        "Invest more in what creates results.",
-
-      contactTitle:
-        "Ready to <span>grow your business?</span>",
-
-      contactText:
-        "Send us your idea and let's turn it into a clear plan and strong execution.",
-
-      contactButton:
-        "Start a conversation",
-
-      footerServices:
-        "Digital Marketing · Media Buying · Web · Strategy",
-
-      projectFallbackTitle:
-        "This site blocked iframe embedding.",
-
-      projectFallbackText:
-        "This comes from the website's own security settings.",
-
-      openWebsite:
-        "Open website",
-
-      videoModalTitle:
-        "Client feedback",
-
-      facebookFallbackTitle:
-        "Facebook rejected the video embed.",
-
-      facebookFallbackText:
-        "The current URL is a Share link rather than a direct embed URL.",
-
-      openFacebook:
-        "Open on Facebook"
-
-    }
-
-  };
-
-  /* =====================================================
-     INITIALIZATION
-  ====================================================== */
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    () => {
-
-      applyLanguage(
-        language
-      );
-
-      applyTheme(
-        theme
-      );
-
-      initLoader();
-      initHeader();
-      initMobileMenu();
-      initReveal();
-      initProjects();
-      initVideos();
-      initModals();
-      initYear();
-
-    }
-  );
-
-  /* =====================================================
-     LOADER
-  ====================================================== */
-
-  function initLoader() {
-
-    window.addEventListener(
-      "load",
-      () => {
-
-        body.classList.add(
-          "loaded"
-        );
-
-      },
-      {
-        once: true
-      }
-    );
-
-    window.setTimeout(
-      () => {
-
-        body.classList.add(
-          "loaded"
-        );
-
-      },
-      1400
-    );
-
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
   }
 
-  /* =====================================================
-     LANGUAGE
-  ====================================================== */
 
-  function applyLanguage(
-    nextLanguage
-  ) {
-
-    language =
-      nextLanguage === "en"
-        ? "en"
-        : "ar";
-
-    root.lang =
-      language;
-
-    root.dir =
-      language === "ar"
-        ? "rtl"
-        : "ltr";
-
-    document
-      .querySelectorAll(
-        "[data-i18n]"
-      )
-      .forEach(
-        (element) => {
-
-          const key =
-            element.dataset.i18n;
-
-          const value =
-            translations[
-              language
-            ][key];
-
-          if (
-            typeof value ===
-            "string"
-          ) {
-
-            element.textContent =
-              value;
-
-          }
-
-        }
-      );
-
-    document
-      .querySelectorAll(
-        "[data-i18n-html]"
-      )
-      .forEach(
-        (element) => {
-
-          const key =
-            element.dataset.i18nHtml;
-
-          const value =
-            translations[
-              language
-            ][key];
-
-          if (
-            typeof value ===
-            "string"
-          ) {
-
-            element.innerHTML =
-              value;
-
-          }
-
-        }
-      );
-
-    document
-      .querySelectorAll(
-        "[data-price-ar]"
-      )
-      .forEach(
-        (element) => {
-
-          element.textContent =
-            language === "ar"
-              ? element.dataset.priceAr
-              : element.dataset.priceEn;
-
-        }
-      );
-
-    languageToggle.textContent =
-      language === "ar"
-        ? "EN"
-        : "AR";
-
-    localStorage.setItem(
-      "mahmoud-language",
-      language
-    );
-
-  }
-
-  languageToggle?.addEventListener(
-    "click",
-    () => {
-
-      applyLanguage(
-        language === "ar"
-          ? "en"
-          : "ar"
-      );
-
-    }
-  );
-
-  /* =====================================================
+  /* ======================================================
      THEME
   ====================================================== */
 
-  function applyTheme(
-    nextTheme
-  ) {
+  const themeToggle = $("#themeToggle");
 
-    theme =
-      nextTheme === "light"
-        ? "light"
-        : "dark";
+  const savedTheme = localStorage.getItem("portfolio-theme");
 
-    body.classList.toggle(
-      "light-theme",
-      theme === "light"
+  if (savedTheme === "light") {
+    document.body.classList.remove("dark-theme");
+    document.body.classList.add("light-theme");
+  }
+
+  const updateThemeIcon = () => {
+    if (!themeToggle) return;
+
+    const icon = $(".theme-icon", themeToggle);
+
+    if (!icon) return;
+
+    icon.textContent = document.body.classList.contains("light-theme")
+      ? "☾"
+      : "☼";
+  };
+
+  updateThemeIcon();
+
+  themeToggle?.addEventListener("click", () => {
+    const isLight = document.body.classList.toggle("light-theme");
+
+    document.body.classList.toggle("dark-theme", !isLight);
+
+    localStorage.setItem(
+      "portfolio-theme",
+      isLight ? "light" : "dark"
     );
 
-    const themeMeta =
-      document.querySelector(
-        'meta[name="theme-color"]'
-      );
+    updateThemeIcon();
+  });
 
-    if (themeMeta) {
 
-      themeMeta.content =
-        theme === "light"
-          ? "#f1f1ec"
-          : "#070707";
+  /* ======================================================
+     LANGUAGE
+  ====================================================== */
 
+  const languageToggle = $("#languageToggle");
+
+  const translations = {
+    ar: {
+      navHome: "الرئيسية",
+      navAbout: "من نحن",
+      navServices: "الخدمات",
+      navProjects: "المشاريع",
+      navPackages: "الباقات",
+      navVideos: "النتائج",
+      navContact: "تواصل معنا",
+
+      heroEyebrow:
+        "التسويق الرقمي • الميديا باينج • تصميم المواقع",
+
+      heroTitle1: "نكبّر",
+      heroTitle2: "مشروعك",
+      heroTitle3: "بذكاء.",
+
+      heroDescription:
+        "أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك.",
+
+      heroPrimary: "ابدأ مشروعك",
+      heroSecondary: "شوف أعمالنا",
+
+      statOne: "استراتيجية",
+      statTwo: "تنفيذ",
+      statThree: "تحليل",
+
+      floatGrowth: "نمو مستمر",
+      floatTarget: "استهداف دقيق",
+
+      aboutKicker: "ABOUT",
+      aboutTitle: "مش بس إعلانات.\nبنبني نمو حقيقي.",
+
+      aboutText:
+        "بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى وتصميم المواقع عشان كل خطوة في المشروع يكون ليها هدف واضح.",
+
+      aboutQuote:
+        "نجاح مشروعك هو هدفنا.",
+
+      aboutCard1Title:
+        "أفكار تسويقية ناجحة",
+
+      aboutCard1Text:
+        "أفكار مبنية على السوق والجمهور.",
+
+      aboutCard2Title:
+        "استهداف دقيق",
+
+      aboutCard2Text:
+        "توجيه الميزانية للجمهور المناسب.",
+
+      aboutCard3Title:
+        "تحليل وتطوير",
+
+      aboutCard3Text:
+        "نقيس ونحلل ونحسن الأداء باستمرار.",
+
+      servicesKicker: "SERVICES",
+
+      servicesTitle:
+        "كل خطوة\nليها هدف.",
+
+      service1Title:
+        "Media Buying",
+
+      service1Text:
+        "حملات إعلانية مدروسة، استهداف دقيق، وإدارة للميزانية بناءً على البيانات.",
+
+      service2Title:
+        "Market Analysis",
+
+      service2Text:
+        "نحلل السوق، المنافسين، الجمهور ونقاط القوة والضعف.",
+
+      service3Title:
+        "Social Media",
+
+      service3Text:
+        "محتوى يساعد البراند يظهر بالشكل الصح ويخلق تفاعل حقيقي.",
+
+      service4Title:
+        "Web Design",
+
+      service4Text:
+        "مواقع عصرية، سريعة ومتجاوبة، مصممة على ستايل البراند وأهداف المشروع.",
+
+      projectsKicker:
+        "SELECTED WORK",
+
+      projectsTitle:
+        "مشاريع\nتشتغل فعلًا.",
+
+      openProject:
+        "افتح المشروع",
+
+      project1Desc:
+        "تجربة ويب عصرية لعرض المشروع والخدمات بشكل احترافي.",
+
+      project2Desc:
+        "موقع بسيط ومرتب بتجربة استخدام واضحة.",
+
+      project3Desc:
+        "مشروع ويب بطابع بصري مختلف وتجربة مرنة.",
+
+      projectNote:
+        "المعاينة داخل الموقع قد لا تعمل لبعض المواقع الخارجية بسبب سياسات حماية الـ iframe الخاصة بها.",
+
+      packagesKicker:
+        "PACKAGES",
+
+      packagesTitle:
+        "اختار الباقة\nالمناسبة لمشروعك.",
+
+      package1Title:
+        "بداية قوية",
+
+      package1Text:
+        "مناسبة للمشاريع اللي لسه بتبدأ أو محتاجة إعادة ترتيب الأساسيات.",
+
+      package2Title:
+        "نمو وتسريع",
+
+      package2Text:
+        "لمن يريد بناء حضور أقوى وتحسين النتائج بشكل مستمر.",
+
+      package3Title:
+        "على حسب المشروع",
+
+      package3Text:
+        "باقة مخصصة بالكامل حسب حجم المشروع والأهداف والميزانية.",
+
+      perMonth:
+        "شهريًا",
+
+      customPrice:
+        "حسب المشروع",
+
+      choosePackage:
+        "ابدأ الآن",
+
+      talkToUs:
+        "تحدث معنا",
+
+      mostPopular:
+        "الأكثر طلبًا",
+
+      customKicker:
+        "CUSTOM WEBSITE",
+
+      customTitle:
+        "عايز موقع\nعلى ستايلك؟",
+
+      customText:
+        "نصمم لك موقع مخصص من الصفر، بالهوية البصرية اللي تناسب مشروعك، مع تجربة استخدام سريعة ومتجاوبة.",
+
+      customButton:
+        "اطلب موقعك",
+
+      showcaseKicker:
+        "CASE STUDIES",
+
+      showcaseTitle:
+        "هنا هنحط\nشغل الحملات.",
+
+      placeholderText:
+        "Campaign Image",
+
+      videosKicker:
+        "RESULTS",
+
+      videosTitle:
+        "شوف\nالنتائج بنفسك.",
+
+      featuredVideo:
+        "FEATURED",
+
+      videoResult:
+        "Campaign Result",
+
+      video1Title:
+        "Featured Campaign",
+
+      video2Title:
+        "Client Testimonial",
+
+      video3Title:
+        "Campaign Performance",
+
+      video4Title:
+        "Creative Performance",
+
+      video5Title:
+        "Client Feedback",
+
+      processKicker:
+        "PROCESS",
+
+      processTitle:
+        "بنشتغل\nبخطوات واضحة.",
+
+      process1Title:
+        "Discovery",
+
+      process1Text:
+        "نفهم المشروع والأهداف والجمهور.",
+
+      process2Title:
+        "Strategy",
+
+      process2Text:
+        "نحدد الخطة والقنوات والرسائل.",
+
+      process3Title:
+        "Execution",
+
+      process3Text:
+        "ننفذ ونطلق ونختبر.",
+
+      process4Title:
+        "Optimization",
+
+      process4Text:
+        "نحسن النتائج بناءً على البيانات.",
+
+      contactKicker:
+        "LET'S WORK TOGETHER",
+
+      contactTitle:
+        "جاهز\nنكبر مشروعك؟",
+
+      contactText:
+        "ابعت لنا تفاصيل مشروعك وهنحدد لك أنسب طريقة نبدأ بيها.",
+
+      footerText:
+        "استراتيجية • إبداع • نمو",
+
+      openExternal:
+        "فتح الموقع الأصلي",
+
+      videoModalTitle:
+        "Campaign Video",
+
+      watchOnFacebook:
+        "مشاهدة على Facebook"
+    },
+
+
+    en: {
+      navHome: "Home",
+      navAbout: "About",
+      navServices: "Services",
+      navProjects: "Projects",
+      navPackages: "Packages",
+      navVideos: "Results",
+      navContact: "Contact",
+
+      heroEyebrow:
+        "Digital Marketing • Media Buying • Web Design",
+
+      heroTitle1: "Grow",
+      heroTitle2: "Your Business",
+      heroTitle3: "Smarter.",
+
+      heroDescription:
+        "Successful marketing ideas, precise paid advertising, market and competitor analysis, and websites built around your business goals.",
+
+      heroPrimary: "Start Your Project",
+      heroSecondary: "View Our Work",
+
+      statOne: "Strategy",
+      statTwo: "Execution",
+      statThree: "Analysis",
+
+      floatGrowth: "Continuous growth",
+      floatTarget: "Precise targeting",
+
+      aboutKicker: "ABOUT",
+      aboutTitle:
+        "Not just ads.\nWe build real growth.",
+
+      aboutText:
+        "We combine strategy, media buying, market analysis, content and web design so every step of your project has a clear purpose.",
+
+      aboutQuote:
+        "Your project’s success is our goal.",
+
+      aboutCard1Title:
+        "Successful Marketing Ideas",
+
+      aboutCard1Text:
+        "Ideas built around the market and audience.",
+
+      aboutCard2Title:
+        "Precise Targeting",
+
+      aboutCard2Text:
+        "Putting the budget in front of the right audience.",
+
+      aboutCard3Title:
+        "Analysis & Optimization",
+
+      aboutCard3Text:
+        "We measure, analyze and improve continuously.",
+
+      servicesKicker: "SERVICES",
+
+      servicesTitle:
+        "Every move\nhas a purpose.",
+
+      service1Title:
+        "Media Buying",
+
+      service1Text:
+        "Well-planned campaigns, precise targeting and data-driven budget management.",
+
+      service2Title:
+        "Market Analysis",
+
+      service2Text:
+        "We analyze the market, competitors, audience, strengths and weaknesses.",
+
+      service3Title:
+        "Social Media",
+
+      service3Text:
+        "Content that helps the brand show up the right way and create real engagement.",
+
+      service4Title:
+        "Web Design",
+
+      service4Text:
+        "Modern, fast and responsive websites designed around your brand style and business goals.",
+
+      projectsKicker:
+        "SELECTED WORK",
+
+      projectsTitle:
+        "Projects\nthat actually work.",
+
+      openProject:
+        "Open Project",
+
+      project1Desc:
+        "A modern web experience built to present the project and services professionally.",
+
+      project2Desc:
+        "A clean website with a clear and simple user experience.",
+
+      project3Desc:
+        "A web project with a distinct visual direction and flexible experience.",
+
+      projectNote:
+        "Some external websites may not load inside the preview because of their iframe security policies.",
+
+      packagesKicker:
+        "PACKAGES",
+
+      packagesTitle:
+        "Choose the package\nthat fits your project.",
+
+      package1Title:
+        "Strong Start",
+
+      package1Text:
+        "Suitable for projects that are starting or need to organize their foundation.",
+
+      package2Title:
+        "Growth",
+
+      package2Text:
+        "For brands that want a stronger presence and continuous performance improvement.",
+
+      package3Title:
+        "Custom",
+
+      package3Text:
+        "A fully customized package based on the project size, goals and budget.",
+
+      perMonth:
+        "monthly",
+
+      customPrice:
+        "project-based",
+
+      choosePackage:
+        "Get Started",
+
+      talkToUs:
+        "Talk To Us",
+
+      mostPopular:
+        "Most Popular",
+
+      customKicker:
+        "CUSTOM WEBSITE",
+
+      customTitle:
+        "Need a website\nthat feels like you?",
+
+      customText:
+        "We build custom websites from scratch with the visual identity that fits your project, plus a fast responsive experience.",
+
+      customButton:
+        "Build My Website",
+
+      showcaseKicker:
+        "CASE STUDIES",
+
+      showcaseTitle:
+        "Campaign work\nwill go here.",
+
+      placeholderText:
+        "Campaign Image",
+
+      videosKicker:
+        "RESULTS",
+
+      videosTitle:
+        "See the\nresults.",
+
+      featuredVideo:
+        "FEATURED",
+
+      videoResult:
+        "Campaign Result",
+
+      video1Title:
+        "Featured Campaign",
+
+      video2Title:
+        "Client Testimonial",
+
+      video3Title:
+        "Campaign Performance",
+
+      video4Title:
+        "Creative Performance",
+
+      video5Title:
+        "Client Feedback",
+
+      processKicker:
+        "PROCESS",
+
+      processTitle:
+        "We work\nwith clear steps.",
+
+      process1Title:
+        "Discovery",
+
+      process1Text:
+        "We understand the project, goals and audience.",
+
+      process2Title:
+        "Strategy",
+
+      process2Text:
+        "We define the plan, channels and messaging.",
+
+      process3Title:
+        "Execution",
+
+      process3Text:
+        "We build, launch and test.",
+
+      process4Title:
+        "Optimization",
+
+      process4Text:
+        "We improve results based on the data.",
+
+      contactKicker:
+        "LET'S WORK TOGETHER",
+
+      contactTitle:
+        "Ready to\ngrow your business?",
+
+      contactText:
+        "Send us your project details and we will define the best way to start.",
+
+      footerText:
+        "Strategy • Creativity • Growth",
+
+      openExternal:
+        "Open Original Website",
+
+      videoModalTitle:
+        "Campaign Video",
+
+      watchOnFacebook:
+        "Watch on Facebook"
+    }
+  };
+
+
+  let currentLanguage =
+    localStorage.getItem("portfolio-language") || "ar";
+
+  const applyLanguage = (language) => {
+    currentLanguage = language;
+
+    const dictionary =
+      translations[language] || translations.ar;
+
+    document.documentElement.lang = language;
+
+    document.documentElement.dir =
+      language === "ar" ? "rtl" : "ltr";
+
+    $$("[data-i18n]").forEach((element) => {
+      const key = element.dataset.i18n;
+
+      if (!dictionary[key]) return;
+
+      element.textContent =
+        dictionary[key];
+    });
+
+    if (languageToggle) {
+      languageToggle.textContent =
+        language === "ar" ? "EN" : "AR";
     }
 
     localStorage.setItem(
-      "mahmoud-theme",
-      theme
+      "portfolio-language",
+      language
     );
+  };
 
-  }
+  applyLanguage(currentLanguage);
 
-  themeToggle?.addEventListener(
-    "click",
-    () => {
+  languageToggle?.addEventListener("click", () => {
+    applyLanguage(
+      currentLanguage === "ar"
+        ? "en"
+        : "ar"
+    );
+  });
 
-      applyTheme(
-        theme === "dark"
-          ? "light"
-          : "dark"
-      );
 
-    }
-  );
-
-  /* =====================================================
+  /* ======================================================
      HEADER
   ====================================================== */
 
-  function initHeader() {
+  const siteHeader = $("#siteHeader");
 
-    if (!header) {
-      return;
-    }
-
-    const updateHeader =
-      () => {
-
-        header.classList.toggle(
-          "scrolled",
-          window.scrollY > 15
-        );
-
-      };
-
-    window.addEventListener(
-      "scroll",
-      updateHeader,
-      {
-        passive: true
-      }
+  const updateHeader = () => {
+    siteHeader?.classList.toggle(
+      "scrolled",
+      window.scrollY > 20
     );
+  };
 
-    updateHeader();
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+  );
 
-  }
+  updateHeader();
 
-  /* =====================================================
+
+  /* ======================================================
      MOBILE MENU
   ====================================================== */
 
-  function initMobileMenu() {
+  const menuToggle = $("#menuToggle");
+  const mobileMenu = $("#mobileMenu");
 
-    if (
-      !menuToggle ||
-      !mobileNav
-    ) {
-      return;
-    }
+  const closeMenu = () => {
+    menuToggle?.classList.remove("active");
+    mobileMenu?.classList.remove("open");
+    menuToggle?.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+    document.body.classList.remove("menu-open");
+  };
 
-    const closeMenu =
-      () => {
+  menuToggle?.addEventListener("click", () => {
+    const isOpen =
+      menuToggle.classList.toggle("active");
 
-        mobileNav.classList.remove(
-          "open"
-        );
-
-        menuToggle.classList.remove(
-          "active"
-        );
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      };
-
-    menuToggle.addEventListener(
-      "click",
-      () => {
-
-        const open =
-          mobileNav.classList.toggle(
-            "open"
-          );
-
-        menuToggle.classList.toggle(
-          "active",
-          open
-        );
-
-        menuToggle.setAttribute(
-          "aria-expanded",
-          String(open)
-        );
-
-      }
+    mobileMenu?.classList.toggle(
+      "open",
+      isOpen
     );
 
-    mobileNav
-      .querySelectorAll("a")
-      .forEach(
-        (link) => {
-
-          link.addEventListener(
-            "click",
-            closeMenu
-          );
-
-        }
-      );
-
-    window.addEventListener(
-      "resize",
-      () => {
-
-        if (
-          window.innerWidth >
-          1080
-        ) {
-
-          closeMenu();
-
-        }
-
-      }
+    menuToggle.setAttribute(
+      "aria-expanded",
+      String(isOpen)
     );
 
-  }
+    document.body.classList.toggle(
+      "menu-open",
+      isOpen
+    );
+  });
 
-  /* =====================================================
-     REVEAL
+  $$("#mobileMenu a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+
+  /* ======================================================
+     REVEAL ON SCROLL
   ====================================================== */
 
-  function initReveal() {
+  const revealItems = $$(".reveal");
 
-    const elements =
-      document.querySelectorAll(
-        ".reveal"
-      );
+  if ("IntersectionObserver" in window) {
 
-    if (!elements.length) {
-      return;
-    }
-
-    if (
-      reducedMotion ||
-      !("IntersectionObserver" in window)
-    ) {
-
-      elements.forEach(
-        (element) => {
-
-          element.classList.add(
-            "visible"
-          );
-
-        }
-      );
-
-      return;
-    }
-
-    const observer =
+    const revealObserver =
       new IntersectionObserver(
-        (
-          entries,
-          observerInstance
-        ) => {
+        (entries, observer) => {
 
-          entries.forEach(
-            (entry) => {
+          entries.forEach((entry) => {
 
-              if (
-                !entry.isIntersecting
-              ) {
-                return;
-              }
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-              observerInstance.unobserve(
-                entry.target
-              );
-
+            if (!entry.isIntersecting) {
+              return;
             }
-          );
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            observer.unobserve(entry.target);
+          });
 
         },
         {
-          threshold:
-            0.1,
-
-          rootMargin:
-            "0px 0px -40px 0px"
+          threshold: 0.12,
+          rootMargin: "0px 0px -60px 0px"
         }
       );
 
-    elements.forEach(
-      (element) => {
+    revealItems.forEach((item) => {
+      revealObserver.observe(item);
+    });
 
-        observer.observe(
-          element
-        );
+  } else {
 
-      }
-    );
+    revealItems.forEach((item) => {
+      item.classList.add("is-visible");
+    });
 
   }
 
-  /* =====================================================
-     PROJECTS
+
+  /* ======================================================
+     MAGNETIC BUTTONS
+     Desktop / mouse only
   ====================================================== */
 
-  function initProjects() {
+  const magneticButtons =
+    $$(".magnetic");
 
-    document
-      .querySelectorAll(
-        ".project-card"
-      )
-      .forEach(
-        (card) => {
+  const supportsHover =
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
 
-          const button =
-            card.querySelector(
-              ".project-open"
-            );
+  if (supportsHover) {
 
-          if (!button) {
-            return;
-          }
+    magneticButtons.forEach((button) => {
 
-          button.addEventListener(
-            "click",
-            () => {
+      button.addEventListener(
+        "mousemove",
+        (event) => {
 
-              const title =
-                card.dataset.title ||
-                "Project";
+          const rect =
+            button.getBoundingClientRect();
 
-              const url =
-                card.dataset.url ||
-                "";
+          const x =
+            event.clientX -
+            (rect.left + rect.width / 2);
 
-              openProject(
-                title,
-                url
-              );
+          const y =
+            event.clientY -
+            (rect.top + rect.height / 2);
 
-            }
-          );
-
+          button.style.transform =
+            `translate3d(${x * 0.08}px, ${y * 0.08}px, 0)`;
         }
       );
 
-  }
-
-  function openProject(
-    title,
-    url
-  ) {
-
-    projectTitle.textContent =
-      title;
-
-    projectExternalLink.href =
-      url || "#";
-
-    projectFallback.classList.remove(
-      "show"
-    );
-
-    projectFrame.src =
-      "about:blank";
-
-    openModal(
-      projectModal
-    );
-
-    window.setTimeout(
-      () => {
-
-        if (
-          projectModal.classList.contains(
-            "open"
-          )
-        ) {
-
-          projectFrame.src =
-            url;
-
-        }
-
-      },
-      70
-    );
-
-  }
-
-  /* =====================================================
-     FACEBOOK VIDEOS
-  ====================================================== */
-
-  function initVideos() {
-
-    document
-      .querySelectorAll(
-        ".video-play"
-      )
-      .forEach(
-        (button) => {
-
-          button.addEventListener(
-            "click",
-            () => {
-
-              const url =
-                button.dataset.videoUrl ||
-                "";
-
-              openVideo(
-                url
-              );
-
-            }
-          );
-
+      button.addEventListener(
+        "mouseleave",
+        () => {
+          button.style.transform = "";
         }
       );
 
+    });
   }
 
-  function buildFacebookEmbedUrl(
-    url
-  ) {
 
-    return (
-      "https://www.facebook.com/plugins/video.php" +
-      "?href=" +
-      encodeURIComponent(
-        url
-      ) +
-      "&show_text=false" +
-      "&width=1280"
-    );
-
-  }
-
-  function openVideo(
-    url
-  ) {
-
-    videoExternalLink.href =
-      url || "#";
-
-    videoFallback.classList.remove(
-      "show"
-    );
-
-    videoFrame.src =
-      "about:blank";
-
-    openModal(
-      videoModal
-    );
-
-    window.setTimeout(
-      () => {
-
-        if (!url) {
-
-          videoFallback.classList.add(
-            "show"
-          );
-
-          return;
-        }
-
-        videoFrame.src =
-          buildFacebookEmbedUrl(
-            url
-          );
-
-      },
-      70
-    );
-
-    /*
-      Facebook Share URLs are not guaranteed to be embeddable.
-      We give the iframe enough time to load before displaying
-      the fallback.
-    */
-
-    window.setTimeout(
-      () => {
-
-        if (
-          videoModal.classList.contains(
-            "open"
-          )
-        ) {
-
-          videoFallback.classList.add(
-            "show"
-          );
-
-        }
-
-      },
-      8500
-    );
-
-  }
-
-  /* =====================================================
-     MODALS
+  /* ======================================================
+     PROJECT MODAL
   ====================================================== */
 
-  function openModal(
-    modal
-  ) {
+  const projectModal = $("#projectModal");
+  const projectFrame = $("#projectModalFrame");
+  const projectTitle = $("#projectModalTitle");
+  const projectExternalLink =
+    $("#projectExternalLink");
 
-    if (!modal) {
+  const openProjectModal = (
+    url,
+    title
+  ) => {
+
+    if (!projectModal || !projectFrame) {
       return;
     }
 
-    modal.classList.add(
-      "open"
-    );
+    projectTitle.textContent = title;
+    projectExternalLink.href = url;
 
-    modal.setAttribute(
+    projectFrame.src = "";
+
+    const loading =
+      $(".modal-loading", projectModal);
+
+    loading?.classList.remove("hidden");
+
+    projectModal.classList.add("active");
+    projectModal.setAttribute(
       "aria-hidden",
       "false"
     );
 
-    body.classList.add(
-      "modal-open"
+    document.body.classList.add(
+      "menu-open"
     );
 
-  }
+    window.setTimeout(() => {
+      projectFrame.src = url;
+    }, 50);
 
-  function closeModal(
-    modal
-  ) {
+    projectFrame.onload = () => {
+      loading?.classList.add("hidden");
+    };
+  };
 
-    if (!modal) {
+  $$("[data-project]").forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+      const url =
+        button.dataset.project;
+
+      const title =
+        button.dataset.title ||
+        "Project";
+
+      if (!url) return;
+
+      openProjectModal(
+        url,
+        title
+      );
+    });
+
+  });
+
+
+  /* ======================================================
+     FACEBOOK VIDEO MODAL
+  ====================================================== */
+
+  const videoModal = $("#videoModal");
+  const videoFrame = $("#videoModalFrame");
+  const videoExternalLink =
+    $("#videoExternalLink");
+
+  const facebookEmbedUrl = (url) => {
+    return (
+      "https://www.facebook.com/plugins/video.php" +
+      "?href=" +
+      encodeURIComponent(url) +
+      "&show_text=false" +
+      "&width=1280"
+    );
+  };
+
+  const openVideoModal = (url) => {
+
+    if (
+      !videoModal ||
+      !videoFrame ||
+      !url
+    ) {
       return;
     }
 
-    modal.classList.remove(
-      "open"
+    const loading =
+      $(".modal-loading", videoModal);
+
+    loading?.classList.remove("hidden");
+
+    videoExternalLink.href = url;
+
+    videoFrame.src =
+      facebookEmbedUrl(url);
+
+    videoModal.classList.add("active");
+
+    videoModal.setAttribute(
+      "aria-hidden",
+      "false"
     );
+
+    document.body.classList.add(
+      "menu-open"
+    );
+
+    window.setTimeout(() => {
+      loading?.classList.add("hidden");
+    }, 2500);
+  };
+
+  $$(".video-card[data-video]").forEach(
+    (card) => {
+
+      card.addEventListener(
+        "click",
+        () => {
+          openVideoModal(
+            card.dataset.video
+          );
+        }
+      );
+
+    }
+  );
+
+
+  /* ======================================================
+     CLOSE MODALS
+  ====================================================== */
+
+  const closeModal = (modal) => {
+
+    if (!modal) return;
+
+    modal.classList.remove("active");
 
     modal.setAttribute(
       "aria-hidden",
       "true"
     );
 
-    if (
-      !projectModal.classList.contains(
-        "open"
-      ) &&
-      !videoModal.classList.contains(
-        "open"
-      )
-    ) {
+    if (modal === projectModal) {
+      if (projectFrame) {
+        projectFrame.src = "";
+      }
+    }
 
-      body.classList.remove(
-        "modal-open"
+    if (modal === videoModal) {
+      if (videoFrame) {
+        videoFrame.src = "";
+      }
+    }
+
+    if (
+      !mobileMenu?.classList.contains("open")
+    ) {
+      document.body.classList.remove(
+        "menu-open"
       );
-
     }
+  };
 
-    if (
-      modal ===
-      projectModal
-    ) {
+  $$("[data-close-modal]").forEach(
+    (element) => {
 
-      projectFrame.src =
-        "about:blank";
-
-    }
-
-    if (
-      modal ===
-      videoModal
-    ) {
-
-      videoFrame.src =
-        "about:blank";
-
-    }
-
-  }
-
-  function initModals() {
-
-    projectModalClose?.addEventListener(
-      "click",
-      () => {
-
-        closeModal(
-          projectModal
-        );
-
-      }
-    );
-
-    videoModalClose?.addEventListener(
-      "click",
-      () => {
-
-        closeModal(
-          videoModal
-        );
-
-      }
-    );
-
-    document
-      .querySelectorAll(
-        ".modal-backdrop"
-      )
-      .forEach(
-        (backdrop) => {
-
-          backdrop.addEventListener(
-            "click",
-            () => {
-
-              closeModal(
-                projectModal
-              );
-
-              closeModal(
-                videoModal
-              );
-
-            }
+      element.addEventListener(
+        "click",
+        () => {
+          closeModal(
+            element.closest(".modal")
           );
-
         }
       );
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
+    }
+  );
 
-        if (
-          event.key !== "Escape"
-        ) {
-          return;
-        }
 
-        closeModal(
-          projectModal
-        );
-
-        closeModal(
-          videoModal
-        );
-
-        mobileNav?.classList.remove(
-          "open"
-        );
-
-        menuToggle?.classList.remove(
-          "active"
-        );
-
-        menuToggle?.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-
-      }
-    );
-
-  }
-
-  /* =====================================================
-     YEAR
+  /* ======================================================
+     ESC KEY
   ====================================================== */
 
-  function initYear() {
+  document.addEventListener(
+    "keydown",
+    (event) => {
 
-    if (yearElement) {
+      if (event.key !== "Escape") {
+        return;
+      }
 
-      yearElement.textContent =
-        String(
-          new Date().getFullYear()
-        );
+      if (
+        projectModal?.classList.contains(
+          "active"
+        )
+      ) {
+        closeModal(projectModal);
+      }
+
+      if (
+        videoModal?.classList.contains(
+          "active"
+        )
+      ) {
+        closeModal(videoModal);
+      }
+
+      closeMenu();
+    }
+  );
+
+
+  /* ======================================================
+     BACKDROP CLICK
+  ====================================================== */
+
+  $$(".modal-backdrop").forEach(
+    (backdrop) => {
+
+      backdrop.addEventListener(
+        "click",
+        () => {
+          closeModal(
+            backdrop.closest(".modal")
+          );
+        }
+      );
 
     }
+  );
 
-  }
+
+  /* ======================================================
+     WINDOW RESIZE
+  ====================================================== */
+
+  let resizeTimer = null;
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      window.clearTimeout(resizeTimer);
+
+      resizeTimer = window.setTimeout(() => {
+
+        if (
+          window.innerWidth > 780 &&
+          mobileMenu?.classList.contains("open")
+        ) {
+          closeMenu();
+        }
+
+      }, 120);
+    },
+    { passive: true }
+  );
 
 })();
