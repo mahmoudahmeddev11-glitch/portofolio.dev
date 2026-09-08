@@ -1,31 +1,181 @@
-/* =========================================
-   MOBILE MENU
-========================================= */
+/* =====================================================
+   LANGUAGE
+===================================================== */
 
-const menuToggle =
-    document.getElementById("menuToggle");
+const languageBtn =
+    document.getElementById("languageBtn");
 
-const mobileMenu =
-    document.getElementById("mobileMenu");
+const mobileLanguageBtn =
+    document.getElementById("mobileLanguageBtn");
+
+let currentLanguage = "en";
 
 
-menuToggle.addEventListener(
+function updateLanguage(language) {
+
+    currentLanguage = language;
+
+    /*
+     * Change HTML language
+     */
+
+    document.documentElement.lang =
+        language;
+
+
+    /*
+     * Change direction
+     */
+
+    document.documentElement.dir =
+        language === "ar"
+            ? "rtl"
+            : "ltr";
+
+
+    /*
+     * Translate all elements
+     */
+
+    const elements =
+        document.querySelectorAll(
+            "[data-en][data-ar]"
+        );
+
+
+    elements.forEach(element => {
+
+        const text =
+            element.getAttribute(
+                `data-${language}`
+            );
+
+        if (text !== null) {
+
+            element.textContent =
+                text;
+        }
+
+    });
+
+
+    /*
+     * Update language buttons
+     */
+
+    const buttonText =
+        language === "en"
+            ? "العربية"
+            : "English";
+
+
+    languageBtn.textContent =
+        buttonText;
+
+    mobileLanguageBtn.textContent =
+        buttonText;
+
+
+    /*
+     * Save selected language
+     */
+
+    localStorage.setItem(
+        "website-language",
+        language
+    );
+}
+
+
+/* =====================================================
+   DESKTOP LANGUAGE BUTTON
+===================================================== */
+
+languageBtn.addEventListener(
     "click",
     () => {
 
-        const isOpen =
-            mobileMenu.classList.toggle("active");
+        const newLanguage =
+            currentLanguage === "en"
+                ? "ar"
+                : "en";
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
+        updateLanguage(
+            newLanguage
+        );
+    }
+);
+
+
+/* =====================================================
+   MOBILE LANGUAGE BUTTON
+===================================================== */
+
+mobileLanguageBtn.addEventListener(
+    "click",
+    () => {
+
+        const newLanguage =
+            currentLanguage === "en"
+                ? "ar"
+                : "en";
+
+        updateLanguage(
+            newLanguage
         );
 
     }
 );
 
 
-/* Close menu after clicking a link */
+/* =====================================================
+   LOAD SAVED LANGUAGE
+===================================================== */
+
+const savedLanguage =
+    localStorage.getItem(
+        "website-language"
+    );
+
+
+if (
+    savedLanguage === "ar" ||
+    savedLanguage === "en"
+) {
+
+    updateLanguage(
+        savedLanguage
+    );
+
+}
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        mobileMenu.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+/* =====================================================
+   CLOSE MOBILE MENU
+===================================================== */
 
 const mobileLinks =
     mobileMenu.querySelectorAll("a");
@@ -37,94 +187,11 @@ mobileLinks.forEach(link => {
         "click",
         () => {
 
-            mobileMenu.classList.remove("active");
-
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
+            mobileMenu.classList.remove(
+                "active"
             );
 
         }
     );
 
 });
-
-
-/* =========================================
-   LANGUAGE
-========================================= */
-
-const languageSwitcher =
-    document.getElementById(
-        "languageSwitcher"
-    );
-
-const mobileLanguageSwitcher =
-    document.getElementById(
-        "mobileLanguageSwitcher"
-    );
-
-
-let currentLanguage = "en";
-
-
-function setLanguage(language) {
-
-    currentLanguage = language;
-
-
-    document.documentElement.lang =
-        language;
-
-
-    document.documentElement.dir =
-        language === "ar"
-            ? "rtl"
-            : "ltr";
-
-
-    languageSwitcher.textContent =
-        language === "en"
-            ? "العربية"
-            : "English";
-
-
-    mobileLanguageSwitcher.textContent =
-        language === "en"
-            ? "العربية"
-            : "English";
-
-
-    /*
-        هنا بعد ما نخلص كل محتوى الموقع
-        هنضيف ترجمة كل النصوص.
-    */
-}
-
-
-languageSwitcher.addEventListener(
-    "click",
-    () => {
-
-        setLanguage(
-            currentLanguage === "en"
-                ? "ar"
-                : "en"
-        );
-
-    }
-);
-
-
-mobileLanguageSwitcher.addEventListener(
-    "click",
-    () => {
-
-        setLanguage(
-            currentLanguage === "en"
-                ? "ar"
-                : "en"
-        );
-
-    }
-);
