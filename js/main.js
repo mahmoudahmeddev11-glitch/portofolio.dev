@@ -1,9 +1,9 @@
 (() => {
   "use strict";
 
-  /* =======================================================
-     DOM
-  ======================================================== */
+  /* =====================================================
+     ELEMENTS
+  ====================================================== */
 
   const body =
     document.body;
@@ -11,88 +11,122 @@
   const root =
     document.documentElement;
 
-  const siteHeader =
-    document.getElementById("siteHeader");
+  const header =
+    document.getElementById(
+      "header"
+    );
 
   const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+      "themeToggle"
+    );
 
   const languageToggle =
-    document.getElementById("languageToggle");
+    document.getElementById(
+      "languageToggle"
+    );
 
   const menuToggle =
-    document.getElementById("menuToggle");
+    document.getElementById(
+      "menuToggle"
+    );
 
-  const mobileMenu =
-    document.getElementById("mobileMenu");
+  const mobileNav =
+    document.getElementById(
+      "mobileNav"
+    );
 
   const projectModal =
-    document.getElementById("projectModal");
+    document.getElementById(
+      "projectModal"
+    );
 
   const projectModalClose =
-    document.getElementById("projectModalClose");
+    document.getElementById(
+      "projectModalClose"
+    );
 
   const projectModalTitle =
-    document.getElementById("projectModalTitle");
+    document.getElementById(
+      "projectModalTitle"
+    );
 
   const projectFrame =
-    document.getElementById("projectFrame");
+    document.getElementById(
+      "projectFrame"
+    );
 
   const projectFallback =
-    document.getElementById("projectFallback");
+    document.getElementById(
+      "projectFallback"
+    );
 
   const projectExternalLink =
-    document.getElementById("projectExternalLink");
+    document.getElementById(
+      "projectExternalLink"
+    );
 
   const videoModal =
-    document.getElementById("videoModal");
+    document.getElementById(
+      "videoModal"
+    );
 
   const videoModalClose =
-    document.getElementById("videoModalClose");
+    document.getElementById(
+      "videoModalClose"
+    );
 
   const facebookVideoFrame =
-    document.getElementById("facebookVideoFrame");
+    document.getElementById(
+      "facebookVideoFrame"
+    );
 
   const videoFallback =
-    document.getElementById("videoFallback");
+    document.getElementById(
+      "videoFallback"
+    );
 
   const videoExternalLink =
-    document.getElementById("videoExternalLink");
+    document.getElementById(
+      "videoExternalLink"
+    );
 
-  const yearElement =
-    document.getElementById("year");
+  const year =
+    document.getElementById(
+      "year"
+    );
 
-  /* =======================================================
-     DEVICE
-  ======================================================== */
+  /* =====================================================
+     DEVICE STATE
+  ====================================================== */
 
-  const isTouchDevice =
+  const touchDevice =
     window.matchMedia(
       "(hover: none) and (pointer: coarse)"
     ).matches;
 
-  const prefersReducedMotion =
+  const reducedMotion =
     window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-  /* =======================================================
-     STATE
-  ======================================================== */
+  /* =====================================================
+     STORAGE
+  ====================================================== */
 
-  let currentLanguage =
+  let language =
     localStorage.getItem(
       "mahmoud-language"
     ) || "ar";
 
-  let currentTheme =
+  let theme =
     localStorage.getItem(
       "mahmoud-theme"
     ) || "dark";
 
-  /* =======================================================
+  /* =====================================================
      TRANSLATIONS
-  ======================================================== */
+  ====================================================== */
 
   const translations = {
 
@@ -102,18 +136,18 @@
         "الخدمات",
 
       navProjects:
-        "أعمالنا",
+        "المشاريع",
+
+      navPackages:
+        "الباقات",
 
       navVideos:
         "آراء العملاء",
 
-      navProcess:
-        "طريقة شغلنا",
-
       navContact:
         "تواصل",
 
-      navCta:
+      headerCta:
         "ابدأ مشروع",
 
       heroEyebrow:
@@ -126,28 +160,22 @@
         "بذكاء.",
 
       heroDescription:
-        "أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تساعد مشروعك يوصل لنتيجة أفضل.",
+        "أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك.",
 
-      heroPrimary:
+      heroButtonOne:
         "شوف أعمالنا",
 
-      heroSecondary:
-        "خدماتنا",
+      heroButtonTwo:
+        "ابدأ معانا",
 
-      statOne:
+      heroStatOne:
         "مشاريع ويب",
 
-      statTwo:
+      heroStatTwo:
         "فيديوهات عملاء",
 
-      statThree:
-        "أفكار جديدة",
-
-      heroUiOne:
-        "DIGITAL GROWTH",
-
-      heroUiTwo:
-        "PERFORMANCE",
+      heroStatThree:
+        "حلول مخصصة",
 
       aboutLabel:
         "ABOUT",
@@ -156,28 +184,28 @@
         "مش بس إعلانات.",
 
       aboutTitle:
-        "إحنا بنبني <span>نمو حقيقي.</span>",
+        "بنبني <span>نمو حقيقي.</span>",
 
       aboutText:
-        "بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى، وتصميم المواقع عشان كل جزء من الرحلة يخدم هدف واحد: نمو المشروع.",
+        "بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى وتصميم المواقع عشان كل خطوة في المشروع يكون ليها هدف واضح.",
 
-      aboutOneTitle:
-        "أفكار تسويقية",
+      aboutPointOneTitle:
+        "أفكار تسويقية ناجحة",
 
-      aboutOneText:
+      aboutPointOneText:
         "أفكار مبنية على السوق والجمهور.",
 
-      aboutTwoTitle:
-        "استهداف أدق",
+      aboutPointTwoTitle:
+        "استهداف دقيق",
 
-      aboutTwoText:
-        "نوجّه الميزانية للجمهور الأقرب للشراء.",
+      aboutPointTwoText:
+        "توجيه الميزانية للجمهور المناسب.",
 
-      aboutThreeTitle:
-        "تحليل مستمر",
+      aboutPointThreeTitle:
+        "تحليل وتطوير",
 
-      aboutThreeText:
-        "نقيس ونحلل ونطور باستمرار.",
+      aboutPointThreeText:
+        "نقيس ونحلل ونحسن الأداء باستمرار.",
 
       servicesKicker:
         "الخدمات",
@@ -185,62 +213,152 @@
       servicesTitle:
         "كل حاجة <span>تخدم النمو.</span>",
 
-      servicesIntro:
-        "خدمات متكاملة تخلي الاستراتيجية والتنفيذ والنتيجة ماشيين في اتجاه واحد.",
+      servicesText:
+        "من أول التحليل والاستراتيجية لحد الإعلانات وتصميم الموقع وتجربة العميل.",
 
       serviceOneTitle:
         "Media Buying",
 
       serviceOneText:
-        "تخطيط وإدارة وتحسين الحملات المدفوعة للوصول للجمهور المناسب بكفاءة.",
+        "إدارة الحملات المدفوعة واستهداف الجمهور المناسب وتحسين الميزانية.",
 
       serviceTwoTitle:
         "Digital Marketing",
 
       serviceTwoText:
-        "استراتيجية رقمية تجمع بين المحتوى والأداء والقنوات المناسبة.",
+        "بناء استراتيجية رقمية مترابطة تخدم أهداف المشروع.",
 
       serviceThreeTitle:
         "Market Analysis",
 
       serviceThreeText:
-        "تحليل السوق والمنافسين والجمهور لتحديد أفضل الفرص.",
+        "تحليل السوق والمنافسين والجمهور قبل اتخاذ القرار.",
 
       serviceFourTitle:
         "Web Design",
 
       serviceFourText:
-        "مواقع منظمة وسريعة وتركّز على تجربة المستخدم والتحويل.",
+        "مواقع حديثة وسريعة ومصممة حسب هوية واحتياجات المشروع.",
 
       serviceFiveTitle:
         "Social Media",
 
       serviceFiveText:
-        "بناء حضور اجتماعي واضح، محتوى جذاب، ورسالة متماسكة تخلي البراند أسهل في التذكر.",
+        "بناء حضور قوي على السوشيال ميديا من خلال محتوى ورسالة واضحة.",
 
       projectsKicker:
         "مشاريع الويب",
 
       projectsTitle:
-        "شوف المشاريع <span>من هنا.</span>",
+        "شوف شغلنا <span>من هنا.</span>",
 
-      projectsIntro:
-        "المواقع دي بتتفتح داخل نفس البورتفوليو، من غير ما المستخدم يضطر يسيب الصفحة.",
+      projectsText:
+        "كل مشروع بيتفتح داخل الموقع عشان العميل يقدر يشوف التجربة بنفسه.",
 
       projectType:
         "WEB EXPERIENCE",
 
-      projectOpen:
+      projectButton:
         "افتح المشروع",
 
+      packagesKicker:
+        "الباقات والأسعار",
+
+      packagesTitle:
+        "اختار <span>المناسب ليك.</span>",
+
+      packagesText:
+        "أسعار مبدئية تقدر تعدّلها بعدين حسب الخدمة ومتطلبات العميل.",
+
+      starterName:
+        "STARTER",
+
+      starterDescription:
+        "بداية مناسبة للمشاريع اللي عايزة حضور وتسويق منظم.",
+
+      currency:
+        "جنيه / شهريًا",
+
+      starterFeatureOne:
+        "إدارة حملة إعلانية",
+
+      starterFeatureTwo:
+        "تحليل أساسي للجمهور",
+
+      starterFeatureThree:
+        "محتوى وتسويق أساسي",
+
+      starterFeatureFour:
+        "تقرير شهري",
+
+      growthName:
+        "GROWTH",
+
+      growthDescription:
+        "للمشاريع اللي عايزة نمو أقوى وإدارة تسويقية أكثر شمولًا.",
+
+      growthFeatureOne:
+        "إدارة وتحسين الحملات",
+
+      growthFeatureTwo:
+        "تحليل السوق والمنافسين",
+
+      growthFeatureThree:
+        "استراتيجية محتوى",
+
+      growthFeatureFour:
+        "تقارير وتحسين مستمر",
+
+      growthFeatureFive:
+        "متابعة شهرية",
+
+      recommended:
+        "الأكثر طلبًا",
+
+      choosePackage:
+        "اختار الباقة",
+
+      customName:
+        "CUSTOM",
+
+      customPrice:
+        "على حسب مشروعك",
+
+      customDescription:
+        "عايز حاجة مختلفة؟ نقدر نصمم لك خطة وموقع وتجربة رقمية على مقاس مشروعك.",
+
+      customFeatureOne:
+        "موقع مخصص",
+
+      customFeatureTwo:
+        "هوية وتصميم خاص",
+
+      customFeatureThree:
+        "صفحات ووظائف حسب احتياجك",
+
+      customFeatureFour:
+        "استراتيجية تسويق مخصصة",
+
+      customButton:
+        "اتكلم معانا",
+
+      customSiteTitle:
+        "عايز موقع <span>على مزاجك؟</span>",
+
+      customSiteText:
+        "نبدأ من الصفر: التصميم، الأقسام، الحركة، الوظائف وتجربة المستخدم — وكل حاجة تتعمل حسب شخصية مشروعك وهدفه.",
+
+      customSiteButton:
+        "اطلب موقع مخصص",
+
       showcaseKicker:
-        "مساحات جاهزة",
+        "معرض الأعمال",
 
       showcaseTitle:
-        "حط شغلك <span>هنا.</span>",
+        "حط صور <span>شغلك هنا.</span>",
 
-      showcaseIntro:
-        "أماكن مجهزة تضيف فيها صور الحملات والكرياتيف والـCase Studies بعدين.",
+      showcaseText:
+        "أماكن مجهزة للـCampaigns والـCreatives والـCase Studies والصور.",
 
       showcaseOne:
         "CAMPAIGN",
@@ -254,77 +372,71 @@
       showcaseFour:
         "BRAND CONTENT",
 
-      showcaseHint:
+      imageHint:
         "أضف الصورة هنا",
 
       videosKicker:
         "آراء العملاء",
 
       videosTitle:
-        "الكلام <span>من الناس.</span>",
+        "الكلام <span>من العملاء.</span>",
 
-      videosIntro:
-        "أول فيديو مميز، وبعده باقي الفيديوهات. كل فيديو بيحاول يفتح جوه الموقع.",
+      videosText:
+        "الفيديو الأول مميز، وبعده باقي التجارب بنفس الشكل.",
 
       featured:
         "FEATURED",
 
-      clientFeedback:
-        "Client Feedback",
+      videoOneTitle:
+        "تجربة العميل — الفيديو المميز",
 
-      videoType:
-        "VIDEO TESTIMONIAL",
-
-      featuredVideoTitle:
-        "تجربة عميل — الفيديو المميز",
-
-      normalVideoTitle:
+      videoGenericTitle:
         "رأي عميل",
 
       processKicker:
         "طريقة شغلنا",
 
       processTitle:
-        "واضح. <span>منظم.</span> قابل للتطوير.",
+        "من الفكرة <span>للنتيجة.</span>",
 
-      processIntro:
-        "كل خطوة ليها سبب وكل قرار مربوط بالهدف النهائي.",
+      processText:
+        "خطوات واضحة بدل الشغل العشوائي.",
 
       processOneTitle:
         "نفهم",
 
       processOneText:
-        "البيزنس والسوق والجمهور والأهداف.",
+        "نفهم المشروع والسوق والجمهور والأهداف.",
 
       processTwoTitle:
         "نخطط",
 
       processTwoText:
-        "الاستراتيجية والقنوات والرسائل المناسبة.",
+        "نحدد الاستراتيجية والقنوات والرسائل.",
 
       processThreeTitle:
-        "ننّفذ",
+        "ننفذ",
 
       processThreeText:
-        "الإعلانات والمحتوى والكرياتيف وتجارب الويب.",
+        "ننّفذ الإعلانات والمحتوى والموقع.",
 
       processFourTitle:
         "نحلل",
 
       processFourText:
-        "نراقب البيانات ونشوف إيه اللي شغال.",
+        "نراجع البيانات والأداء باستمرار.",
 
       processFiveTitle:
         "نكبر",
 
       processFiveText:
-        "نزود اللي بيحقق نتائج ونقلل الهدر.",
+        "نزود الاستثمار في اللي بيحقق نتيجة.",
 
       contactTitle:
-        "جاهز <span>تكبّر مشروعك؟</span>",
+        "جاهز <span>تكبر مشروعك؟</span>",
 
       contactText:
-        "ابعتلنا فكرتك ونشوف إزاي نقدر نحولها لاستراتيجية وتنفيذ ونمو واضح.",
+        "ابعتلنا فكرتك ونشوف إزاي نقدر نحولها لخطة واضحة وتنفيذ قوي.",
 
       contactButton:
         "ابدأ محادثة",
@@ -332,32 +444,27 @@
       footerServices:
         "Digital Marketing · Media Buying · Web · Strategy",
 
-      liveProject:
-        "LIVE PROJECT",
+      projectFallbackTitle:
+        "الموقع منع التضمين داخل الصفحة.",
 
-      projectBlockedTitle:
-        "الموقع منع التضمين داخل البورتفوليو.",
-
-      projectBlockedText:
-        "ده بسبب إعدادات الأمان الخاصة بالموقع نفسه.",
+      projectFallbackText:
+        "ده بسبب إعدادات الموقع نفسه.",
 
       openWebsite:
         "فتح الموقع",
 
-      videoModalSmall:
-        "CLIENT VIDEO",
-
       videoModalTitle:
         "رأي عميل",
 
-      facebookBlockedTitle:
-        "Facebook منع تضمين الفيديو.",
+      facebookFallbackTitle:
+        "Facebook رفض تضمين الفيديو.",
 
-      facebookBlockedText:
-        "الرابط الحالي Share وليس direct embed. الكود بيحاول التضمين أولًا، ولو Facebook رفضه بيظهر الزر بدل الشاشة الفاضية.",
+      facebookFallbackText:
+        "روابط Share الحالية ليست direct embed URLs.",
 
       openFacebook:
         "فتح على Facebook"
+
     },
 
     en: {
@@ -368,16 +475,16 @@
       navProjects:
         "Projects",
 
+      navPackages:
+        "Packages",
+
       navVideos:
         "Testimonials",
-
-      navProcess:
-        "Process",
 
       navContact:
         "Contact",
 
-      navCta:
+      headerCta:
         "Start a project",
 
       heroEyebrow:
@@ -390,28 +497,22 @@
         "smarter.",
 
       heroDescription:
-        "Winning marketing ideas, precise paid advertising, market and competitor analysis, and web design built to help your business grow.",
+        "Winning marketing ideas, precise paid advertising, market and competitor analysis, and web design built around your business goals.",
 
-      heroPrimary:
+      heroButtonOne:
         "Explore our work",
 
-      heroSecondary:
-        "Our services",
+      heroButtonTwo:
+        "Start with us",
 
-      statOne:
+      heroStatOne:
         "Web projects",
 
-      statTwo:
+      heroStatTwo:
         "Client videos",
 
-      statThree:
-        "New ideas",
-
-      heroUiOne:
-        "DIGITAL GROWTH",
-
-      heroUiTwo:
-        "PERFORMANCE",
+      heroStatThree:
+        "Custom solutions",
 
       aboutLabel:
         "ABOUT",
@@ -423,25 +524,25 @@
         "We build <span>real growth.</span>",
 
       aboutText:
-        "We combine strategy, media buying, market analysis, content and web design so every part of the journey serves one goal: growing the business.",
+        "We combine strategy, media buying, market analysis, content and web design so every part of the project has a clear purpose.",
 
-      aboutOneTitle:
-        "Marketing ideas",
+      aboutPointOneTitle:
+        "Winning marketing ideas",
 
-      aboutOneText:
+      aboutPointOneText:
         "Ideas built around the market and audience.",
 
-      aboutTwoTitle:
-        "Sharper targeting",
+      aboutPointTwoTitle:
+        "Precise targeting",
 
-      aboutTwoText:
-        "We guide budget toward the audience most likely to buy.",
+      aboutPointTwoText:
+        "Guide the budget toward the right audience.",
 
-      aboutThreeTitle:
-        "Continuous analysis",
+      aboutPointThreeTitle:
+        "Continuous improvement",
 
-      aboutThreeText:
-        "We measure, analyze and improve continuously.",
+      aboutPointThreeText:
+        "Measure, analyze and improve performance continuously.",
 
       servicesKicker:
         "Services",
@@ -449,62 +550,152 @@
       servicesTitle:
         "Everything <span>serves growth.</span>",
 
-      servicesIntro:
-        "Integrated services that keep strategy, execution and results moving in one direction.",
+      servicesText:
+        "From analysis and strategy to advertising, websites and customer experience.",
 
       serviceOneTitle:
         "Media Buying",
 
       serviceOneText:
-        "Plan, manage and optimize paid campaigns to reach the right audience efficiently.",
+        "Manage paid campaigns, target the right audience and improve budget efficiency.",
 
       serviceTwoTitle:
         "Digital Marketing",
 
       serviceTwoText:
-        "A digital strategy combining content, performance and the right channels.",
+        "Build a connected digital strategy around your business goals.",
 
       serviceThreeTitle:
         "Market Analysis",
 
       serviceThreeText:
-        "Analyze markets, competitors and audiences to identify the best opportunities.",
+        "Analyze the market, competitors and audience before making decisions.",
 
       serviceFourTitle:
         "Web Design",
 
       serviceFourText:
-        "Fast, structured websites focused on user experience and conversion.",
+        "Modern, fast websites designed around your brand and business needs.",
 
       serviceFiveTitle:
         "Social Media",
 
       serviceFiveText:
-        "Build a clear social presence, engaging content and a consistent brand message.",
+        "Build a strong social presence through clear messaging and engaging content.",
 
       projectsKicker:
         "Web projects",
 
       projectsTitle:
-        "Explore projects <span>right here.</span>",
+        "Explore our work <span>right here.</span>",
 
-      projectsIntro:
-        "These websites open inside the portfolio without forcing visitors to leave the page.",
+      projectsText:
+        "Each project opens inside the site so visitors can experience it.",
 
       projectType:
         "WEB EXPERIENCE",
 
-      projectOpen:
+      projectButton:
         "Open project",
 
+      packagesKicker:
+        "Packages & pricing",
+
+      packagesTitle:
+        "Choose what <span>fits you.</span>",
+
+      packagesText:
+        "Starter prices that you can customize later based on the service and client requirements.",
+
+      starterName:
+        "STARTER",
+
+      starterDescription:
+        "A clean starting point for businesses that need organized marketing and presence.",
+
+      currency:
+        "EGP / month",
+
+      starterFeatureOne:
+        "One campaign management",
+
+      starterFeatureTwo:
+        "Basic audience analysis",
+
+      starterFeatureThree:
+        "Basic marketing content",
+
+      starterFeatureFour:
+        "Monthly report",
+
+      growthName:
+        "GROWTH",
+
+      growthDescription:
+        "For businesses that want stronger growth and broader marketing management.",
+
+      growthFeatureOne:
+        "Campaign management & optimization",
+
+      growthFeatureTwo:
+        "Market & competitor analysis",
+
+      growthFeatureThree:
+        "Content strategy",
+
+      growthFeatureFour:
+        "Reporting & continuous optimization",
+
+      growthFeatureFive:
+        "Monthly follow-up",
+
+      recommended:
+        "Most popular",
+
+      choosePackage:
+        "Choose package",
+
+      customName:
+        "CUSTOM",
+
+      customPrice:
+        "Based on your project",
+
+      customDescription:
+        "Need something different? We can build a custom strategy, website and digital experience around your project.",
+
+      customFeatureOne:
+        "Custom website",
+
+      customFeatureTwo:
+        "Custom visual direction",
+
+      customFeatureThree:
+        "Custom pages & functionality",
+
+      customFeatureFour:
+        "Custom marketing strategy",
+
+      customButton:
+        "Talk to us",
+
+      customSiteTitle:
+        "Need a website <span>your way?</span>",
+
+      customSiteText:
+        "We can start from zero: design, sections, motion, functionality and UX — all built around your brand and business goals.",
+
+      customSiteButton:
+        "Request a custom website",
+
       showcaseKicker:
-        "Ready spaces",
+        "Work showcase",
 
       showcaseTitle:
-        "Put your work <span>here.</span>",
+        "Put your work <span>right here.</span>",
 
-      showcaseIntro:
-        "Prepared spaces for campaign visuals, creative work and case studies later.",
+      showcaseText:
+        "Prepared spaces for campaigns, creative assets, case studies and images.",
 
       showcaseOne:
         "CAMPAIGN",
@@ -518,7 +709,7 @@
       showcaseFour:
         "BRAND CONTENT",
 
-      showcaseHint:
+      imageHint:
         "Add image here",
 
       videosKicker:
@@ -527,68 +718,62 @@
       videosTitle:
         "Straight <span>from clients.</span>",
 
-      videosIntro:
-        "The first video is featured, followed by the remaining videos. Each one attempts to open inside the site.",
+      videosText:
+        "The first video is featured, followed by the remaining experiences.",
 
       featured:
         "FEATURED",
 
-      clientFeedback:
-        "Client Feedback",
-
-      videoType:
-        "VIDEO TESTIMONIAL",
-
-      featuredVideoTitle:
+      videoOneTitle:
         "Client experience — featured video",
 
-      normalVideoTitle:
+      videoGenericTitle:
         "Client feedback",
 
       processKicker:
         "Our process",
 
       processTitle:
-        "Clear. <span>Structured.</span> Scalable.",
+        "From idea <span>to result.</span>",
 
-      processIntro:
-        "Every step has a reason and every decision connects to the final goal.",
+      processText:
+        "Clear steps instead of random execution.",
 
       processOneTitle:
         "Discover",
 
       processOneText:
-        "Business, market, audience and goals.",
+        "Understand the business, market, audience and goals.",
 
       processTwoTitle:
         "Plan",
 
       processTwoText:
-        "Strategy, channels and the right messaging.",
+        "Define strategy, channels and messaging.",
 
       processThreeTitle:
         "Execute",
 
       processThreeText:
-        "Ads, content, creative and web experiences.",
+        "Execute advertising, content and web.",
 
       processFourTitle:
         "Analyze",
 
       processFourText:
-        "Track the data and identify what works.",
+        "Review data and performance continuously.",
 
       processFiveTitle:
         "Scale",
 
       processFiveText:
-        "Double down on what works and reduce waste.",
+        "Invest more in what creates results.",
 
       contactTitle:
         "Ready to <span>grow your business?</span>",
 
       contactText:
-        "Send us your idea and let's turn it into a clear strategy, execution plan and growth path.",
+        "Send us your idea and let's turn it into a clear plan and strong execution.",
 
       contactButton:
         "Start a conversation",
@@ -596,46 +781,43 @@
       footerServices:
         "Digital Marketing · Media Buying · Web · Strategy",
 
-      liveProject:
-        "LIVE PROJECT",
+      projectFallbackTitle:
+        "The website blocked iframe embedding.",
 
-      projectBlockedTitle:
-        "This website blocked iframe embedding.",
-
-      projectBlockedText:
-        "That comes from the website's own security settings.",
+      projectFallbackText:
+        "This comes from the website's own settings.",
 
       openWebsite:
         "Open website",
 
-      videoModalSmall:
-        "CLIENT VIDEO",
-
       videoModalTitle:
         "Client feedback",
 
-      facebookBlockedTitle:
-        "Facebook blocked the video embed.",
+      facebookFallbackTitle:
+        "Facebook rejected the video embed.",
 
-      facebookBlockedText:
-        "The current URL is a Share link rather than a direct embed URL. The code tries embedding first and shows a fallback instead of a blank screen if Facebook rejects it.",
+      facebookFallbackText:
+        "The current Share URLs are not direct embed URLs.",
 
       openFacebook:
         "Open on Facebook"
+
     }
+
   };
 
-  /* =======================================================
-     INIT
-  ======================================================== */
+  /* =====================================================
+     INITIALIZATION
+  ====================================================== */
 
   document.addEventListener(
     "DOMContentLoaded",
     () => {
 
-      applyLanguage(currentLanguage);
-      applyTheme(currentTheme);
+      applyLanguage(language);
+      applyTheme(theme);
 
+      initLoader();
       initHeader();
       initMobileMenu();
       initReveal();
@@ -646,32 +828,65 @@
       initModals();
       initYear();
 
-      setupIframeFallbacks();
-
     }
   );
 
-  /* =======================================================
+  /* =====================================================
+     LOADER
+  ====================================================== */
+
+  function initLoader() {
+
+    window.addEventListener(
+      "load",
+      () => {
+
+        body.classList.add(
+          "loaded"
+        );
+
+      },
+      {
+        once: true
+      }
+    );
+
+    window.setTimeout(
+      () => {
+
+        body.classList.add(
+          "loaded"
+        );
+
+      },
+      1400
+    );
+
+  }
+
+  /* =====================================================
      LANGUAGE
-  ======================================================== */
+  ====================================================== */
 
-  function applyLanguage(language) {
+  function applyLanguage(nextLanguage) {
 
-    currentLanguage =
-      language === "en"
+    language =
+      nextLanguage === "en"
         ? "en"
         : "ar";
 
     root.lang =
-      currentLanguage;
+      language;
 
     root.dir =
-      currentLanguage === "ar"
+      language === "ar"
         ? "rtl"
         : "ltr";
 
     document
-      .querySelectorAll("[data-i18n]")
+      .querySelectorAll(
+        "[data-i18n]"
+      )
       .forEach(
         (element) => {
 
@@ -680,21 +895,26 @@
 
           const value =
             translations[
-              currentLanguage
+              language
             ][key];
 
           if (
-            typeof value === "string"
+            typeof value ===
+            "string"
           ) {
+
             element.textContent =
               value;
+
           }
 
         }
       );
 
     document
-      .querySelectorAll("[data-i18n-html]")
+      .querySelectorAll(
+        "[data-i18n-html]"
+      )
       .forEach(
         (element) => {
 
@@ -703,28 +923,52 @@
 
           const value =
             translations[
-              currentLanguage
+              language
             ][key];
 
           if (
-            typeof value === "string"
+            typeof value ===
+            "string"
           ) {
+
             element.innerHTML =
               value;
+
           }
 
         }
       );
 
     languageToggle.textContent =
-      currentLanguage === "ar"
+      language === "ar"
         ? "EN"
         : "AR";
 
+    /*
+      Package prices intentionally use Arabic digits
+      in Arabic and western digits in English.
+    */
+
+    document
+      .querySelectorAll(
+        "[data-price-ar]"
+      )
+      .forEach(
+        (element) => {
+
+          element.textContent =
+            language === "ar"
+              ? element.dataset.priceAr
+              : element.dataset.priceEn;
+
+        }
+      );
+
     localStorage.setItem(
       "mahmoud-language",
-      currentLanguage
+      language
     );
+
   }
 
   languageToggle?.addEventListener(
@@ -732,7 +976,7 @@
     () => {
 
       applyLanguage(
-        currentLanguage === "ar"
+        language === "ar"
           ? "en"
           : "ar"
       );
@@ -740,20 +984,20 @@
     }
   );
 
-  /* =======================================================
+  /* =====================================================
      THEME
-  ======================================================== */
+  ====================================================== */
 
-  function applyTheme(theme) {
+  function applyTheme(nextTheme) {
 
-    currentTheme =
-      theme === "light"
+    theme =
+      nextTheme === "light"
         ? "light"
         : "dark";
 
     body.classList.toggle(
       "light-theme",
-      currentTheme === "light"
+      theme === "light"
     );
 
     const themeMeta =
@@ -764,16 +1008,17 @@
     if (themeMeta) {
 
       themeMeta.content =
-        currentTheme === "light"
-          ? "#f2f2ed"
-          : "#080808";
+        theme === "light"
+          ? "#f1f1ec"
+          : "#070707";
 
     }
 
     localStorage.setItem(
       "mahmoud-theme",
-      currentTheme
+      theme
     );
+
   }
 
   themeToggle?.addEventListener(
@@ -781,7 +1026,7 @@
     () => {
 
       applyTheme(
-        currentTheme === "dark"
+        theme === "dark"
           ? "light"
           : "dark"
       );
@@ -789,55 +1034,55 @@
     }
   );
 
-  /* =======================================================
+  /* =====================================================
      HEADER
-  ======================================================== */
+  ====================================================== */
 
   function initHeader() {
 
-    const onScroll =
+    if (!header) {
+      return;
+    }
+
+    const update =
       () => {
 
-        if (!siteHeader) {
-          return;
-        }
-
-        siteHeader.classList.toggle(
+        header.classList.toggle(
           "scrolled",
-          window.scrollY > 18
+          window.scrollY > 15
         );
 
       };
 
     window.addEventListener(
       "scroll",
-      onScroll,
+      update,
       {
-        passive:
-          true
+        passive: true
       }
     );
 
-    onScroll();
+    update();
+
   }
 
-  /* =======================================================
+  /* =====================================================
      MOBILE MENU
-  ======================================================== */
+  ====================================================== */
 
   function initMobileMenu() {
 
     if (
       !menuToggle ||
-      !mobileMenu
+      !mobileNav
     ) {
       return;
     }
 
-    function closeMenu() {
+    function close() {
 
-      mobileMenu.classList.remove(
-        "is-open"
+      mobileNav.classList.remove(
+        "open"
       );
 
       menuToggle.classList.remove(
@@ -848,38 +1093,39 @@
         "aria-expanded",
         "false"
       );
+
     }
 
     menuToggle.addEventListener(
       "click",
       () => {
 
-        const open =
-          mobileMenu.classList.toggle(
-            "is-open"
+        const isOpen =
+          mobileNav.classList.toggle(
+            "open"
           );
 
         menuToggle.classList.toggle(
           "active",
-          open
+          isOpen
         );
 
         menuToggle.setAttribute(
           "aria-expanded",
-          String(open)
+          String(isOpen)
         );
 
       }
     );
 
-    mobileMenu
+    mobileNav
       .querySelectorAll("a")
       .forEach(
         (link) => {
 
           link.addEventListener(
             "click",
-            closeMenu
+            close
           );
 
         }
@@ -890,9 +1136,12 @@
       () => {
 
         if (
-          window.innerWidth > 1080
+          window.innerWidth >
+          1080
         ) {
-          closeMenu();
+
+          close();
+
         }
 
       }
@@ -900,9 +1149,9 @@
 
   }
 
-  /* =======================================================
+  /* =====================================================
      REVEAL
-  ======================================================== */
+  ====================================================== */
 
   function initReveal() {
 
@@ -915,9 +1164,7 @@
       return;
     }
 
-    if (
-      prefersReducedMotion
-    ) {
+    if (reducedMotion) {
 
       elements.forEach(
         (element) => {
@@ -978,17 +1225,18 @@
 
       }
     );
+
   }
 
-  /* =======================================================
+  /* =====================================================
      3D TILT
-  ======================================================== */
+  ====================================================== */
 
   function initTilt() {
 
     if (
-      isTouchDevice ||
-      prefersReducedMotion
+      touchDevice ||
+      reducedMotion
     ) {
       return;
     }
@@ -1007,13 +1255,16 @@
         function reset() {
 
           if (frame) {
+
             cancelAnimationFrame(
               frame
             );
+
           }
 
           card.style.transform =
             "";
+
         }
 
         function move(event) {
@@ -1021,14 +1272,14 @@
           const rect =
             card.getBoundingClientRect();
 
-          const relativeX =
+          const x =
             (
               event.clientX -
               rect.left
             ) /
             rect.width;
 
-          const relativeY =
+          const y =
             (
               event.clientY -
               rect.top
@@ -1036,21 +1287,17 @@
             rect.height;
 
           const rotateX =
-            (
-              0.5 -
-              relativeY
-            ) * 5;
+            (0.5 - y) * 5;
 
           const rotateY =
-            (
-              relativeX -
-              0.5
-            ) * 7;
+            (x - 0.5) * 7;
 
           if (frame) {
+
             cancelAnimationFrame(
               frame
             );
+
           }
 
           frame =
@@ -1059,22 +1306,21 @@
 
                 card.style.transform =
                   `
-                  perspective(1400px)
-                  rotateX(${rotateX}deg)
-                  rotateY(${rotateY}deg)
-                  translateZ(0)
+                    perspective(1400px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
                   `;
 
               }
             );
+
         }
 
         card.addEventListener(
           "pointermove",
           move,
           {
-            passive:
-              true
+            passive: true
           }
         );
 
@@ -1085,105 +1331,109 @@
 
       }
     );
+
   }
 
-  /* =======================================================
-     MAGNETIC
-  ======================================================== */
+  /* =====================================================
+     MAGNETIC BUTTONS
+  ====================================================== */
 
   function initMagnetic() {
 
     if (
-      isTouchDevice ||
-      prefersReducedMotion
+      touchDevice ||
+      reducedMotion
     ) {
       return;
     }
 
-    const elements =
-      document.querySelectorAll(
-        ".magnetic"
+    document
+      .querySelectorAll(
+        ".button"
+      )
+      .forEach(
+        (button) => {
+
+          let frame =
+            null;
+
+          button.addEventListener(
+            "pointermove",
+            (event) => {
+
+              const rect =
+                button.getBoundingClientRect();
+
+              const x =
+                event.clientX -
+                (
+                  rect.left +
+                  rect.width / 2
+                );
+
+              const y =
+                event.clientY -
+                (
+                  rect.top +
+                  rect.height / 2
+                );
+
+              if (frame) {
+
+                cancelAnimationFrame(
+                  frame
+                );
+
+              }
+
+              frame =
+                requestAnimationFrame(
+                  () => {
+
+                    button.style.transform =
+                      `
+                        translate3d(
+                          ${x * 0.07}px,
+                          ${y * 0.09}px,
+                          0
+                        )
+                      `;
+
+                  }
+                );
+
+            },
+            {
+              passive: true
+            }
+          );
+
+          button.addEventListener(
+            "pointerleave",
+            () => {
+
+              if (frame) {
+
+                cancelAnimationFrame(
+                  frame
+                );
+
+              }
+
+              button.style.transform =
+                "";
+
+            }
+          );
+
+        }
       );
 
-    elements.forEach(
-      (element) => {
-
-        let frame =
-          null;
-
-        element.addEventListener(
-          "pointermove",
-          (event) => {
-
-            const rect =
-              element.getBoundingClientRect();
-
-            const x =
-              event.clientX -
-              (
-                rect.left +
-                rect.width / 2
-              );
-
-            const y =
-              event.clientY -
-              (
-                rect.top +
-                rect.height / 2
-              );
-
-            if (frame) {
-              cancelAnimationFrame(
-                frame
-              );
-            }
-
-            frame =
-              requestAnimationFrame(
-                () => {
-
-                  element.style.transform =
-                    `
-                    translate3d(
-                      ${x * 0.08}px,
-                      ${y * 0.10}px,
-                      0
-                    )
-                    `;
-
-                }
-              );
-
-          },
-          {
-            passive:
-              true
-          }
-        );
-
-        element.addEventListener(
-          "pointerleave",
-          () => {
-
-            if (frame) {
-              cancelAnimationFrame(
-                frame
-              );
-            }
-
-            element.style.transform =
-              "";
-
-          }
-        );
-
-      }
-    );
   }
 
-  /* =======================================================
-     PROJECTS
-  ======================================================== */
+  /* =====================================================
+     PROJECT MODAL
+  ====================================================== */
 
   function initProjects() {
 
@@ -1196,7 +1446,7 @@
 
           const button =
             card.querySelector(
-              ".project-open"
+              ".project-button"
             );
 
           if (!button) {
@@ -1225,6 +1475,7 @@
 
         }
       );
+
   }
 
   function openProject(
@@ -1239,7 +1490,7 @@
       url || "#";
 
     projectFallback.classList.remove(
-      "visible"
+      "show"
     );
 
     projectFrame.src =
@@ -1254,9 +1505,8 @@
 
         if (
           projectModal.classList.contains(
-            "is-open"
-          ) &&
-          url
+            "open"
+          )
         ) {
 
           projectFrame.src =
@@ -1267,11 +1517,17 @@
       },
       80
     );
+
+    /*
+      We intentionally do NOT force a short timeout fallback.
+      A normal website may need a few seconds to load.
+    */
+
   }
 
-  /* =======================================================
-     VIDEOS
-  ======================================================== */
+  /* =====================================================
+     FACEBOOK VIDEOS
+  ====================================================== */
 
   function initVideos() {
 
@@ -1290,7 +1546,7 @@
                 button.dataset.videoUrl ||
                 "";
 
-              openFacebookVideo(
+              openVideo(
                 url
               );
 
@@ -1299,9 +1555,10 @@
 
         }
       );
+
   }
 
-  function getFacebookEmbedUrl(
+  function getFacebookEmbed(
     url
   ) {
 
@@ -1317,15 +1574,15 @@
 
   }
 
-  function openFacebookVideo(
-    sourceUrl
+  function openVideo(
+    url
   ) {
 
     videoExternalLink.href =
-      sourceUrl || "#";
+      url || "#";
 
     videoFallback.classList.remove(
-      "visible"
+      "show"
     );
 
     facebookVideoFrame.src =
@@ -1338,28 +1595,54 @@
     window.setTimeout(
       () => {
 
-        if (!sourceUrl) {
+        if (!url) {
 
           videoFallback.classList.add(
-            "visible"
+            "show"
           );
 
           return;
         }
 
         facebookVideoFrame.src =
-          getFacebookEmbedUrl(
-            sourceUrl
+          getFacebookEmbed(
+            url
           );
 
       },
       80
     );
+
+    /*
+      IMPORTANT:
+      Facebook Share URLs may not resolve into embeddable
+      content. We cannot force Facebook to allow framing.
+    */
+
+    window.setTimeout(
+      () => {
+
+        if (
+          videoModal.classList.contains(
+            "open"
+          )
+        ) {
+
+          videoFallback.classList.add(
+            "show"
+          );
+
+        }
+
+      },
+      9000
+    );
+
   }
 
-  /* =======================================================
-     MODALS
-  ======================================================== */
+  /* =====================================================
+     MODAL HELPERS
+  ====================================================== */
 
   function openModal(
     modal
@@ -1370,7 +1653,7 @@
     }
 
     modal.classList.add(
-      "is-open"
+      "open"
     );
 
     modal.setAttribute(
@@ -1381,6 +1664,7 @@
     body.classList.add(
       "modal-open"
     );
+
   }
 
   function closeModal(
@@ -1392,7 +1676,7 @@
     }
 
     modal.classList.remove(
-      "is-open"
+      "open"
     );
 
     modal.setAttribute(
@@ -1402,10 +1686,10 @@
 
     if (
       !projectModal.classList.contains(
-        "is-open"
+        "open"
       ) &&
       !videoModal.classList.contains(
-        "is-open"
+        "open"
       )
     ) {
 
@@ -1432,6 +1716,7 @@
         "about:blank";
 
     }
+
   }
 
   function initModals() {
@@ -1458,31 +1743,26 @@
       }
     );
 
-    projectModal
-      ?.querySelector(
-        ".modal-backdrop"
+    document
+      .querySelectorAll(
+        ".modal-background"
       )
-      ?.addEventListener(
-        "click",
-        () => {
+      .forEach(
+        (background) => {
 
-          closeModal(
-            projectModal
-          );
+          background.addEventListener(
+            "click",
+            () => {
 
-        }
-      );
+              closeModal(
+                projectModal
+              );
 
-    videoModal
-      ?.querySelector(
-        ".modal-backdrop"
-      )
-      ?.addEventListener(
-        "click",
-        () => {
+              closeModal(
+                videoModal
+              );
 
-          closeModal(
-            videoModal
+            }
           );
 
         }
@@ -1493,7 +1773,8 @@
       (event) => {
 
         if (
-          event.key !== "Escape"
+          event.key !==
+          "Escape"
         ) {
           return;
         }
@@ -1506,8 +1787,8 @@
           videoModal
         );
 
-        mobileMenu?.classList.remove(
-          "is-open"
+        mobileNav?.classList.remove(
+          "open"
         );
 
         menuToggle?.classList.remove(
@@ -1521,64 +1802,24 @@
 
       }
     );
-  }
-
-  /* =======================================================
-     FALLBACKS
-  ======================================================== */
-
-  function setupIframeFallbacks() {
-
-    /*
-      External websites can block iframe embedding with
-      their own CSP / X-Frame-Options rules.
-
-      The timeout is intentionally long enough to give a normal
-      site time to render before showing the fallback.
-    */
-
-    projectModal?.addEventListener(
-      "transitionend",
-      () => {}
-    );
-
-    window.setInterval(
-      () => {
-
-        if (
-          projectModal.classList.contains(
-            "is-open"
-          )
-        ) {
-
-          /*
-            Do not constantly manipulate the DOM.
-            This empty check intentionally keeps modal handling
-            passive after opening.
-          */
-
-        }
-
-      },
-      1000
-    );
 
   }
 
-  /* =======================================================
+  /* =====================================================
      YEAR
-  ======================================================== */
+  ====================================================== */
 
   function initYear() {
 
-    if (yearElement) {
+    if (year) {
 
-      yearElement.textContent =
+      year.textContent =
         String(
           new Date().getFullYear()
         );
 
     }
+
   }
 
 })();
