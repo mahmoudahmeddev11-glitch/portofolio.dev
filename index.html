@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
@@ -13,87 +14,96 @@
         content="Eng. Ahmed Talaat Digital Marketing"
     >
 
-    <title>
-        Eng. Ahmed Talaat | Digital Marketing
-    </title>
+    <title>Eng. Ahmed Talaat | Digital Marketing</title>
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <!-- ================= HEADER ================= -->
 
     <header class="header">
 
-        <div class="container header__inner">
+        <div class="container header-inner">
 
-            <a
-                href="#home"
-                class="brand"
-            >
+            <a href="#home" class="logo">
                 <img
-                    src="assets/logo.png"
+                    src="./logo.png"
                     alt="Eng. Ahmed Talaat Digital Marketing"
                 >
             </a>
 
-            <nav class="nav">
+            <nav class="desktop-nav">
 
-                <a href="#home">
+                <a
+                    href="#home"
+                    data-en="Home"
+                    data-ar="الرئيسية"
+                >
                     Home
                 </a>
 
-                <a href="#services">
+                <a
+                    href="#services"
+                    data-en="Services"
+                    data-ar="خدماتنا"
+                >
                     Services
                 </a>
 
-                <a href="#work">
+                <a
+                    href="#work"
+                    data-en="Our Work"
+                    data-ar="أعمالنا"
+                >
                     Our Work
                 </a>
 
-                <a href="#about">
+                <a
+                    href="#about"
+                    data-en="About"
+                    data-ar="من نحن"
+                >
                     About
                 </a>
 
-                <a href="#contact">
+                <a
+                    href="#contact"
+                    data-en="Contact"
+                    data-ar="تواصل معنا"
+                >
                     Contact
                 </a>
 
             </nav>
 
-
-            <div class="header__actions">
+            <div class="header-actions">
 
                 <button
-                    class="language-switcher"
+                    class="language-btn"
+                    id="languageBtn"
                     type="button"
-                    id="languageSwitcher"
                 >
                     العربية
                 </button>
 
                 <a
                     href="#contact"
-                    class="btn btn--primary"
+                    class="btn btn-primary"
+                    data-en="Let's Talk"
+                    data-ar="تواصل معنا"
                 >
                     Let's Talk
                 </a>
 
             </div>
 
-
             <button
-                class="menu-toggle"
+                class="menu-btn"
+                id="menuBtn"
                 type="button"
-                aria-label="Open menu"
-                aria-expanded="false"
-                id="menuToggle"
+                aria-label="Menu"
             >
                 <span></span>
                 <span></span>
@@ -105,38 +115,53 @@
     </header>
 
 
-    <!-- =========================
-         MOBILE MENU
-    ========================== -->
+    <!-- ================= MOBILE MENU ================= -->
 
-    <div
-        class="mobile-menu"
-        id="mobileMenu"
-    >
+    <div class="mobile-menu" id="mobileMenu">
 
-        <a href="#home">
+        <a
+            href="#home"
+            data-en="Home"
+            data-ar="الرئيسية"
+        >
             Home
         </a>
 
-        <a href="#services">
+        <a
+            href="#services"
+            data-en="Services"
+            data-ar="خدماتنا"
+        >
             Services
         </a>
 
-        <a href="#work">
+        <a
+            href="#work"
+            data-en="Our Work"
+            data-ar="أعمالنا"
+        >
             Our Work
         </a>
 
-        <a href="#about">
+        <a
+            href="#about"
+            data-en="About"
+            data-ar="من نحن"
+        >
             About
         </a>
 
-        <a href="#contact">
+        <a
+            href="#contact"
+            data-en="Contact"
+            data-ar="تواصل معنا"
+        >
             Contact
         </a>
 
         <button
+            id="mobileLanguageBtn"
             type="button"
-            id="mobileLanguageSwitcher"
         >
             العربية
         </button>
@@ -144,57 +169,76 @@
     </div>
 
 
-    <main id="home">
+    <!-- ================= MAIN ================= -->
+
+    <main>
 
 
-        <!-- =========================
-             HERO
-        ========================== -->
+        <!-- ================= HERO ================= -->
 
-        <section class="hero">
+        <section class="hero" id="home">
 
-            <div class="container">
+            <div class="container hero-container">
 
-                <div class="hero__content">
+                <div class="hero-content">
 
+                    <div class="hero-text">
 
-                    <div class="hero__text">
-
-                        <span class="eyebrow">
+                        <div
+                            class="eyebrow"
+                            data-en="DIGITAL MARKETING AGENCY"
+                            data-ar="وكالة تسويق رقمي"
+                        >
                             DIGITAL MARKETING AGENCY
-                        </span>
+                        </div>
 
 
                         <h1>
-                            We are professionals
-                            <span>
-                                for your growth.
+
+                            <span
+                                data-en="We are professionals"
+                                data-ar="نحن محترفون"
+                            >
+                                We are professionals
                             </span>
+
+                            <strong
+                                data-en="for your growth."
+                                data-ar="من أجل نمو أعمالك."
+                            >
+                                for your growth.
+                            </strong>
+
                         </h1>
 
 
-                        <p>
-                            We help businesses grow through
-                            digital marketing, media buying,
-                            creative content and modern
-                            digital experiences.
+                        <p
+                            data-en="We help businesses grow through digital marketing, media buying, creative content and modern digital experiences."
+                            data-ar="نساعد الشركات على النمو من خلال التسويق الرقمي، الميديا باينج، المحتوى الإبداعي وتجارب المواقع الحديثة."
+                        >
+                            We help businesses grow through digital
+                            marketing, media buying, creative content
+                            and modern digital experiences.
                         </p>
 
 
-                        <div class="hero__buttons">
+                        <div class="hero-buttons">
 
                             <a
                                 href="#contact"
-                                class="btn btn--primary"
+                                class="btn btn-primary"
+                                data-en="Contact Us"
+                                data-ar="تواصل معنا"
                             >
                                 Contact Us
                                 <span>↗</span>
                             </a>
 
-
                             <a
                                 href="#services"
-                                class="btn btn--secondary"
+                                class="btn btn-outline"
+                                data-en="Our Services"
+                                data-ar="خدماتنا"
                             >
                                 Our Services
                             </a>
@@ -202,10 +246,13 @@
                         </div>
 
 
-                        <div class="hero__phone">
+                        <div class="hero-contact">
 
-                            <span>
-                                Have an Idea or Project?
+                            <span
+                                data-en="Have an idea or project?"
+                                data-ar="عندك فكرة أو مشروع؟"
+                            >
+                                Have an idea or project?
                             </span>
 
                             <a href="tel:+201006907047">
@@ -219,13 +266,14 @@
 
                     <!-- HERO IMAGE -->
 
-                    <div class="hero__visual">
+                    <div class="hero-image-wrapper">
 
-                        <div class="hero__glow"></div>
+                        <div class="hero-glow"></div>
 
                         <img
-                            src="assets/hero-banner.png"
+                            src="./hero-banner.png"
                             alt="Eng. Ahmed Talaat Digital Marketing"
+                            class="hero-image"
                         >
 
                     </div>
@@ -237,49 +285,58 @@
         </section>
 
 
-
-        <!-- =========================
-             TRUST / INTRO
-        ========================== -->
+        <!-- ================= INTRO ================= -->
 
         <section class="intro">
 
-            <div class="container">
+            <div class="container intro-grid">
 
-                <div class="intro__grid">
+                <div
+                    class="eyebrow"
+                    data-en="WHAT WE DO"
+                    data-ar="ماذا نقدم"
+                >
+                    WHAT WE DO
+                </div>
 
-                    <span class="eyebrow">
-                        WHAT WE DO
+
+                <h2>
+
+                    <span
+                        data-en="We turn ideas into"
+                        data-ar="نحوّل الأفكار إلى"
+                    >
+                        We turn ideas into
                     </span>
 
-                    <h2>
-                        We turn ideas into
-                        <span>
-                            business growth.
-                        </span>
-                    </h2>
+                    <strong
+                        data-en="business growth."
+                        data-ar="نمو حقيقي للأعمال."
+                    >
+                        business growth.
+                    </strong>
 
-                    <p>
-                        From strategy and advertising
-                        to websites and creative content,
-                        we build digital solutions that
-                        help brands move forward.
-                    </p>
+                </h2>
 
-                </div>
+
+                <p
+                    data-en="From strategy and advertising to websites and creative content, we build digital solutions that help brands move forward."
+                    data-ar="من الاستراتيجية والإعلانات إلى تصميم المواقع والمحتوى الإبداعي، نبني حلولًا رقمية تساعد العلامات التجارية على النمو."
+                >
+                    From strategy and advertising to websites and
+                    creative content, we build digital solutions
+                    that help brands move forward.
+                </p>
 
             </div>
 
         </section>
 
 
-
-        <!-- =========================
-             SERVICES
-        ========================== -->
+        <!-- ================= SERVICES ================= -->
 
         <section
-            class="services section"
+            class="section services"
             id="services"
         >
 
@@ -289,39 +346,52 @@
 
                     <div>
 
-                        <span class="eyebrow">
+                        <div
+                            class="eyebrow"
+                            data-en="OUR SERVICES"
+                            data-ar="خدماتنا"
+                        >
                             OUR SERVICES
-                        </span>
+                        </div>
 
-                        <h2>
+                        <h2
+                            data-en="What we do"
+                            data-ar="ماذا نقدم"
+                        >
                             What we do
                         </h2>
 
                     </div>
 
-                    <p>
-                        Everything your business needs
-                        to grow in the digital world.
+                    <p
+                        data-en="Everything your business needs to grow in the digital world."
+                        data-ar="كل ما يحتاجه نشاطك التجاري للنمو في العالم الرقمي."
+                    >
+                        Everything your business needs to grow
+                        in the digital world.
                     </p>
 
                 </div>
 
 
-                <div class="services__grid">
-
+                <div class="services-grid">
 
                     <article class="service-card">
 
-                        <span class="service-card__number">
-                            01
-                        </span>
+                        <span>01</span>
 
-                        <h3>
+                        <h3
+                            data-en="Media Buying"
+                            data-ar="Media Buying"
+                        >
                             Media Buying
                         </h3>
 
-                        <p>
-                            Performance-focused campaigns
+                        <p
+                            data-en="Performance-focused advertising campaigns across the right digital channels."
+                            data-ar="حملات إعلانية تركز على تحقيق أفضل النتائج عبر القنوات الرقمية المناسبة."
+                        >
+                            Performance-focused advertising campaigns
                             across the right digital channels.
                         </p>
 
@@ -330,17 +400,21 @@
 
                     <article class="service-card">
 
-                        <span class="service-card__number">
-                            02
-                        </span>
+                        <span>02</span>
 
-                        <h3>
+                        <h3
+                            data-en="Digital Marketing"
+                            data-ar="التسويق الرقمي"
+                        >
                             Digital Marketing
                         </h3>
 
-                        <p>
-                            Strategies designed to increase
-                            reach, leads and conversions.
+                        <p
+                            data-en="Smart strategies designed to increase reach, leads and conversions."
+                            data-ar="استراتيجيات ذكية لزيادة الوصول والعملاء المحتملين والتحويلات."
+                        >
+                            Smart strategies designed to increase reach,
+                            leads and conversions.
                         </p>
 
                     </article>
@@ -348,16 +422,20 @@
 
                     <article class="service-card">
 
-                        <span class="service-card__number">
-                            03
-                        </span>
+                        <span>03</span>
 
-                        <h3>
+                        <h3
+                            data-en="Social Media"
+                            data-ar="السوشيال ميديا"
+                        >
                             Social Media
                         </h3>
 
-                        <p>
-                            Content and campaigns that build
+                        <p
+                            data-en="Creative content and campaigns that build real connections with your audience."
+                            data-ar="محتوى إبداعي وحملات تبني علاقة حقيقية مع جمهورك."
+                        >
+                            Creative content and campaigns that build
                             real connections with your audience.
                         </p>
 
@@ -366,17 +444,21 @@
 
                     <article class="service-card">
 
-                        <span class="service-card__number">
-                            04
-                        </span>
+                        <span>04</span>
 
-                        <h3>
+                        <h3
+                            data-en="Web Design"
+                            data-ar="تصميم المواقع"
+                        >
                             Web Design
                         </h3>
 
-                        <p>
-                            Modern responsive websites designed
-                            for users and conversions.
+                        <p
+                            data-en="Modern responsive websites designed for users, brands and conversions."
+                            data-ar="مواقع حديثة ومتجاوبة مصممة للمستخدم والعلامة التجارية وتحقيق النتائج."
+                        >
+                            Modern responsive websites designed for
+                            users, brands and conversions.
                         </p>
 
                     </article>
@@ -384,21 +466,24 @@
 
                     <article class="service-card">
 
-                        <span class="service-card__number">
-                            05
-                        </span>
+                        <span>05</span>
 
-                        <h3>
+                        <h3
+                            data-en="Branding"
+                            data-ar="الهوية البصرية"
+                        >
                             Branding
                         </h3>
 
-                        <p>
+                        <p
+                            data-en="Strong visual identities that make businesses memorable."
+                            data-ar="هويات بصرية قوية تجعل العلامات التجارية مميزة وسهلة التذكر."
+                        >
                             Strong visual identities that make
                             businesses memorable.
                         </p>
 
                     </article>
-
 
                 </div>
 
@@ -407,13 +492,10 @@
         </section>
 
 
-
-        <!-- =========================
-             WORK
-        ========================== -->
+        <!-- ================= WORK ================= -->
 
         <section
-            class="work section"
+            class="section work"
             id="work"
         >
 
@@ -423,67 +505,102 @@
 
                     <div>
 
-                        <span class="eyebrow">
+                        <div
+                            class="eyebrow"
+                            data-en="SELECTED WORK"
+                            data-ar="أعمال مختارة"
+                        >
                             SELECTED WORK
-                        </span>
+                        </div>
 
-                        <h2>
+                        <h2
+                            data-en="Our work"
+                            data-ar="أعمالنا"
+                        >
                             Our work
                         </h2>
 
                     </div>
 
-                    <p>
-                        Real projects and campaigns
+                    <p
+                        data-en="Our projects, campaigns and websites will be displayed here."
+                        data-ar="هنا سنعرض أهم المشاريع والحملات والمواقع التي قمنا بتنفيذها."
+                    >
+                        Our projects, campaigns and websites
                         will be displayed here.
                     </p>
 
                 </div>
 
 
-                <div class="work__grid">
+                <div class="work-grid">
 
                     <article class="work-card">
-                        <div class="work-card__image"></div>
 
-                        <div class="work-card__content">
+                        <div class="work-placeholder">
+                            <span>PROJECT 01</span>
+                        </div>
 
-                            <span>
+                        <div class="work-info">
+
+                            <small
+                                data-en="CASE STUDY"
+                                data-ar="دراسة حالة"
+                            >
                                 CASE STUDY
-                            </span>
+                            </small>
 
-                            <h3>
+                            <h3
+                                data-en="Client Project 01"
+                                data-ar="مشروع عميل 01"
+                            >
                                 Client Project 01
                             </h3>
 
-                            <p>
+                            <p
+                                data-en="Media Buying · Creative"
+                                data-ar="Media Buying · تصميم إبداعي"
+                            >
                                 Media Buying · Creative
                             </p>
 
                         </div>
+
                     </article>
 
 
                     <article class="work-card">
-                        <div class="work-card__image"></div>
 
-                        <div class="work-card__content">
+                        <div class="work-placeholder">
+                            <span>PROJECT 02</span>
+                        </div>
 
-                            <span>
+                        <div class="work-info">
+
+                            <small
+                                data-en="CASE STUDY"
+                                data-ar="دراسة حالة"
+                            >
                                 CASE STUDY
-                            </span>
+                            </small>
 
-                            <h3>
+                            <h3
+                                data-en="Client Project 02"
+                                data-ar="مشروع عميل 02"
+                            >
                                 Client Project 02
                             </h3>
 
-                            <p>
+                            <p
+                                data-en="Web Design · Marketing"
+                                data-ar="تصميم مواقع · تسويق"
+                            >
                                 Web Design · Marketing
                             </p>
 
                         </div>
-                    </article>
 
+                    </article>
 
                 </div>
 
@@ -492,51 +609,64 @@
         </section>
 
 
-
-        <!-- =========================
-             ABOUT
-        ========================== -->
+        <!-- ================= ABOUT ================= -->
 
         <section
-            class="about section"
+            class="section about"
             id="about"
         >
 
-            <div class="container">
+            <div class="container about-grid">
 
-                <div class="about__grid">
+                <div>
 
-                    <div>
+                    <div
+                        class="eyebrow"
+                        data-en="ABOUT US"
+                        data-ar="من نحن"
+                    >
+                        ABOUT US
+                    </div>
 
-                        <span class="eyebrow">
-                            ABOUT US
+                    <h2>
+
+                        <span
+                            data-en="More than marketing."
+                            data-ar="أكثر من مجرد تسويق."
+                        >
+                            More than marketing.
                         </span>
 
-                        <h2>
-                            More than marketing.
-                            <span>
-                                We build growth.
-                            </span>
-                        </h2>
+                        <strong
+                            data-en="We build growth."
+                            data-ar="نحن نبني النمو."
+                        >
+                            We build growth.
+                        </strong>
 
-                    </div>
+                    </h2>
+
+                </div>
 
 
-                    <div>
+                <div class="about-text">
 
-                        <p>
-                            We combine strategy, creativity,
-                            technology and performance marketing
-                            to help businesses reach their goals.
-                        </p>
+                    <p
+                        data-en="We combine strategy, creativity, technology and performance marketing to help businesses reach their goals."
+                        data-ar="نجمع بين الاستراتيجية والإبداع والتكنولوجيا والتسويق القائم على الأداء لمساعدة الشركات على تحقيق أهدافها."
+                    >
+                        We combine strategy, creativity, technology
+                        and performance marketing to help businesses
+                        reach their goals.
+                    </p>
 
-                        <p>
-                            Our focus is simple:
-                            create meaningful digital experiences
-                            and measurable business results.
-                        </p>
-
-                    </div>
+                    <p
+                        data-en="Our focus is simple: create meaningful digital experiences and measurable business results."
+                        data-ar="هدفنا بسيط: نصنع تجارب رقمية مؤثرة ونحقق نتائج حقيقية يمكن قياسها."
+                    >
+                        Our focus is simple: create meaningful digital
+                        experiences and measurable business results.
+                    </p>
 
                 </div>
 
@@ -545,39 +675,56 @@
         </section>
 
 
-
-        <!-- =========================
-             CONTACT
-        ========================== -->
+        <!-- ================= CONTACT ================= -->
 
         <section
-            class="contact section"
+            class="section contact"
             id="contact"
         >
 
             <div class="container">
 
-                <div class="contact__box">
+                <div class="contact-box">
 
-                    <span class="eyebrow">
+                    <div
+                        class="eyebrow"
+                        data-en="LET'S WORK TOGETHER"
+                        data-ar="لنعمل معًا"
+                    >
                         LET'S WORK TOGETHER
-                    </span>
+                    </div>
 
                     <h2>
-                        Have an idea?
-                        <span>
-                            Let's grow it.
+
+                        <span
+                            data-en="Have an idea?"
+                            data-ar="عندك فكرة؟"
+                        >
+                            Have an idea?
                         </span>
+
+                        <strong
+                            data-en="Let's grow it."
+                            data-ar="خلينا نكبرها."
+                        >
+                            Let's grow it.
+                        </strong>
+
                     </h2>
 
-                    <p>
-                        Tell us about your project
-                        and let's start a conversation.
+                    <p
+                        data-en="Tell us about your project and let's start a conversation."
+                        data-ar="احكيلنا عن مشروعك وخلينا نبدأ نتكلم."
+                    >
+                        Tell us about your project and let's start
+                        a conversation.
                     </p>
 
                     <a
                         href="tel:+201006907047"
-                        class="btn btn--primary"
+                        class="btn btn-primary"
+                        data-en="Call Us"
+                        data-ar="اتصل بنا"
                     >
                         Call Us
                         <span>↗</span>
@@ -592,22 +739,22 @@
     </main>
 
 
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    <!-- ================= FOOTER ================= -->
 
     <footer class="footer">
 
-        <div class="container footer__inner">
+        <div class="container footer-inner">
 
-            <div>
+            <span>
                 © 2026 Eng. Ahmed Talaat
-            </div>
+            </span>
 
-            <div>
+            <span
+                data-en="Digital Marketing"
+                data-ar="التسويق الرقمي"
+            >
                 Digital Marketing
-            </div>
+            </span>
 
             <a href="tel:+201006907047">
                 0100 690 70 47
@@ -618,7 +765,7 @@
     </footer>
 
 
-    <script src="js/main.js"></script>
+    <script src="./js/main.js"></script>
 
 </body>
 
