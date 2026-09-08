@@ -1,56 +1,170 @@
-/* =========================================
+"use strict";
+
+/* =========================================================
    ELEMENTS
-========================================= */
+========================================================= */
 
 const body = document.body;
 
 const header = document.getElementById("header");
 
-const menuBtn = document.getElementById("menuBtn");
-
 const nav = document.getElementById("nav");
 
-const languageBtn =
-    document.getElementById("languageBtn");
+const menuBtn = document.getElementById("menuBtn");
 
-const scrollProgress =
-    document.getElementById("scrollProgress");
+const languageBtn = document.getElementById("languageBtn");
 
-const backTop =
-    document.getElementById("backTop");
+const themeBtn = document.getElementById("themeBtn");
 
-const year =
-    document.getElementById("year");
+const yearElement = document.getElementById("year");
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const languageElements = document.querySelectorAll("[data-ar][data-en]");
+
+const revealElements = document.querySelectorAll(".reveal");
 
 
-/* =========================================
-   YEAR
-========================================= */
+/* =========================================================
+   CURRENT LANGUAGE
+========================================================= */
 
-if (year) {
-    year.textContent =
-        new Date().getFullYear();
+let currentLanguage = localStorage.getItem("siteLanguage") || "ar";
+
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
+
+function updateLanguage() {
+
+    const isArabic = currentLanguage === "ar";
+
+    document.documentElement.lang = isArabic ? "ar" : "en";
+
+    document.documentElement.dir = isArabic ? "rtl" : "ltr";
+
+    languageBtn.textContent = isArabic ? "EN" : "AR";
+
+    languageElements.forEach((element) => {
+
+        const arabicText = element.getAttribute("data-ar");
+
+        const englishText = element.getAttribute("data-en");
+
+        if (!arabicText || !englishText) {
+            return;
+        }
+
+        element.textContent = isArabic
+            ? arabicText
+            : englishText;
+
+    });
+
+    localStorage.setItem("siteLanguage", currentLanguage);
 }
 
 
-/* =========================================
+/* =========================================================
+   LANGUAGE BUTTON
+========================================================= */
+
+if (languageBtn) {
+
+    languageBtn.addEventListener("click", () => {
+
+        currentLanguage = currentLanguage === "ar"
+            ? "en"
+            : "ar";
+
+        updateLanguage();
+
+    });
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+const savedTheme = localStorage.getItem("siteTheme");
+
+if (savedTheme === "light") {
+
+    body.classList.add("light-mode");
+
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+function updateThemeButton() {
+
+    if (!themeBtn) {
+        return;
+    }
+
+    const isLight = body.classList.contains("light-mode");
+
+    themeBtn.textContent = isLight ? "☾" : "☀";
+
+}
+
+
+if (themeBtn) {
+
+    themeBtn.addEventListener("click", () => {
+
+        body.classList.toggle("light-mode");
+
+        const isLight = body.classList.contains("light-mode");
+
+        localStorage.setItem(
+            "siteTheme",
+            isLight ? "light" : "dark"
+        );
+
+        updateThemeButton();
+
+    });
+
+}
+
+updateThemeButton();
+
+
+/* =========================================================
    MOBILE MENU
-========================================= */
+========================================================= */
 
 if (menuBtn && nav) {
 
     menuBtn.addEventListener("click", () => {
 
-        nav.classList.toggle("active");
+        const isOpen = nav.classList.toggle("open");
+
+        menuBtn.setAttribute(
+            "aria-expanded",
+            String(isOpen)
+        );
 
     });
 
 
-    nav.querySelectorAll("a").forEach((link) => {
+    navLinks.forEach((link) => {
 
         link.addEventListener("click", () => {
 
-            nav.classList.remove("active");
+            nav.classList.remove("open");
+
+            menuBtn.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
         });
 
@@ -59,15 +173,17 @@ if (menuBtn && nav) {
 }
 
 
-/* =========================================
-   HEADER ON SCROLL
-========================================= */
+/* =========================================================
+   HEADER SCROLL
+========================================================= */
 
-function handleHeader() {
+function updateHeader() {
 
-    if (!header) return;
+    if (!header) {
+        return;
+    }
 
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
 
         header.classList.add("scrolled");
 
@@ -81,123 +197,38 @@ function handleHeader() {
 
 window.addEventListener(
     "scroll",
-    handleHeader,
+    updateHeader,
     { passive: true }
 );
 
-handleHeader();
+updateHeader();
 
 
-/* =========================================
-   SCROLL PROGRESS
-========================================= */
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
 
-function updateScrollProgress() {
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
 
-    const scrollTop =
-        window.scrollY;
+        entries.forEach((entry) => {
 
-    const documentHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
+            if (!entry.isIntersecting) {
+                return;
+            }
 
-    const progress =
-        documentHeight > 0
-            ? (scrollTop / documentHeight) * 100
-            : 0;
+            entry.target.classList.add("visible");
 
-    if (scrollProgress) {
+            observer.unobserve(entry.target);
 
-        scrollProgress.style.width =
-            `${progress}%`;
-
-    }
-
-}
-
-window.addEventListener(
-    "scroll",
-    updateScrollProgress,
-    { passive: true }
-);
-
-updateScrollProgress();
-
-
-/* =========================================
-   BACK TO TOP
-========================================= */
-
-function handleBackTop() {
-
-    if (!backTop) return;
-
-    if (window.scrollY > 600) {
-
-        backTop.classList.add("show");
-
-    } else {
-
-        backTop.classList.remove("show");
-
-    }
-
-}
-
-window.addEventListener(
-    "scroll",
-    handleBackTop,
-    { passive: true }
-);
-
-
-if (backTop) {
-
-    backTop.addEventListener("click", () => {
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
         });
 
-    });
-
-}
-
-
-/* =========================================
-   SCROLL REVEAL
-========================================= */
-
-const revealElements =
-    document.querySelectorAll(".reveal");
-
-
-const revealObserver =
-    new IntersectionObserver(
-        (entries, observer) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add(
-                    "visible"
-                );
-
-                observer.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-        {
-            threshold: 0.12
-        }
-    );
+    },
+    {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px"
+    }
+);
 
 
 revealElements.forEach((element) => {
@@ -207,249 +238,127 @@ revealElements.forEach((element) => {
 });
 
 
-/* =========================================
-   COUNTERS
-========================================= */
+/* =========================================================
+   ACTIVE NAV LINK
+========================================================= */
 
-const counters =
-    document.querySelectorAll(
-        "[data-counter]"
-    );
+const sections = document.querySelectorAll("main section[id]");
 
+const sectionObserver = new IntersectionObserver(
+    (entries) => {
 
-function animateCounter(element) {
+        entries.forEach((entry) => {
 
-    const target =
-        Number(
-            element.dataset.counter
-        );
+            if (!entry.isIntersecting) {
+                return;
+            }
 
-    const duration = 1600;
+            const currentId = entry.target.getAttribute("id");
 
-    const startTime =
-        performance.now();
+            navLinks.forEach((link) => {
 
+                const href = link.getAttribute("href");
 
-    function update(currentTime) {
-
-        const elapsed =
-            currentTime - startTime;
-
-        const progress =
-            Math.min(
-                elapsed / duration,
-                1
-            );
-
-
-        const eased =
-            1 -
-            Math.pow(
-                1 - progress,
-                3
-            );
-
-
-        const current =
-            Math.floor(
-                target * eased
-            );
-
-
-        element.textContent =
-            current;
-
-
-        if (progress < 1) {
-
-            requestAnimationFrame(
-                update
-            );
-
-        } else {
-
-            element.textContent =
-                target;
-
-        }
-
-    }
-
-
-    requestAnimationFrame(update);
-}
-
-
-const counterObserver =
-    new IntersectionObserver(
-        (entries, observer) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                animateCounter(
-                    entry.target
-                );
-
-                observer.unobserve(
-                    entry.target
+                link.classList.toggle(
+                    "active",
+                    href === `#${currentId}`
                 );
 
             });
 
-        },
-        {
-            threshold: 0.7
-        }
-    );
+        });
+
+    },
+    {
+        rootMargin: "-35% 0px -55% 0px"
+    }
+);
 
 
-counters.forEach((counter) => {
+sections.forEach((section) => {
 
-    counterObserver.observe(counter);
+    sectionObserver.observe(section);
 
 });
 
 
-/* =========================================
-   LANGUAGE SWITCHER
-========================================= */
+/* =========================================================
+   SIMPLE 3D MOUSE EFFECT
+========================================================= */
 
-let currentLanguage =
-    localStorage.getItem(
-        "site-language"
-    ) || "ar";
-
-
-function setLanguage(language) {
-
-    currentLanguage =
-        language;
-
-    const isEnglish =
-        language === "en";
+const cards3D = document.querySelectorAll(
+    ".service-card, .project-card, .video-card"
+);
 
 
-    body.classList.toggle(
-        "lang-en",
-        isEnglish
-    );
+cards3D.forEach((card) => {
 
+    card.addEventListener("mousemove", (event) => {
 
-    document.documentElement.lang =
-        isEnglish
-            ? "en"
-            : "ar";
-
-
-    document.documentElement.dir =
-        isEnglish
-            ? "ltr"
-            : "rtl";
-
-
-    const translatedElements =
-        document.querySelectorAll(
-            "[data-ar][data-en]"
-        );
-
-
-    translatedElements.forEach(
-        (element) => {
-
-            const text =
-                isEnglish
-                    ? element.dataset.en
-                    : element.dataset.ar;
-
-            if (text) {
-
-                element.textContent =
-                    text;
-
-            }
-
+        if (window.innerWidth < 900) {
+            return;
         }
-    );
+
+        const rect = card.getBoundingClientRect();
+
+        const x = event.clientX - rect.left;
+
+        const y = event.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+
+        const centerY = rect.height / 2;
+
+        const rotateY =
+            ((x - centerX) / centerX) * 3;
+
+        const rotateX =
+            ((centerY - y) / centerY) * 3;
+
+        card.style.transform =
+            `perspective(900px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-7px)`;
+
+    });
 
 
-    if (languageBtn) {
+    card.addEventListener("mouseleave", () => {
 
-        languageBtn.textContent =
-            isEnglish
-                ? "AR"
-                : "EN";
+        card.style.transform = "";
 
-    }
+    });
 
-
-    localStorage.setItem(
-        "site-language",
-        language
-    );
-
-}
+});
 
 
-if (languageBtn) {
+/* =========================================================
+   HERO 3D EFFECT
+========================================================= */
 
-    languageBtn.addEventListener(
-        "click",
-        () => {
-
-            setLanguage(
-                currentLanguage === "ar"
-                    ? "en"
-                    : "ar"
-            );
-
-        }
-    );
-
-}
+const heroWrapper =
+    document.querySelector(".hero-image-wrapper");
 
 
-setLanguage(currentLanguage);
+if (heroWrapper) {
 
-
-/* =========================================
-   3D TILT
-========================================= */
-
-const tiltCards =
-    document.querySelectorAll(
-        ".tilt-card"
-    );
-
-
-tiltCards.forEach((card) => {
-
-    card.addEventListener(
+    heroWrapper.addEventListener(
         "mousemove",
         (event) => {
 
-            if (
-                window.innerWidth < 850
-            ) {
+            if (window.innerWidth < 900) {
                 return;
             }
 
-
             const rect =
-                card.getBoundingClientRect();
-
+                heroWrapper.getBoundingClientRect();
 
             const x =
-                event.clientX -
-                rect.left;
+                event.clientX - rect.left;
 
             const y =
-                event.clientY -
-                rect.top;
-
+                event.clientY - rect.top;
 
             const centerX =
                 rect.width / 2;
@@ -457,132 +366,48 @@ tiltCards.forEach((card) => {
             const centerY =
                 rect.height / 2;
 
-
             const rotateY =
-                ((x - centerX) /
-                    centerX) *
-                5;
-
+                ((x - centerX) / centerX) * 4;
 
             const rotateX =
-                ((centerY - y) /
-                    centerY) *
-                5;
+                ((centerY - y) / centerY) * 4;
 
-
-            card.style.transform =
-                `perspective(900px)
+            heroWrapper.style.transform =
+                `perspective(1200px)
                  rotateX(${rotateX}deg)
                  rotateY(${rotateY}deg)
-                 translateY(-8px)`;
+                 translateY(-5px)`;
 
         }
     );
 
 
-    card.addEventListener(
+    heroWrapper.addEventListener(
         "mouseleave",
         () => {
 
-            card.style.transform =
-                "";
+            heroWrapper.style.transform = "";
 
         }
     );
 
-});
+}
 
 
-/* =========================================
-   HERO PARALLAX
-========================================= */
+/* =========================================================
+   YEAR
+========================================================= */
 
-const heroVisual =
-    document.querySelector(
-        ".hero-visual"
-    );
+if (yearElement) {
 
+    yearElement.textContent =
+        new Date().getFullYear();
 
-window.addEventListener(
-    "mousemove",
-    (event) => {
-
-        if (
-            !heroVisual ||
-            window.innerWidth < 900
-        ) {
-            return;
-        }
+}
 
 
-        const x =
-            (event.clientX /
-                window.innerWidth -
-                0.5);
+/* =========================================================
+   INIT
+========================================================= */
 
-
-        const y =
-            (event.clientY /
-                window.innerHeight -
-                0.5);
-
-
-        heroVisual.style.transform =
-            `translate3d(
-                ${x * 8}px,
-                ${y * 8}px,
-                0
-            )`;
-
-    },
-    { passive: true }
-);
-
-
-/* =========================================
-   IMAGE FALLBACK
-========================================= */
-
-document
-    .querySelectorAll("img")
-    .forEach((image) => {
-
-        image.addEventListener(
-            "error",
-            () => {
-
-                image.style.display =
-                    "none";
-
-                console.warn(
-                    "Image could not be loaded:",
-                    image.src
-                );
-
-            }
-        );
-
-    });
-
-
-/* =========================================
-   ESC KEY
-========================================= */
-
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            event.key === "Escape" &&
-            nav
-        ) {
-
-            nav.classList.remove(
-                "active"
-            );
-
-        }
-
-    }
-);
+updateLanguage();
