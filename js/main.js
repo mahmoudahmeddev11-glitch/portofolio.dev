@@ -1,5 +1,6 @@
 "use strict";
 
+
 /* =========================================================
    ELEMENTS
 ========================================================= */
@@ -8,49 +9,46 @@ const body =
     document.body;
 
 const languageToggle =
-    document.getElementById(
-        "languageToggle"
-    );
+    document.getElementById("languageToggle");
 
 const themeToggle =
-    document.getElementById(
-        "themeToggle"
-    );
+    document.getElementById("themeToggle");
 
 const menuButton =
-    document.getElementById(
-        "menuButton"
-    );
+    document.getElementById("menuButton");
 
 const mobileMenu =
-    document.getElementById(
-        "mobileMenu"
-    );
-
-const projectModal =
-    document.getElementById(
-        "projectModal"
-    );
-
-const projectFrame =
-    document.getElementById(
-        "projectFrame"
-    );
-
-const modalLoading =
-    document.getElementById(
-        "modalLoading"
-    );
-
-const modalExternalLink =
-    document.getElementById(
-        "modalExternalLink"
-    );
+    document.getElementById("mobileMenu");
 
 const currentYear =
-    document.getElementById(
-        "currentYear"
-    );
+    document.getElementById("currentYear");
+
+
+const projectModal =
+    document.getElementById("projectModal");
+
+const projectFrame =
+    document.getElementById("projectFrame");
+
+const modalLoading =
+    document.getElementById("modalLoading");
+
+const modalExternalLink =
+    document.getElementById("modalExternalLink");
+
+
+const imageModal =
+    document.getElementById("imageModal");
+
+const imageModalPreview =
+    document.getElementById("imageModalPreview");
+
+
+const selectedPackage =
+    document.getElementById("selectedPackage");
+
+const selectedDesign =
+    document.getElementById("selectedDesign");
 
 
 
@@ -95,16 +93,16 @@ function applyLanguage(language) {
             if (
                 value !== undefined
             ) {
+
                 element.textContent =
                     value;
+
             }
 
         });
 
 
-    if (
-        languageToggle
-    ) {
+    if (languageToggle) {
 
         languageToggle.textContent =
             language === "ar"
@@ -112,6 +110,14 @@ function applyLanguage(language) {
                 : "AR";
 
     }
+
+
+    /*
+      Update selected design/package
+      text in the current language.
+    */
+
+    updateConfiguratorText();
 
 
     localStorage.setItem(
@@ -159,9 +165,7 @@ function applyTheme(theme) {
     );
 
 
-    if (
-        themeToggle
-    ) {
+    if (themeToggle) {
 
         themeToggle.textContent =
             light
@@ -253,8 +257,8 @@ document
 
 /* =========================================================
    NAVIGATION
-   Only anchor clicks use smooth behavior.
-   Wheel/touch scrolling stays native.
+   Smooth ONLY for clicked anchor links.
+   Native touch/wheel scrolling remains untouched.
 ========================================================= */
 
 document
@@ -416,6 +420,161 @@ if (
 
 
 /* =========================================================
+   WEBSITE PACKAGE SELECTOR
+========================================================= */
+
+let chosenPackage =
+    "business";
+
+let chosenDesign =
+    "Rouh Lil Rouh";
+
+
+function updateConfiguratorText() {
+
+    if (!selectedPackage || !selectedDesign) {
+        return;
+    }
+
+
+    const packageCard =
+        document.querySelector(
+            `[data-package="${chosenPackage}"]`
+        );
+
+
+    const designCard =
+        document.querySelector(
+            `[data-design="${chosenDesign}"]`
+        );
+
+
+    if (packageCard) {
+
+        selectedPackage.textContent =
+            currentLanguage === "ar"
+                ? packageCard.dataset.packageAr
+                : packageCard.dataset.packageEn;
+
+    }
+
+
+    if (designCard) {
+
+        selectedDesign.textContent =
+            currentLanguage === "ar"
+                ? designCard.dataset.designAr
+                : designCard.dataset.designEn;
+
+    }
+
+}
+
+
+document
+    .querySelectorAll(
+        "[data-package-select]"
+    )
+    .forEach((button) => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                chosenPackage =
+                    button.dataset.packageSelect;
+
+
+                document
+                    .querySelectorAll(
+                        ".website-package"
+                    )
+                    .forEach(
+                        (card) => {
+
+                            card.classList.toggle(
+                                "selected",
+                                card.dataset.package ===
+                                    chosenPackage
+                            );
+
+                        }
+                    );
+
+
+                updateConfiguratorText();
+
+
+                /*
+                  Move the summary into view
+                  without changing global scroll behavior.
+                */
+
+                const summary =
+                    document.querySelector(
+                        ".website-summary"
+                    );
+
+
+                summary?.scrollIntoView({
+                    behavior:
+                        "smooth",
+                    block:
+                        "nearest"
+                });
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   DESIGN SELECTOR
+========================================================= */
+
+document
+    .querySelectorAll(
+        ".design-option"
+    )
+    .forEach((design) => {
+
+        design.addEventListener(
+            "click",
+            () => {
+
+                chosenDesign =
+                    design.dataset.design;
+
+
+                document
+                    .querySelectorAll(
+                        ".design-option"
+                    )
+                    .forEach(
+                        (item) => {
+
+                            item.classList.toggle(
+                                "active",
+                                item ===
+                                    design
+                            );
+
+                        }
+                    );
+
+
+                updateConfiguratorText();
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
    PROJECT MODAL
 ========================================================= */
 
@@ -438,8 +597,14 @@ function openProject(url) {
     );
 
 
-    modalExternalLink.href =
-        url;
+    if (
+        modalExternalLink
+    ) {
+
+        modalExternalLink.href =
+            url;
+
+    }
 
 
     projectModal.classList.add(
@@ -457,10 +622,6 @@ function openProject(url) {
         "modal-open"
     );
 
-
-    /*
-       Start loading immediately.
-    */
 
     requestAnimationFrame(
         () => {
@@ -516,7 +677,7 @@ projectFrame?.addEventListener(
 
 
 /* =========================================================
-   CLOSE MODAL
+   CLOSE PROJECT
 ========================================================= */
 
 function closeProject() {
@@ -541,11 +702,6 @@ function closeProject() {
         "modal-open"
     );
 
-
-    /*
-       Free the external page
-       when modal is closed.
-    */
 
     window.setTimeout(
         () => {
@@ -575,7 +731,7 @@ function closeProject() {
 
 document
     .querySelectorAll(
-        "[data-close-modal]"
+        "[data-close-project]"
     )
     .forEach((element) => {
 
@@ -589,25 +745,106 @@ document
 
 
 /* =========================================================
-   ESCAPE
+   INSTAGRAM IMAGE MODAL
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
+document
+    .querySelectorAll(
+        ".instagram-post[data-image]"
+    )
+    .forEach((post) => {
 
-        if (
-            event.key === "Escape"
-        ) {
+        post.addEventListener(
+            "click",
+            () => {
 
-            closeProject();
+                const image =
+                    post.dataset.image;
 
-            closeMobileMenu();
 
-        }
+                if (
+                    !imageModal ||
+                    !imageModalPreview
+                ) {
+                    return;
+                }
+
+
+                imageModalPreview.src =
+                    image;
+
+
+                imageModal.classList.add(
+                    "open"
+                );
+
+
+                imageModal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                body.classList.add(
+                    "modal-open"
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* =========================================================
+   CLOSE IMAGE MODAL
+========================================================= */
+
+function closeImageModal() {
+
+    if (!imageModal) {
+        return;
+    }
+
+
+    imageModal.classList.remove(
+        "open"
+    );
+
+
+    imageModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    if (imageModalPreview) {
+
+        imageModalPreview.src =
+            "";
 
     }
-);
+
+
+    body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+document
+    .querySelectorAll(
+        "[data-close-image]"
+    )
+    .forEach((element) => {
+
+        element.addEventListener(
+            "click",
+            closeImageModal
+        );
+
+    });
 
 
 
@@ -622,11 +859,6 @@ const videos =
         )
     ];
 
-
-/*
-   Never play more than one video
-   at the same time.
-*/
 
 videos.forEach(
     (video) => {
@@ -657,10 +889,10 @@ videos.forEach(
 );
 
 
-/*
-   Prepare videos BEFORE they are
-   actually reached.
-*/
+
+/* =========================================================
+   EARLY VIDEO PREPARATION
+========================================================= */
 
 if (
     "IntersectionObserver"
@@ -688,25 +920,18 @@ if (
                             entry.target;
 
 
-                        /*
-                           Start loading the
-                           actual video early.
-                        */
-
                         if (
-                            video
-                            .preload !==
+                            video.preload !==
                             "auto"
                         ) {
 
                             video.preload =
                                 "auto";
 
+
                             /*
-                               load() makes the
-                               browser reconsider
-                               the newly-set source
-                               immediately.
+                              Start preparing
+                              before user presses play.
                             */
 
                             video.load();
@@ -724,18 +949,13 @@ if (
             },
             {
                 rootMargin:
-                    "1200px 0px"
+                    "1000px 0px"
             }
         );
 
 
     videos.forEach(
         (video) => {
-
-            /*
-              First video is already
-              preload=auto in HTML.
-            */
 
             if (
                 video !==
@@ -756,12 +976,35 @@ if (
 
 
 /* =========================================================
-   CURRENT YEAR
+   ESCAPE KEY
 ========================================================= */
 
-if (
-    currentYear
-) {
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key !==
+            "Escape"
+        ) {
+            return;
+        }
+
+
+        closeProject();
+        closeImageModal();
+        closeMobileMenu();
+
+    }
+);
+
+
+
+/* =========================================================
+   YEAR
+========================================================= */
+
+if (currentYear) {
 
     currentYear.textContent =
         new Date().getFullYear();
@@ -781,3 +1024,6 @@ applyLanguage(
 applyTheme(
     currentTheme
 );
+
+
+updateConfiguratorText();
