@@ -4,31 +4,46 @@
    ELEMENTS
 ========================================================= */
 
-const body = document.body;
-const loader = document.getElementById("pageLoader");
+const body =
+    document.body;
 
-const languageToggle = document.getElementById("languageToggle");
-const themeToggle = document.getElementById("themeToggle");
+const pageLoader =
+    document.getElementById("pageLoader");
 
-const menuButton = document.getElementById("menuButton");
-const mobileMenu = document.getElementById("mobileMenu");
+const languageToggle =
+    document.getElementById("languageToggle");
 
-const projectModal = document.getElementById("projectModal");
-const projectFrame = document.getElementById("projectFrame");
+const themeToggle =
+    document.getElementById("themeToggle");
 
-const currentYear = document.getElementById("currentYear");
+const menuButton =
+    document.getElementById("menuButton");
+
+const mobileMenu =
+    document.getElementById("mobileMenu");
+
+const projectModal =
+    document.getElementById("projectModal");
+
+const projectFrame =
+    document.getElementById("projectFrame");
+
+const currentYear =
+    document.getElementById("currentYear");
 
 
 
 /* =========================================================
-   PAGE LOADER
+   LOADER
 ========================================================= */
 
 window.addEventListener("load", () => {
 
     window.setTimeout(() => {
-        loader?.classList.add("hidden");
-    }, 250);
+
+        pageLoader?.classList.add("hidden");
+
+    }, 180);
 
 });
 
@@ -39,29 +54,40 @@ window.addEventListener("load", () => {
 ========================================================= */
 
 let currentLanguage =
-    localStorage.getItem("portfolio-language") || "ar";
+    localStorage.getItem(
+        "portfolio-language"
+    ) || "ar";
 
 
 function applyLanguage(language) {
 
     currentLanguage = language;
 
-    document.documentElement.lang = language;
+    document.documentElement.lang =
+        language;
+
     document.documentElement.dir =
-        language === "ar" ? "rtl" : "ltr";
+        language === "ar"
+            ? "rtl"
+            : "ltr";
 
-    document.querySelectorAll("[data-ar][data-en]").forEach((element) => {
 
-        const value =
-            language === "ar"
-                ? element.dataset.ar
-                : element.dataset.en;
+    document
+        .querySelectorAll(
+            "[data-ar][data-en]"
+        )
+        .forEach((element) => {
 
-        if (value !== undefined) {
-            element.textContent = value;
-        }
+            const text =
+                language === "ar"
+                    ? element.dataset.ar
+                    : element.dataset.en;
 
-    });
+            if (text !== undefined) {
+                element.textContent = text;
+            }
+
+        });
 
 
     if (languageToggle) {
@@ -82,16 +108,18 @@ function applyLanguage(language) {
 }
 
 
-languageToggle?.addEventListener("click", () => {
+languageToggle?.addEventListener(
+    "click",
+    () => {
 
-    const nextLanguage =
-        currentLanguage === "ar"
-            ? "en"
-            : "ar";
+        applyLanguage(
+            currentLanguage === "ar"
+                ? "en"
+                : "ar"
+        );
 
-    applyLanguage(nextLanguage);
-
-});
+    }
+);
 
 
 
@@ -100,27 +128,32 @@ languageToggle?.addEventListener("click", () => {
 ========================================================= */
 
 let savedTheme =
-    localStorage.getItem("portfolio-theme") || "dark";
+    localStorage.getItem(
+        "portfolio-theme"
+    ) || "dark";
 
 
 function applyTheme(theme) {
 
-    const light =
+    const isLight =
         theme === "light";
+
 
     body.classList.toggle(
         "light-theme",
-        light
+        isLight
     );
+
 
     if (themeToggle) {
 
         themeToggle.textContent =
-            light
+            isLight
                 ? "☾"
                 : "☼";
 
     }
+
 
     localStorage.setItem(
         "portfolio-theme",
@@ -130,16 +163,20 @@ function applyTheme(theme) {
 }
 
 
-themeToggle?.addEventListener("click", () => {
+themeToggle?.addEventListener(
+    "click",
+    () => {
 
-    const nextTheme =
-        body.classList.contains("light-theme")
-            ? "dark"
-            : "light";
+        applyTheme(
+            body.classList.contains(
+                "light-theme"
+            )
+                ? "dark"
+                : "light"
+        );
 
-    applyTheme(nextTheme);
-
-});
+    }
+);
 
 
 
@@ -149,153 +186,208 @@ themeToggle?.addEventListener("click", () => {
 
 function closeMobileMenu() {
 
-    mobileMenu?.classList.remove("open");
+    mobileMenu?.classList.remove(
+        "open"
+    );
 
     menuButton?.setAttribute(
         "aria-expanded",
         "false"
     );
 
+    body.classList.remove(
+        "menu-locked"
+    );
+
 }
 
 
-menuButton?.addEventListener("click", () => {
+menuButton?.addEventListener(
+    "click",
+    () => {
 
-    const isOpen =
-        mobileMenu?.classList.toggle("open");
+        const opened =
+            mobileMenu?.classList.toggle(
+                "open"
+            );
 
-    menuButton.setAttribute(
-        "aria-expanded",
-        String(Boolean(isOpen))
-    );
 
-});
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(Boolean(opened))
+        );
+
+
+        /*
+          لا نقفل scroll الصفحة هنا.
+          ده مهم جدًا للموبايل.
+        */
+
+    }
+);
 
 
 document
-    .querySelectorAll(".mobile-menu a")
+    .querySelectorAll(
+        ".mobile-menu a"
+    )
     .forEach((link) => {
 
-        link.addEventListener("click", () => {
-
-            closeMobileMenu();
-
-        });
+        link.addEventListener(
+            "click",
+            closeMobileMenu
+        );
 
     });
 
 
 
 /* =========================================================
-   SMOOTH NAVIGATION
-   مهم:
-   لا يوجد smooth scroll عالمي.
-   فقط عند الضغط على روابط التنقل.
-   وبالتالي scrolling الموبايل الطبيعي لا يتأثر.
+   NAVIGATION
+   Smooth فقط عند الضغط على link.
+   Wheel / touch يظل Native.
 ========================================================= */
 
 document
-    .querySelectorAll('a[href^="#"]')
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
     .forEach((link) => {
 
-        link.addEventListener("click", (event) => {
+        link.addEventListener(
+            "click",
+            (event) => {
 
-            const targetId =
-                link.getAttribute("href");
+                const href =
+                    link.getAttribute("href");
 
-            if (
-                !targetId ||
-                targetId === "#"
-            ) {
-                return;
+                if (
+                    !href ||
+                    href === "#"
+                ) {
+                    return;
+                }
+
+
+                const target =
+                    document.querySelector(href);
+
+
+                if (!target) {
+                    return;
+                }
+
+
+                event.preventDefault();
+
+
+                const header =
+                    document.querySelector(
+                        ".site-header"
+                    );
+
+
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 0;
+
+
+                const top =
+                    target.getBoundingClientRect()
+                        .top
+                    +
+                    window.scrollY
+                    -
+                    headerHeight
+                    -
+                    8;
+
+
+                window.scrollTo({
+                    top,
+                    behavior: "smooth"
+                });
+
             }
-
-            const target =
-                document.querySelector(targetId);
-
-            if (!target) {
-                return;
-            }
-
-            event.preventDefault();
-
-            const header =
-                document.querySelector(".site-header");
-
-            const headerHeight =
-                header
-                    ? header.offsetHeight
-                    : 0;
-
-            const targetTop =
-                target.getBoundingClientRect().top +
-                window.scrollY -
-                headerHeight -
-                10;
-
-            window.scrollTo({
-                top: targetTop,
-                behavior: "smooth"
-            });
-
-        });
+        );
 
     });
 
 
 
 /* =========================================================
-   REVEAL ANIMATIONS
-   IntersectionObserver فقط
-   بدون scroll calculations
+   FAST REVEAL
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(".reveal");
+    document.querySelectorAll(
+        ".reveal"
+    );
 
 
-if ("IntersectionObserver" in window) {
+if (
+    "IntersectionObserver"
+    in window
+) {
 
-    const revealObserver =
+    const observer =
         new IntersectionObserver(
-            (entries, observer) => {
+            (entries, instance) => {
 
-                entries.forEach((entry) => {
+                entries.forEach(
+                    (entry) => {
 
-                    if (!entry.isIntersecting) {
-                        return;
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
+
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+
+                        instance.unobserve(
+                            entry.target
+                        );
+
                     }
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                });
+                );
 
             },
             {
-                root: null,
-                threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px"
+                threshold: 0.02,
+
+                rootMargin:
+                    "0px 0px 20px 0px"
             }
         );
 
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(
+        (element) => {
 
-        revealObserver.observe(element);
+            observer.observe(
+                element
+            );
 
-    });
+        }
+    );
 
 } else {
 
-    revealElements.forEach((element) => {
+    revealElements.forEach(
+        (element) => {
 
-        element.classList.add("visible");
+            element.classList.add(
+                "visible"
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -307,64 +399,104 @@ if ("IntersectionObserver" in window) {
 
 function openProject(url) {
 
-    if (!projectModal || !projectFrame) {
+    if (
+        !projectModal ||
+        !projectFrame
+    ) {
         return;
     }
 
-    projectFrame.src = url;
 
-    projectModal.classList.add("open");
+    projectFrame.src =
+        url;
+
+
+    projectModal.classList.add(
+        "open"
+    );
+
 
     projectModal.setAttribute(
         "aria-hidden",
         "false"
     );
 
-    body.style.overflow = "hidden";
+
+    /*
+      نمنع background فقط داخل الـ modal.
+    */
+
+    body.classList.add(
+        "menu-locked"
+    );
 
 }
 
 
 function closeProject() {
 
-    if (!projectModal || !projectFrame) {
+    if (
+        !projectModal ||
+        !projectFrame
+    ) {
         return;
     }
 
-    projectModal.classList.remove("open");
+
+    projectModal.classList.remove(
+        "open"
+    );
+
 
     projectModal.setAttribute(
         "aria-hidden",
         "true"
     );
 
-    projectFrame.src = "about:blank";
 
-    body.style.overflow = "";
+    projectFrame.src =
+        "about:blank";
+
+
+    body.classList.remove(
+        "menu-locked"
+    );
 
 }
 
 
 document
-    .querySelectorAll("[data-project]")
+    .querySelectorAll(
+        "[data-project]"
+    )
     .forEach((button) => {
 
-        button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-            const url =
-                button.dataset.project;
+                const url =
+                    button.dataset.project;
 
-            if (url) {
-                openProject(url);
+
+                if (url) {
+
+                    openProject(
+                        url
+                    );
+
+                }
+
             }
-
-        });
+        );
 
     });
 
 
 document
-    .querySelectorAll("[data-close-modal]")
+    .querySelectorAll(
+        "[data-close-modal]"
+    )
     .forEach((element) => {
 
         element.addEventListener(
@@ -377,56 +509,167 @@ document
 
 
 /* =========================================================
-   ESCAPE KEY
-========================================================= */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-
-        closeProject();
-        closeMobileMenu();
-
-    }
-
-});
-
-
-
-/* =========================================================
    VIDEO PERFORMANCE
-   تشغيل فيديو واحد فقط في نفس الوقت
 ========================================================= */
 
 const videos =
-    document.querySelectorAll("video");
+    document.querySelectorAll(
+        "video"
+    );
 
 
-videos.forEach((video) => {
+/*
+   أول فيديو أهم واحد:
+   نخليه يتحمل تحميله مبكرًا.
+*/
 
-    video.addEventListener("play", () => {
+const featuredVideo =
+    document.querySelector(
+        ".video-featured video"
+    );
 
-        videos.forEach((otherVideo) => {
 
-            if (otherVideo !== video) {
-                otherVideo.pause();
+if (featuredVideo) {
+
+    featuredVideo.preload =
+        "auto";
+
+}
+
+
+/*
+   متشغلش أكتر من فيديو
+   في نفس الوقت.
+*/
+
+videos.forEach(
+    (video) => {
+
+        video.addEventListener(
+            "play",
+            () => {
+
+                videos.forEach(
+                    (otherVideo) => {
+
+                        if (
+                            otherVideo !==
+                            video
+                        ) {
+
+                            otherVideo.pause();
+
+                        }
+
+                    }
+                );
+
             }
+        );
 
-        });
-
-    });
-
-});
+    }
+);
 
 
 
 /* =========================================================
-   INITIALIZE
+   VIDEO LOAD PRIORITY
+   يجهز metadata للفيديو القريب من الشاشة.
 ========================================================= */
 
-applyLanguage(currentLanguage);
-applyTheme(savedTheme);
+if (
+    "IntersectionObserver"
+    in window
+) {
 
+    const videoObserver =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(
+                    (entry) => {
+
+                        if (
+                            !entry.isIntersecting
+                        ) {
+                            return;
+                        }
+
+
+                        const video =
+                            entry.target;
+
+
+                        /*
+                          أول ما يبقى قريب من
+                          الشاشة، نزود preload.
+                        */
+
+                        if (
+                            video !==
+                            featuredVideo
+                        ) {
+
+                            video.preload =
+                                "metadata";
+
+                        }
+
+
+                        observer.unobserve(
+                            video
+                        );
+
+                    }
+                );
+
+            },
+            {
+                rootMargin:
+                    "500px 0px"
+            }
+        );
+
+
+    videos.forEach(
+        (video) => {
+
+            videoObserver.observe(
+                video
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   ESC
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeProject();
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   YEAR
+========================================================= */
 
 if (currentYear) {
 
@@ -434,3 +677,17 @@ if (currentYear) {
         new Date().getFullYear();
 
 }
+
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+applyLanguage(
+    currentLanguage
+);
+
+applyTheme(
+    savedTheme
+);
