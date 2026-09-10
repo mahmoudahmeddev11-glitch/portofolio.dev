@@ -1,6 +1,7 @@
 (() => {
   "use strict";
 
+
   /* ======================================================
      HELPERS
   ====================================================== */
@@ -13,15 +14,15 @@
 
 
   /* ======================================================
-     PAGE LOADER
+     LOADER
   ====================================================== */
 
-  const pageLoader = $("#pageLoader");
+  const loader = $("#pageLoader");
 
   window.addEventListener("load", () => {
     window.setTimeout(() => {
-      pageLoader?.classList.add("hidden");
-    }, 250);
+      loader?.classList.add("hidden");
+    }, 180);
   });
 
 
@@ -29,10 +30,10 @@
      YEAR
   ====================================================== */
 
-  const yearElement = $("#year");
+  const year = $("#year");
 
-  if (yearElement) {
-    yearElement.textContent = String(new Date().getFullYear());
+  if (year) {
+    year.textContent = new Date().getFullYear();
   }
 
 
@@ -42,7 +43,8 @@
 
   const themeToggle = $("#themeToggle");
 
-  const savedTheme = localStorage.getItem("portfolio-theme");
+  const savedTheme =
+    localStorage.getItem("portfolio-theme");
 
   if (savedTheme === "light") {
     document.body.classList.remove("dark-theme");
@@ -50,27 +52,33 @@
   }
 
   const updateThemeIcon = () => {
-    if (!themeToggle) return;
-
-    const icon = $(".theme-icon", themeToggle);
+    const icon =
+      $(".theme-icon", themeToggle);
 
     if (!icon) return;
 
-    icon.textContent = document.body.classList.contains("light-theme")
-      ? "☾"
-      : "☼";
+    icon.textContent =
+      document.body.classList.contains("light-theme")
+        ? "☾"
+        : "☼";
   };
 
   updateThemeIcon();
 
-  themeToggle?.addEventListener("click", () => {
-    const isLight = document.body.classList.toggle("light-theme");
 
-    document.body.classList.toggle("dark-theme", !isLight);
+  themeToggle?.addEventListener("click", () => {
+
+    const light =
+      document.body.classList.toggle("light-theme");
+
+    document.body.classList.toggle(
+      "dark-theme",
+      !light
+    );
 
     localStorage.setItem(
       "portfolio-theme",
-      isLight ? "light" : "dark"
+      light ? "light" : "dark"
     );
 
     updateThemeIcon();
@@ -81,16 +89,20 @@
      LANGUAGE
   ====================================================== */
 
-  const languageToggle = $("#languageToggle");
+  const languageToggle =
+    $("#languageToggle");
+
 
   const translations = {
+
     ar: {
+
       navHome: "الرئيسية",
       navAbout: "من نحن",
       navServices: "الخدمات",
       navProjects: "المشاريع",
       navPackages: "الباقات",
-      navVideos: "النتائج",
+      navVideos: "الفيديوهات",
       navContact: "تواصل معنا",
 
       heroEyebrow:
@@ -103,18 +115,30 @@
       heroDescription:
         "أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك.",
 
-      heroPrimary: "ابدأ مشروعك",
-      heroSecondary: "شوف أعمالنا",
+      heroPrimary:
+        "ابدأ مشروعك",
 
-      statOne: "استراتيجية",
-      statTwo: "تنفيذ",
-      statThree: "تحليل",
+      heroSecondary:
+        "شوف أعمالنا",
 
-      floatGrowth: "نمو مستمر",
-      floatTarget: "استهداف دقيق",
+      statOne:
+        "استراتيجية",
 
-      aboutKicker: "ABOUT",
-      aboutTitle: "مش بس إعلانات.\nبنبني نمو حقيقي.",
+      statTwo:
+        "تنفيذ",
+
+      statThree:
+        "تحليل",
+
+      floatGrowth:
+        "نمو مستمر",
+
+      floatTarget:
+        "استهداف دقيق",
+
+
+      aboutTitle:
+        "مش بس إعلانات.\nبنبني نمو حقيقي.",
 
       aboutText:
         "بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى وتصميم المواقع عشان كل خطوة في المشروع يكون ليها هدف واضح.",
@@ -140,7 +164,6 @@
       aboutCard3Text:
         "نقيس ونحلل ونحسن الأداء باستمرار.",
 
-      servicesKicker: "SERVICES",
 
       servicesTitle:
         "كل خطوة\nليها هدف.",
@@ -169,8 +192,6 @@
       service4Text:
         "مواقع عصرية، سريعة ومتجاوبة، مصممة على ستايل البراند وأهداف المشروع.",
 
-      projectsKicker:
-        "SELECTED WORK",
 
       projectsTitle:
         "مشاريع\nتشتغل فعلًا.",
@@ -188,10 +209,8 @@
         "مشروع ويب بطابع بصري مختلف وتجربة مرنة.",
 
       projectNote:
-        "المعاينة داخل الموقع قد لا تعمل لبعض المواقع الخارجية بسبب سياسات حماية الـ iframe الخاصة بها.",
+        "بعض المواقع الخارجية قد تمنع المعاينة داخل iframe بسبب سياسة الحماية الخاصة بها.",
 
-      packagesKicker:
-        "PACKAGES",
 
       packagesTitle:
         "اختار الباقة\nالمناسبة لمشروعك.",
@@ -229,8 +248,6 @@
       mostPopular:
         "الأكثر طلبًا",
 
-      customKicker:
-        "CUSTOM WEBSITE",
 
       customTitle:
         "عايز موقع\nعلى ستايلك؟",
@@ -241,8 +258,6 @@
       customButton:
         "اطلب موقعك",
 
-      showcaseKicker:
-        "CASE STUDIES",
 
       showcaseTitle:
         "هنا هنحط\nشغل الحملات.",
@@ -250,17 +265,12 @@
       placeholderText:
         "Campaign Image",
 
-      videosKicker:
-        "RESULTS",
 
       videosTitle:
         "شوف\nالنتائج بنفسك.",
 
       featuredVideo:
-        "FEATURED",
-
-      videoResult:
-        "Campaign Result",
+        "FEATURED CAMPAIGN",
 
       video1Title:
         "Featured Campaign",
@@ -277,8 +287,6 @@
       video5Title:
         "Client Feedback",
 
-      processKicker:
-        "PROCESS",
 
       processTitle:
         "بنشتغل\nبخطوات واضحة.",
@@ -299,7 +307,7 @@
         "Execution",
 
       process3Text:
-        "ننفذ ونطلق ونختبر.",
+        "ننفيذ ونطلق ونختبر.",
 
       process4Title:
         "Optimization",
@@ -307,8 +315,6 @@
       process4Text:
         "نحسن النتائج بناءً على البيانات.",
 
-      contactKicker:
-        "LET'S WORK TOGETHER",
 
       contactTitle:
         "جاهز\nنكبر مشروعك؟",
@@ -316,50 +322,63 @@
       contactText:
         "ابعت لنا تفاصيل مشروعك وهنحدد لك أنسب طريقة نبدأ بيها.",
 
+
       footerText:
         "استراتيجية • إبداع • نمو",
 
       openExternal:
-        "فتح الموقع الأصلي",
+        "فتح الموقع الأصلي"
 
-      videoModalTitle:
-        "Campaign Video",
-
-      watchOnFacebook:
-        "مشاهدة على Facebook"
     },
 
 
     en: {
+
       navHome: "Home",
       navAbout: "About",
       navServices: "Services",
       navProjects: "Projects",
       navPackages: "Packages",
-      navVideos: "Results",
+      navVideos: "Videos",
       navContact: "Contact",
 
       heroEyebrow:
         "Digital Marketing • Media Buying • Web Design",
 
-      heroTitle1: "Grow",
-      heroTitle2: "Your Business",
-      heroTitle3: "Smarter.",
+      heroTitle1:
+        "Grow",
+
+      heroTitle2:
+        "Your Business",
+
+      heroTitle3:
+        "Smarter.",
 
       heroDescription:
         "Successful marketing ideas, precise paid advertising, market and competitor analysis, and websites built around your business goals.",
 
-      heroPrimary: "Start Your Project",
-      heroSecondary: "View Our Work",
+      heroPrimary:
+        "Start Your Project",
 
-      statOne: "Strategy",
-      statTwo: "Execution",
-      statThree: "Analysis",
+      heroSecondary:
+        "View Our Work",
 
-      floatGrowth: "Continuous growth",
-      floatTarget: "Precise targeting",
+      statOne:
+        "Strategy",
 
-      aboutKicker: "ABOUT",
+      statTwo:
+        "Execution",
+
+      statThree:
+        "Analysis",
+
+      floatGrowth:
+        "Continuous growth",
+
+      floatTarget:
+        "Precise targeting",
+
+
       aboutTitle:
         "Not just ads.\nWe build real growth.",
 
@@ -367,7 +386,7 @@
         "We combine strategy, media buying, market analysis, content and web design so every step of your project has a clear purpose.",
 
       aboutQuote:
-        "Your project’s success is our goal.",
+        "Your project's success is our goal.",
 
       aboutCard1Title:
         "Successful Marketing Ideas",
@@ -387,7 +406,6 @@
       aboutCard3Text:
         "We measure, analyze and improve continuously.",
 
-      servicesKicker: "SERVICES",
 
       servicesTitle:
         "Every move\nhas a purpose.",
@@ -416,8 +434,6 @@
       service4Text:
         "Modern, fast and responsive websites designed around your brand style and business goals.",
 
-      projectsKicker:
-        "SELECTED WORK",
 
       projectsTitle:
         "Projects\nthat actually work.",
@@ -435,10 +451,8 @@
         "A web project with a distinct visual direction and flexible experience.",
 
       projectNote:
-        "Some external websites may not load inside the preview because of their iframe security policies.",
+        "Some external websites may block iframe previews because of their security policies.",
 
-      packagesKicker:
-        "PACKAGES",
 
       packagesTitle:
         "Choose the package\nthat fits your project.",
@@ -459,7 +473,7 @@
         "Custom",
 
       package3Text:
-        "A fully customized package based on the project size, goals and budget.",
+        "A fully customized package based on project size, goals and budget.",
 
       perMonth:
         "monthly",
@@ -476,20 +490,16 @@
       mostPopular:
         "Most Popular",
 
-      customKicker:
-        "CUSTOM WEBSITE",
 
       customTitle:
         "Need a website\nthat feels like you?",
 
       customText:
-        "We build custom websites from scratch with the visual identity that fits your project, plus a fast responsive experience.",
+        "We build custom websites from scratch with the visual identity that fits your project and a fast responsive experience.",
 
       customButton:
         "Build My Website",
 
-      showcaseKicker:
-        "CASE STUDIES",
 
       showcaseTitle:
         "Campaign work\nwill go here.",
@@ -497,17 +507,12 @@
       placeholderText:
         "Campaign Image",
 
-      videosKicker:
-        "RESULTS",
 
       videosTitle:
         "See the\nresults.",
 
       featuredVideo:
-        "FEATURED",
-
-      videoResult:
-        "Campaign Result",
+        "FEATURED CAMPAIGN",
 
       video1Title:
         "Featured Campaign",
@@ -524,8 +529,6 @@
       video5Title:
         "Client Feedback",
 
-      processKicker:
-        "PROCESS",
 
       processTitle:
         "We work\nwith clear steps.",
@@ -554,8 +557,6 @@
       process4Text:
         "We improve results based on the data.",
 
-      contactKicker:
-        "LET'S WORK TOGETHER",
 
       contactTitle:
         "Ready to\ngrow your business?",
@@ -563,84 +564,160 @@
       contactText:
         "Send us your project details and we will define the best way to start.",
 
+
       footerText:
         "Strategy • Creativity • Growth",
 
       openExternal:
-        "Open Original Website",
+        "Open Original Website"
 
-      videoModalTitle:
-        "Campaign Video",
-
-      watchOnFacebook:
-        "Watch on Facebook"
     }
+
   };
 
 
   let currentLanguage =
     localStorage.getItem("portfolio-language") || "ar";
 
-  const applyLanguage = (language) => {
+
+  function applyLanguage(language) {
+
     currentLanguage = language;
 
     const dictionary =
       translations[language] || translations.ar;
 
-    document.documentElement.lang = language;
+    document.documentElement.lang =
+      language;
 
     document.documentElement.dir =
-      language === "ar" ? "rtl" : "ltr";
+      language === "ar"
+        ? "rtl"
+        : "ltr";
+
 
     $$("[data-i18n]").forEach((element) => {
-      const key = element.dataset.i18n;
 
-      if (!dictionary[key]) return;
+      const key =
+        element.dataset.i18n;
+
+      if (!dictionary[key]) {
+        return;
+      }
+
+      /*
+        Using textContent is intentional.
+        \n in titles is displayed as a
+        line break by CSS/text formatting
+        only if element supports it.
+        We handle it below.
+      */
 
       element.textContent =
         dictionary[key];
+
+      if (
+        key === "heroTitle1" ||
+        key === "heroTitle2" ||
+        key === "heroTitle3"
+      ) {
+        return;
+      }
+
     });
 
+
+    /*
+      Convert explicit \n to line breaks
+      only for heading elements.
+    */
+
+    $$("[data-i18n]").forEach((element) => {
+
+      const key =
+        element.dataset.i18n;
+
+      const value =
+        dictionary[key];
+
+      if (
+        typeof value === "string" &&
+        value.includes("\n") &&
+        element.tagName !== "INPUT"
+      ) {
+
+        element.innerHTML =
+          value.replace(/\n/g, "<br>");
+      }
+
+    });
+
+
     if (languageToggle) {
+
       languageToggle.textContent =
-        language === "ar" ? "EN" : "AR";
+        language === "ar"
+          ? "EN"
+          : "AR";
+
     }
+
 
     localStorage.setItem(
       "portfolio-language",
       language
     );
-  };
+
+  }
+
 
   applyLanguage(currentLanguage);
 
-  languageToggle?.addEventListener("click", () => {
-    applyLanguage(
-      currentLanguage === "ar"
-        ? "en"
-        : "ar"
-    );
-  });
+
+  languageToggle?.addEventListener(
+    "click",
+    () => {
+
+      applyLanguage(
+        currentLanguage === "ar"
+          ? "en"
+          : "ar"
+      );
+
+    }
+  );
 
 
   /* ======================================================
      HEADER
   ====================================================== */
 
-  const siteHeader = $("#siteHeader");
+  const header =
+    $("#siteHeader");
+
 
   const updateHeader = () => {
-    siteHeader?.classList.toggle(
+
+    if (!header) {
+      return;
+    }
+
+    header.classList.toggle(
       "scrolled",
-      window.scrollY > 20
+      window.scrollY > 18
     );
+
   };
+
 
   window.addEventListener(
     "scroll",
     updateHeader,
-    { passive: true }
+    {
+      passive: true
+    }
   );
+
 
   updateHeader();
 
@@ -649,134 +726,136 @@
      MOBILE MENU
   ====================================================== */
 
-  const menuToggle = $("#menuToggle");
-  const mobileMenu = $("#mobileMenu");
+  const menuToggle =
+    $("#menuToggle");
 
-  const closeMenu = () => {
-    menuToggle?.classList.remove("active");
-    mobileMenu?.classList.remove("open");
+  const mobileMenu =
+    $("#mobileMenu");
+
+
+  function closeMenu() {
+
+    menuToggle?.classList.remove(
+      "active"
+    );
+
+    mobileMenu?.classList.remove(
+      "open"
+    );
+
     menuToggle?.setAttribute(
       "aria-expanded",
       "false"
     );
-    document.body.classList.remove("menu-open");
-  };
 
-  menuToggle?.addEventListener("click", () => {
-    const isOpen =
-      menuToggle.classList.toggle("active");
-
-    mobileMenu?.classList.toggle(
-      "open",
-      isOpen
+    document.body.classList.remove(
+      "lock-scroll"
     );
-
-    menuToggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-
-    document.body.classList.toggle(
-      "menu-open",
-      isOpen
-    );
-  });
-
-  $$("#mobileMenu a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
-
-  /* ======================================================
-     REVEAL ON SCROLL
-  ====================================================== */
-
-  const revealItems = $$(".reveal");
-
-  if ("IntersectionObserver" in window) {
-
-    const revealObserver =
-      new IntersectionObserver(
-        (entries, observer) => {
-
-          entries.forEach((entry) => {
-
-            if (!entry.isIntersecting) {
-              return;
-            }
-
-            entry.target.classList.add(
-              "is-visible"
-            );
-
-            observer.unobserve(entry.target);
-          });
-
-        },
-        {
-          threshold: 0.12,
-          rootMargin: "0px 0px -60px 0px"
-        }
-      );
-
-    revealItems.forEach((item) => {
-      revealObserver.observe(item);
-    });
-
-  } else {
-
-    revealItems.forEach((item) => {
-      item.classList.add("is-visible");
-    });
 
   }
 
 
+  menuToggle?.addEventListener(
+    "click",
+    () => {
+
+      const isOpen =
+        menuToggle.classList.toggle(
+          "active"
+        );
+
+      mobileMenu?.classList.toggle(
+        "open",
+        isOpen
+      );
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      document.body.classList.toggle(
+        "lock-scroll",
+        isOpen
+      );
+
+    }
+  );
+
+
+  $$("#mobileMenu a").forEach(
+    (link) => {
+
+      link.addEventListener(
+        "click",
+        closeMenu
+      );
+
+    }
+  );
+
+
   /* ======================================================
-     MAGNETIC BUTTONS
-     Desktop / mouse only
+     REVEAL
   ====================================================== */
 
-  const magneticButtons =
-    $$(".magnetic");
+  const revealElements =
+    $$(".reveal");
 
-  const supportsHover =
-    window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    ).matches;
 
-  if (supportsHover) {
+  if (
+    "IntersectionObserver" in window
+  ) {
 
-    magneticButtons.forEach((button) => {
+    const observer =
+      new IntersectionObserver(
+        (entries, instance) => {
 
-      button.addEventListener(
-        "mousemove",
-        (event) => {
+          entries.forEach(
+            (entry) => {
 
-          const rect =
-            button.getBoundingClientRect();
+              if (
+                !entry.isIntersecting
+              ) {
+                return;
+              }
 
-          const x =
-            event.clientX -
-            (rect.left + rect.width / 2);
+              entry.target.classList.add(
+                "is-visible"
+              );
 
-          const y =
-            event.clientY -
-            (rect.top + rect.height / 2);
+              instance.unobserve(
+                entry.target
+              );
 
-          button.style.transform =
-            `translate3d(${x * 0.08}px, ${y * 0.08}px, 0)`;
+            }
+          );
+
+        },
+        {
+          threshold: 0.08,
+          rootMargin:
+            "0px 0px -45px 0px"
         }
       );
 
-      button.addEventListener(
-        "mouseleave",
-        () => {
-          button.style.transform = "";
-        }
-      );
 
-    });
+    revealElements.forEach(
+      (element) => {
+        observer.observe(element);
+      }
+    );
+
+  } else {
+
+    revealElements.forEach(
+      (element) => {
+        element.classList.add(
+          "is-visible"
+        );
+      }
+    );
+
   }
 
 
@@ -784,136 +863,97 @@
      PROJECT MODAL
   ====================================================== */
 
-  const projectModal = $("#projectModal");
-  const projectFrame = $("#projectModalFrame");
-  const projectTitle = $("#projectModalTitle");
-  const projectExternalLink =
+  const projectModal =
+    $("#projectModal");
+
+  const projectFrame =
+    $("#projectModalFrame");
+
+  const projectTitle =
+    $("#projectModalTitle");
+
+  const projectExternal =
     $("#projectExternalLink");
 
-  const openProjectModal = (
+  const projectLoader =
+    $("#projectLoader");
+
+
+  function openProject(
     url,
     title
-  ) => {
-
-    if (!projectModal || !projectFrame) {
-      return;
-    }
-
-    projectTitle.textContent = title;
-    projectExternalLink.href = url;
-
-    projectFrame.src = "";
-
-    const loading =
-      $(".modal-loading", projectModal);
-
-    loading?.classList.remove("hidden");
-
-    projectModal.classList.add("active");
-    projectModal.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-    document.body.classList.add(
-      "menu-open"
-    );
-
-    window.setTimeout(() => {
-      projectFrame.src = url;
-    }, 50);
-
-    projectFrame.onload = () => {
-      loading?.classList.add("hidden");
-    };
-  };
-
-  $$("[data-project]").forEach((button) => {
-
-    button.addEventListener("click", () => {
-
-      const url =
-        button.dataset.project;
-
-      const title =
-        button.dataset.title ||
-        "Project";
-
-      if (!url) return;
-
-      openProjectModal(
-        url,
-        title
-      );
-    });
-
-  });
-
-
-  /* ======================================================
-     FACEBOOK VIDEO MODAL
-  ====================================================== */
-
-  const videoModal = $("#videoModal");
-  const videoFrame = $("#videoModalFrame");
-  const videoExternalLink =
-    $("#videoExternalLink");
-
-  const facebookEmbedUrl = (url) => {
-    return (
-      "https://www.facebook.com/plugins/video.php" +
-      "?href=" +
-      encodeURIComponent(url) +
-      "&show_text=false" +
-      "&width=1280"
-    );
-  };
-
-  const openVideoModal = (url) => {
+  ) {
 
     if (
-      !videoModal ||
-      !videoFrame ||
-      !url
+      !projectModal ||
+      !projectFrame
     ) {
       return;
     }
 
-    const loading =
-      $(".modal-loading", videoModal);
 
-    loading?.classList.remove("hidden");
+    projectTitle.textContent =
+      title || "Project";
 
-    videoExternalLink.href = url;
+    projectExternal.href =
+      url;
 
-    videoFrame.src =
-      facebookEmbedUrl(url);
 
-    videoModal.classList.add("active");
+    projectFrame.src = "";
 
-    videoModal.setAttribute(
-      "aria-hidden",
-      "false"
+    projectLoader?.classList.remove(
+      "hidden"
     );
+
+
+    projectModal.classList.add(
+      "active"
+    );
+
 
     document.body.classList.add(
-      "menu-open"
+      "lock-scroll"
     );
 
-    window.setTimeout(() => {
-      loading?.classList.add("hidden");
-    }, 2500);
-  };
 
-  $$(".video-card[data-video]").forEach(
-    (card) => {
+    projectFrame.src =
+      url;
 
-      card.addEventListener(
+
+    projectFrame.onload =
+      () => {
+
+        projectLoader?.classList.add(
+          "hidden"
+        );
+
+      };
+
+  }
+
+
+  $$("[data-project]").forEach(
+    (button) => {
+
+      button.addEventListener(
         "click",
         () => {
-          openVideoModal(
-            card.dataset.video
+
+          const url =
+            button.dataset.project;
+
+          const title =
+            button.dataset.title;
+
+          if (!url) {
+            return;
+          }
+
+          openProject(
+            url,
+            title
           );
+
         }
       );
 
@@ -922,40 +962,42 @@
 
 
   /* ======================================================
-     CLOSE MODALS
+     CLOSE MODAL
   ====================================================== */
 
-  const closeModal = (modal) => {
+  function closeModal(modal) {
 
-    if (!modal) return;
+    if (!modal) {
+      return;
+    }
 
-    modal.classList.remove("active");
-
-    modal.setAttribute(
-      "aria-hidden",
-      "true"
+    modal.classList.remove(
+      "active"
     );
 
-    if (modal === projectModal) {
-      if (projectFrame) {
-        projectFrame.src = "";
-      }
-    }
-
-    if (modal === videoModal) {
-      if (videoFrame) {
-        videoFrame.src = "";
-      }
-    }
 
     if (
-      !mobileMenu?.classList.contains("open")
+      modal === projectModal &&
+      projectFrame
     ) {
-      document.body.classList.remove(
-        "menu-open"
-      );
+      projectFrame.src = "";
     }
-  };
+
+
+    if (
+      !mobileMenu?.classList.contains(
+        "open"
+      )
+    ) {
+
+      document.body.classList.remove(
+        "lock-scroll"
+      );
+
+    }
+
+  }
+
 
   $$("[data-close-modal]").forEach(
     (element) => {
@@ -963,9 +1005,11 @@
       element.addEventListener(
         "click",
         () => {
+
           closeModal(
             element.closest(".modal")
           );
+
         }
       );
 
@@ -974,82 +1018,124 @@
 
 
   /* ======================================================
-     ESC KEY
+     ESC
   ====================================================== */
 
   document.addEventListener(
     "keydown",
     (event) => {
 
-      if (event.key !== "Escape") {
+      if (
+        event.key !== "Escape"
+      ) {
         return;
       }
+
 
       if (
         projectModal?.classList.contains(
           "active"
         )
       ) {
-        closeModal(projectModal);
+
+        closeModal(
+          projectModal
+        );
+
       }
 
-      if (
-        videoModal?.classList.contains(
-          "active"
-        )
-      ) {
-        closeModal(videoModal);
-      }
 
       closeMenu();
-    }
-  );
-
-
-  /* ======================================================
-     BACKDROP CLICK
-  ====================================================== */
-
-  $$(".modal-backdrop").forEach(
-    (backdrop) => {
-
-      backdrop.addEventListener(
-        "click",
-        () => {
-          closeModal(
-            backdrop.closest(".modal")
-          );
-        }
-      );
 
     }
   );
 
 
   /* ======================================================
-     WINDOW RESIZE
+     SIMPLE DESKTOP 3D
+     No mouse tracking on mobile.
   ====================================================== */
 
-  let resizeTimer = null;
+  const canHover =
+    window.matchMedia(
+      "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+
+  if (canHover) {
+
+    $$(".tilt-card").forEach(
+      (card) => {
+
+        card.addEventListener(
+          "mousemove",
+          (event) => {
+
+            const rect =
+              card.getBoundingClientRect();
+
+
+            const x =
+              event.clientX -
+              (rect.left + rect.width / 2);
+
+
+            const y =
+              event.clientY -
+              (rect.top + rect.height / 2);
+
+
+            const rotateY =
+              x / rect.width * 4;
+
+            const rotateX =
+              -(y / rect.height) * 4;
+
+
+            card.style.transform =
+              `perspective(1000px)
+               rotateX(${rotateX}deg)
+               rotateY(${rotateY}deg)
+               translateY(-5px)`;
+
+          }
+        );
+
+
+        card.addEventListener(
+          "mouseleave",
+          () => {
+
+            card.style.transform =
+              "";
+
+          }
+        );
+
+      }
+    );
+
+  }
+
+
+  /* ======================================================
+     RESIZE
+  ====================================================== */
 
   window.addEventListener(
     "resize",
     () => {
 
-      window.clearTimeout(resizeTimer);
+      if (
+        window.innerWidth > 780
+      ) {
+        closeMenu();
+      }
 
-      resizeTimer = window.setTimeout(() => {
-
-        if (
-          window.innerWidth > 780 &&
-          mobileMenu?.classList.contains("open")
-        ) {
-          closeMenu();
-        }
-
-      }, 120);
     },
-    { passive: true }
+    {
+      passive: true
+    }
   );
 
 })();
