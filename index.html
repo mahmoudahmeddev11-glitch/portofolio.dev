@@ -18,21 +18,37 @@
 
     <title>Mahmoud Digital</title>
 
+
+    <!-- Arabic / Latin font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
 
 <body>
 
-    <!-- =========================
+
+    <!-- ==================================================
          HEADER
-    ========================== -->
+    ================================================== -->
 
     <header class="site-header">
 
         <div class="container header-inner">
 
-            <a href="#home" class="brand">
+            <a
+                href="#home"
+                class="brand"
+                aria-label="Mahmoud Digital"
+            >
                 <img
                     src="./logo.png"
                     alt="Mahmoud Digital"
@@ -62,27 +78,34 @@
                     type="button"
                     class="header-button"
                     id="languageToggle"
+                    aria-label="Change language"
                 >
                     EN
                 </button>
+
 
                 <button
                     type="button"
                     class="header-button"
                     id="themeToggle"
+                    aria-label="Change theme"
                 >
                     ☼
                 </button>
+
 
                 <button
                     type="button"
                     class="header-button menu-button"
                     id="menuButton"
                     aria-expanded="false"
+                    aria-label="Open menu"
                 >
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                 </button>
 
             </div>
@@ -114,11 +137,14 @@
     <main>
 
 
-        <!-- =========================
+        <!-- ==================================================
              HERO
-        ========================== -->
+        ================================================== -->
 
-        <section class="hero section-dark" id="home">
+        <section
+            class="hero section-dark"
+            id="home"
+        >
 
             <div class="hero-decoration hero-decoration-one"></div>
             <div class="hero-decoration hero-decoration-two"></div>
@@ -133,7 +159,10 @@
 
                         <span class="eyebrow-dot"></span>
 
-                        <span>
+                        <span
+                            data-ar="نكبر مشروعك بشكل أذكى"
+                            data-en="GROW YOUR BUSINESS SMARTER"
+                        >
                             نكبر مشروعك بشكل أذكى
                         </span>
 
@@ -142,18 +171,28 @@
 
                     <h1 class="hero-title">
 
-                        <span>
+                        <span
+                            data-ar="نكبّر مشروعك"
+                            data-en="GROW YOUR"
+                        >
                             نكبّر مشروعك
                         </span>
 
-                        <strong>
+                        <strong
+                            data-ar="بذكاء."
+                            data-en="BUSINESS."
+                        >
                             بذكاء.
                         </strong>
 
                     </h1>
 
 
-                    <p class="hero-description">
+                    <p
+                        class="hero-description"
+                        data-ar="أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك."
+                        data-en="Successful marketing ideas, precise paid advertising, market and competitor analysis, and websites designed around your business goals."
+                    >
                         أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق،
                         تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك.
                     </p>
@@ -164,6 +203,8 @@
                         <a
                             href="#contact"
                             class="button button-primary"
+                            data-ar="ابدأ مشروعك"
+                            data-en="Start Your Project"
                         >
                             ابدأ مشروعك
                         </a>
@@ -172,6 +213,8 @@
                         <a
                             href="#projects"
                             class="button button-secondary"
+                            data-ar="شاهد أعمالنا"
+                            data-en="View Our Work"
                         >
                             شاهد أعمالنا
                         </a>
@@ -183,22 +226,38 @@
 
                         <div class="hero-stat">
                             <strong>01</strong>
-                            <span>استراتيجية</span>
+                            <span
+                                data-ar="استراتيجية"
+                                data-en="Strategy"
+                            >
+                                استراتيجية
+                            </span>
                         </div>
 
                         <div class="hero-stat">
                             <strong>02</strong>
-                            <span>تنفيذ</span>
+                            <span
+                                data-ar="تنفيذ"
+                                data-en="Execution"
+                            >
+                                تنفيذ
+                            </span>
                         </div>
 
                         <div class="hero-stat">
                             <strong>03</strong>
-                            <span>تحليل</span>
+                            <span
+                                data-ar="تحليل"
+                                data-en="Analysis"
+                            >
+                                تحليل
+                            </span>
                         </div>
 
                     </div>
 
                 </div>
+
 
 
                 <div class="hero-visual">
@@ -225,9 +284,15 @@
 
 
                         <div class="hero-image-caption">
+
                             <span>MEDIA</span>
-                            <span class="yellow">BUYING</span>
+
+                            <span class="yellow">
+                                BUYING
+                            </span>
+
                             <span>DIGITAL</span>
+
                         </div>
 
                     </div>
@@ -240,9 +305,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              ABOUT
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-alt"
@@ -251,21 +316,36 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <div class="section-number">01</div>
+                    <div class="section-number">
+                        01
+                    </div>
+
 
                     <div>
-                        <span class="section-label">
+
+                        <span
+                            class="section-label"
+                            data-ar="من نحن"
+                            data-en="ABOUT"
+                        >
                             من نحن
                         </span>
 
-                        <h2>
+
+                        <h2
+                            data-ar="مش بس إعلانات."
+                            data-en="MORE THAN ADS."
+                        >
                             مش بس إعلانات.
                         </h2>
+
                     </div>
 
                 </div>
+
 
 
                 <div class="bio-layout">
@@ -273,12 +353,18 @@
 
                     <div class="bio-main reveal">
 
-                        <h3>
+                        <h3
+                            data-ar="بنبني نمو حقيقي."
+                            data-en="WE BUILD REAL GROWTH."
+                        >
                             بنبني نمو حقيقي.
                         </h3>
 
 
-                        <p>
+                        <p
+                            data-ar="بنجمع بين التسويق، الإعلانات، تحليل السوق، والمواقع عشان نساعد المشروع يكبر بخطة واضحة."
+                            data-en="We combine marketing, advertising, market analysis and web design to help businesses grow with a clear plan."
+                        >
                             بنجمع بين التسويق، الإعلانات، تحليل السوق،
                             والمواقع عشان نساعد المشروع يكبر بخطة واضحة.
                         </p>
@@ -288,7 +374,10 @@
 
                             <span>🎯</span>
 
-                            <strong>
+                            <strong
+                                data-ar="نجاح مشروعك هو هدفنا"
+                                data-en="Your business success is our goal"
+                            >
                                 نجاح مشروعك هو هدفنا
                             </strong>
 
@@ -300,19 +389,28 @@
 
                     <div class="bio-list">
 
+
                         <article class="bio-card reveal">
 
                             <div class="bio-card-icon yellow-bg">
                                 🟡
                             </div>
 
+
                             <div>
 
-                                <h4>
+                                <h4
+                                    data-ar="أفكار تسويقية ناجحة"
+                                    data-en="Successful Marketing Ideas"
+                                >
                                     أفكار تسويقية ناجحة
                                 </h4>
 
-                                <p>
+
+                                <p
+                                    data-ar="أفكار مبنية على السوق والجمهور."
+                                    data-en="Ideas based on the market and audience."
+                                >
                                     أفكار مبنية على السوق والجمهور.
                                 </p>
 
@@ -321,19 +419,28 @@
                         </article>
 
 
+
                         <article class="bio-card reveal">
 
                             <div class="bio-card-icon blue-bg">
                                 🔵
                             </div>
 
+
                             <div>
 
-                                <h4>
+                                <h4
+                                    data-ar="إعلانات ممولة باستهداف دقيق"
+                                    data-en="Paid Ads With Precise Targeting"
+                                >
                                     إعلانات ممولة باستهداف دقيق
                                 </h4>
 
-                                <p>
+
+                                <p
+                                    data-ar="وصول الميزانية للجمهور المناسب."
+                                    data-en="Putting the budget in front of the right audience."
+                                >
                                     وصول الميزانية للجمهور المناسب.
                                 </p>
 
@@ -342,19 +449,28 @@
                         </article>
 
 
+
                         <article class="bio-card reveal">
 
                             <div class="bio-card-icon yellow-bg">
                                 🟡
                             </div>
 
+
                             <div>
 
-                                <h4>
+                                <h4
+                                    data-ar="تحليل السوق والمنافسين"
+                                    data-en="Market & Competitor Analysis"
+                                >
                                     تحليل السوق والمنافسين
                                 </h4>
 
-                                <p>
+
+                                <p
+                                    data-ar="فهم أفضل للسوق والفرص."
+                                    data-en="A clearer understanding of the market and opportunities."
+                                >
                                     فهم أفضل للسوق والفرص.
                                 </p>
 
@@ -372,9 +488,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              SERVICES
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-dark"
@@ -383,21 +499,36 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <div class="section-number">02</div>
+                    <div class="section-number">
+                        02
+                    </div>
+
 
                     <div>
-                        <span class="section-label">
+
+                        <span
+                            class="section-label"
+                            data-ar="الخدمات"
+                            data-en="SERVICES"
+                        >
                             الخدمات
                         </span>
 
-                        <h2>
+
+                        <h2
+                            data-ar="كل حاجة لمشروعك."
+                            data-en="EVERYTHING YOUR BUSINESS NEEDS."
+                        >
                             كل حاجة لمشروعك.
                         </h2>
+
                     </div>
 
                 </div>
+
 
 
                 <div class="services-grid">
@@ -414,11 +545,15 @@
                             Media Buying
                         </h3>
 
-                        <p>
+                        <p
+                            data-ar="إعلانات ممولة باستهداف دقيق وإدارة أفضل للميزانية."
+                            data-en="Precise paid advertising and better budget management."
+                        >
                             إعلانات ممولة باستهداف دقيق وإدارة أفضل للميزانية.
                         </p>
 
                     </article>
+
 
 
                     <article class="service-card reveal">
@@ -432,11 +567,15 @@
                             Digital Marketing
                         </h3>
 
-                        <p>
+                        <p
+                            data-ar="استراتيجية تساعد البراند يوصل للجمهور المناسب."
+                            data-en="Strategies that connect the brand with the right audience."
+                        >
                             استراتيجية تساعد البراند يوصل للجمهور المناسب.
                         </p>
 
                     </article>
+
 
 
                     <article class="service-card reveal">
@@ -450,11 +589,15 @@
                             Market Analysis
                         </h3>
 
-                        <p>
+                        <p
+                            data-ar="تحليل السوق والمنافسين لفهم الفرص بشكل أفضل."
+                            data-en="Market and competitor analysis to understand opportunities."
+                        >
                             تحليل السوق والمنافسين لفهم الفرص بشكل أفضل.
                         </p>
 
                     </article>
+
 
 
                     <article class="service-card reveal">
@@ -468,11 +611,15 @@
                             Social Media
                         </h3>
 
-                        <p>
+                        <p
+                            data-ar="محتوى واتجاه بصري يحافظ على حضور البراند."
+                            data-en="Content and visual direction that keeps your brand active."
+                        >
                             محتوى واتجاه بصري يحافظ على حضور البراند.
                         </p>
 
                     </article>
+
 
 
                     <article class="service-card service-wide reveal">
@@ -486,7 +633,10 @@
                             Web Design
                         </h3>
 
-                        <p>
+                        <p
+                            data-ar="مواقع سريعة ومتجاوبة ومصممة على ستايل مشروعك، من الصفر."
+                            data-en="Fast responsive websites designed from scratch around your project."
+                        >
                             مواقع سريعة ومتجاوبة ومصممة على ستايل مشروعك،
                             من الصفر.
                         </p>
@@ -501,9 +651,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              PROJECTS
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-alt"
@@ -512,27 +662,44 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <div class="section-number">03</div>
+                    <div class="section-number">
+                        03
+                    </div>
+
 
                     <div>
-                        <span class="section-label">
+
+                        <span
+                            class="section-label"
+                            data-ar="المشاريع"
+                            data-en="PROJECTS"
+                        >
                             المشاريع
                         </span>
 
-                        <h2>
+
+                        <h2
+                            data-ar="شغل بيتكلم."
+                            data-en="WORK THAT SPEAKS."
+                        >
                             شغل بيتكلم.
                         </h2>
+
                     </div>
 
                 </div>
 
 
+
                 <div class="projects-grid">
 
 
-                    <article class="project-card project-featured reveal">
+                    <article
+                        class="project-card project-featured reveal"
+                    >
 
                         <div class="project-visual project-one">
 
@@ -544,8 +711,15 @@
 
 
                             <div class="project-visual-center">
-                                <strong>ROUH</strong>
-                                <span>LIL ROUH</span>
+
+                                <strong>
+                                    ROUH
+                                </strong>
+
+                                <span>
+                                    LIL ROUH
+                                </span>
+
                             </div>
 
                         </div>
@@ -557,9 +731,11 @@
                                 01 / WEBSITE
                             </span>
 
+
                             <h3>
                                 Rouh Lil Rouh
                             </h3>
+
 
                             <p>
                                 موقع بتجربة مختلفة وتصميم حديث.
@@ -606,8 +782,15 @@
 
 
                             <div class="project-visual-center">
-                                <strong>LAHZET</strong>
-                                <span>ZIKR</span>
+
+                                <strong>
+                                    LAHZET
+                                </strong>
+
+                                <span>
+                                    ZIKR
+                                </span>
+
                             </div>
 
                         </div>
@@ -619,9 +802,11 @@
                                 02 / WEBSITE
                             </span>
 
+
                             <h3>
                                 Lahzet Zikr
                             </h3>
+
 
                             <p>
                                 واجهة مرتبة وتجربة استخدام واضحة.
@@ -668,8 +853,15 @@
 
 
                             <div class="project-visual-center">
-                                <strong>KABTEN</strong>
-                                <span>SAIF</span>
+
+                                <strong>
+                                    KABTEN
+                                </strong>
+
+                                <span>
+                                    SAIF
+                                </span>
+
                             </div>
 
                         </div>
@@ -681,9 +873,11 @@
                                 03 / WEBSITE
                             </span>
 
+
                             <h3>
                                 Kabtensaif
                             </h3>
+
 
                             <p>
                                 تصميم متجاوب للموبايل والكمبيوتر.
@@ -724,9 +918,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              WEBSITE
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-dark"
@@ -735,21 +929,36 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <div class="section-number">04</div>
+                    <div class="section-number">
+                        04
+                    </div>
+
 
                     <div>
-                        <span class="section-label">
+
+                        <span
+                            class="section-label"
+                            data-ar="تصميم المواقع"
+                            data-en="WEB DESIGN"
+                        >
                             تصميم المواقع
                         </span>
 
-                        <h2>
+
+                        <h2
+                            data-ar="اختار موقعك بنفسك."
+                            data-en="CHOOSE YOUR WEBSITE."
+                        >
                             اختار موقعك بنفسك.
                         </h2>
+
                     </div>
 
                 </div>
+
 
 
                 <div class="website-package-grid">
@@ -766,21 +975,26 @@
                             OPTION 01
                         </span>
 
+
                         <h3>
                             Landing Page
                         </h3>
+
 
                         <p>
                             صفحة واحدة مركزة لعرض مشروعك أو خدمتك.
                         </p>
 
+
                         <div class="website-price">
                             —
                         </div>
 
+
                         <span class="price-note">
                             السعر يحدد لاحقًا
                         </span>
+
 
                         <button
                             type="button"
@@ -805,25 +1019,31 @@
                             OPTION 02
                         </span>
 
+
                         <div class="package-popular">
                             الأكثر طلبًا
                         </div>
+
 
                         <h3>
                             Business Website
                         </h3>
 
+
                         <p>
                             موقع متكامل لعرض البراند والخدمات والأعمال.
                         </p>
+
 
                         <div class="website-price">
                             —
                         </div>
 
+
                         <span class="price-note">
                             السعر يحدد لاحقًا
                         </span>
+
 
                         <button
                             type="button"
@@ -848,21 +1068,26 @@
                             OPTION 03
                         </span>
 
+
                         <h3>
                             Custom Website
                         </h3>
+
 
                         <p>
                             موقع مخصص بالكامل على ستايلك وهويتك وأهداف مشروعك.
                         </p>
 
+
                         <div class="website-price">
                             —
                         </div>
 
+
                         <span class="price-note">
                             السعر يحدد لاحقًا
                         </span>
+
 
                         <button
                             type="button"
@@ -877,22 +1102,32 @@
                 </div>
 
 
+
                 <div class="design-selector reveal">
+
 
                     <div class="selector-heading">
 
-                        <span class="section-label">
+                        <span
+                            class="section-label"
+                            data-ar="اختار التصميم"
+                            data-en="CHOOSE A DESIGN"
+                        >
                             اختار التصميم
                         </span>
 
+
                         <p>
-                            اختار التصميم اللي يناسبك، أو اطلب تصميم مخصص.
+                            اختار التصميم اللي يناسبك،
+                            أو اطلب تصميم مخصص.
                         </p>
 
                     </div>
 
 
+
                     <div class="design-grid">
+
 
                         <button
                             type="button"
@@ -906,12 +1141,21 @@
                                 ROUH
                             </div>
 
+
                             <div class="design-option-info">
-                                <strong>DESIGN 01</strong>
-                                <small>Rouh Lil Rouh</small>
+
+                                <strong>
+                                    DESIGN 01
+                                </strong>
+
+                                <small>
+                                    Rouh Lil Rouh
+                                </small>
+
                             </div>
 
                         </button>
+
 
 
                         <button
@@ -926,12 +1170,21 @@
                                 LAHZET
                             </div>
 
+
                             <div class="design-option-info">
-                                <strong>DESIGN 02</strong>
-                                <small>Lahzet Zikr</small>
+
+                                <strong>
+                                    DESIGN 02
+                                </strong>
+
+                                <small>
+                                    Lahzet Zikr
+                                </small>
+
                             </div>
 
                         </button>
+
 
 
                         <button
@@ -946,12 +1199,21 @@
                                 KABTEN
                             </div>
 
+
                             <div class="design-option-info">
-                                <strong>DESIGN 03</strong>
-                                <small>Kabtensaif</small>
+
+                                <strong>
+                                    DESIGN 03
+                                </strong>
+
+                                <small>
+                                    Kabtensaif
+                                </small>
+
                             </div>
 
                         </button>
+
 
 
                         <button
@@ -966,9 +1228,17 @@
                                 +
                             </div>
 
+
                             <div class="design-option-info">
-                                <strong>DESIGN 04</strong>
-                                <small>Custom</small>
+
+                                <strong>
+                                    DESIGN 04
+                                </strong>
+
+                                <small>
+                                    Custom
+                                </small>
+
                             </div>
 
                         </button>
@@ -976,13 +1246,19 @@
                     </div>
 
 
+
                     <div class="website-summary">
+
 
                         <div class="summary-item">
 
-                            <small>
+                            <small
+                                data-ar="الباقة"
+                                data-en="Package"
+                            >
                                 الباقة
                             </small>
+
 
                             <strong id="selectedPackage">
                                 Business Website
@@ -991,11 +1267,16 @@
                         </div>
 
 
+
                         <div class="summary-item">
 
-                            <small>
+                            <small
+                                data-ar="التصميم"
+                                data-en="Design"
+                            >
                                 التصميم
                             </small>
+
 
                             <strong id="selectedDesign">
                                 Rouh Lil Rouh
@@ -1004,11 +1285,16 @@
                         </div>
 
 
+
                         <div class="summary-item summary-price">
 
-                            <small>
+                            <small
+                                data-ar="السعر"
+                                data-en="Price"
+                            >
                                 السعر
                             </small>
+
 
                             <strong>
                                 —
@@ -1017,9 +1303,12 @@
                         </div>
 
 
+
                         <a
                             href="#contact"
                             class="summary-button"
+                            data-ar="طلب الموقع"
+                            data-en="Request Website"
                         >
                             طلب الموقع
                         </a>
@@ -1034,9 +1323,9 @@
 
 
 
-        <!-- =========================
-             PACKAGES
-        ========================== -->
+        <!-- ==================================================
+             MARKETING PACKAGES
+        ================================================== -->
 
         <section
             class="section section-alt"
@@ -1045,21 +1334,36 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
-                    <div class="section-number">05</div>
+                    <div class="section-number">
+                        05
+                    </div>
+
 
                     <div>
-                        <span class="section-label">
+
+                        <span
+                            class="section-label"
+                            data-ar="باقات التسويق"
+                            data-en="MARKETING PACKAGES"
+                        >
                             باقات التسويق
                         </span>
 
-                        <h2>
+
+                        <h2
+                            data-ar="اختار البداية."
+                            data-en="CHOOSE YOUR START."
+                        >
                             اختار البداية.
                         </h2>
+
                     </div>
 
                 </div>
+
 
 
                 <div class="packages-grid">
@@ -1071,24 +1375,31 @@
                             STARTER
                         </span>
 
+
                         <h3>
                             البداية
                         </h3>
+
 
                         <div class="package-price">
                             —
                         </div>
 
+
                         <span class="package-period">
                             السعر يحدد حسب المشروع
                         </span>
 
+
                         <ul>
+
                             <li>إدارة الحملات</li>
                             <li>استهداف الجمهور</li>
                             <li>متابعة الأداء</li>
                             <li>تقرير دوري</li>
+
                         </ul>
+
 
                         <a
                             href="#contact"
@@ -1101,35 +1412,45 @@
 
 
 
-                    <article class="package-card package-featured reveal">
+                    <article
+                        class="package-card package-featured reveal"
+                    >
 
                         <span class="package-label">
                             GROWTH
                         </span>
 
+
                         <div class="popular-badge">
                             الأكثر طلباً
                         </div>
+
 
                         <h3>
                             النمو
                         </h3>
 
+
                         <div class="package-price">
                             —
                         </div>
+
 
                         <span class="package-period">
                             السعر يحدد حسب المشروع
                         </span>
 
+
                         <ul>
+
                             <li>إدارة الحملات</li>
                             <li>تحليل السوق والمنافسين</li>
                             <li>استراتيجية إعلانية</li>
                             <li>تحسين مستمر</li>
                             <li>تقارير وتحليل</li>
+
                         </ul>
+
 
                         <a
                             href="#contact"
@@ -1148,24 +1469,31 @@
                             CUSTOM
                         </span>
 
+
                         <h3>
                             على حسب المشروع
                         </h3>
+
 
                         <div class="package-price">
                             —
                         </div>
 
+
                         <span class="package-period">
                             حل مخصص بالكامل
                         </span>
 
+
                         <ul>
+
                             <li>استراتيجية خاصة</li>
                             <li>Website على ستايلك</li>
                             <li>Branding & Content</li>
                             <li>خطة نمو مخصصة</li>
+
                         </ul>
+
 
                         <a
                             href="#contact"
@@ -1184,9 +1512,9 @@
 
 
 
-        <!-- =========================
-             CUSTOM
-        ========================== -->
+        <!-- ==================================================
+             CUSTOM WEBSITE
+        ================================================== -->
 
         <section class="section section-dark">
 
@@ -1200,9 +1528,11 @@
                             تصميم من الصفر
                         </span>
 
+
                         <h2>
                             مش لازم تختار من الموجود.
                         </h2>
+
 
                         <p>
                             نقدر نبني لك Design جديد بالكامل حسب البراند
@@ -1227,9 +1557,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              POSTS GALLERY
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-alt"
@@ -1245,11 +1575,13 @@
                         06
                     </div>
 
+
                     <div>
 
                         <span class="section-label">
                             الأعمال البصرية
                         </span>
+
 
                         <h2>
                             شوف المحتوى.
@@ -1262,41 +1594,14 @@
 
 
                 <!--
-                    IMPORTANT:
-                    No logo inside this section.
-                    This is ONLY the image gallery.
+                    Gallery only.
+                    No extra title or logo inside.
                 -->
 
                 <div
                     class="posts-gallery reveal"
                     id="postsGallery"
                 >
-
-
-                    <div class="posts-gallery-header">
-
-                        <div>
-
-                            <span class="posts-kicker">
-                                PROJECT GALLERY
-                            </span>
-
-                            <h3>
-                                شوف الأعمال
-                            </h3>
-
-                        </div>
-
-
-                        <div
-                            class="posts-counter"
-                            id="postsCounter"
-                        >
-                            01 / 05
-                        </div>
-
-                    </div>
-
 
 
                     <div class="posts-stage">
@@ -1401,9 +1706,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              VIDEOS
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-dark"
@@ -1412,20 +1717,25 @@
 
             <div class="container">
 
+
                 <div class="section-heading reveal">
 
                     <div class="section-number">
                         07
                     </div>
 
+
                     <div>
+
                         <span class="section-label">
                             فيديوهات
                         </span>
 
+
                         <h2>
                             شوف النتائج بنفسك.
                         </h2>
+
                     </div>
 
                 </div>
@@ -1435,7 +1745,9 @@
                 <div class="videos-grid">
 
 
-                    <article class="video-card video-featured reveal">
+                    <article
+                        class="video-card video-featured reveal"
+                    >
 
                         <div class="video-wrapper">
 
@@ -1463,9 +1775,11 @@
                                 01
                             </span>
 
+
                             <h3>
                                 فيديو مميز
                             </h3>
+
 
                             <p>
                                 شاهد الفيديو مباشرة داخل الموقع.
@@ -1500,8 +1814,13 @@
 
                         <div class="video-info">
 
-                            <span class="video-number">02</span>
-                            <h3>فيديو تسويقي</h3>
+                            <span class="video-number">
+                                02
+                            </span>
+
+                            <h3>
+                                فيديو تسويقي
+                            </h3>
 
                         </div>
 
@@ -1532,8 +1851,13 @@
 
                         <div class="video-info">
 
-                            <span class="video-number">03</span>
-                            <h3>محتوى إعلاني</h3>
+                            <span class="video-number">
+                                03
+                            </span>
+
+                            <h3>
+                                محتوى إعلاني
+                            </h3>
 
                         </div>
 
@@ -1564,8 +1888,13 @@
 
                         <div class="video-info">
 
-                            <span class="video-number">04</span>
-                            <h3>نتائج وحملات</h3>
+                            <span class="video-number">
+                                04
+                            </span>
+
+                            <h3>
+                                نتائج وحملات
+                            </h3>
 
                         </div>
 
@@ -1596,8 +1925,13 @@
 
                         <div class="video-info">
 
-                            <span class="video-number">05</span>
-                            <h3>Digital Marketing</h3>
+                            <span class="video-number">
+                                05
+                            </span>
+
+                            <h3>
+                                Digital Marketing
+                            </h3>
 
                         </div>
 
@@ -1611,13 +1945,14 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              PROCESS
-        ========================== -->
+        ================================================== -->
 
         <section class="section section-alt">
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -1625,20 +1960,26 @@
                         08
                     </div>
 
+
                     <div>
+
                         <span class="section-label">
                             طريقة الشغل
                         </span>
 
+
                         <h2>
                             من الفكرة للنتيجة.
                         </h2>
+
                     </div>
 
                 </div>
 
 
+
                 <div class="process-grid">
+
 
                     <article class="process-card reveal">
 
@@ -1707,9 +2048,9 @@
 
 
 
-        <!-- =========================
+        <!-- ==================================================
              CONTACT
-        ========================== -->
+        ================================================== -->
 
         <section
             class="section section-dark contact-section"
@@ -1717,6 +2058,7 @@
         >
 
             <div class="container">
+
 
                 <div class="contact-box reveal">
 
@@ -1727,9 +2069,11 @@
                             تواصل معنا
                         </span>
 
+
                         <h2>
                             جاهز نبدأ؟
                         </h2>
+
 
                         <p>
                             ابعت لنا تفاصيل مشروعك وهنحدد لك أفضل طريقة نبدأ بيها.
@@ -1747,14 +2091,20 @@
                         >
 
                             <div>
-                                <small>رقم الشركة</small>
+
+                                <small>
+                                    رقم الشركة
+                                </small>
 
                                 <strong dir="ltr">
                                     +20 10 06907047
                                 </strong>
+
                             </div>
 
-                            <span>↗</span>
+                            <span>
+                                ↗
+                            </span>
 
                         </a>
 
@@ -1768,11 +2118,20 @@
                         >
 
                             <div>
-                                <small>Facebook</small>
-                                <strong>Ahmed Talaat</strong>
+
+                                <small>
+                                    Facebook
+                                </small>
+
+                                <strong>
+                                    Ahmed Talaat
+                                </strong>
+
                             </div>
 
-                            <span>↗</span>
+                            <span>
+                                ↗
+                            </span>
 
                         </a>
 
@@ -1786,13 +2145,20 @@
                         >
 
                             <div>
-                                <small>Instagram</small>
+
+                                <small>
+                                    Instagram
+                                </small>
+
                                 <strong>
                                     @ahmedtalaat_digitalmarketing
                                 </strong>
+
                             </div>
 
-                            <span>↗</span>
+                            <span>
+                                ↗
+                            </span>
 
                         </a>
 
@@ -1806,11 +2172,20 @@
                         >
 
                             <div>
-                                <small>WhatsApp</small>
-                                <strong>Chat With Us</strong>
+
+                                <small>
+                                    WhatsApp
+                                </small>
+
+                                <strong>
+                                    Chat With Us
+                                </strong>
+
                             </div>
 
-                            <span>↗</span>
+                            <span>
+                                ↗
+                            </span>
 
                         </a>
 
@@ -1826,9 +2201,9 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
          FOOTER
-    ========================== -->
+    ================================================== -->
 
     <footer class="site-footer">
 
@@ -1839,6 +2214,7 @@
                 alt="Mahmoud Digital"
                 class="footer-logo"
             >
+
 
             <p>
                 ©
@@ -1852,9 +2228,9 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
          IMAGE LIGHTBOX
-    ========================== -->
+    ================================================== -->
 
     <div
         class="image-modal"
@@ -1874,6 +2250,7 @@
                 type="button"
                 class="image-modal-close"
                 data-close-image
+                aria-label="Close"
             >
                 ×
             </button>
@@ -1891,9 +2268,9 @@
 
 
 
-    <!-- =========================
+    <!-- ==================================================
          PROJECT MODAL
-    ========================== -->
+    ================================================== -->
 
     <div
         class="modal"
@@ -1909,6 +2286,7 @@
 
         <div class="modal-window">
 
+
             <div class="modal-header">
 
                 <strong>
@@ -1920,6 +2298,7 @@
                     type="button"
                     class="modal-close"
                     data-close-project
+                    aria-label="Close"
                 >
                     ×
                 </button>

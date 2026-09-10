@@ -2,7 +2,7 @@
 
 
 /* =========================================================
-   BASIC ELEMENTS
+   ELEMENTS
 ========================================================= */
 
 const body =
@@ -45,7 +45,7 @@ let currentLanguage =
     ) || "ar";
 
 
-function setLanguage(
+function applyLanguage(
     language
 ) {
 
@@ -63,6 +63,32 @@ function setLanguage(
             : "ltr";
 
 
+    document
+        .querySelectorAll(
+            "[data-ar][data-en]"
+        )
+        .forEach(
+            (element) => {
+
+                const text =
+                    language === "ar"
+                        ? element.dataset.ar
+                        : element.dataset.en;
+
+
+                if (
+                    text !== undefined
+                ) {
+
+                    element.textContent =
+                        text;
+
+                }
+
+            }
+        );
+
+
     if (
         languageToggle
     ) {
@@ -73,6 +99,9 @@ function setLanguage(
                 : "AR";
 
     }
+
+
+    updateWebsiteSummary();
 
 
     localStorage.setItem(
@@ -87,7 +116,7 @@ languageToggle?.addEventListener(
     "click",
     () => {
 
-        setLanguage(
+        applyLanguage(
             currentLanguage === "ar"
                 ? "en"
                 : "ar"
@@ -108,7 +137,7 @@ let currentTheme =
     ) || "dark";
 
 
-function setTheme(
+function applyTheme(
     theme
 ) {
 
@@ -116,13 +145,13 @@ function setTheme(
         theme;
 
 
-    const isLight =
+    const light =
         theme === "light";
 
 
     body.classList.toggle(
         "light-theme",
-        isLight
+        light
     );
 
 
@@ -131,7 +160,7 @@ function setTheme(
     ) {
 
         themeToggle.textContent =
-            isLight
+            light
                 ? "☾"
                 : "☼";
 
@@ -150,7 +179,7 @@ themeToggle?.addEventListener(
     "click",
     () => {
 
-        setTheme(
+        applyTheme(
             body.classList.contains(
                 "light-theme"
             )
@@ -167,7 +196,7 @@ themeToggle?.addEventListener(
    MOBILE MENU
 ========================================================= */
 
-function closeMenu() {
+function closeMobileMenu() {
 
     mobileMenu?.classList.remove(
         "open"
@@ -186,7 +215,7 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const open =
+        const opened =
             mobileMenu?.classList.toggle(
                 "open"
             );
@@ -195,7 +224,7 @@ menuButton?.addEventListener(
         menuButton?.setAttribute(
             "aria-expanded",
             String(
-                Boolean(open)
+                Boolean(opened)
             )
         );
 
@@ -212,7 +241,7 @@ document
 
             link.addEventListener(
                 "click",
-                closeMenu
+                closeMobileMenu
             );
 
         }
@@ -221,83 +250,9 @@ document
 
 
 /* =========================================================
-   INTERNAL NAVIGATION
+   NO JAVASCRIPT SCROLLING
+   Native anchor scrolling is handled by CSS.
 ========================================================= */
-
-document
-    .querySelectorAll(
-        'a[href^="#"]'
-    )
-    .forEach(
-        (link) => {
-
-            link.addEventListener(
-                "click",
-                (event) => {
-
-                    const href =
-                        link.getAttribute(
-                            "href"
-                        );
-
-
-                    if (
-                        !href ||
-                        href === "#"
-                    ) {
-                        return;
-                    }
-
-
-                    const target =
-                        document.querySelector(
-                            href
-                        );
-
-
-                    if (
-                        !target
-                    ) {
-                        return;
-                    }
-
-
-                    event.preventDefault();
-
-
-                    const header =
-                        document.querySelector(
-                            ".site-header"
-                        );
-
-
-                    const offset =
-                        header
-                            ? header.offsetHeight
-                            : 0;
-
-
-                    const top =
-                        target.getBoundingClientRect().top
-                        +
-                        window.scrollY
-                        -
-                        offset
-                        -
-                        8;
-
-
-                    window.scrollTo({
-                        top,
-                        behavior:
-                            "smooth"
-                    });
-
-                }
-            );
-
-        }
-    );
 
 
 
@@ -312,8 +267,7 @@ const revealElements =
 
 
 if (
-    "IntersectionObserver"
-    in window
+    "IntersectionObserver" in window
 ) {
 
     const revealObserver =
@@ -351,7 +305,7 @@ if (
                     0.02,
 
                 rootMargin:
-                    "0px 0px 20px 0px"
+                    "0px 0px 25px 0px"
             }
         );
 
@@ -383,7 +337,7 @@ if (
 
 
 /* =========================================================
-   WEBSITE PACKAGE SELECTOR
+   WEBSITE CONFIGURATOR
 ========================================================= */
 
 let selectedWebsitePackage =
@@ -532,6 +486,11 @@ document
    POSTS SLIDER
 ========================================================= */
 
+const postsGallery =
+    document.getElementById(
+        "postsGallery"
+    );
+
 const postsImage =
     document.getElementById(
         "postsImage"
@@ -547,19 +506,14 @@ const postsNext =
         "postsNext"
     );
 
-const postsCounter =
-    document.getElementById(
-        "postsCounter"
-    );
-
 const postsView =
     document.getElementById(
         "postsView"
     );
 
-const postsGallery =
+const postsCounter =
     document.getElementById(
-        "postsGallery"
+        "postsCounter"
     );
 
 const postsDots =
@@ -571,15 +525,17 @@ const postsDots =
 
 
 /*
-   The exact files requested by the user.
+   Exact image order.
 */
 
 const postImages = [
+
     "./Picture1.png",
     "./Picture2.png",
     "./Picture3.png",
     "./Picture4.png",
     "./Picture5.png"
+
 ];
 
 
@@ -592,7 +548,7 @@ let sliderBusy =
 
 
 /* ---------------------------------------------------------
-   Update counter and dots
+   UI
 --------------------------------------------------------- */
 
 function updatePostsUI() {
@@ -637,7 +593,7 @@ function updatePostsUI() {
 
 function changePost(
     targetIndex,
-    direction,
+    direction = "next",
     animate = true
 ) {
 
@@ -647,11 +603,6 @@ function changePost(
         return;
     }
 
-
-    /*
-       Keep the index inside
-       the valid range.
-    */
 
     if (
         targetIndex < 0
@@ -674,10 +625,6 @@ function changePost(
     }
 
 
-    /*
-       Nothing to do.
-    */
-
     if (
         targetIndex === currentPost &&
         animate
@@ -686,10 +633,6 @@ function changePost(
     }
 
 
-    /*
-       First load.
-    */
-
     if (
         !animate
     ) {
@@ -697,16 +640,13 @@ function changePost(
         currentPost =
             targetIndex;
 
-
         postsImage.src =
             postImages[currentPost];
-
 
         postsImage.classList.remove(
             "slide-next",
             "slide-prev"
         );
-
 
         updatePostsUI();
 
@@ -714,11 +654,6 @@ function changePost(
 
     }
 
-
-    /*
-       Prevent double click / double touch
-       while the tiny transition is running.
-    */
 
     if (
         sliderBusy
@@ -749,66 +684,30 @@ function changePost(
                 targetIndex;
 
 
-            postsImage.onload =
-                () => {
-
-                    postsImage.classList.remove(
-                        animationClass
-                    );
-
-                    updatePostsUI();
-
-                };
-
-
-            postsImage.onerror =
-                () => {
-
-                    postsImage.classList.remove(
-                        animationClass
-                    );
-
-                    updatePostsUI();
-
-                };
-
-
             postsImage.src =
                 postImages[currentPost];
 
 
-            /*
-               Fallback in case the browser
-               already has the image cached.
-            */
+            postsImage.classList.remove(
+                animationClass
+            );
+
+
+            updatePostsUI();
+
 
             window.setTimeout(
                 () => {
 
-                    postsImage.classList.remove(
-                        animationClass
-                    );
-
-                    updatePostsUI();
+                    sliderBusy =
+                        false;
 
                 },
-                180
+                80
             );
 
-
         },
-        90
-    );
-
-
-    window.setTimeout(
-        () => {
-
-            sliderBusy =
-                false;
-
-        },
-        220
+        80
     );
 
 }
@@ -816,15 +715,14 @@ function changePost(
 
 
 /* ---------------------------------------------------------
-   Next / previous
+   Next / Previous
 --------------------------------------------------------- */
 
 function nextPost() {
 
     changePost(
         currentPost + 1,
-        "next",
-        true
+        "next"
     );
 
 }
@@ -834,47 +732,27 @@ function previousPost() {
 
     changePost(
         currentPost - 1,
-        "prev",
-        true
+        "prev"
     );
 
 }
 
 
-
-/* ---------------------------------------------------------
-   Arrow events
---------------------------------------------------------- */
-
 postsNext?.addEventListener(
     "click",
-    (event) => {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        nextPost();
-
-    }
+    nextPost
 );
 
 
 postsPrev?.addEventListener(
     "click",
-    (event) => {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        previousPost();
-
-    }
+    previousPost
 );
 
 
 
 /* ---------------------------------------------------------
-   Dot events
+   Dots
 --------------------------------------------------------- */
 
 postsDots.forEach(
@@ -882,11 +760,7 @@ postsDots.forEach(
 
         dot.addEventListener(
             "click",
-            (event) => {
-
-                event.preventDefault();
-                event.stopPropagation();
-
+            () => {
 
                 const target =
                     Number(
@@ -901,17 +775,11 @@ postsDots.forEach(
                 }
 
 
-                const direction =
-                    target >
-                    currentPost
-                        ? "next"
-                        : "prev";
-
-
                 changePost(
                     target,
-                    direction,
-                    true
+                    target > currentPost
+                        ? "next"
+                        : "prev"
                 );
 
             }
@@ -923,7 +791,7 @@ postsDots.forEach(
 
 
 /* =========================================================
-   MOBILE SWIPE
+   TOUCH / SWIPE
 ========================================================= */
 
 let touchStartX =
@@ -931,9 +799,6 @@ let touchStartX =
 
 let touchStartY =
     0;
-
-let touchStarted =
-    false;
 
 
 postsGallery?.addEventListener(
@@ -950,9 +815,6 @@ postsGallery?.addEventListener(
         touchStartY =
             touch.clientY;
 
-        touchStarted =
-            true;
-
     },
     {
         passive: true
@@ -963,17 +825,6 @@ postsGallery?.addEventListener(
 postsGallery?.addEventListener(
     "touchend",
     (event) => {
-
-        if (
-            !touchStarted
-        ) {
-            return;
-        }
-
-
-        touchStarted =
-            false;
-
 
         const touch =
             event.changedTouches[0];
@@ -988,10 +839,6 @@ postsGallery?.addEventListener(
             touch.clientY -
             touchStartY;
 
-
-        /*
-           Ignore normal vertical scrolling.
-        */
 
         if (
             Math.abs(deltaX) < 45 ||
@@ -1023,70 +870,10 @@ postsGallery?.addEventListener(
 
 
 /* =========================================================
-   KEYBOARD
+   PRELOAD POSTS
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        /*
-           Only operate the slider when
-           it is visible in the viewport.
-        */
-
-        if (
-            !postsGallery
-        ) {
-            return;
-        }
-
-
-        const rect =
-            postsGallery.getBoundingClientRect();
-
-
-        const visible =
-            rect.top <
-                window.innerHeight &&
-            rect.bottom >
-                0;
-
-
-        if (
-            !visible
-        ) {
-            return;
-        }
-
-
-        if (
-            event.key === "ArrowRight"
-        ) {
-
-            nextPost();
-
-        }
-
-
-        if (
-            event.key === "ArrowLeft"
-        ) {
-
-            previousPost();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   PRELOAD IMAGES
-========================================================= */
-
-function preloadPostImages() {
+function preloadPosts() {
 
     postImages
         .slice(1)
@@ -1111,7 +898,7 @@ if (
 ) {
 
     window.requestIdleCallback(
-        preloadPostImages,
+        preloadPosts,
         {
             timeout:
                 1000
@@ -1121,8 +908,8 @@ if (
 } else {
 
     window.setTimeout(
-        preloadPostImages,
-        350
+        preloadPosts,
+        300
     );
 
 }
@@ -1371,9 +1158,9 @@ projectFrame?.addEventListener(
 
 
 
-/* ---------------------------------------------------------
-   Close project modal
---------------------------------------------------------- */
+/* =========================================================
+   CLOSE PROJECT
+========================================================= */
 
 function closeProject() {
 
@@ -1437,7 +1224,7 @@ document
 
 
 /* =========================================================
-   VIDEOS
+   VIDEO CONTROL
 ========================================================= */
 
 const videos =
@@ -1496,7 +1283,7 @@ document.addEventListener(
 
         closeImageModal();
         closeProject();
-        closeMenu();
+        closeMobileMenu();
 
     }
 );
@@ -1522,11 +1309,11 @@ if (
    INITIALIZE
 ========================================================= */
 
-setLanguage(
+applyLanguage(
     currentLanguage
 );
 
-setTheme(
+applyTheme(
     currentTheme
 );
 
