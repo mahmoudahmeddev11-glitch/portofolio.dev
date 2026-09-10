@@ -69,6 +69,11 @@ const imageModalPreview =
         "imageModalPreview"
     );
 
+const viewInstagramImage =
+    document.getElementById(
+        "viewInstagramImage"
+    );
+
 
 /* Website selector */
 
@@ -83,39 +88,6 @@ const selectedDesign =
     );
 
 
-/* Instagram slider */
-
-const instagramImage =
-    document.getElementById(
-        "instagramSlideImage"
-    );
-
-const instagramPrev =
-    document.getElementById(
-        "instagramPrev"
-    );
-
-const instagramNext =
-    document.getElementById(
-        "instagramNext"
-    );
-
-const instagramCounter =
-    document.getElementById(
-        "instagramCounter"
-    );
-
-const instagramCaption =
-    document.getElementById(
-        "instagramCaption"
-    );
-
-const instagramDots =
-    document.querySelectorAll(
-        ".slider-dot"
-    );
-
-
 
 /* =========================================================
    LANGUAGE
@@ -127,7 +99,9 @@ let currentLanguage =
     ) || "ar";
 
 
-function applyLanguage(language) {
+function applyLanguage(
+    language
+) {
 
     currentLanguage =
         language;
@@ -147,24 +121,26 @@ function applyLanguage(language) {
         .querySelectorAll(
             "[data-ar][data-en]"
         )
-        .forEach((element) => {
+        .forEach(
+            (element) => {
 
-            const value =
-                language === "ar"
-                    ? element.dataset.ar
-                    : element.dataset.en;
+                const value =
+                    language === "ar"
+                        ? element.dataset.ar
+                        : element.dataset.en;
 
 
-            if (
-                value !== undefined
-            ) {
+                if (
+                    value !== undefined
+                ) {
 
-                element.textContent =
-                    value;
+                    element.textContent =
+                        value;
+
+                }
 
             }
-
-        });
+        );
 
 
     if (
@@ -215,15 +191,17 @@ let currentTheme =
     ) || "dark";
 
 
-function applyTheme(theme) {
+function applyTheme(
+    theme
+) {
 
-    const light =
+    const isLight =
         theme === "light";
 
 
     body.classList.toggle(
         "light-theme",
-        light
+        isLight
     );
 
 
@@ -232,7 +210,7 @@ function applyTheme(theme) {
     ) {
 
         themeToggle.textContent =
-            light
+            isLight
                 ? "☾"
                 : "☼";
 
@@ -287,7 +265,7 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const opened =
+        const isOpen =
             mobileMenu?.classList.toggle(
                 "open"
             );
@@ -296,7 +274,7 @@ menuButton?.addEventListener(
         menuButton.setAttribute(
             "aria-expanded",
             String(
-                Boolean(opened)
+                Boolean(isOpen)
             )
         );
 
@@ -308,14 +286,16 @@ document
     .querySelectorAll(
         ".mobile-menu a"
     )
-    .forEach((link) => {
+    .forEach(
+        (link) => {
 
-        link.addEventListener(
-            "click",
-            closeMobileMenu
-        );
+            link.addEventListener(
+                "click",
+                closeMobileMenu
+            );
 
-    });
+        }
+    );
 
 
 
@@ -327,83 +307,87 @@ document
     .querySelectorAll(
         'a[href^="#"]'
     )
-    .forEach((link) => {
+    .forEach(
+        (link) => {
 
-        link.addEventListener(
-            "click",
-            (event) => {
+            link.addEventListener(
+                "click",
+                (event) => {
 
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
+                    const href =
+                        link.getAttribute(
+                            "href"
+                        );
 
 
-                if (
-                    !href ||
-                    href === "#"
-                ) {
-                    return;
+                    if (
+                        !href ||
+                        href === "#"
+                    ) {
+                        return;
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            href
+                        );
+
+
+                    if (
+                        !target
+                    ) {
+                        return;
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const header =
+                        document.querySelector(
+                            ".site-header"
+                        );
+
+
+                    const offset =
+                        header
+                            ? header.offsetHeight
+                            : 0;
+
+
+                    const position =
+                        target
+                            .getBoundingClientRect()
+                            .top
+                        +
+                        window.scrollY
+                        -
+                        offset
+                        -
+                        8;
+
+
+                    window.scrollTo({
+
+                        top:
+                            position,
+
+                        behavior:
+                            "smooth"
+
+                    });
+
                 }
+            );
 
-
-                const target =
-                    document.querySelector(
-                        href
-                    );
-
-
-                if (!target) {
-                    return;
-                }
-
-
-                event.preventDefault();
-
-
-                const header =
-                    document.querySelector(
-                        ".site-header"
-                    );
-
-
-                const offset =
-                    header
-                        ? header.offsetHeight
-                        : 0;
-
-
-                const position =
-                    target
-                        .getBoundingClientRect()
-                        .top
-                    +
-                    window.scrollY
-                    -
-                    offset
-                    -
-                    8;
-
-
-                window.scrollTo({
-
-                    top:
-                        position,
-
-                    behavior:
-                        "smooth"
-
-                });
-
-            }
-        );
-
-    });
+        }
+    );
 
 
 
 /* =========================================================
-   REVEAL
+   FAST REVEAL
 ========================================================= */
 
 const revealElements =
@@ -417,11 +401,11 @@ if (
     in window
 ) {
 
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
             (
                 entries,
-                observerInstance
+                observer
             ) => {
 
                 entries.forEach(
@@ -439,7 +423,7 @@ if (
                         );
 
 
-                        observerInstance.unobserve(
+                        observer.unobserve(
                             entry.target
                         );
 
@@ -460,7 +444,7 @@ if (
     revealElements.forEach(
         (element) => {
 
-            observer.observe(
+            revealObserver.observe(
                 element
             );
 
@@ -546,39 +530,41 @@ document
     .querySelectorAll(
         "[data-package-select]"
     )
-    .forEach((button) => {
+    .forEach(
+        (button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                chosenPackage =
-                    button.dataset.packageSelect;
-
-
-                document
-                    .querySelectorAll(
-                        ".website-package"
-                    )
-                    .forEach(
-                        (card) => {
-
-                            card.classList.toggle(
-                                "selected",
-                                card.dataset.package ===
-                                    chosenPackage
-                            );
-
-                        }
-                    );
+                    chosenPackage =
+                        button.dataset.packageSelect;
 
 
-                updateConfiguratorText();
+                    document
+                        .querySelectorAll(
+                            ".website-package"
+                        )
+                        .forEach(
+                            (card) => {
 
-            }
-        );
+                                card.classList.toggle(
+                                    "selected",
+                                    card.dataset.package ===
+                                        chosenPackage
+                                );
 
-    });
+                            }
+                        );
+
+
+                    updateConfiguratorText();
+
+                }
+            );
+
+        }
+    );
 
 
 
@@ -590,45 +576,79 @@ document
     .querySelectorAll(
         ".design-option"
     )
-    .forEach((design) => {
+    .forEach(
+        (design) => {
 
-        design.addEventListener(
-            "click",
-            () => {
+            design.addEventListener(
+                "click",
+                () => {
 
-                chosenDesign =
-                    design.dataset.design;
-
-
-                document
-                    .querySelectorAll(
-                        ".design-option"
-                    )
-                    .forEach(
-                        (item) => {
-
-                            item.classList.toggle(
-                                "active",
-                                item ===
-                                    design
-                            );
-
-                        }
-                    );
+                    chosenDesign =
+                        design.dataset.design;
 
 
-                updateConfiguratorText();
+                    document
+                        .querySelectorAll(
+                            ".design-option"
+                        )
+                        .forEach(
+                            (item) => {
 
-            }
-        );
+                                item.classList.toggle(
+                                    "active",
+                                    item === design
+                                );
 
-    });
+                            }
+                        );
+
+
+                    updateConfiguratorText();
+
+                }
+            );
+
+        }
+    );
 
 
 
 /* =========================================================
    INSTAGRAM SLIDER
 ========================================================= */
+
+const instagramSlider =
+    document.getElementById(
+        "instagramSlider"
+    );
+
+const instagramImage =
+    document.getElementById(
+        "instagramSlideImage"
+    );
+
+const instagramPrev =
+    document.getElementById(
+        "instagramPrev"
+    );
+
+const instagramNext =
+    document.getElementById(
+        "instagramNext"
+    );
+
+const instagramCounter =
+    document.getElementById(
+        "instagramCounter"
+    );
+
+const instagramDots =
+    [
+        ...document.querySelectorAll(
+            ".slider-dot"
+        )
+    ];
+
 
 const instagramImages = [
 
@@ -644,18 +664,47 @@ const instagramImages = [
 let currentSlide =
     0;
 
-let slideDirection =
-    "next";
-
-let slideTimer =
-    null;
-
-let isSliding =
+let isChangingSlide =
     false;
 
 
-function updateInstagramSlider(
-    index,
+/*
+   Update counter + dots.
+*/
+
+function updateInstagramUI() {
+
+    if (
+        instagramCounter
+    ) {
+
+        instagramCounter.textContent =
+            `${currentSlide + 1} / ${instagramImages.length}`;
+
+    }
+
+
+    instagramDots.forEach(
+        (dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        }
+    );
+
+}
+
+
+/*
+   Actually change the image.
+*/
+
+function changeInstagramSlide(
+    newIndex,
+    direction = "next",
     animate = true
 ) {
 
@@ -667,112 +716,74 @@ function updateInstagramSlider(
 
 
     if (
-        index < 0
+        newIndex < 0
     ) {
 
-        index =
+        newIndex =
             instagramImages.length - 1;
 
     }
 
 
     if (
-        index >=
+        newIndex >=
         instagramImages.length
     ) {
 
-        index =
+        newIndex =
             0;
 
     }
 
 
-    const oldIndex =
-        currentSlide;
-
-
-    currentSlide =
-        index;
-
-
-    const updateText =
-        () => {
-
-            if (
-                instagramCounter
-            ) {
-
-                instagramCounter.textContent =
-                    `${currentSlide + 1} / ${instagramImages.length}`;
-
-            }
-
-
-            if (
-                instagramCaption
-            ) {
-
-                const number =
-                    String(
-                        currentSlide + 1
-                    ).padStart(
-                        2,
-                        "0"
-                    );
-
-
-                instagramCaption.textContent =
-                    `Post ${number}`;
-
-            }
-
-
-            instagramDots.forEach(
-                (dot, dotIndex) => {
-
-                    dot.classList.toggle(
-                        "active",
-                        dotIndex === currentSlide
-                    );
-
-                }
-            );
-
-        };
+    if (
+        newIndex === currentSlide &&
+        animate
+    ) {
+        return;
+    }
 
 
     /*
-      First image = no animation.
+      No animation for first load.
     */
 
     if (
-        !animate ||
-        oldIndex === currentSlide
+        !animate
     ) {
+
+        currentSlide =
+            newIndex;
 
         instagramImage.src =
             instagramImages[currentSlide];
 
         instagramImage.classList.remove(
-            "slide-out-left",
-            "slide-out-right"
+            "slide-out-next",
+            "slide-out-prev"
         );
 
-        updateText();
+        updateInstagramUI();
 
         return;
-
     }
 
 
-    const outgoingClass =
-        slideDirection === "next"
-            ? "slide-out-left"
-            : "slide-out-right";
+    if (
+        isChangingSlide
+    ) {
+        return;
+    }
 
 
-    isSliding =
+    isChangingSlide =
         true;
+
+
+    const outgoingClass =
+        direction === "next"
+            ? "slide-out-next"
+            : "slide-out-prev";
 
 
     instagramImage.classList.add(
@@ -783,6 +794,10 @@ function updateInstagramSlider(
     window.setTimeout(
         () => {
 
+            currentSlide =
+                newIndex;
+
+
             instagramImage.src =
                 instagramImages[currentSlide];
 
@@ -792,61 +807,49 @@ function updateInstagramSlider(
             );
 
 
-            updateText();
+            updateInstagramUI();
 
 
             window.setTimeout(
                 () => {
 
-                    isSliding =
+                    isChangingSlide =
                         false;
 
                 },
-                220
+                180
             );
 
         },
-        120
+        100
     );
 
 }
 
+
+/*
+   Next.
+*/
 
 function nextInstagramSlide() {
 
-    if (
-        isSliding
-    ) {
-        return;
-    }
-
-
-    slideDirection =
-        "next";
-
-
-    updateInstagramSlider(
-        currentSlide + 1
+    changeInstagramSlide(
+        currentSlide + 1,
+        "next"
     );
 
 }
 
 
-function prevInstagramSlide() {
+/*
+   Previous.
+*/
 
-    if (
-        isSliding
-    ) {
-        return;
-    }
+function previousInstagramSlide() {
 
-
-    slideDirection =
-        "prev";
-
-
-    updateInstagramSlider(
-        currentSlide - 1
+    changeInstagramSlide(
+        currentSlide - 1,
+        "prev"
     );
 
 }
@@ -860,9 +863,13 @@ instagramNext?.addEventListener(
 
 instagramPrev?.addEventListener(
     "click",
-    prevInstagramSlide
+    previousInstagramSlide
 );
 
+
+/*
+   Dot navigation.
+*/
 
 instagramDots.forEach(
     (dot) => {
@@ -871,27 +878,30 @@ instagramDots.forEach(
             "click",
             () => {
 
-                if (
-                    isSliding
-                ) {
-                    return;
-                }
-
-
                 const target =
                     Number(
                         dot.dataset.slide
                     );
 
 
-                slideDirection =
-                    target > currentSlide
+                if (
+                    target ===
+                    currentSlide
+                ) {
+                    return;
+                }
+
+
+                const direction =
+                    target >
+                    currentSlide
                         ? "next"
                         : "prev";
 
 
-                updateInstagramSlider(
-                    target
+                changeInstagramSlide(
+                    target,
+                    direction
                 );
 
             }
@@ -902,28 +912,29 @@ instagramDots.forEach(
 
 
 /*
-   Swipe on mobile.
+   Touch swipe.
 */
 
 let touchStartX =
     0;
 
-let touchEndX =
+let touchStartY =
     0;
-
-
-const instagramSlider =
-    document.getElementById(
-        "instagramSlider"
-    );
 
 
 instagramSlider?.addEventListener(
     "touchstart",
     (event) => {
 
+        const touch =
+            event.changedTouches[0];
+
+
         touchStartX =
-            event.changedTouches[0].screenX;
+            touch.clientX;
+
+        touchStartY =
+            touch.clientY;
 
     },
     {
@@ -936,31 +947,43 @@ instagramSlider?.addEventListener(
     "touchend",
     (event) => {
 
-        touchEndX =
-            event.changedTouches[0].screenX;
+        const touch =
+            event.changedTouches[0];
 
 
-        const distance =
-            touchEndX -
+        const deltaX =
+            touch.clientX -
             touchStartX;
 
 
+        const deltaY =
+            touch.clientY -
+            touchStartY;
+
+
+        /*
+          Ignore mostly vertical swipes.
+        */
+
         if (
-            Math.abs(distance) < 45
+            Math.abs(deltaX) <=
+                45 ||
+            Math.abs(deltaX) <=
+                Math.abs(deltaY)
         ) {
             return;
         }
 
 
         if (
-            distance < 0
+            deltaX < 0
         ) {
 
             nextInstagramSlide();
 
         } else {
 
-            prevInstagramSlide();
+            previousInstagramSlide();
 
         }
 
@@ -972,8 +995,8 @@ instagramSlider?.addEventListener(
 
 
 /*
-   Preload all five images after the
-   first one is visible.
+   Preload the remaining images after
+   the first image is on screen.
 */
 
 function preloadInstagramImages() {
@@ -1004,7 +1027,7 @@ if (
         preloadInstagramImages,
         {
             timeout:
-                1200
+                1000
         }
     );
 
@@ -1012,15 +1035,36 @@ if (
 
     window.setTimeout(
         preloadInstagramImages,
-        500
+        400
     );
 
 }
 
 
-updateInstagramSlider(
+/*
+   First slide.
+*/
+
+changeInstagramSlide(
     0,
+    "next",
     false
+);
+
+
+/*
+   Open current Instagram image.
+*/
+
+viewInstagramImage?.addEventListener(
+    "click",
+    () => {
+
+        openImage(
+            instagramImages[currentSlide]
+        );
+
+    }
 );
 
 
@@ -1029,7 +1073,9 @@ updateInstagramSlider(
    PROJECT MODAL
 ========================================================= */
 
-function openProject(url) {
+function openProject(
+    url
+) {
 
     if (
         !projectModal ||
@@ -1039,13 +1085,13 @@ function openProject(url) {
     }
 
 
-    projectFrame.src =
-        "about:blank";
-
-
     modalLoading?.classList.remove(
         "hidden"
     );
+
+
+    projectFrame.src =
+        "about:blank";
 
 
     if (
@@ -1090,28 +1136,32 @@ document
     .querySelectorAll(
         "[data-project]"
     )
-    .forEach((button) => {
+    .forEach(
+        (button) => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                const url =
-                    button.dataset.project;
+                    const url =
+                        button.dataset.project;
 
 
-                if (url) {
-
-                    openProject(
+                    if (
                         url
-                    );
+                    ) {
+
+                        openProject(
+                            url
+                        );
+
+                    }
 
                 }
+            );
 
-            }
-        );
-
-    });
+        }
+    );
 
 
 projectFrame?.addEventListener(
@@ -1188,14 +1238,16 @@ document
     .querySelectorAll(
         "[data-close-project]"
     )
-    .forEach((element) => {
+    .forEach(
+        (element) => {
 
-        element.addEventListener(
-            "click",
-            closeProject
-        );
+            element.addEventListener(
+                "click",
+                closeProject
+            );
 
-    });
+        }
+    );
 
 
 
@@ -1274,30 +1326,20 @@ function closeImageModal() {
 }
 
 
-instagramImage?.addEventListener(
-    "dblclick",
-    () => {
-
-        openImage(
-            instagramImages[currentSlide]
-        );
-
-    }
-);
-
-
 document
     .querySelectorAll(
         "[data-close-image]"
     )
-    .forEach((element) => {
+    .forEach(
+        (element) => {
 
-        element.addEventListener(
-            "click",
-            closeImageModal
-        );
+            element.addEventListener(
+                "click",
+                closeImageModal
+            );
 
-    });
+        }
+    );
 
 
 
@@ -1381,7 +1423,6 @@ if (
                             video.preload =
                                 "auto";
 
-
                             video.load();
 
                         }
@@ -1424,7 +1465,7 @@ if (
 
 
 /* =========================================================
-   ESCAPE KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
