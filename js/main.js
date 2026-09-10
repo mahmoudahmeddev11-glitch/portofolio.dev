@@ -2,7 +2,7 @@
 
 
 /* =========================================================
-   ELEMENTS
+   BASIC ELEMENTS
 ========================================================= */
 
 const body =
@@ -34,60 +34,6 @@ const currentYear =
     );
 
 
-/* Project modal */
-
-const projectModal =
-    document.getElementById(
-        "projectModal"
-    );
-
-const projectFrame =
-    document.getElementById(
-        "projectFrame"
-    );
-
-const modalLoading =
-    document.getElementById(
-        "modalLoading"
-    );
-
-const modalExternalLink =
-    document.getElementById(
-        "modalExternalLink"
-    );
-
-
-/* Image modal */
-
-const imageModal =
-    document.getElementById(
-        "imageModal"
-    );
-
-const imageModalPreview =
-    document.getElementById(
-        "imageModalPreview"
-    );
-
-const postsView =
-    document.getElementById(
-        "postsView"
-    );
-
-
-/* Website selector */
-
-const selectedPackage =
-    document.getElementById(
-        "selectedPackage"
-    );
-
-const selectedDesign =
-    document.getElementById(
-        "selectedDesign"
-    );
-
-
 
 /* =========================================================
    LANGUAGE
@@ -99,7 +45,7 @@ let currentLanguage =
     ) || "ar";
 
 
-function applyLanguage(
+function setLanguage(
     language
 ) {
 
@@ -117,32 +63,6 @@ function applyLanguage(
             : "ltr";
 
 
-    document
-        .querySelectorAll(
-            "[data-ar][data-en]"
-        )
-        .forEach(
-            (element) => {
-
-                const value =
-                    language === "ar"
-                        ? element.dataset.ar
-                        : element.dataset.en;
-
-
-                if (
-                    value !== undefined
-                ) {
-
-                    element.textContent =
-                        value;
-
-                }
-
-            }
-        );
-
-
     if (
         languageToggle
     ) {
@@ -153,9 +73,6 @@ function applyLanguage(
                 : "AR";
 
     }
-
-
-    updateConfiguratorText();
 
 
     localStorage.setItem(
@@ -170,7 +87,7 @@ languageToggle?.addEventListener(
     "click",
     () => {
 
-        applyLanguage(
+        setLanguage(
             currentLanguage === "ar"
                 ? "en"
                 : "ar"
@@ -191,17 +108,21 @@ let currentTheme =
     ) || "dark";
 
 
-function applyTheme(
+function setTheme(
     theme
 ) {
 
-    const light =
+    currentTheme =
+        theme;
+
+
+    const isLight =
         theme === "light";
 
 
     body.classList.toggle(
         "light-theme",
-        light
+        isLight
     );
 
 
@@ -210,7 +131,7 @@ function applyTheme(
     ) {
 
         themeToggle.textContent =
-            light
+            isLight
                 ? "☾"
                 : "☼";
 
@@ -229,7 +150,7 @@ themeToggle?.addEventListener(
     "click",
     () => {
 
-        applyTheme(
+        setTheme(
             body.classList.contains(
                 "light-theme"
             )
@@ -246,7 +167,7 @@ themeToggle?.addEventListener(
    MOBILE MENU
 ========================================================= */
 
-function closeMobileMenu() {
+function closeMenu() {
 
     mobileMenu?.classList.remove(
         "open"
@@ -265,7 +186,7 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const opened =
+        const open =
             mobileMenu?.classList.toggle(
                 "open"
             );
@@ -274,7 +195,7 @@ menuButton?.addEventListener(
         menuButton?.setAttribute(
             "aria-expanded",
             String(
-                Boolean(opened)
+                Boolean(open)
             )
         );
 
@@ -291,7 +212,7 @@ document
 
             link.addEventListener(
                 "click",
-                closeMobileMenu
+                closeMenu
             );
 
         }
@@ -300,7 +221,7 @@ document
 
 
 /* =========================================================
-   NAVIGATION
+   INTERNAL NAVIGATION
 ========================================================= */
 
 document
@@ -334,7 +255,9 @@ document
                         );
 
 
-                    if (!target) {
+                    if (
+                        !target
+                    ) {
                         return;
                     }
 
@@ -354,10 +277,8 @@ document
                             : 0;
 
 
-                    const position =
-                        target
-                            .getBoundingClientRect()
-                            .top
+                    const top =
+                        target.getBoundingClientRect().top
                         +
                         window.scrollY
                         -
@@ -367,13 +288,9 @@ document
 
 
                     window.scrollTo({
-
-                        top:
-                            position,
-
+                        top,
                         behavior:
                             "smooth"
-
                     });
 
                 }
@@ -385,7 +302,7 @@ document
 
 
 /* =========================================================
-   FAST REVEAL
+   REVEAL ANIMATION
 ========================================================= */
 
 const revealElements =
@@ -434,7 +351,7 @@ if (
                     0.02,
 
                 rootMargin:
-                    "0px 0px 30px 0px"
+                    "0px 0px 20px 0px"
             }
         );
 
@@ -469,40 +386,44 @@ if (
    WEBSITE PACKAGE SELECTOR
 ========================================================= */
 
-let chosenPackage =
+let selectedWebsitePackage =
     "business";
 
-let chosenDesign =
+let selectedWebsiteDesign =
     "Rouh Lil Rouh";
 
 
-function updateConfiguratorText() {
+const selectedPackageElement =
+    document.getElementById(
+        "selectedPackage"
+    );
 
-    if (
-        !selectedPackage ||
-        !selectedDesign
-    ) {
-        return;
-    }
+const selectedDesignElement =
+    document.getElementById(
+        "selectedDesign"
+    );
 
+
+function updateWebsiteSummary() {
 
     const packageCard =
         document.querySelector(
-            `[data-package="${chosenPackage}"]`
+            `[data-package="${selectedWebsitePackage}"]`
         );
 
 
     const designCard =
         document.querySelector(
-            `[data-design="${chosenDesign}"]`
+            `[data-design="${selectedWebsiteDesign}"]`
         );
 
 
     if (
-        packageCard
+        packageCard &&
+        selectedPackageElement
     ) {
 
-        selectedPackage.textContent =
+        selectedPackageElement.textContent =
             currentLanguage === "ar"
                 ? packageCard.dataset.packageAr
                 : packageCard.dataset.packageEn;
@@ -511,10 +432,11 @@ function updateConfiguratorText() {
 
 
     if (
-        designCard
+        designCard &&
+        selectedDesignElement
     ) {
 
-        selectedDesign.textContent =
+        selectedDesignElement.textContent =
             currentLanguage === "ar"
                 ? designCard.dataset.designAr
                 : designCard.dataset.designEn;
@@ -535,7 +457,7 @@ document
                 "click",
                 () => {
 
-                    chosenPackage =
+                    selectedWebsitePackage =
                         button.dataset.packageSelect;
 
 
@@ -549,14 +471,14 @@ document
                                 card.classList.toggle(
                                     "selected",
                                     card.dataset.package ===
-                                        chosenPackage
+                                        selectedWebsitePackage
                                 );
 
                             }
                         );
 
 
-                    updateConfiguratorText();
+                    updateWebsiteSummary();
 
                 }
             );
@@ -565,24 +487,19 @@ document
     );
 
 
-
-/* =========================================================
-   DESIGN SELECTOR
-========================================================= */
-
 document
     .querySelectorAll(
         ".design-option"
     )
     .forEach(
-        (design) => {
+        (button) => {
 
-            design.addEventListener(
+            button.addEventListener(
                 "click",
                 () => {
 
-                    chosenDesign =
-                        design.dataset.design;
+                    selectedWebsiteDesign =
+                        button.dataset.design;
 
 
                     document
@@ -594,14 +511,14 @@ document
 
                                 item.classList.toggle(
                                     "active",
-                                    item === design
+                                    item === button
                                 );
 
                             }
                         );
 
 
-                    updateConfiguratorText();
+                    updateWebsiteSummary();
 
                 }
             );
@@ -612,7 +529,7 @@ document
 
 
 /* =========================================================
-   POSTS GALLERY
+   POSTS SLIDER
 ========================================================= */
 
 const postsImage =
@@ -635,6 +552,16 @@ const postsCounter =
         "postsCounter"
     );
 
+const postsView =
+    document.getElementById(
+        "postsView"
+    );
+
+const postsGallery =
+    document.getElementById(
+        "postsGallery"
+    );
+
 const postsDots =
     [
         ...document.querySelectorAll(
@@ -643,23 +570,30 @@ const postsDots =
     ];
 
 
-const postImages = [
+/*
+   The exact files requested by the user.
+*/
 
+const postImages = [
     "./Picture1.png",
     "./Picture2.png",
     "./Picture3.png",
     "./Picture4.png",
     "./Picture5.png"
-
 ];
 
 
 let currentPost =
     0;
 
-let isPostAnimating =
+let sliderBusy =
     false;
 
+
+
+/* ---------------------------------------------------------
+   Update counter and dots
+--------------------------------------------------------- */
 
 function updatePostsUI() {
 
@@ -696,9 +630,14 @@ function updatePostsUI() {
 }
 
 
+
+/* ---------------------------------------------------------
+   Change image
+--------------------------------------------------------- */
+
 function changePost(
-    newIndex,
-    direction = "next",
+    targetIndex,
+    direction,
     animate = true
 ) {
 
@@ -709,49 +648,65 @@ function changePost(
     }
 
 
+    /*
+       Keep the index inside
+       the valid range.
+    */
+
     if (
-        newIndex < 0
+        targetIndex < 0
     ) {
 
-        newIndex =
+        targetIndex =
             postImages.length - 1;
 
     }
 
 
     if (
-        newIndex >=
+        targetIndex >=
         postImages.length
     ) {
 
-        newIndex =
+        targetIndex =
             0;
 
     }
 
 
+    /*
+       Nothing to do.
+    */
+
     if (
-        newIndex === currentPost &&
+        targetIndex === currentPost &&
         animate
     ) {
         return;
     }
 
 
+    /*
+       First load.
+    */
+
     if (
         !animate
     ) {
 
         currentPost =
-            newIndex;
+            targetIndex;
+
 
         postsImage.src =
             postImages[currentPost];
+
 
         postsImage.classList.remove(
             "slide-next",
             "slide-prev"
         );
+
 
         updatePostsUI();
 
@@ -760,25 +715,30 @@ function changePost(
     }
 
 
+    /*
+       Prevent double click / double touch
+       while the tiny transition is running.
+    */
+
     if (
-        isPostAnimating
+        sliderBusy
     ) {
         return;
     }
 
 
-    isPostAnimating =
+    sliderBusy =
         true;
 
 
-    const outgoingClass =
-        direction === "next"
-            ? "slide-next"
-            : "slide-prev";
+    const animationClass =
+        direction === "prev"
+            ? "slide-prev"
+            : "slide-next";
 
 
     postsImage.classList.add(
-        outgoingClass
+        animationClass
     );
 
 
@@ -786,99 +746,172 @@ function changePost(
         () => {
 
             currentPost =
-                newIndex;
+                targetIndex;
+
+
+            postsImage.onload =
+                () => {
+
+                    postsImage.classList.remove(
+                        animationClass
+                    );
+
+                    updatePostsUI();
+
+                };
+
+
+            postsImage.onerror =
+                () => {
+
+                    postsImage.classList.remove(
+                        animationClass
+                    );
+
+                    updatePostsUI();
+
+                };
 
 
             postsImage.src =
                 postImages[currentPost];
 
 
-            postsImage.classList.remove(
-                outgoingClass
-            );
-
-
-            updatePostsUI();
-
+            /*
+               Fallback in case the browser
+               already has the image cached.
+            */
 
             window.setTimeout(
                 () => {
 
-                    isPostAnimating =
-                        false;
+                    postsImage.classList.remove(
+                        animationClass
+                    );
+
+                    updatePostsUI();
 
                 },
                 180
             );
 
+
         },
-        100
+        90
+    );
+
+
+    window.setTimeout(
+        () => {
+
+            sliderBusy =
+                false;
+
+        },
+        220
     );
 
 }
 
 
-function showNextPost() {
+
+/* ---------------------------------------------------------
+   Next / previous
+--------------------------------------------------------- */
+
+function nextPost() {
 
     changePost(
         currentPost + 1,
-        "next"
+        "next",
+        true
     );
 
 }
 
 
-function showPreviousPost() {
+function previousPost() {
 
     changePost(
         currentPost - 1,
-        "prev"
+        "prev",
+        true
     );
 
 }
 
 
+
+/* ---------------------------------------------------------
+   Arrow events
+--------------------------------------------------------- */
+
 postsNext?.addEventListener(
     "click",
-    showNextPost
+    (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        nextPost();
+
+    }
 );
 
 
 postsPrev?.addEventListener(
     "click",
-    showPreviousPost
+    (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        previousPost();
+
+    }
 );
 
+
+
+/* ---------------------------------------------------------
+   Dot events
+--------------------------------------------------------- */
 
 postsDots.forEach(
     (dot) => {
 
         dot.addEventListener(
             "click",
-            () => {
+            (event) => {
 
-                const index =
+                event.preventDefault();
+                event.stopPropagation();
+
+
+                const target =
                     Number(
                         dot.dataset.post
                     );
 
 
                 if (
-                    index === currentPost
+                    target === currentPost
                 ) {
                     return;
                 }
 
 
                 const direction =
-                    index > currentPost
+                    target >
+                    currentPost
                         ? "next"
                         : "prev";
 
 
                 changePost(
-                    index,
-                    direction
+                    target,
+                    direction,
+                    true
                 );
 
             }
@@ -890,20 +923,17 @@ postsDots.forEach(
 
 
 /* =========================================================
-   TOUCH SWIPE FOR POSTS
+   MOBILE SWIPE
 ========================================================= */
-
-const postsGallery =
-    document.getElementById(
-        "postsGallery"
-    );
-
 
 let touchStartX =
     0;
 
 let touchStartY =
     0;
+
+let touchStarted =
+    false;
 
 
 postsGallery?.addEventListener(
@@ -920,6 +950,9 @@ postsGallery?.addEventListener(
         touchStartY =
             touch.clientY;
 
+        touchStarted =
+            true;
+
     },
     {
         passive: true
@@ -931,6 +964,17 @@ postsGallery?.addEventListener(
     "touchend",
     (event) => {
 
+        if (
+            !touchStarted
+        ) {
+            return;
+        }
+
+
+        touchStarted =
+            false;
+
+
         const touch =
             event.changedTouches[0];
 
@@ -939,10 +983,15 @@ postsGallery?.addEventListener(
             touch.clientX -
             touchStartX;
 
+
         const deltaY =
             touch.clientY -
             touchStartY;
 
+
+        /*
+           Ignore normal vertical scrolling.
+        */
 
         if (
             Math.abs(deltaX) < 45 ||
@@ -957,11 +1006,11 @@ postsGallery?.addEventListener(
             deltaX < 0
         ) {
 
-            showNextPost();
+            nextPost();
 
         } else {
 
-            showPreviousPost();
+            previousPost();
 
         }
 
@@ -974,10 +1023,70 @@ postsGallery?.addEventListener(
 
 
 /* =========================================================
-   PRELOAD GALLERY IMAGES
+   KEYBOARD
 ========================================================= */
 
-function preloadPosts() {
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        /*
+           Only operate the slider when
+           it is visible in the viewport.
+        */
+
+        if (
+            !postsGallery
+        ) {
+            return;
+        }
+
+
+        const rect =
+            postsGallery.getBoundingClientRect();
+
+
+        const visible =
+            rect.top <
+                window.innerHeight &&
+            rect.bottom >
+                0;
+
+
+        if (
+            !visible
+        ) {
+            return;
+        }
+
+
+        if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextPost();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            previousPost();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   PRELOAD IMAGES
+========================================================= */
+
+function preloadPostImages() {
 
     postImages
         .slice(1)
@@ -1002,7 +1111,7 @@ if (
 ) {
 
     window.requestIdleCallback(
-        preloadPosts,
+        preloadPostImages,
         {
             timeout:
                 1000
@@ -1012,8 +1121,8 @@ if (
 } else {
 
     window.setTimeout(
-        preloadPosts,
-        400
+        preloadPostImages,
+        350
     );
 
 }
@@ -1030,6 +1139,17 @@ changePost(
 /* =========================================================
    IMAGE LIGHTBOX
 ========================================================= */
+
+const imageModal =
+    document.getElementById(
+        "imageModal"
+    );
+
+const imageModalPreview =
+    document.getElementById(
+        "imageModalPreview"
+    );
+
 
 function openImage(
     src
@@ -1135,6 +1255,27 @@ document
    PROJECT MODAL
 ========================================================= */
 
+const projectModal =
+    document.getElementById(
+        "projectModal"
+    );
+
+const projectFrame =
+    document.getElementById(
+        "projectFrame"
+    );
+
+const modalLoading =
+    document.getElementById(
+        "modalLoading"
+    );
+
+const modalExternalLink =
+    document.getElementById(
+        "modalExternalLink"
+    );
+
+
 function openProject(
     url
 ) {
@@ -1182,13 +1323,14 @@ function openProject(
     );
 
 
-    requestAnimationFrame(
+    window.setTimeout(
         () => {
 
             projectFrame.src =
                 url;
 
-        }
+        },
+        20
     );
 
 }
@@ -1205,19 +1347,9 @@ document
                 "click",
                 () => {
 
-                    const url =
-                        button.dataset.project;
-
-
-                    if (
-                        url
-                    ) {
-
-                        openProject(
-                            url
-                        );
-
-                    }
+                    openProject(
+                        button.dataset.project
+                    );
 
                 }
             );
@@ -1239,9 +1371,9 @@ projectFrame?.addEventListener(
 
 
 
-/* =========================================================
-   CLOSE PROJECT
-========================================================= */
+/* ---------------------------------------------------------
+   Close project modal
+--------------------------------------------------------- */
 
 function closeProject() {
 
@@ -1272,15 +1404,6 @@ function closeProject() {
         () => {
 
             if (
-                projectModal.classList.contains(
-                    "open"
-                )
-            ) {
-                return;
-            }
-
-
-            if (
                 projectFrame
             ) {
 
@@ -1290,7 +1413,7 @@ function closeProject() {
             }
 
         },
-        200
+        180
     );
 
 }
@@ -1356,86 +1479,7 @@ videos.forEach(
 
 
 /* =========================================================
-   EARLY VIDEO PREPARATION
-========================================================= */
-
-if (
-    "IntersectionObserver"
-    in window
-) {
-
-    const videoObserver =
-        new IntersectionObserver(
-            (
-                entries,
-                observer
-            ) => {
-
-                entries.forEach(
-                    (entry) => {
-
-                        if (
-                            !entry.isIntersecting
-                        ) {
-                            return;
-                        }
-
-
-                        const video =
-                            entry.target;
-
-
-                        if (
-                            video.preload !==
-                            "auto"
-                        ) {
-
-                            video.preload =
-                                "auto";
-
-                            video.load();
-
-                        }
-
-
-                        observer.unobserve(
-                            video
-                        );
-
-                    }
-                );
-
-            },
-            {
-                rootMargin:
-                    "1000px 0px"
-            }
-        );
-
-
-    videos.forEach(
-        (video) => {
-
-            if (
-                video !==
-                videos[0]
-            ) {
-
-                videoObserver.observe(
-                    video
-                );
-
-            }
-
-        }
-    );
-
-}
-
-
-
-/* =========================================================
-   ESCAPE KEY
+   ESCAPE
 ========================================================= */
 
 document.addEventListener(
@@ -1450,9 +1494,9 @@ document.addEventListener(
         }
 
 
-        closeProject();
         closeImageModal();
-        closeMobileMenu();
+        closeProject();
+        closeMenu();
 
     }
 );
@@ -1478,12 +1522,12 @@ if (
    INITIALIZE
 ========================================================= */
 
-applyLanguage(
+setLanguage(
     currentLanguage
 );
 
-applyTheme(
+setTheme(
     currentTheme
 );
 
-updateConfiguratorText();
+updateWebsiteSummary();
