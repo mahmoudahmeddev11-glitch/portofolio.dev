@@ -7,45 +7,50 @@
 const body =
     document.body;
 
-const pageLoader =
-    document.getElementById("pageLoader");
-
 const languageToggle =
-    document.getElementById("languageToggle");
+    document.getElementById(
+        "languageToggle"
+    );
 
 const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+        "themeToggle"
+    );
 
 const menuButton =
-    document.getElementById("menuButton");
+    document.getElementById(
+        "menuButton"
+    );
 
 const mobileMenu =
-    document.getElementById("mobileMenu");
+    document.getElementById(
+        "mobileMenu"
+    );
 
 const projectModal =
-    document.getElementById("projectModal");
+    document.getElementById(
+        "projectModal"
+    );
 
 const projectFrame =
-    document.getElementById("projectFrame");
+    document.getElementById(
+        "projectFrame"
+    );
+
+const modalLoading =
+    document.getElementById(
+        "modalLoading"
+    );
+
+const modalExternalLink =
+    document.getElementById(
+        "modalExternalLink"
+    );
 
 const currentYear =
-    document.getElementById("currentYear");
-
-
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-window.addEventListener("load", () => {
-
-    window.setTimeout(() => {
-
-        pageLoader?.classList.add("hidden");
-
-    }, 180);
-
-});
+    document.getElementById(
+        "currentYear"
+    );
 
 
 
@@ -61,10 +66,13 @@ let currentLanguage =
 
 function applyLanguage(language) {
 
-    currentLanguage = language;
+    currentLanguage =
+        language;
+
 
     document.documentElement.lang =
         language;
+
 
     document.documentElement.dir =
         language === "ar"
@@ -78,19 +86,25 @@ function applyLanguage(language) {
         )
         .forEach((element) => {
 
-            const text =
+            const value =
                 language === "ar"
                     ? element.dataset.ar
                     : element.dataset.en;
 
-            if (text !== undefined) {
-                element.textContent = text;
+
+            if (
+                value !== undefined
+            ) {
+                element.textContent =
+                    value;
             }
 
         });
 
 
-    if (languageToggle) {
+    if (
+        languageToggle
+    ) {
 
         languageToggle.textContent =
             language === "ar"
@@ -127,7 +141,7 @@ languageToggle?.addEventListener(
    THEME
 ========================================================= */
 
-let savedTheme =
+let currentTheme =
     localStorage.getItem(
         "portfolio-theme"
     ) || "dark";
@@ -135,20 +149,22 @@ let savedTheme =
 
 function applyTheme(theme) {
 
-    const isLight =
+    const light =
         theme === "light";
 
 
     body.classList.toggle(
         "light-theme",
-        isLight
+        light
     );
 
 
-    if (themeToggle) {
+    if (
+        themeToggle
+    ) {
 
         themeToggle.textContent =
-            isLight
+            light
                 ? "☾"
                 : "☼";
 
@@ -190,13 +206,10 @@ function closeMobileMenu() {
         "open"
     );
 
+
     menuButton?.setAttribute(
         "aria-expanded",
         "false"
-    );
-
-    body.classList.remove(
-        "menu-locked"
     );
 
 }
@@ -206,7 +219,7 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const opened =
+        const isOpen =
             mobileMenu?.classList.toggle(
                 "open"
             );
@@ -214,14 +227,10 @@ menuButton?.addEventListener(
 
         menuButton.setAttribute(
             "aria-expanded",
-            String(Boolean(opened))
+            String(
+                Boolean(isOpen)
+            )
         );
-
-
-        /*
-          لا نقفل scroll الصفحة هنا.
-          ده مهم جدًا للموبايل.
-        */
 
     }
 );
@@ -244,8 +253,8 @@ document
 
 /* =========================================================
    NAVIGATION
-   Smooth فقط عند الضغط على link.
-   Wheel / touch يظل Native.
+   Only anchor clicks use smooth behavior.
+   Wheel/touch scrolling stays native.
 ========================================================= */
 
 document
@@ -259,7 +268,10 @@ document
             (event) => {
 
                 const href =
-                    link.getAttribute("href");
+                    link.getAttribute(
+                        "href"
+                    );
+
 
                 if (
                     !href ||
@@ -270,7 +282,9 @@ document
 
 
                 const target =
-                    document.querySelector(href);
+                    document.querySelector(
+                        href
+                    );
 
 
                 if (!target) {
@@ -287,26 +301,30 @@ document
                     );
 
 
-                const headerHeight =
+                const offset =
                     header
                         ? header.offsetHeight
                         : 0;
 
 
-                const top =
-                    target.getBoundingClientRect()
+                const position =
+                    target
+                        .getBoundingClientRect()
                         .top
                     +
                     window.scrollY
                     -
-                    headerHeight
+                    offset
                     -
                     8;
 
 
                 window.scrollTo({
-                    top,
-                    behavior: "smooth"
+                    top:
+                        position,
+
+                    behavior:
+                        "smooth"
                 });
 
             }
@@ -331,9 +349,12 @@ if (
     in window
 ) {
 
-    const observer =
+    const revealObserver =
         new IntersectionObserver(
-            (entries, instance) => {
+            (
+                entries,
+                observer
+            ) => {
 
                 entries.forEach(
                     (entry) => {
@@ -350,7 +371,7 @@ if (
                         );
 
 
-                        instance.unobserve(
+                        observer.unobserve(
                             entry.target
                         );
 
@@ -359,10 +380,11 @@ if (
 
             },
             {
-                threshold: 0.02,
+                threshold:
+                    0.02,
 
                 rootMargin:
-                    "0px 0px 20px 0px"
+                    "0px 0px 30px 0px"
             }
         );
 
@@ -370,7 +392,7 @@ if (
     revealElements.forEach(
         (element) => {
 
-            observer.observe(
+            revealObserver.observe(
                 element
             );
 
@@ -408,6 +430,15 @@ function openProject(url) {
 
 
     projectFrame.src =
+        "about:blank";
+
+
+    modalLoading?.classList.remove(
+        "hidden"
+    );
+
+
+    modalExternalLink.href =
         url;
 
 
@@ -422,44 +453,22 @@ function openProject(url) {
     );
 
 
+    body.classList.add(
+        "modal-open"
+    );
+
+
     /*
-      نمنع background فقط داخل الـ modal.
+       Start loading immediately.
     */
 
-    body.classList.add(
-        "menu-locked"
-    );
+    requestAnimationFrame(
+        () => {
 
-}
+            projectFrame.src =
+                url;
 
-
-function closeProject() {
-
-    if (
-        !projectModal ||
-        !projectFrame
-    ) {
-        return;
-    }
-
-
-    projectModal.classList.remove(
-        "open"
-    );
-
-
-    projectModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    projectFrame.src =
-        "about:blank";
-
-
-    body.classList.remove(
-        "menu-locked"
+        }
     );
 
 }
@@ -493,6 +502,77 @@ document
     });
 
 
+projectFrame?.addEventListener(
+    "load",
+    () => {
+
+        modalLoading?.classList.add(
+            "hidden"
+        );
+
+    }
+);
+
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeProject() {
+
+    if (!projectModal) {
+        return;
+    }
+
+
+    projectModal.classList.remove(
+        "open"
+    );
+
+
+    projectModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    body.classList.remove(
+        "modal-open"
+    );
+
+
+    /*
+       Free the external page
+       when modal is closed.
+    */
+
+    window.setTimeout(
+        () => {
+
+            if (
+                projectModal.classList.contains(
+                    "open"
+                )
+            ) {
+                return;
+            }
+
+
+            if (projectFrame) {
+
+                projectFrame.src =
+                    "about:blank";
+
+            }
+
+        },
+        200
+    );
+
+}
+
+
 document
     .querySelectorAll(
         "[data-close-modal]"
@@ -509,37 +589,43 @@ document
 
 
 /* =========================================================
+   ESCAPE
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeProject();
+
+            closeMobileMenu();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
    VIDEO PERFORMANCE
 ========================================================= */
 
 const videos =
-    document.querySelectorAll(
-        "video"
-    );
+    [
+        ...document.querySelectorAll(
+            ".portfolio-video"
+        )
+    ];
 
 
 /*
-   أول فيديو أهم واحد:
-   نخليه يتحمل تحميله مبكرًا.
-*/
-
-const featuredVideo =
-    document.querySelector(
-        ".video-featured video"
-    );
-
-
-if (featuredVideo) {
-
-    featuredVideo.preload =
-        "auto";
-
-}
-
-
-/*
-   متشغلش أكتر من فيديو
-   في نفس الوقت.
+   Never play more than one video
+   at the same time.
 */
 
 videos.forEach(
@@ -571,11 +657,10 @@ videos.forEach(
 );
 
 
-
-/* =========================================================
-   VIDEO LOAD PRIORITY
-   يجهز metadata للفيديو القريب من الشاشة.
-========================================================= */
+/*
+   Prepare videos BEFORE they are
+   actually reached.
+*/
 
 if (
     "IntersectionObserver"
@@ -584,7 +669,10 @@ if (
 
     const videoObserver =
         new IntersectionObserver(
-            (entries, observer) => {
+            (
+                entries,
+                observer
+            ) => {
 
                 entries.forEach(
                     (entry) => {
@@ -601,17 +689,27 @@ if (
 
 
                         /*
-                          أول ما يبقى قريب من
-                          الشاشة، نزود preload.
+                           Start loading the
+                           actual video early.
                         */
 
                         if (
-                            video !==
-                            featuredVideo
+                            video
+                            .preload !==
+                            "auto"
                         ) {
 
                             video.preload =
-                                "metadata";
+                                "auto";
+
+                            /*
+                               load() makes the
+                               browser reconsider
+                               the newly-set source
+                               immediately.
+                            */
+
+                            video.load();
 
                         }
 
@@ -626,7 +724,7 @@ if (
             },
             {
                 rootMargin:
-                    "500px 0px"
+                    "1200px 0px"
             }
         );
 
@@ -634,9 +732,21 @@ if (
     videos.forEach(
         (video) => {
 
-            videoObserver.observe(
-                video
-            );
+            /*
+              First video is already
+              preload=auto in HTML.
+            */
+
+            if (
+                video !==
+                videos[0]
+            ) {
+
+                videoObserver.observe(
+                    video
+                );
+
+            }
 
         }
     );
@@ -646,32 +756,12 @@ if (
 
 
 /* =========================================================
-   ESC
+   CURRENT YEAR
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    (event) => {
-
-        if (
-            event.key === "Escape"
-        ) {
-
-            closeProject();
-            closeMobileMenu();
-
-        }
-
-    }
-);
-
-
-
-/* =========================================================
-   YEAR
-========================================================= */
-
-if (currentYear) {
+if (
+    currentYear
+) {
 
     currentYear.textContent =
         new Date().getFullYear();
@@ -689,5 +779,5 @@ applyLanguage(
 );
 
 applyTheme(
-    savedTheme
+    currentTheme
 );

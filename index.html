@@ -11,81 +11,109 @@
 
     <meta
         name="description"
-        content="Mahmoud Ahmed — Digital Marketing, Media Buying, Web Design and Market Analysis."
+        content="Mahmoud Ahmed Digital Marketing — Media Buying, Digital Marketing, Market Analysis, Social Media and Web Design."
     >
 
+    <meta name="theme-color" content="#070707">
+
     <title>Mahmoud Ahmed | Digital Marketing</title>
+
+
+    <!-- Faster connection to external resources -->
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="preconnect" href="https://www.instagram.com">
+
+
+    <!-- Project domains -->
+    <link rel="dns-prefetch" href="//rouh-lil-rouh.vercel.app">
+    <link rel="dns-prefetch" href="//lahzetzikr.com">
+    <link rel="dns-prefetch" href="//mahmoud-ahmed-elmasry.github.io">
+
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
+
 <body>
 
     <!-- ==================================================
-         LOADER
-    =================================================== -->
-    <div class="page-loader" id="pageLoader">
-        <span></span>
-    </div>
-
-
-    <!-- ==================================================
          HEADER
-    =================================================== -->
+    ================================================== -->
+
     <header class="site-header">
 
         <div class="container header-inner">
 
-            <a href="#home" class="brand">
+            <a
+                href="#home"
+                class="brand"
+                aria-label="Mahmoud Digital"
+            >
+
                 <img
                     src="./logo.png"
-                    alt="Mahmoud Ahmed"
+                    alt="Mahmoud Digital"
                     class="brand-logo"
                 >
+
             </a>
 
 
             <nav class="desktop-nav">
 
-                <a href="#home"
-                   data-ar="الرئيسية"
-                   data-en="Home">
+                <a
+                    href="#home"
+                    data-ar="الرئيسية"
+                    data-en="Home"
+                >
                     الرئيسية
                 </a>
 
-                <a href="#about"
-                   data-ar="من نحن"
-                   data-en="About">
+                <a
+                    href="#about"
+                    data-ar="من نحن"
+                    data-en="About"
+                >
                     من نحن
                 </a>
 
-                <a href="#services"
-                   data-ar="الخدمات"
-                   data-en="Services">
+                <a
+                    href="#services"
+                    data-ar="الخدمات"
+                    data-en="Services"
+                >
                     الخدمات
                 </a>
 
-                <a href="#projects"
-                   data-ar="المشاريع"
-                   data-en="Projects">
+                <a
+                    href="#projects"
+                    data-ar="المشاريع"
+                    data-en="Projects"
+                >
                     المشاريع
                 </a>
 
-                <a href="#packages"
-                   data-ar="الباقات"
-                   data-en="Packages">
+                <a
+                    href="#packages"
+                    data-ar="الباقات"
+                    data-en="Packages"
+                >
                     الباقات
                 </a>
 
-                <a href="#videos"
-                   data-ar="الفيديوهات"
-                   data-en="Videos">
+                <a
+                    href="#videos"
+                    data-ar="الفيديوهات"
+                    data-en="Videos"
+                >
                     الفيديوهات
                 </a>
 
-                <a href="#contact"
-                   data-ar="تواصل"
-                   data-en="Contact">
+                <a
+                    href="#contact"
+                    data-ar="تواصل"
+                    data-en="Contact"
+                >
                     تواصل
                 </a>
 
@@ -96,30 +124,36 @@
 
                 <button
                     type="button"
-                    class="header-btn"
+                    class="header-button"
                     id="languageToggle"
+                    aria-label="Change language"
                 >
                     EN
                 </button>
 
+
                 <button
                     type="button"
-                    class="header-btn"
+                    class="header-button"
                     id="themeToggle"
+                    aria-label="Change theme"
                 >
                     ☼
                 </button>
 
+
                 <button
                     type="button"
-                    class="header-btn menu-button"
+                    class="header-button menu-button"
                     id="menuButton"
+                    aria-label="Open menu"
                     aria-expanded="false"
-                    aria-label="Menu"
                 >
+
                     <span></span>
                     <span></span>
                     <span></span>
+
                 </button>
 
             </div>
@@ -127,53 +161,70 @@
         </div>
 
 
-        <!-- MOBILE NAV -->
+        <!-- Mobile menu -->
 
-        <div class="mobile-menu" id="mobileMenu">
+        <nav
+            class="mobile-menu"
+            id="mobileMenu"
+        >
 
-            <a href="#home"
-               data-ar="الرئيسية"
-               data-en="Home">
+            <a
+                href="#home"
+                data-ar="الرئيسية"
+                data-en="Home"
+            >
                 الرئيسية
             </a>
 
-            <a href="#about"
-               data-ar="من نحن"
-               data-en="About">
+            <a
+                href="#about"
+                data-ar="من نحن"
+                data-en="About"
+            >
                 من نحن
             </a>
 
-            <a href="#services"
-               data-ar="الخدمات"
-               data-en="Services">
+            <a
+                href="#services"
+                data-ar="الخدمات"
+                data-en="Services"
+            >
                 الخدمات
             </a>
 
-            <a href="#projects"
-               data-ar="المشاريع"
-               data-en="Projects">
+            <a
+                href="#projects"
+                data-ar="المشاريع"
+                data-en="Projects"
+            >
                 المشاريع
             </a>
 
-            <a href="#packages"
-               data-ar="الباقات"
-               data-en="Packages">
+            <a
+                href="#packages"
+                data-ar="الباقات"
+                data-en="Packages"
+            >
                 الباقات
             </a>
 
-            <a href="#videos"
-               data-ar="الفيديوهات"
-               data-en="Videos">
+            <a
+                href="#videos"
+                data-ar="الفيديوهات"
+                data-en="Videos"
+            >
                 الفيديوهات
             </a>
 
-            <a href="#contact"
-               data-ar="تواصل"
-               data-en="Contact">
+            <a
+                href="#contact"
+                data-ar="تواصل"
+                data-en="Contact"
+            >
                 تواصل
             </a>
 
-        </div>
+        </nav>
 
     </header>
 
@@ -183,26 +234,31 @@
 
         <!-- ==================================================
              HERO
-        =================================================== -->
-        <section class="hero section-dark" id="home">
+        ================================================== -->
 
-            <div class="hero-orb hero-orb-one"></div>
-            <div class="hero-orb hero-orb-two"></div>
+        <section
+            class="hero section-dark"
+            id="home"
+        >
+
+            <div class="hero-decoration hero-decoration-one"></div>
+            <div class="hero-decoration hero-decoration-two"></div>
 
 
             <div class="container hero-grid">
 
-                <div class="hero-content reveal">
+
+                <div class="hero-content">
 
                     <div class="eyebrow">
 
                         <span class="eyebrow-dot"></span>
 
                         <span
-                            data-ar="نمو حقيقي لمشروعك"
-                            data-en="REAL GROWTH FOR YOUR BUSINESS"
+                            data-ar="نكبر مشروعك بشكل أذكى"
+                            data-en="GROW YOUR BUSINESS SMARTER"
                         >
-                            نمو حقيقي لمشروعك
+                            نكبر مشروعك بشكل أذكى
                         </span>
 
                     </div>
@@ -230,13 +286,13 @@
                     <p
                         class="hero-description"
                         data-ar="أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك."
-                        data-en="Successful marketing ideas, precise media buying, market and competitor analysis, and websites designed around your business goals."
+                        data-en="Successful marketing ideas, precise paid advertising, market and competitor analysis, and websites designed around your business goals."
                     >
                         أفكار تسويقية ناجحة، إعلانات ممولة باستهداف دقيق، تحليل للسوق والمنافسين، وتصميم مواقع تخدم أهداف مشروعك.
                     </p>
 
 
-                    <div class="hero-buttons">
+                    <div class="hero-actions">
 
                         <a
                             href="#contact"
@@ -246,6 +302,7 @@
                         >
                             ابدأ مشروعك
                         </a>
+
 
                         <a
                             href="#projects"
@@ -262,37 +319,37 @@
                     <div class="hero-stats">
 
                         <div class="hero-stat">
-                            <strong>360°</strong>
-
-                            <span
-                                data-ar="رؤية تسويقية"
-                                data-en="Marketing Vision"
-                            >
-                                رؤية تسويقية
-                            </span>
-                        </div>
-
-
-                        <div class="hero-stat">
                             <strong>01</strong>
 
                             <span
-                                data-ar="هدف واضح"
-                                data-en="Clear Goal"
+                                data-ar="استراتيجية"
+                                data-en="Strategy"
                             >
-                                هدف واضح
+                                استراتيجية
                             </span>
                         </div>
 
 
                         <div class="hero-stat">
-                            <strong>∞</strong>
+                            <strong>02</strong>
 
                             <span
-                                data-ar="فرص نمو"
-                                data-en="Growth Opportunities"
+                                data-ar="تنفيذ"
+                                data-en="Execution"
                             >
-                                فرص نمو
+                                تنفيذ
+                            </span>
+                        </div>
+
+
+                        <div class="hero-stat">
+                            <strong>03</strong>
+
+                            <span
+                                data-ar="تحليل"
+                                data-en="Analysis"
+                            >
+                                تحليل
                             </span>
                         </div>
 
@@ -301,22 +358,41 @@
                 </div>
 
 
-                <div class="hero-visual reveal reveal-delay">
 
-                    <div class="hero-image-frame">
+                <div class="hero-visual">
 
-                        <div class="image-top-line">
+                    <div class="hero-image-card">
+
+                        <div class="image-bar">
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
 
-                        <img
-                            src="./hero-banner.png"
-                            alt="Digital Marketing"
-                            class="hero-banner"
-                            fetchpriority="high"
-                        >
+
+                        <div class="hero-image-container">
+
+                            <img
+                                src="./hero-banner.png"
+                                alt="Mahmoud Digital Marketing"
+                                class="hero-banner"
+                                fetchpriority="high"
+                            >
+
+                        </div>
+
+
+                        <div class="hero-image-caption">
+
+                            <span>MEDIA</span>
+
+                            <span class="yellow">
+                                BUYING
+                            </span>
+
+                            <span>DIGITAL</span>
+
+                        </div>
 
                     </div>
 
@@ -329,70 +405,16 @@
 
 
         <!-- ==================================================
-             TICKER
-        =================================================== -->
-        <section class="ticker-section section-dark">
+             ABOUT / BIO
+        ================================================== -->
 
-            <div class="ticker">
-
-                <div class="ticker-track">
-
-                    <div class="ticker-group">
-
-                        <span>MEDIA BUYING</span>
-                        <i>✦</i>
-
-                        <span>DIGITAL MARKETING</span>
-                        <i>✦</i>
-
-                        <span>WEB DESIGN</span>
-                        <i>✦</i>
-
-                        <span>MARKET ANALYSIS</span>
-                        <i>✦</i>
-
-                        <span>SOCIAL MEDIA</span>
-                        <i>✦</i>
-
-                    </div>
-
-
-                    <div
-                        class="ticker-group"
-                        aria-hidden="true"
-                    >
-
-                        <span>MEDIA BUYING</span>
-                        <i>✦</i>
-
-                        <span>DIGITAL MARKETING</span>
-                        <i>✦</i>
-
-                        <span>WEB DESIGN</span>
-                        <i>✦</i>
-
-                        <span>MARKET ANALYSIS</span>
-                        <i>✦</i>
-
-                        <span>SOCIAL MEDIA</span>
-                        <i>✦</i>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- ==================================================
-             ABOUT
-        =================================================== -->
-        <section class="section section-dark" id="about">
+        <section
+            class="section section-alt"
+            id="about"
+        >
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -422,9 +444,11 @@
                 </div>
 
 
-                <div class="about-layout">
 
-                    <div class="about-main reveal">
+                <div class="bio-layout">
+
+
+                    <div class="bio-main reveal">
 
                         <h3
                             data-ar="بنبني نمو حقيقي."
@@ -435,22 +459,40 @@
 
 
                         <p
-                            data-ar="بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى وتصميم المواقع عشان كل خطوة في المشروع يكون ليها هدف واضح."
-                            data-en="We combine strategy, media buying, market analysis, content and web design so every step has a clear purpose."
+                            data-ar="بنجمع بين التسويق، الإعلانات، تحليل السوق، والمواقع عشان نساعد المشروع يكبر بخطة واضحة."
+                            data-en="We combine marketing, advertising, market analysis and web design to help businesses grow with a clear plan."
                         >
-                            بنجمع بين الاستراتيجية، الميديا باينج، تحليل السوق، المحتوى وتصميم المواقع عشان كل خطوة في المشروع يكون ليها هدف واضح.
+                            بنجمع بين التسويق، الإعلانات، تحليل السوق، والمواقع عشان نساعد المشروع يكبر بخطة واضحة.
                         </p>
+
+
+                        <div class="bio-goal">
+
+                            <span class="goal-icon">
+                                🎯
+                            </span>
+
+                            <strong
+                                data-ar="نجاح مشروعك هو هدفنا"
+                                data-en="Your business success is our goal"
+                            >
+                                نجاح مشروعك هو هدفنا
+                            </strong>
+
+                        </div>
 
                     </div>
 
 
-                    <div class="about-features">
 
-                        <article class="feature-card reveal">
+                    <div class="bio-list">
 
-                            <span class="feature-number">
-                                01
-                            </span>
+
+                        <article class="bio-card reveal">
+
+                            <div class="bio-card-icon yellow-bg">
+                                🟡
+                            </div>
 
                             <div>
 
@@ -463,7 +505,7 @@
 
                                 <p
                                     data-ar="أفكار مبنية على السوق والجمهور."
-                                    data-en="Ideas built around the market and audience."
+                                    data-en="Ideas based on the market and audience."
                                 >
                                     أفكار مبنية على السوق والجمهور.
                                 </p>
@@ -473,26 +515,26 @@
                         </article>
 
 
-                        <article class="feature-card reveal">
+                        <article class="bio-card reveal">
 
-                            <span class="feature-number">
-                                02
-                            </span>
+                            <div class="bio-card-icon blue-bg">
+                                🔵
+                            </div>
 
                             <div>
 
                                 <h4
-                                    data-ar="استهداف دقيق"
-                                    data-en="Precise Targeting"
+                                    data-ar="إعلانات ممولة باستهداف دقيق"
+                                    data-en="Paid Ads With Precise Targeting"
                                 >
-                                    استهداف دقيق
+                                    إعلانات ممولة باستهداف دقيق
                                 </h4>
 
                                 <p
-                                    data-ar="توجيه الميزانية للجمهور المناسب."
-                                    data-en="Directing your budget toward the right audience."
+                                    data-ar="وصول الميزانية للجمهور المناسب."
+                                    data-en="Putting the budget in front of the right audience."
                                 >
-                                    توجيه الميزانية للجمهور المناسب.
+                                    وصول الميزانية للجمهور المناسب.
                                 </p>
 
                             </div>
@@ -500,31 +542,32 @@
                         </article>
 
 
-                        <article class="feature-card reveal">
+                        <article class="bio-card reveal">
 
-                            <span class="feature-number">
-                                03
-                            </span>
+                            <div class="bio-card-icon yellow-bg">
+                                🟡
+                            </div>
 
                             <div>
 
                                 <h4
-                                    data-ar="تحليل وتطوير"
-                                    data-en="Analyze & Improve"
+                                    data-ar="تحليل السوق والمنافسين"
+                                    data-en="Market & Competitor Analysis"
                                 >
-                                    تحليل وتطوير
+                                    تحليل السوق والمنافسين
                                 </h4>
 
                                 <p
-                                    data-ar="نقيس ونحلل ونحسن الأداء باستمرار."
-                                    data-en="We measure, analyze and continuously improve performance."
+                                    data-ar="فهم أفضل للسوق والفرص."
+                                    data-en="A clearer understanding of the market and opportunities."
                                 >
-                                    نقيس ونحلل ونحسن الأداء باستمرار.
+                                    فهم أفضل للسوق والفرص.
                                 </p>
 
                             </div>
 
                         </article>
+
 
                     </div>
 
@@ -538,10 +581,15 @@
 
         <!-- ==================================================
              SERVICES
-        =================================================== -->
-        <section class="section section-alt" id="services">
+        ================================================== -->
+
+        <section
+            class="section section-dark"
+            id="services"
+        >
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -553,10 +601,10 @@
 
                         <span
                             class="section-label"
-                            data-ar="خدماتنا"
+                            data-ar="الخدمات"
                             data-en="SERVICES"
                         >
-                            خدماتنا
+                            الخدمات
                         </span>
 
                         <h2
@@ -571,22 +619,28 @@
                 </div>
 
 
+
                 <div class="services-grid">
+
 
                     <article class="service-card reveal">
 
                         <div class="service-top">
                             <span>01</span>
-                            <div class="service-icon">↗</div>
+                            <div class="service-icon">
+                                ↗
+                            </div>
                         </div>
 
-                        <h3>Media Buying</h3>
+                        <h3>
+                            Media Buying
+                        </h3>
 
                         <p
-                            data-ar="إعلانات ممولة باستهداف دقيق وإدارة ذكية للميزانية."
-                            data-en="Precise paid advertising and smart budget management."
+                            data-ar="إعلانات ممولة باستهداف دقيق وإدارة أفضل للميزانية."
+                            data-en="Precise paid advertising and better budget management."
                         >
-                            إعلانات ممولة باستهداف دقيق وإدارة ذكية للميزانية.
+                            إعلانات ممولة باستهداف دقيق وإدارة أفضل للميزانية.
                         </p>
 
                     </article>
@@ -596,16 +650,20 @@
 
                         <div class="service-top">
                             <span>02</span>
-                            <div class="service-icon">◎</div>
+                            <div class="service-icon">
+                                ◎
+                            </div>
                         </div>
 
-                        <h3>Digital Marketing</h3>
+                        <h3>
+                            Digital Marketing
+                        </h3>
 
                         <p
-                            data-ar="استراتيجية رقمية تساعد البراند يوصل للجمهور الصح."
-                            data-en="Digital strategies that connect your brand with the right audience."
+                            data-ar="استراتيجية تساعد البراند يوصل للجمهور المناسب."
+                            data-en="Strategies that connect the brand with the right audience."
                         >
-                            استراتيجية رقمية تساعد البراند يوصل للجمهور الصح.
+                            استراتيجية تساعد البراند يوصل للجمهور المناسب.
                         </p>
 
                     </article>
@@ -615,16 +673,20 @@
 
                         <div class="service-top">
                             <span>03</span>
-                            <div class="service-icon">⌁</div>
+                            <div class="service-icon">
+                                ◇
+                            </div>
                         </div>
 
-                        <h3>Market Analysis</h3>
+                        <h3>
+                            Market Analysis
+                        </h3>
 
                         <p
-                            data-ar="تحليل السوق والمنافسين لفهم الفرص واتخاذ قرارات أفضل."
-                            data-en="Market and competitor analysis to uncover opportunities."
+                            data-ar="تحليل السوق والمنافسين لفهم الفرص بشكل أفضل."
+                            data-en="Market and competitor analysis to understand opportunities."
                         >
-                            تحليل السوق والمنافسين لفهم الفرص واتخاذ قرارات أفضل.
+                            تحليل السوق والمنافسين لفهم الفرص بشكل أفضل.
                         </p>
 
                     </article>
@@ -634,10 +696,14 @@
 
                         <div class="service-top">
                             <span>04</span>
-                            <div class="service-icon">◇</div>
+                            <div class="service-icon">
+                                ✦
+                            </div>
                         </div>
 
-                        <h3>Social Media</h3>
+                        <h3>
+                            Social Media
+                        </h3>
 
                         <p
                             data-ar="محتوى واتجاه بصري يحافظ على حضور البراند."
@@ -649,20 +715,24 @@
                     </article>
 
 
-                    <article class="service-card service-card-wide reveal">
+                    <article class="service-card service-wide reveal">
 
                         <div class="service-top">
                             <span>05</span>
-                            <div class="service-icon">+</div>
+                            <div class="service-icon">
+                                +
+                            </div>
                         </div>
 
-                        <h3>Web Design</h3>
+                        <h3>
+                            Web Design
+                        </h3>
 
                         <p
-                            data-ar="مواقع سريعة، Responsive، ومصممة على ستايل مشروعك وأهدافه."
-                            data-en="Fast, responsive websites designed around your style and business goals."
+                            data-ar="مواقع سريعة ومتجاوبة ومصممة على ستايل مشروعك، من الصفر."
+                            data-en="Fast responsive websites designed from scratch around your project."
                         >
-                            مواقع سريعة، Responsive، ومصممة على ستايل مشروعك وأهدافه.
+                            مواقع سريعة ومتجاوبة ومصممة على ستايل مشروعك، من الصفر.
                         </p>
 
                     </article>
@@ -677,10 +747,15 @@
 
         <!-- ==================================================
              PROJECTS
-        =================================================== -->
-        <section class="section section-dark" id="projects">
+        ================================================== -->
+
+        <section
+            class="section section-alt"
+            id="projects"
+        >
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -692,10 +767,10 @@
 
                         <span
                             class="section-label"
-                            data-ar="مشاريعنا"
+                            data-ar="المشاريع"
                             data-en="PROJECTS"
                         >
-                            مشاريعنا
+                            المشاريع
                         </span>
 
                         <h2
@@ -710,12 +785,13 @@
                 </div>
 
 
+
                 <div class="projects-grid">
 
 
                     <article class="project-card project-featured reveal">
 
-                        <div class="project-preview">
+                        <div class="project-visual project-one">
 
                             <div class="browser-bar">
                                 <span></span>
@@ -723,15 +799,15 @@
                                 <span></span>
                             </div>
 
-                            <div class="project-preview-content">
+                            <div class="project-visual-center">
 
                                 <strong>
-                                    ROUH LIL ROUH
+                                    ROUH
                                 </strong>
 
-                                <small>
-                                    Web Experience
-                                </small>
+                                <span>
+                                    LIL ROUH
+                                </span>
 
                             </div>
 
@@ -740,7 +816,7 @@
 
                         <div class="project-info">
 
-                            <span class="project-tag">
+                            <span class="project-number">
                                 01 / WEBSITE
                             </span>
 
@@ -749,28 +825,46 @@
                             </h3>
 
                             <p
-                                data-ar="موقع بتجربة مختلفة وتصميم حديث."
-                                data-en="A modern website with a distinctive digital experience."
+                                data-ar="تجربة ويب عصرية بتصميم مختلف."
+                                data-en="A modern web experience with a distinctive design."
                             >
-                                موقع بتجربة مختلفة وتصميم حديث.
+                                تجربة ويب عصرية بتصميم مختلف.
                             </p>
 
-                            <button
-                                type="button"
-                                class="project-button"
-                                data-project="https://rouh-lil-rouh.vercel.app/"
-                            >
-                                مشاهدة الموقع
-                            </button>
+
+                            <div class="project-actions">
+
+                                <button
+                                    type="button"
+                                    class="project-button"
+                                    data-project="https://rouh-lil-rouh.vercel.app/"
+                                    data-ar="شاهد الموقع"
+                                    data-en="View Website"
+                                >
+                                    شاهد الموقع
+                                </button>
+
+
+                                <a
+                                    href="https://rouh-lil-rouh.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    ↗
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
+
                     <article class="project-card reveal">
 
-                        <div class="project-preview project-preview-two">
+                        <div class="project-visual project-two">
 
                             <div class="browser-bar">
                                 <span></span>
@@ -778,15 +872,15 @@
                                 <span></span>
                             </div>
 
-                            <div class="project-preview-content">
+                            <div class="project-visual-center">
 
                                 <strong>
-                                    LAHZET ZIKR
+                                    LAHZET
                                 </strong>
 
-                                <small>
-                                    Website
-                                </small>
+                                <span>
+                                    ZIKR
+                                </span>
 
                             </div>
 
@@ -795,7 +889,7 @@
 
                         <div class="project-info">
 
-                            <span class="project-tag">
+                            <span class="project-number">
                                 02 / WEBSITE
                             </span>
 
@@ -804,28 +898,46 @@
                             </h3>
 
                             <p
-                                data-ar="واجهة بسيطة وواضحة مع تجربة استخدام سهلة."
-                                data-en="A clean interface with a simple user experience."
+                                data-ar="واجهة مرتبة وتجربة استخدام واضحة."
+                                data-en="A clean interface with a clear user experience."
                             >
-                                واجهة بسيطة وواضحة مع تجربة استخدام سهلة.
+                                واجهة مرتبة وتجربة استخدام واضحة.
                             </p>
 
-                            <button
-                                type="button"
-                                class="project-button"
-                                data-project="https://lahzetzikr.com/"
-                            >
-                                مشاهدة الموقع
-                            </button>
+
+                            <div class="project-actions">
+
+                                <button
+                                    type="button"
+                                    class="project-button"
+                                    data-project="https://lahzetzikr.com/"
+                                    data-ar="شاهد الموقع"
+                                    data-en="View Website"
+                                >
+                                    شاهد الموقع
+                                </button>
+
+
+                                <a
+                                    href="https://lahzetzikr.com/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    ↗
+                                </a>
+
+                            </div>
 
                         </div>
 
                     </article>
 
 
+
                     <article class="project-card reveal">
 
-                        <div class="project-preview project-preview-three">
+                        <div class="project-visual project-three">
 
                             <div class="browser-bar">
                                 <span></span>
@@ -833,15 +945,15 @@
                                 <span></span>
                             </div>
 
-                            <div class="project-preview-content">
+                            <div class="project-visual-center">
 
                                 <strong>
-                                    KABTEN SAIF
+                                    KABTEN
                                 </strong>
 
-                                <small>
-                                    Website
-                                </small>
+                                <span>
+                                    SAIF
+                                </span>
 
                             </div>
 
@@ -850,7 +962,7 @@
 
                         <div class="project-info">
 
-                            <span class="project-tag">
+                            <span class="project-number">
                                 03 / WEBSITE
                             </span>
 
@@ -859,19 +971,36 @@
                             </h3>
 
                             <p
-                                data-ar="تصميم Responsive مناسب للموبايل والكمبيوتر."
-                                data-en="A responsive design optimized for mobile and desktop."
+                                data-ar="تصميم متجاوب للموبايل والكمبيوتر."
+                                data-en="A responsive website for mobile and desktop."
                             >
-                                تصميم Responsive مناسب للموبايل والكمبيوتر.
+                                تصميم متجاوب للموبايل والكمبيوتر.
                             </p>
 
-                            <button
-                                type="button"
-                                class="project-button"
-                                data-project="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
-                            >
-                                مشاهدة الموقع
-                            </button>
+
+                            <div class="project-actions">
+
+                                <button
+                                    type="button"
+                                    class="project-button"
+                                    data-project="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
+                                    data-ar="شاهد الموقع"
+                                    data-en="View Website"
+                                >
+                                    شاهد الموقع
+                                </button>
+
+
+                                <a
+                                    href="https://mahmoud-ahmed-elmasry.github.io/Kabtensaif/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="project-link"
+                                >
+                                    ↗
+                                </a>
+
+                            </div>
 
                         </div>
 
@@ -887,10 +1016,15 @@
 
         <!-- ==================================================
              PACKAGES
-        =================================================== -->
-        <section class="section section-alt" id="packages">
+        ================================================== -->
+
+        <section
+            class="section section-dark"
+            id="packages"
+        >
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -920,6 +1054,7 @@
                 </div>
 
 
+
                 <div class="packages-grid">
 
 
@@ -947,6 +1082,7 @@
                         >
                             السعر يحدد حسب المشروع
                         </span>
+
 
                         <ul>
 
@@ -980,6 +1116,7 @@
 
                         </ul>
 
+
                         <a
                             href="#contact"
                             class="package-button"
@@ -992,9 +1129,12 @@
                     </article>
 
 
-                    <article class="package-card package-featured reveal">
 
-                        <div class="popular-badge">
+                    <article
+                        class="package-card package-featured reveal"
+                    >
+
+                        <span class="popular-badge">
 
                             <span
                                 data-ar="الأكثر طلباً"
@@ -1003,7 +1143,7 @@
                                 الأكثر طلباً
                             </span>
 
-                        </div>
+                        </span>
 
 
                         <span class="package-label">
@@ -1017,11 +1157,9 @@
                             النمو
                         </h3>
 
-
                         <div class="package-price">
                             —
                         </div>
-
 
                         <span
                             class="package-period"
@@ -1084,6 +1222,7 @@
                     </article>
 
 
+
                     <article class="package-card reveal">
 
                         <span class="package-label">
@@ -1097,11 +1236,9 @@
                             على حسب المشروع
                         </h3>
 
-
                         <div class="package-price">
                             —
                         </div>
-
 
                         <span
                             class="package-period"
@@ -1166,8 +1303,9 @@
 
         <!-- ==================================================
              CUSTOM WEBSITE
-        =================================================== -->
-        <section class="custom-section section-dark">
+        ================================================== -->
+
+        <section class="section section-alt">
 
             <div class="container">
 
@@ -1177,11 +1315,12 @@
 
                         <span
                             class="section-label"
-                            data-ar="WEB DESIGN"
+                            data-ar="تصميم مواقع"
                             data-en="WEB DESIGN"
                         >
-                            WEB DESIGN
+                            تصميم مواقع
                         </span>
+
 
                         <h2
                             data-ar="عايز موقع على ستايلك؟"
@@ -1189,6 +1328,7 @@
                         >
                             عايز موقع على ستايلك؟
                         </h2>
+
 
                         <p
                             data-ar="نصمم لك موقع من الصفر على حسب البراند، المجال، الجمهور والهدف. مش Template جاهز."
@@ -1219,10 +1359,12 @@
 
         <!-- ==================================================
              SHOWCASE
-        =================================================== -->
-        <section class="section section-alt">
+        ================================================== -->
+
+        <section class="section section-dark">
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -1234,11 +1376,12 @@
 
                         <span
                             class="section-label"
-                            data-ar="Showcase"
+                            data-ar="معرض الأعمال"
                             data-en="SHOWCASE"
                         >
-                            Showcase
+                            معرض الأعمال
                         </span>
+
 
                         <h2
                             data-ar="مكان لحملاتك."
@@ -1252,10 +1395,12 @@
                 </div>
 
 
+
                 <div class="showcase-grid">
 
                     <div class="showcase-placeholder reveal">
                         <span>+</span>
+
                         <p
                             data-ar="صورة حملة مستقبلية"
                             data-en="Future campaign image"
@@ -1264,8 +1409,10 @@
                         </p>
                     </div>
 
+
                     <div class="showcase-placeholder reveal">
                         <span>+</span>
+
                         <p
                             data-ar="Case Study"
                             data-en="Case Study"
@@ -1274,8 +1421,10 @@
                         </p>
                     </div>
 
+
                     <div class="showcase-placeholder reveal">
                         <span>+</span>
+
                         <p
                             data-ar="نتائج حملة"
                             data-en="Campaign results"
@@ -1284,8 +1433,10 @@
                         </p>
                     </div>
 
+
                     <div class="showcase-placeholder reveal">
                         <span>+</span>
+
                         <p
                             data-ar="Creative"
                             data-en="Creative"
@@ -1304,10 +1455,15 @@
 
         <!-- ==================================================
              VIDEOS
-        =================================================== -->
-        <section class="section section-dark" id="videos">
+        ================================================== -->
+
+        <section
+            class="section section-alt"
+            id="videos"
+        >
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -1325,6 +1481,7 @@
                             فيديوهات
                         </span>
 
+
                         <h2
                             data-ar="شوف النتائج بنفسك."
                             data-en="SEE IT FOR YOURSELF."
@@ -1337,19 +1494,24 @@
                 </div>
 
 
+
                 <div class="videos-grid">
 
 
                     <!-- VIDEO 1 -->
 
-                    <article class="video-card video-featured reveal">
+                    <article
+                        class="video-card video-featured reveal"
+                    >
 
                         <div class="video-wrapper">
 
                             <video
+                                class="portfolio-video"
                                 controls
                                 playsinline
                                 preload="auto"
+                                fetchpriority="high"
                                 poster="./hero-banner.png"
                             >
 
@@ -1358,7 +1520,7 @@
                                     type="video/mp4"
                                 >
 
-                                متصفحك لا يدعم تشغيل الفيديو.
+                                المتصفح لا يدعم تشغيل الفيديو.
 
                             </video>
 
@@ -1379,10 +1541,10 @@
                             </h3>
 
                             <p
-                                data-ar="شاهد المحتوى مباشرة من داخل الموقع."
-                                data-en="Watch the content directly inside the website."
+                                data-ar="شاهد الفيديو مباشرة داخل الموقع."
+                                data-en="Watch the video directly inside the website."
                             >
-                                شاهد المحتوى مباشرة من داخل الموقع.
+                                شاهد الفيديو مباشرة داخل الموقع.
                             </p>
 
                         </div>
@@ -1398,6 +1560,7 @@
                         <div class="video-wrapper">
 
                             <video
+                                class="portfolio-video"
                                 controls
                                 playsinline
                                 preload="metadata"
@@ -1439,6 +1602,7 @@
                         <div class="video-wrapper">
 
                             <video
+                                class="portfolio-video"
                                 controls
                                 playsinline
                                 preload="metadata"
@@ -1480,6 +1644,7 @@
                         <div class="video-wrapper">
 
                             <video
+                                class="portfolio-video"
                                 controls
                                 playsinline
                                 preload="metadata"
@@ -1521,6 +1686,7 @@
                         <div class="video-wrapper">
 
                             <video
+                                class="portfolio-video"
                                 controls
                                 playsinline
                                 preload="metadata"
@@ -1553,7 +1719,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -1564,10 +1729,12 @@
 
         <!-- ==================================================
              PROCESS
-        =================================================== -->
-        <section class="section section-alt">
+        ================================================== -->
+
+        <section class="section section-dark">
 
             <div class="container">
+
 
                 <div class="section-heading reveal">
 
@@ -1597,9 +1764,11 @@
                 </div>
 
 
+
                 <div class="process-grid">
 
                     <article class="process-card reveal">
+
                         <span>01</span>
 
                         <h3
@@ -1615,10 +1784,12 @@
                         >
                             نفهم المشروع والجمهور والهدف.
                         </p>
+
                     </article>
 
 
                     <article class="process-card reveal">
+
                         <span>02</span>
 
                         <h3
@@ -1634,10 +1805,12 @@
                         >
                             نحدد الاستراتيجية والقنوات المناسبة.
                         </p>
+
                     </article>
 
 
                     <article class="process-card reveal">
+
                         <span>03</span>
 
                         <h3
@@ -1653,10 +1826,12 @@
                         >
                             نبدأ التنفيذ ونختبر ونراقب الأداء.
                         </p>
+
                     </article>
 
 
                     <article class="process-card reveal">
+
                         <span>04</span>
 
                         <h3
@@ -1672,6 +1847,7 @@
                         >
                             نحلل النتائج ونطور الأداء باستمرار.
                         </p>
+
                     </article>
 
                 </div>
@@ -1684,22 +1860,28 @@
 
         <!-- ==================================================
              CONTACT
-        =================================================== -->
-        <section class="contact-section section-dark" id="contact">
+        ================================================== -->
+
+        <section
+            class="section contact-section section-alt"
+            id="contact"
+        >
 
             <div class="container">
 
+
                 <div class="contact-box reveal">
 
-                    <div>
+                    <div class="contact-content">
 
                         <span
                             class="section-label"
-                            data-ar="تواصل"
+                            data-ar="تواصل معنا"
                             data-en="CONTACT"
                         >
-                            تواصل
+                            تواصل معنا
                         </span>
+
 
                         <h2
                             data-ar="جاهز نبدأ؟"
@@ -1708,24 +1890,120 @@
                             جاهز نبدأ؟
                         </h2>
 
+
                         <p
-                            data-ar="ابعت تفاصيل مشروعك ونبدأ نحدد أفضل خطوة."
-                            data-en="Send us your project details and let's define the best next step."
+                            data-ar="ابعت لنا تفاصيل مشروعك وهنحدد لك أفضل طريقة نبدأ بيها."
+                            data-en="Send us your project details and we'll define the best way to start."
                         >
-                            ابعت تفاصيل مشروعك ونبدأ نحدد أفضل خطوة.
+                            ابعت لنا تفاصيل مشروعك وهنحدد لك أفضل طريقة نبدأ بيها.
                         </p>
 
                     </div>
 
 
-                    <a
-                        href="mailto:your@email.com"
-                        class="button button-primary"
-                        data-ar="تواصل معنا"
-                        data-en="Contact Us"
-                    >
-                        تواصل معنا
-                    </a>
+
+                    <div class="contact-links">
+
+
+                        <a
+                            href="tel:+201006907047"
+                            class="contact-link"
+                        >
+
+                            <div>
+
+                                <small
+                                    data-ar="رقم الشركة"
+                                    data-en="Company Phone"
+                                >
+                                    رقم الشركة
+                                </small>
+
+                                <strong dir="ltr">
+                                    +20 10 06907047
+                                </strong>
+
+                            </div>
+
+                            <span>↗</span>
+
+                        </a>
+
+
+
+                        <a
+                            href="https://www.facebook.com/share/1ArzKz7Q64/?mibextid=wwXIfr"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+
+                            <div>
+
+                                <small>
+                                    Facebook
+                                </small>
+
+                                <strong>
+                                    Ahmed Talaat
+                                </strong>
+
+                            </div>
+
+                            <span>↗</span>
+
+                        </a>
+
+
+
+                        <a
+                            href="https://www.instagram.com/ahmedtalaat_digitalmarketing?stkn=dzFiMDhmcTY2OTdm"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+
+                            <div>
+
+                                <small>
+                                    Instagram
+                                </small>
+
+                                <strong>
+                                    @ahmedtalaat_digitalmarketing
+                                </strong>
+
+                            </div>
+
+                            <span>↗</span>
+
+                        </a>
+
+
+                        <a
+                            href="https://wa.me/201006907047"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="contact-link"
+                        >
+
+                            <div>
+
+                                <small>
+                                    WhatsApp
+                                </small>
+
+                                <strong>
+                                    Chat With Us
+                                </strong>
+
+                            </div>
+
+                            <span>↗</span>
+
+                        </a>
+
+                    </div>
 
                 </div>
 
@@ -1739,21 +2017,23 @@
 
     <!-- ==================================================
          FOOTER
-    =================================================== -->
+    ================================================== -->
+
     <footer class="site-footer">
 
         <div class="container footer-inner">
 
             <img
                 src="./logo.png"
-                alt="Mahmoud Ahmed"
+                alt="Mahmoud Digital"
                 class="footer-logo"
             >
+
 
             <p>
                 ©
                 <span id="currentYear"></span>
-                Mahmoud Ahmed
+                Mahmoud Digital
             </p>
 
         </div>
@@ -1764,7 +2044,8 @@
 
     <!-- ==================================================
          PROJECT MODAL
-    =================================================== -->
+    ================================================== -->
+
     <div
         class="modal"
         id="projectModal"
@@ -1788,10 +2069,12 @@
                     معاينة الموقع
                 </strong>
 
+
                 <button
                     type="button"
                     class="modal-close"
                     data-close-modal
+                    aria-label="Close"
                 >
                     ×
                 </button>
@@ -1801,12 +2084,43 @@
 
             <div class="modal-content">
 
+                <div
+                    class="modal-loading"
+                    id="modalLoading"
+                >
+                    <span></span>
+
+                    <p
+                        data-ar="جاري تحميل الموقع..."
+                        data-en="Loading website..."
+                    >
+                        جاري تحميل الموقع...
+                    </p>
+                </div>
+
+
                 <iframe
                     id="projectFrame"
-                    title="Project Preview"
-                    loading="lazy"
+                    title="Website Preview"
                     src="about:blank"
                 ></iframe>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <a
+                    href="#"
+                    id="modalExternalLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-primary"
+                    data-ar="فتح في تبويب جديد"
+                    data-en="Open In New Tab"
+                >
+                    فتح في تبويب جديد
+                </a>
 
             </div>
 
