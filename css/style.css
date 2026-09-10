@@ -11,6 +11,7 @@
 html {
     margin: 0;
     padding: 0;
+
     scroll-behavior: auto;
 }
 
@@ -31,9 +32,11 @@ body {
         sans-serif;
 
     font-size: 16px;
+
     line-height: 1.7;
 
     -webkit-font-smoothing: antialiased;
+
     text-rendering: optimizeLegibility;
 }
 
@@ -50,6 +53,7 @@ img,
 video,
 iframe {
     display: block;
+
     max-width: 100%;
 }
 
@@ -111,9 +115,6 @@ p {
     --dark-2: #0c0c0c;
     --dark-card: #121212;
 
-    --light: #f5f5f0;
-    --light-card: #ffffff;
-
     --text: #f7f7f2;
     --muted: #a3a39e;
 
@@ -163,23 +164,31 @@ body.light-theme {
 .section {
     position: relative;
 
-    padding: 120px 0;
+    padding:
+        120px 0;
 
     overflow: hidden;
 }
 
 .section-dark {
-    background: var(--dark);
-    color: var(--text);
+    background:
+        var(--dark);
+
+    color:
+        var(--text);
 }
 
 .section-alt {
-    background: var(--dark-2);
-    color: var(--text);
+    background:
+        var(--dark-2);
+
+    color:
+        var(--text);
 }
 
 .yellow {
-    color: var(--yellow);
+    color:
+        var(--yellow);
 }
 
 
@@ -337,7 +346,8 @@ body.light-theme {
         7px;
 }
 
-.header-button {
+.header-button,
+.menu-button {
     width:
         39px;
 
@@ -439,8 +449,8 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        minmax(0, 1.03fr)
-        minmax(390px, 0.97fr);
+        minmax(0,1.03fr)
+        minmax(390px,0.97fr);
 
     gap:
         60px;
@@ -520,9 +530,6 @@ body.light-theme {
 
     line-height:
         0.99;
-
-    letter-spacing:
-        normal;
 }
 
 .hero-title span,
@@ -950,14 +957,11 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        minmax(0, 0.9fr)
-        minmax(0, 1.1fr);
+        minmax(0,0.9fr)
+        minmax(0,1.1fr);
 
     gap:
         65px;
-
-    align-items:
-        start;
 }
 
 .bio-main h3 {
@@ -1017,9 +1021,6 @@ body.light-theme {
 
     background:
         rgba(255,212,0,0.055);
-
-    color:
-        var(--text);
 
     font-size:
         13px;
@@ -1611,13 +1612,16 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(3,minmax(0,1fr));
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
 
     gap:
         16px;
 
     margin-bottom:
-        50px;
+        48px;
 }
 
 .website-package {
@@ -1662,16 +1666,9 @@ body.light-theme {
 .website-package-featured {
     border-color:
         rgba(255,212,0,0.4);
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,212,0,0.05),
-            transparent 32%
-        ),
-        var(--dark-card);
 }
 
+.website-package
 .package-label {
     color:
         var(--yellow);
@@ -1699,11 +1696,11 @@ body.light-theme {
 }
 
 .website-package p {
-    margin:
-        0;
-
     min-height:
         80px;
+
+    margin:
+        0;
 
     color:
         var(--muted);
@@ -1785,7 +1782,7 @@ body.light-theme {
 
     box-shadow:
         0 0 0 1px
-        rgba(255,212,0,0.12);
+        rgba(255,212,0,0.1);
 }
 
 .website-package.selected
@@ -1852,7 +1849,7 @@ body.light-theme {
 
 .selector-heading {
     margin-bottom:
-        28px;
+        27px;
 }
 
 .selector-heading p {
@@ -1874,13 +1871,19 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(4,minmax(0,1fr));
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
 
     gap:
         13px;
 }
 
 .design-option {
+    min-width:
+        0;
+
     padding:
         0;
 
@@ -2035,7 +2038,10 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(3,minmax(0,1fr))
+        repeat(
+            3,
+            minmax(0,1fr)
+        )
         auto;
 
     gap:
@@ -2140,7 +2146,10 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(3,minmax(0,1fr));
+        repeat(
+            3,
+            minmax(0,1fr)
+        );
 
     gap:
         16px;
@@ -2183,6 +2192,29 @@ body.light-theme {
 
     border-color:
         rgba(255,212,0,0.35);
+}
+
+.package-featured {
+    border-color:
+        rgba(255,212,0,0.4);
+}
+
+.package-label {
+    color:
+        var(--yellow);
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        0.15em;
 }
 
 .package-card h3 {
@@ -2319,40 +2351,6 @@ body.light-theme {
         #070707;
 }
 
-.popular-badge {
-    position:
-        absolute;
-
-    top:
-        16px;
-
-    inset-inline-end:
-        16px;
-
-    padding:
-        5px 9px;
-
-    border-radius:
-        100px;
-
-    background:
-        var(--yellow);
-
-    color:
-        #070707;
-
-    font-size:
-        8px;
-
-    font-weight:
-        900;
-}
-
-.package-featured {
-    border-color:
-        rgba(255,212,0,0.4);
-}
-
 
 
 /* =========================================================
@@ -2426,29 +2424,18 @@ body.light-theme {
 
 
 /* =========================================================
-   INSTAGRAM POSTS
+   INSTAGRAM CAROUSEL
 ========================================================= */
 
-.instagram-grid {
-    display:
-        grid;
+.instagram-slider {
+    width:
+        min(
+            670px,
+            100%
+        );
 
-    grid-template-columns:
-        repeat(2,minmax(0,1fr));
-
-    gap:
-        18px;
-}
-
-.instagram-post {
-    position:
-        relative;
-
-    min-width:
-        0;
-
-    padding:
-        0;
+    margin:
+        0 auto;
 
     overflow:
         hidden;
@@ -2458,54 +2445,18 @@ body.light-theme {
         var(--border);
 
     border-radius:
-        20px;
+        22px;
 
     background:
         var(--dark-card);
-
-    color:
-        var(--text);
-
-    text-align:
-        start;
-
-    cursor:
-        pointer;
-
-    transition:
-        transform 0.28s ease,
-        border-color 0.28s ease,
-        box-shadow 0.28s ease;
-}
-
-.instagram-post:hover {
-    transform:
-        translateY(-5px);
-
-    border-color:
-        rgba(255,212,0,0.38);
 
     box-shadow:
         var(--shadow);
 }
 
-.instagram-post-wide {
-    grid-column:
-        1 / -1;
-
-    max-width:
-        580px;
-
-    width:
-        100%;
-
-    justify-self:
-        center;
-}
-
-.instagram-top {
+.instagram-post-header {
     min-height:
-        50px;
+        64px;
 
     display:
         flex;
@@ -2517,14 +2468,14 @@ body.light-theme {
         space-between;
 
     padding:
-        0 13px;
+        0 16px;
 
     border-bottom:
         1px solid
         var(--border);
 }
 
-.instagram-user {
+.instagram-profile {
     display:
         flex;
 
@@ -2532,18 +2483,18 @@ body.light-theme {
         center;
 
     gap:
-        9px;
+        10px;
 
     min-width:
         0;
 }
 
-.instagram-user img {
+.instagram-profile img {
     width:
-        28px;
+        34px;
 
     height:
-        28px;
+        34px;
 
     object-fit:
         contain;
@@ -2552,10 +2503,21 @@ body.light-theme {
         50%;
 }
 
-.instagram-user span {
+.instagram-profile div {
     min-width:
         0;
 
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        1px;
+}
+
+.instagram-profile strong {
     overflow:
         hidden;
 
@@ -2570,50 +2532,206 @@ body.light-theme {
         sans-serif;
 
     font-size:
-        9px;
-
-    font-weight:
-        800;
+        11px;
 }
 
-.instagram-image {
-    width:
-        100%;
+.instagram-profile small {
+    color:
+        var(--muted);
+
+    font-size:
+        9px;
+}
+
+.instagram-dots {
+    color:
+        var(--muted);
+
+    font-size:
+        14px;
+}
+
+.instagram-stage {
+    position:
+        relative;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        22px;
 
     background:
         #080808;
 }
 
-.instagram-image img {
+.instagram-image-holder {
     width:
-        100%;
-
-    height:
-        auto;
+        min(
+            570px,
+            100%
+        );
 
     aspect-ratio:
         1 / 1;
 
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    overflow:
+        hidden;
+
+    border-radius:
+        12px;
+
+    background:
+        #050505;
+}
+
+.instagram-image-holder img {
+    width:
+        100%;
+
+    height:
+        100%;
+
     object-fit:
         contain;
 
+    user-select:
+        none;
+
+    pointer-events:
+        none;
+
+    opacity:
+        1;
+
+    transform:
+        translate3d(0,0,0);
+
+    transition:
+        opacity 0.22s ease,
+        transform 0.22s ease;
+}
+
+.instagram-image-holder img.slide-out-left {
+    opacity:
+        0;
+
+    transform:
+        translate3d(-22px,0,0);
+}
+
+.instagram-image-holder img.slide-out-right {
+    opacity:
+        0;
+
+    transform:
+        translate3d(22px,0,0);
+}
+
+.slider-arrow {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    width:
+        48px;
+
+    height:
+        48px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border:
+        1px solid
+        rgba(255,255,255,0.16);
+
+    border-radius:
+        50%;
+
     background:
-        #080808;
+        rgba(0,0,0,0.7);
+
+    color:
+        #fff;
+
+    font-family:
+        Arial,
+        sans-serif;
+
+    font-size:
+        30px;
+
+    line-height:
+        1;
+
+    transform:
+        translateY(-50%);
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.instagram-post:nth-child(2)
-.instagram-image img,
-.instagram-post:nth-child(3)
-.instagram-image img,
-.instagram-post:nth-child(4)
-.instagram-image img,
-.instagram-post:nth-child(5)
-.instagram-image img {
-    aspect-ratio:
-        4 / 3.8;
+.slider-arrow:hover {
+    background:
+        var(--yellow);
+
+    border-color:
+        var(--yellow);
+
+    color:
+        #070707;
+
+    transform:
+        translateY(-50%)
+        scale(1.06);
 }
 
-.instagram-bottom {
+.slider-prev {
+    inset-inline-start:
+        12px;
+}
+
+.slider-next {
+    inset-inline-end:
+        12px;
+}
+
+.instagram-post-footer {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    padding:
+        13px 16px 4px;
+}
+
+.instagram-actions {
     display:
         flex;
 
@@ -2621,25 +2739,16 @@ body.light-theme {
         center;
 
     gap:
-        15px;
-
-    padding:
-        12px 14px 5px;
+        16px;
 
     color:
         var(--text);
 
     font-size:
-        17px;
+        19px;
 }
 
-.instagram-post > small {
-    display:
-        block;
-
-    padding:
-        0 14px 13px;
-
+.instagram-counter {
     color:
         var(--muted);
 
@@ -2648,7 +2757,67 @@ body.light-theme {
         sans-serif;
 
     font-size:
-        8px;
+        10px;
+}
+
+.instagram-caption {
+    padding:
+        4px 16px 13px;
+
+    color:
+        var(--muted);
+
+    font-size:
+        11px;
+}
+
+.slider-dots {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    gap:
+        7px;
+
+    padding:
+        0 0 18px;
+}
+
+.slider-dot {
+    width:
+        7px;
+
+    height:
+        7px;
+
+    padding:
+        0;
+
+    border:
+        0;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,0.22);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.slider-dot.active {
+    background:
+        var(--yellow);
+
+    transform:
+        scale(1.35);
 }
 
 
@@ -2662,7 +2831,10 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
 
     gap:
         17px;
@@ -2793,7 +2965,10 @@ body.light-theme {
         grid;
 
     grid-template-columns:
-        repeat(4,minmax(0,1fr));
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
 
     gap:
         13px;
@@ -3170,7 +3345,7 @@ html[dir="ltr"]
         2;
 
     max-width:
-        min(720px, 100%);
+        min(720px,100%);
 
     max-height:
         92vh;
@@ -3574,7 +3749,8 @@ html[dir="ltr"]
 
     transition:
         opacity 0.32s ease,
-        transform 0.32s cubic-bezier(
+        transform 0.32s
+        cubic-bezier(
             0.22,
             1,
             0.36,
@@ -4103,7 +4279,7 @@ html[dir="ltr"]
     }
 
 
-    /* WEBSITE PACKAGES */
+    /* WEBSITE */
 
     .website-package-grid {
         grid-template-columns:
@@ -4180,11 +4356,6 @@ html[dir="ltr"]
             1fr;
     }
 
-    .package-card {
-        padding:
-            27px;
-    }
-
     .package-card:hover {
         transform:
             none;
@@ -4222,27 +4393,89 @@ html[dir="ltr"]
     }
 
 
-    /* INSTAGRAM */
+    /* =====================================================
+       INSTAGRAM MOBILE
+    ====================================================== */
 
-    .instagram-grid {
-        grid-template-columns:
-            1fr;
+    .instagram-slider {
+        width:
+            100%;
+
+        border-radius:
+            18px;
     }
 
-    .instagram-post-wide {
-        grid-column:
-            auto;
+    .instagram-post-header {
+        min-height:
+            57px;
 
-        max-width:
-            none;
+        padding:
+            0 12px;
     }
 
-    .instagram-post:hover {
-        transform:
-            none;
+    .instagram-profile img {
+        width:
+            31px;
 
-        box-shadow:
-            none;
+        height:
+            31px;
+    }
+
+    .instagram-profile strong {
+        font-size:
+            9px;
+    }
+
+    .instagram-stage {
+        padding:
+            10px;
+    }
+
+    .instagram-image-holder {
+        width:
+            100%;
+
+        aspect-ratio:
+            1 / 1;
+
+        border-radius:
+            10px;
+    }
+
+    .slider-arrow {
+        width:
+            40px;
+
+        height:
+            40px;
+
+        font-size:
+            26px;
+    }
+
+    .slider-prev {
+        inset-inline-start:
+            8px;
+    }
+
+    .slider-next {
+        inset-inline-end:
+            8px;
+    }
+
+    .instagram-post-footer {
+        padding:
+            11px 12px 3px;
+    }
+
+    .instagram-caption {
+        padding:
+            4px 12px 10px;
+    }
+
+    .slider-dots {
+        padding-bottom:
+            14px;
     }
 
 
@@ -4430,6 +4663,17 @@ html[dir="ltr"]
     .summary-button {
         grid-column:
             auto;
+    }
+
+    .slider-arrow {
+        width:
+            37px;
+
+        height:
+            37px;
+
+        font-size:
+            23px;
     }
 
 }

@@ -9,46 +9,111 @@ const body =
     document.body;
 
 const languageToggle =
-    document.getElementById("languageToggle");
+    document.getElementById(
+        "languageToggle"
+    );
 
 const themeToggle =
-    document.getElementById("themeToggle");
+    document.getElementById(
+        "themeToggle"
+    );
 
 const menuButton =
-    document.getElementById("menuButton");
+    document.getElementById(
+        "menuButton"
+    );
 
 const mobileMenu =
-    document.getElementById("mobileMenu");
+    document.getElementById(
+        "mobileMenu"
+    );
 
 const currentYear =
-    document.getElementById("currentYear");
+    document.getElementById(
+        "currentYear"
+    );
 
+
+/* Project modal */
 
 const projectModal =
-    document.getElementById("projectModal");
+    document.getElementById(
+        "projectModal"
+    );
 
 const projectFrame =
-    document.getElementById("projectFrame");
+    document.getElementById(
+        "projectFrame"
+    );
 
 const modalLoading =
-    document.getElementById("modalLoading");
+    document.getElementById(
+        "modalLoading"
+    );
 
 const modalExternalLink =
-    document.getElementById("modalExternalLink");
+    document.getElementById(
+        "modalExternalLink"
+    );
 
+
+/* Image modal */
 
 const imageModal =
-    document.getElementById("imageModal");
+    document.getElementById(
+        "imageModal"
+    );
 
 const imageModalPreview =
-    document.getElementById("imageModalPreview");
+    document.getElementById(
+        "imageModalPreview"
+    );
 
+
+/* Website selector */
 
 const selectedPackage =
-    document.getElementById("selectedPackage");
+    document.getElementById(
+        "selectedPackage"
+    );
 
 const selectedDesign =
-    document.getElementById("selectedDesign");
+    document.getElementById(
+        "selectedDesign"
+    );
+
+
+/* Instagram slider */
+
+const instagramImage =
+    document.getElementById(
+        "instagramSlideImage"
+    );
+
+const instagramPrev =
+    document.getElementById(
+        "instagramPrev"
+    );
+
+const instagramNext =
+    document.getElementById(
+        "instagramNext"
+    );
+
+const instagramCounter =
+    document.getElementById(
+        "instagramCounter"
+    );
+
+const instagramCaption =
+    document.getElementById(
+        "instagramCaption"
+    );
+
+const instagramDots =
+    document.querySelectorAll(
+        ".slider-dot"
+    );
 
 
 
@@ -102,7 +167,9 @@ function applyLanguage(language) {
         });
 
 
-    if (languageToggle) {
+    if (
+        languageToggle
+    ) {
 
         languageToggle.textContent =
             language === "ar"
@@ -111,11 +178,6 @@ function applyLanguage(language) {
 
     }
 
-
-    /*
-      Update selected design/package
-      text in the current language.
-    */
 
     updateConfiguratorText();
 
@@ -165,7 +227,9 @@ function applyTheme(theme) {
     );
 
 
-    if (themeToggle) {
+    if (
+        themeToggle
+    ) {
 
         themeToggle.textContent =
             light
@@ -223,7 +287,7 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const isOpen =
+        const opened =
             mobileMenu?.classList.toggle(
                 "open"
             );
@@ -232,7 +296,7 @@ menuButton?.addEventListener(
         menuButton.setAttribute(
             "aria-expanded",
             String(
-                Boolean(isOpen)
+                Boolean(opened)
             )
         );
 
@@ -257,8 +321,6 @@ document
 
 /* =========================================================
    NAVIGATION
-   Smooth ONLY for clicked anchor links.
-   Native touch/wheel scrolling remains untouched.
 ========================================================= */
 
 document
@@ -324,11 +386,13 @@ document
 
 
                 window.scrollTo({
+
                     top:
                         position,
 
                     behavior:
                         "smooth"
+
                 });
 
             }
@@ -339,7 +403,7 @@ document
 
 
 /* =========================================================
-   FAST REVEAL
+   REVEAL
 ========================================================= */
 
 const revealElements =
@@ -353,11 +417,11 @@ if (
     in window
 ) {
 
-    const revealObserver =
+    const observer =
         new IntersectionObserver(
             (
                 entries,
-                observer
+                observerInstance
             ) => {
 
                 entries.forEach(
@@ -375,7 +439,7 @@ if (
                         );
 
 
-                        observer.unobserve(
+                        observerInstance.unobserve(
                             entry.target
                         );
 
@@ -396,7 +460,7 @@ if (
     revealElements.forEach(
         (element) => {
 
-            revealObserver.observe(
+            observer.observe(
                 element
             );
 
@@ -432,7 +496,10 @@ let chosenDesign =
 
 function updateConfiguratorText() {
 
-    if (!selectedPackage || !selectedDesign) {
+    if (
+        !selectedPackage ||
+        !selectedDesign
+    ) {
         return;
     }
 
@@ -449,7 +516,9 @@ function updateConfiguratorText() {
         );
 
 
-    if (packageCard) {
+    if (
+        packageCard
+    ) {
 
         selectedPackage.textContent =
             currentLanguage === "ar"
@@ -459,7 +528,9 @@ function updateConfiguratorText() {
     }
 
 
-    if (designCard) {
+    if (
+        designCard
+    ) {
 
         selectedDesign.textContent =
             currentLanguage === "ar"
@@ -503,25 +574,6 @@ document
 
 
                 updateConfiguratorText();
-
-
-                /*
-                  Move the summary into view
-                  without changing global scroll behavior.
-                */
-
-                const summary =
-                    document.querySelector(
-                        ".website-summary"
-                    );
-
-
-                summary?.scrollIntoView({
-                    behavior:
-                        "smooth",
-                    block:
-                        "nearest"
-                });
 
             }
         );
@@ -571,6 +623,405 @@ document
         );
 
     });
+
+
+
+/* =========================================================
+   INSTAGRAM SLIDER
+========================================================= */
+
+const instagramImages = [
+
+    "./Picture1.png",
+    "./Picture2.png",
+    "./Picture3.png",
+    "./Picture4.png",
+    "./Picture5.png"
+
+];
+
+
+let currentSlide =
+    0;
+
+let slideDirection =
+    "next";
+
+let slideTimer =
+    null;
+
+let isSliding =
+    false;
+
+
+function updateInstagramSlider(
+    index,
+    animate = true
+) {
+
+    if (
+        !instagramImage
+    ) {
+        return;
+    }
+
+
+    if (
+        index < 0
+    ) {
+
+        index =
+            instagramImages.length - 1;
+
+    }
+
+
+    if (
+        index >=
+        instagramImages.length
+    ) {
+
+        index =
+            0;
+
+    }
+
+
+    const oldIndex =
+        currentSlide;
+
+
+    currentSlide =
+        index;
+
+
+    const updateText =
+        () => {
+
+            if (
+                instagramCounter
+            ) {
+
+                instagramCounter.textContent =
+                    `${currentSlide + 1} / ${instagramImages.length}`;
+
+            }
+
+
+            if (
+                instagramCaption
+            ) {
+
+                const number =
+                    String(
+                        currentSlide + 1
+                    ).padStart(
+                        2,
+                        "0"
+                    );
+
+
+                instagramCaption.textContent =
+                    `Post ${number}`;
+
+            }
+
+
+            instagramDots.forEach(
+                (dot, dotIndex) => {
+
+                    dot.classList.toggle(
+                        "active",
+                        dotIndex === currentSlide
+                    );
+
+                }
+            );
+
+        };
+
+
+    /*
+      First image = no animation.
+    */
+
+    if (
+        !animate ||
+        oldIndex === currentSlide
+    ) {
+
+        instagramImage.src =
+            instagramImages[currentSlide];
+
+        instagramImage.classList.remove(
+            "slide-out-left",
+            "slide-out-right"
+        );
+
+        updateText();
+
+        return;
+
+    }
+
+
+    const outgoingClass =
+        slideDirection === "next"
+            ? "slide-out-left"
+            : "slide-out-right";
+
+
+    isSliding =
+        true;
+
+
+    instagramImage.classList.add(
+        outgoingClass
+    );
+
+
+    window.setTimeout(
+        () => {
+
+            instagramImage.src =
+                instagramImages[currentSlide];
+
+
+            instagramImage.classList.remove(
+                outgoingClass
+            );
+
+
+            updateText();
+
+
+            window.setTimeout(
+                () => {
+
+                    isSliding =
+                        false;
+
+                },
+                220
+            );
+
+        },
+        120
+    );
+
+}
+
+
+function nextInstagramSlide() {
+
+    if (
+        isSliding
+    ) {
+        return;
+    }
+
+
+    slideDirection =
+        "next";
+
+
+    updateInstagramSlider(
+        currentSlide + 1
+    );
+
+}
+
+
+function prevInstagramSlide() {
+
+    if (
+        isSliding
+    ) {
+        return;
+    }
+
+
+    slideDirection =
+        "prev";
+
+
+    updateInstagramSlider(
+        currentSlide - 1
+    );
+
+}
+
+
+instagramNext?.addEventListener(
+    "click",
+    nextInstagramSlide
+);
+
+
+instagramPrev?.addEventListener(
+    "click",
+    prevInstagramSlide
+);
+
+
+instagramDots.forEach(
+    (dot) => {
+
+        dot.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    isSliding
+                ) {
+                    return;
+                }
+
+
+                const target =
+                    Number(
+                        dot.dataset.slide
+                    );
+
+
+                slideDirection =
+                    target > currentSlide
+                        ? "next"
+                        : "prev";
+
+
+                updateInstagramSlider(
+                    target
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/*
+   Swipe on mobile.
+*/
+
+let touchStartX =
+    0;
+
+let touchEndX =
+    0;
+
+
+const instagramSlider =
+    document.getElementById(
+        "instagramSlider"
+    );
+
+
+instagramSlider?.addEventListener(
+    "touchstart",
+    (event) => {
+
+        touchStartX =
+            event.changedTouches[0].screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+instagramSlider?.addEventListener(
+    "touchend",
+    (event) => {
+
+        touchEndX =
+            event.changedTouches[0].screenX;
+
+
+        const distance =
+            touchEndX -
+            touchStartX;
+
+
+        if (
+            Math.abs(distance) < 45
+        ) {
+            return;
+        }
+
+
+        if (
+            distance < 0
+        ) {
+
+            nextInstagramSlide();
+
+        } else {
+
+            prevInstagramSlide();
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+/*
+   Preload all five images after the
+   first one is visible.
+*/
+
+function preloadInstagramImages() {
+
+    instagramImages
+        .slice(1)
+        .forEach(
+            (src) => {
+
+                const image =
+                    new Image();
+
+                image.src =
+                    src;
+
+            }
+        );
+
+}
+
+
+if (
+    "requestIdleCallback"
+    in window
+) {
+
+    window.requestIdleCallback(
+        preloadInstagramImages,
+        {
+            timeout:
+                1200
+        }
+    );
+
+} else {
+
+    window.setTimeout(
+        preloadInstagramImages,
+        500
+    );
+
+}
+
+
+updateInstagramSlider(
+    0,
+    false
+);
 
 
 
@@ -682,7 +1133,9 @@ projectFrame?.addEventListener(
 
 function closeProject() {
 
-    if (!projectModal) {
+    if (
+        !projectModal
+    ) {
         return;
     }
 
@@ -715,7 +1168,9 @@ function closeProject() {
             }
 
 
-            if (projectFrame) {
+            if (
+                projectFrame
+            ) {
 
                 projectFrame.src =
                     "about:blank";
@@ -745,64 +1200,48 @@ document
 
 
 /* =========================================================
-   INSTAGRAM IMAGE MODAL
+   IMAGE MODAL
 ========================================================= */
 
-document
-    .querySelectorAll(
-        ".instagram-post[data-image]"
-    )
-    .forEach((post) => {
+function openImage(
+    src
+) {
 
-        post.addEventListener(
-            "click",
-            () => {
-
-                const image =
-                    post.dataset.image;
+    if (
+        !imageModal ||
+        !imageModalPreview
+    ) {
+        return;
+    }
 
 
-                if (
-                    !imageModal ||
-                    !imageModalPreview
-                ) {
-                    return;
-                }
+    imageModalPreview.src =
+        src;
 
 
-                imageModalPreview.src =
-                    image;
+    imageModal.classList.add(
+        "open"
+    );
 
 
-                imageModal.classList.add(
-                    "open"
-                );
+    imageModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
 
 
-                imageModal.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
+    body.classList.add(
+        "modal-open"
+    );
 
+}
 
-                body.classList.add(
-                    "modal-open"
-                );
-
-            }
-        );
-
-    });
-
-
-
-/* =========================================================
-   CLOSE IMAGE MODAL
-========================================================= */
 
 function closeImageModal() {
 
-    if (!imageModal) {
+    if (
+        !imageModal
+    ) {
         return;
     }
 
@@ -818,7 +1257,9 @@ function closeImageModal() {
     );
 
 
-    if (imageModalPreview) {
+    if (
+        imageModalPreview
+    ) {
 
         imageModalPreview.src =
             "";
@@ -831,6 +1272,18 @@ function closeImageModal() {
     );
 
 }
+
+
+instagramImage?.addEventListener(
+    "dblclick",
+    () => {
+
+        openImage(
+            instagramImages[currentSlide]
+        );
+
+    }
+);
 
 
 document
@@ -849,7 +1302,7 @@ document
 
 
 /* =========================================================
-   VIDEO PERFORMANCE
+   VIDEOS
 ========================================================= */
 
 const videos =
@@ -929,11 +1382,6 @@ if (
                                 "auto";
 
 
-                            /*
-                              Start preparing
-                              before user presses play.
-                            */
-
                             video.load();
 
                         }
@@ -1004,7 +1452,9 @@ document.addEventListener(
    YEAR
 ========================================================= */
 
-if (currentYear) {
+if (
+    currentYear
+) {
 
     currentYear.textContent =
         new Date().getFullYear();
@@ -1024,6 +1474,5 @@ applyLanguage(
 applyTheme(
     currentTheme
 );
-
 
 updateConfiguratorText();
