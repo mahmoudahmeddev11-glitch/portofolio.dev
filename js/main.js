@@ -69,9 +69,9 @@ const imageModalPreview =
         "imageModalPreview"
     );
 
-const viewInstagramImage =
+const postsView =
     document.getElementById(
-        "viewInstagramImage"
+        "postsView"
     );
 
 
@@ -195,13 +195,13 @@ function applyTheme(
     theme
 ) {
 
-    const isLight =
+    const light =
         theme === "light";
 
 
     body.classList.toggle(
         "light-theme",
-        isLight
+        light
     );
 
 
@@ -210,7 +210,7 @@ function applyTheme(
     ) {
 
         themeToggle.textContent =
-            isLight
+            light
                 ? "☾"
                 : "☼";
 
@@ -265,16 +265,16 @@ menuButton?.addEventListener(
     "click",
     () => {
 
-        const isOpen =
+        const opened =
             mobileMenu?.classList.toggle(
                 "open"
             );
 
 
-        menuButton.setAttribute(
+        menuButton?.setAttribute(
             "aria-expanded",
             String(
-                Boolean(isOpen)
+                Boolean(opened)
             )
         );
 
@@ -334,9 +334,7 @@ document
                         );
 
 
-                    if (
-                        !target
-                    ) {
+                    if (!target) {
                         return;
                     }
 
@@ -614,43 +612,38 @@ document
 
 
 /* =========================================================
-   INSTAGRAM SLIDER
+   POSTS GALLERY
 ========================================================= */
 
-const instagramSlider =
+const postsImage =
     document.getElementById(
-        "instagramSlider"
+        "postsImage"
     );
 
-const instagramImage =
+const postsPrev =
     document.getElementById(
-        "instagramSlideImage"
+        "postsPrev"
     );
 
-const instagramPrev =
+const postsNext =
     document.getElementById(
-        "instagramPrev"
+        "postsNext"
     );
 
-const instagramNext =
+const postsCounter =
     document.getElementById(
-        "instagramNext"
+        "postsCounter"
     );
 
-const instagramCounter =
-    document.getElementById(
-        "instagramCounter"
-    );
-
-const instagramDots =
+const postsDots =
     [
         ...document.querySelectorAll(
-            ".slider-dot"
+            ".posts-dot"
         )
     ];
 
 
-const instagramImages = [
+const postImages = [
 
     "./Picture1.png",
     "./Picture2.png",
@@ -661,35 +654,40 @@ const instagramImages = [
 ];
 
 
-let currentSlide =
+let currentPost =
     0;
 
-let isChangingSlide =
+let isPostAnimating =
     false;
 
 
-/*
-   Update counter + dots.
-*/
-
-function updateInstagramUI() {
+function updatePostsUI() {
 
     if (
-        instagramCounter
+        postsCounter
     ) {
 
-        instagramCounter.textContent =
-            `${currentSlide + 1} / ${instagramImages.length}`;
+        const number =
+            String(
+                currentPost + 1
+            ).padStart(
+                2,
+                "0"
+            );
+
+
+        postsCounter.textContent =
+            `${number} / 05`;
 
     }
 
 
-    instagramDots.forEach(
+    postsDots.forEach(
         (dot, index) => {
 
             dot.classList.toggle(
                 "active",
-                index === currentSlide
+                index === currentPost
             );
 
         }
@@ -698,18 +696,14 @@ function updateInstagramUI() {
 }
 
 
-/*
-   Actually change the image.
-*/
-
-function changeInstagramSlide(
+function changePost(
     newIndex,
     direction = "next",
     animate = true
 ) {
 
     if (
-        !instagramImage
+        !postsImage
     ) {
         return;
     }
@@ -720,14 +714,14 @@ function changeInstagramSlide(
     ) {
 
         newIndex =
-            instagramImages.length - 1;
+            postImages.length - 1;
 
     }
 
 
     if (
         newIndex >=
-        instagramImages.length
+        postImages.length
     ) {
 
         newIndex =
@@ -737,56 +731,53 @@ function changeInstagramSlide(
 
 
     if (
-        newIndex === currentSlide &&
+        newIndex === currentPost &&
         animate
     ) {
         return;
     }
 
 
-    /*
-      No animation for first load.
-    */
-
     if (
         !animate
     ) {
 
-        currentSlide =
+        currentPost =
             newIndex;
 
-        instagramImage.src =
-            instagramImages[currentSlide];
+        postsImage.src =
+            postImages[currentPost];
 
-        instagramImage.classList.remove(
-            "slide-out-next",
-            "slide-out-prev"
+        postsImage.classList.remove(
+            "slide-next",
+            "slide-prev"
         );
 
-        updateInstagramUI();
+        updatePostsUI();
 
         return;
+
     }
 
 
     if (
-        isChangingSlide
+        isPostAnimating
     ) {
         return;
     }
 
 
-    isChangingSlide =
+    isPostAnimating =
         true;
 
 
     const outgoingClass =
         direction === "next"
-            ? "slide-out-next"
-            : "slide-out-prev";
+            ? "slide-next"
+            : "slide-prev";
 
 
-    instagramImage.classList.add(
+    postsImage.classList.add(
         outgoingClass
     );
 
@@ -794,26 +785,26 @@ function changeInstagramSlide(
     window.setTimeout(
         () => {
 
-            currentSlide =
+            currentPost =
                 newIndex;
 
 
-            instagramImage.src =
-                instagramImages[currentSlide];
+            postsImage.src =
+                postImages[currentPost];
 
 
-            instagramImage.classList.remove(
+            postsImage.classList.remove(
                 outgoingClass
             );
 
 
-            updateInstagramUI();
+            updatePostsUI();
 
 
             window.setTimeout(
                 () => {
 
-                    isChangingSlide =
+                    isPostAnimating =
                         false;
 
                 },
@@ -827,80 +818,66 @@ function changeInstagramSlide(
 }
 
 
-/*
-   Next.
-*/
+function showNextPost() {
 
-function nextInstagramSlide() {
-
-    changeInstagramSlide(
-        currentSlide + 1,
+    changePost(
+        currentPost + 1,
         "next"
     );
 
 }
 
 
-/*
-   Previous.
-*/
+function showPreviousPost() {
 
-function previousInstagramSlide() {
-
-    changeInstagramSlide(
-        currentSlide - 1,
+    changePost(
+        currentPost - 1,
         "prev"
     );
 
 }
 
 
-instagramNext?.addEventListener(
+postsNext?.addEventListener(
     "click",
-    nextInstagramSlide
+    showNextPost
 );
 
 
-instagramPrev?.addEventListener(
+postsPrev?.addEventListener(
     "click",
-    previousInstagramSlide
+    showPreviousPost
 );
 
 
-/*
-   Dot navigation.
-*/
-
-instagramDots.forEach(
+postsDots.forEach(
     (dot) => {
 
         dot.addEventListener(
             "click",
             () => {
 
-                const target =
+                const index =
                     Number(
-                        dot.dataset.slide
+                        dot.dataset.post
                     );
 
 
                 if (
-                    target ===
-                    currentSlide
+                    index === currentPost
                 ) {
                     return;
                 }
 
 
                 const direction =
-                    target >
-                    currentSlide
+                    index > currentPost
                         ? "next"
                         : "prev";
 
 
-                changeInstagramSlide(
-                    target,
+                changePost(
+                    index,
                     direction
                 );
 
@@ -911,9 +888,16 @@ instagramDots.forEach(
 );
 
 
-/*
-   Touch swipe.
-*/
+
+/* =========================================================
+   TOUCH SWIPE FOR POSTS
+========================================================= */
+
+const postsGallery =
+    document.getElementById(
+        "postsGallery"
+    );
+
 
 let touchStartX =
     0;
@@ -922,7 +906,7 @@ let touchStartY =
     0;
 
 
-instagramSlider?.addEventListener(
+postsGallery?.addEventListener(
     "touchstart",
     (event) => {
 
@@ -943,7 +927,7 @@ instagramSlider?.addEventListener(
 );
 
 
-instagramSlider?.addEventListener(
+postsGallery?.addEventListener(
     "touchend",
     (event) => {
 
@@ -955,19 +939,13 @@ instagramSlider?.addEventListener(
             touch.clientX -
             touchStartX;
 
-
         const deltaY =
             touch.clientY -
             touchStartY;
 
 
-        /*
-          Ignore mostly vertical swipes.
-        */
-
         if (
-            Math.abs(deltaX) <=
-                45 ||
+            Math.abs(deltaX) < 45 ||
             Math.abs(deltaX) <=
                 Math.abs(deltaY)
         ) {
@@ -979,11 +957,11 @@ instagramSlider?.addEventListener(
             deltaX < 0
         ) {
 
-            nextInstagramSlide();
+            showNextPost();
 
         } else {
 
-            previousInstagramSlide();
+            showPreviousPost();
 
         }
 
@@ -994,14 +972,14 @@ instagramSlider?.addEventListener(
 );
 
 
-/*
-   Preload the remaining images after
-   the first image is on screen.
-*/
 
-function preloadInstagramImages() {
+/* =========================================================
+   PRELOAD GALLERY IMAGES
+========================================================= */
 
-    instagramImages
+function preloadPosts() {
+
+    postImages
         .slice(1)
         .forEach(
             (src) => {
@@ -1024,7 +1002,7 @@ if (
 ) {
 
     window.requestIdleCallback(
-        preloadInstagramImages,
+        preloadPosts,
         {
             timeout:
                 1000
@@ -1034,38 +1012,122 @@ if (
 } else {
 
     window.setTimeout(
-        preloadInstagramImages,
+        preloadPosts,
         400
     );
 
 }
 
 
-/*
-   First slide.
-*/
-
-changeInstagramSlide(
+changePost(
     0,
     "next",
     false
 );
 
 
-/*
-   Open current Instagram image.
-*/
 
-viewInstagramImage?.addEventListener(
+/* =========================================================
+   IMAGE LIGHTBOX
+========================================================= */
+
+function openImage(
+    src
+) {
+
+    if (
+        !imageModal ||
+        !imageModalPreview
+    ) {
+        return;
+    }
+
+
+    imageModalPreview.src =
+        src;
+
+
+    imageModal.classList.add(
+        "open"
+    );
+
+
+    imageModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    body.classList.add(
+        "modal-open"
+    );
+
+}
+
+
+function closeImageModal() {
+
+    if (
+        !imageModal
+    ) {
+        return;
+    }
+
+
+    imageModal.classList.remove(
+        "open"
+    );
+
+
+    imageModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    if (
+        imageModalPreview
+    ) {
+
+        imageModalPreview.src =
+            "";
+
+    }
+
+
+    body.classList.remove(
+        "modal-open"
+    );
+
+}
+
+
+postsView?.addEventListener(
     "click",
     () => {
 
         openImage(
-            instagramImages[currentSlide]
+            postImages[currentPost]
         );
 
     }
 );
+
+
+document
+    .querySelectorAll(
+        "[data-close-image]"
+    )
+    .forEach(
+        (element) => {
+
+            element.addEventListener(
+                "click",
+                closeImageModal
+            );
+
+        }
+    );
 
 
 
@@ -1252,98 +1314,6 @@ document
 
 
 /* =========================================================
-   IMAGE MODAL
-========================================================= */
-
-function openImage(
-    src
-) {
-
-    if (
-        !imageModal ||
-        !imageModalPreview
-    ) {
-        return;
-    }
-
-
-    imageModalPreview.src =
-        src;
-
-
-    imageModal.classList.add(
-        "open"
-    );
-
-
-    imageModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
-    body.classList.add(
-        "modal-open"
-    );
-
-}
-
-
-function closeImageModal() {
-
-    if (
-        !imageModal
-    ) {
-        return;
-    }
-
-
-    imageModal.classList.remove(
-        "open"
-    );
-
-
-    imageModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    if (
-        imageModalPreview
-    ) {
-
-        imageModalPreview.src =
-            "";
-
-    }
-
-
-    body.classList.remove(
-        "modal-open"
-    );
-
-}
-
-
-document
-    .querySelectorAll(
-        "[data-close-image]"
-    )
-    .forEach(
-        (element) => {
-
-            element.addEventListener(
-                "click",
-                closeImageModal
-            );
-
-        }
-    );
-
-
-
-/* =========================================================
    VIDEOS
 ========================================================= */
 
@@ -1465,7 +1435,7 @@ if (
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE KEY
 ========================================================= */
 
 document.addEventListener(
